@@ -1,5 +1,4 @@
-// 将 channel 作为函数参数时，可以指定它只用于发送还是接收
-//（send-only `chan<- T` / receive-only `<-chan T`）。
+// 将 channel 作为函数参数时，可以指定它只用于发送还是接收。
 // 这种限定会提升程序的类型安全性。
 
 package main
