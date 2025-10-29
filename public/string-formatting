@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example 示例：String Formatting</title>
+    <title>Go by Example 中文版：String Formatting</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="string-formatting">
-      <h2><a href="./">Go by Example 示例</a>：String Formatting</h2>
+      <h2><a href="./">Go by Example 中文版</a>：String Formatting</h2>
       
       <table>
         

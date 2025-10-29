@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example 示例：Environment Variables</title>
+    <title>Go by Example 中文版：Environment Variables</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="environment-variables">
-      <h2><a href="./">Go by Example 示例</a>：Environment Variables</h2>
+      <h2><a href="./">Go by Example 中文版</a>：Environment Variables</h2>
       
       <table>
         

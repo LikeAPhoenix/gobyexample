@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example 示例：HTTP Client</title>
+    <title>Go by Example 中文版：HTTP Client</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="http-client">
-      <h2><a href="./">Go by Example 示例</a>：HTTP Client</h2>
+      <h2><a href="./">Go by Example 中文版</a>：HTTP Client</h2>
       
       <table>
         

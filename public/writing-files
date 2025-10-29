@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example 示例：Writing Files</title>
+    <title>Go by Example 中文版：Writing Files</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="writing-files">
-      <h2><a href="./">Go by Example 示例</a>：Writing Files</h2>
+      <h2><a href="./">Go by Example 中文版</a>：Writing Files</h2>
       
       <table>
         

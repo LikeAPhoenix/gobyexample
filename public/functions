@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example 示例：Functions</title>
+    <title>Go by Example 中文版：Functions</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="functions">
-      <h2><a href="./">Go by Example 示例</a>：Functions</h2>
+      <h2><a href="./">Go by Example 中文版</a>：Functions</h2>
       
       <table>
         

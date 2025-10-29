@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example 示例：Struct Embedding</title>
+    <title>Go by Example 中文版：Struct Embedding</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="struct-embedding">
-      <h2><a href="./">Go by Example 示例</a>：Struct Embedding</h2>
+      <h2><a href="./">Go by Example 中文版</a>：Struct Embedding</h2>
       
       <table>
         

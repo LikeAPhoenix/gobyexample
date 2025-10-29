@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example 示例：Line Filters</title>
+    <title>Go by Example 中文版：Line Filters</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="line-filters">
-      <h2><a href="./">Go by Example 示例</a>：Line Filters</h2>
+      <h2><a href="./">Go by Example 中文版</a>：Line Filters</h2>
       
       <table>
         

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example 示例：Non-Blocking Channel Operations</title>
+    <title>Go by Example 中文版：Non-Blocking Channel Operations</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="non-blocking-channel-operations">
-      <h2><a href="./">Go by Example 示例</a>：Non-Blocking Channel Operations</h2>
+      <h2><a href="./">Go by Example 中文版</a>：Non-Blocking Channel Operations</h2>
       
       <table>
         

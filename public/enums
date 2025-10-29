@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example 示例：Enums</title>
+    <title>Go by Example 中文版：Enums</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="enums">
-      <h2><a href="./">Go by Example 示例</a>：Enums</h2>
+      <h2><a href="./">Go by Example 中文版</a>：Enums</h2>
       
       <table>
         

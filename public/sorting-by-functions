@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example 示例：Sorting by Functions</title>
+    <title>Go by Example 中文版：Sorting by Functions</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="sorting-by-functions">
-      <h2><a href="./">Go by Example 示例</a>：Sorting by Functions</h2>
+      <h2><a href="./">Go by Example 中文版</a>：Sorting by Functions</h2>
       
       <table>
         

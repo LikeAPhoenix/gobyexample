@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example 示例：Channel Synchronization</title>
+    <title>Go by Example 中文版：Channel Synchronization</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="channel-synchronization">
-      <h2><a href="./">Go by Example 示例</a>：Channel Synchronization</h2>
+      <h2><a href="./">Go by Example 中文版</a>：Channel Synchronization</h2>
       
       <table>
         

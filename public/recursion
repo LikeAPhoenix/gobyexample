@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example 示例：Recursion</title>
+    <title>Go by Example 中文版：Recursion</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="recursion">
-      <h2><a href="./">Go by Example 示例</a>：Recursion</h2>
+      <h2><a href="./">Go by Example 中文版</a>：Recursion</h2>
       
       <table>
         
