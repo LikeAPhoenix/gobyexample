@@ -58,7 +58,7 @@ func main() {
 	fmt.Println("> grep hello")
 	fmt.Println(string(grepBytes))
 
-	// 注意启动命令时需要显式传入命令及参数切片，而非单个字符串。
+	// 注意启动命令时需要显式传入命令及参数 slice，而非单个字符串。
 	// 如果希望通过字符串执行完整命令，可以借助 `bash -c`：
 	lsCmd := exec.Command("bash", "-c", "ls -a -l -h")
 	lsOut, err := lsCmd.Output()

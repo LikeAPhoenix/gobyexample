@@ -16,10 +16,10 @@ func main() {
 	fmt.Println(match)
 
 	// 上面直接使用了字符串模式，但在其他场景通常需要先 `Compile`
-	// 得到优化后的 `Regexp` 结构体。
+	// 得到优化后的 `Regexp` struct。
 	r, _ := regexp.Compile("p([a-z]+)ch")
 
-	// 该结构体上提供了许多方法。
+	// 该 struct 上提供了许多方法。
 	// 下面再次执行与之前相同的匹配测试。
 	fmt.Println(r.MatchString("peach"))
 

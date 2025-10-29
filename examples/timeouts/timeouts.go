@@ -1,5 +1,5 @@
 // 当程序需要访问外部资源或限制执行时间时，超时控制非常重要。
-// 借助通道和 `select`，在 Go 中实现超时既简单又优雅。
+// 借助 channel 和 `select`，在 Go 中实现超时既简单又优雅。
 
 package main
 
@@ -11,8 +11,8 @@ import (
 func main() {
 
 	// 假设执行某个外部调用，它会在 2 秒后把结果写入 `c1`。
-	// 这里的通道带缓冲，因此协程中的发送不会阻塞。
-	// 这是防止通道无人读取导致协程泄漏的常见做法。
+	// 这里的 channel 带缓冲，因此 goroutine 中的发送不会阻塞。
+	// 这是防止 channel 无人读取导致 goroutine 泄漏的常见做法。
 	c1 := make(chan string, 1)
 	go func() {
 		time.Sleep(2 * time.Second)

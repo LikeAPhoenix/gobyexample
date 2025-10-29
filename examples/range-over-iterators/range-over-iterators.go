@@ -10,7 +10,7 @@ import (
 )
 
 // 再看[前一个示例](generics)中的 `List` 类型。
-// 当时通过 `AllElements` 返回所有元素组成的切片。
+// 当时通过 `AllElements` 返回所有元素组成的 slice。
 // 借助 Go 的迭代器，可以用更优雅的方式处理。
 type List[T any] struct {
 	head, tail *element[T]
@@ -71,7 +71,7 @@ func main() {
 	}
 
 	// [slices](https://pkg.go.dev/slices) 等包提供了许多处理迭代器的工具函数。
-	// 例如 `Collect` 能将任意迭代器的值收集为切片。
+	// 例如 `Collect` 能将任意迭代器的值收集为 slice。
 	all := slices.Collect(lst.All())
 	fmt.Println("all:", all)
 

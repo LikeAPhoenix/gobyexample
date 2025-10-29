@@ -1,4 +1,4 @@
-// 若要等待多个协程完成，可以使用 WaitGroup。
+// 若要等待多个 goroutine 完成，可以使用 WaitGroup。
 
 package main
 
@@ -19,20 +19,20 @@ func worker(id int) {
 
 func main() {
 
-	// WaitGroup 用于等待这里启动的所有协程执行完毕。
+	// WaitGroup 用于等待这里启动的所有 goroutine 执行完毕。
 	// 注意：如果要把 WaitGroup 传入函数，应该以指针方式传递。
 	var wg sync.WaitGroup
 
-	// 使用 `WaitGroup.Go` 启动多个协程。
+	// 使用 `WaitGroup.Go` 启动多个 goroutine。
 	for i := 1; i <= 5; i++ {
 		wg.Go(func() {
 			worker(i)
 		})
 	}
 
-	// 阻塞等待所有协程结束；当协程调用的函数返回时，就表示已完成。
+	// 阻塞等待所有 goroutine 结束；当 goroutine 调用的函数返回时，就表示已完成。
 	wg.Wait()
 
-	// 这种方式无法直接传递工作协程产生的错误。
+	// 这种方式无法直接传递工作 goroutine 产生的错误。
 	// 更复杂的场景可考虑使用 [errgroup](https://pkg.go.dev/golang.org/x/sync/errgroup)。
 }

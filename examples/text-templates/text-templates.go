@@ -38,8 +38,8 @@ func main() {
 		return template.Must(template.New(name).Parse(t))
 	}
 
-	// 若传入结构体，可通过 `{{.FieldName}}` 访问字段。
-	// 要在模板中访问字段，结构体字段必须导出。
+	// 若传入 struct，可通过 `{{.FieldName}}` 访问字段。
+	// 要在模板中访问字段，struct 字段必须导出。
 	t2 := Create("t2", "Name: {{.Name}}\n")
 
 	t2.Execute(os.Stdout, struct {
@@ -59,7 +59,7 @@ func main() {
 	t3.Execute(os.Stdout, "not empty")
 	t3.Execute(os.Stdout, "")
 
-	// `range` 可遍历切片、数组、map 或通道。
+	// `range` 可遍历 slice、数组、map 或 channel。
 	// 在 `range` 块内，`{{.}}` 表示当前元素。
 	t4 := Create("t4",
 		"Range: {{range .}}{{.}} {{end}}\n")

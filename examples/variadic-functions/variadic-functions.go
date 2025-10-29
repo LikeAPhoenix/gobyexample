@@ -23,7 +23,7 @@ func main() {
 	sum(1, 2)
 	sum(1, 2, 3)
 
-	// 如果参数已经存在于切片中，可以通过 `func(slice...)` 的语法展开传入。
+	// 如果参数已经存在于 slice 中，可以通过 `func(slice...)` 的语法展开传入。
 	nums := []int{1, 2, 3, 4}
 	sum(nums...)
 }

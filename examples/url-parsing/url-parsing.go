@@ -41,7 +41,7 @@ func main() {
 	fmt.Println(u.Fragment)
 
 	// `RawQuery` 返回 `k=v` 格式的查询串。
-	// 也可解析为 map，键映射到字符串切片，若只需第一个值可取 `[0]`。
+	// 也可解析为 map，键 map 到字符串 slice，若只需第一个值可取 `[0]`。
 	fmt.Println(u.RawQuery)
 	m, _ := url.ParseQuery(u.RawQuery)
 	fmt.Println(m)

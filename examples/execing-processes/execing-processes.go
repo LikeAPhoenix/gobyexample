@@ -20,7 +20,7 @@ func main() {
 		panic(lookErr)
 	}
 
-	// `Exec` 接受切片形式的参数（而不是单个字符串）。
+	// `Exec` 接受 slice 形式的参数（而不是单个字符串）。
 	// 给 `ls` 几个常见参数，注意第一个参数应为程序名。
 	args := []string{"ls", "-a", "-l", "-h"}
 

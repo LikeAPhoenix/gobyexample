@@ -22,7 +22,7 @@ func main() {
 	slices.SortFunc(fruits, lenCmp)
 	fmt.Println(fruits)
 
-	// 同样的技巧也适用于非内建类型的切片。
+	// 同样的技巧也适用于非内建类型的 slice。
 	type Person struct {
 		name string
 		age  int
@@ -36,7 +36,7 @@ func main() {
 
 	// 使用 `slices.SortFunc` 按年龄排序 `people`。
 	//
-	// 注意：若 `Person` 结构体较大，切片可存放 `*Person` 来避免拷贝，并相应调整排序函数。
+	// 注意：若 `Person` struct 较大，slice 可存放 `*Person` 来避免拷贝，并相应调整排序函数。
 	// 若不确定影响，可进行[基准测试](testing-and-benchmarking)。
 	slices.SortFunc(people,
 		func(a, b Person) int {

@@ -1,6 +1,6 @@
 // [限流](https://en.wikipedia.org/wiki/Rate_limiting) 是控制资源使用、
 // 保持服务质量的重要机制。
-// Go 可以借助协程、通道与 [ticker](tickers) 优雅地实现限流。
+// Go 可以借助 goroutine、channel 与 [ticker](tickers) 优雅地实现限流。
 
 package main
 
@@ -12,14 +12,14 @@ import (
 func main() {
 
 	// 先看最基础的限流。
-	// 假设我们要限制处理传入请求的速率，可将请求放入通道。
+	// 假设我们要限制处理传入请求的速率，可将请求放入 channel。
 	requests := make(chan int, 5)
 	for i := 1; i <= 5; i++ {
 		requests <- i
 	}
 	close(requests)
 
-	// `limiter` 通道每隔 200 毫秒收到一个值，充当限流器。
+	// `limiter` channel 每隔 200 毫秒收到一个值，充当限流器。
 	limiter := time.Tick(200 * time.Millisecond)
 
 	// 在处理每个请求前先从 `limiter` 读取，就能把速率限制为 200 毫秒一个请求。
@@ -32,7 +32,7 @@ func main() {
 	// `burstyLimiter` 允许最多 3 个事件的突发。
 	burstyLimiter := make(chan time.Time, 3)
 
-	// 预先填满通道，表示允许的初始突发额度。
+	// 预先填满 channel，表示允许的初始突发额度。
 	for range 3 {
 		burstyLimiter <- time.Now()
 	}

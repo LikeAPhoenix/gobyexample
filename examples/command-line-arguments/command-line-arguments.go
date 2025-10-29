@@ -11,11 +11,11 @@ import (
 func main() {
 
 	// `os.Args` 提供原始命令行参数。
-	// 切片的第一个元素是可执行文件路径，而 `os.Args[1:]` 保存传入的参数。
+	// slice 的第一个元素是可执行文件路径，而 `os.Args[1:]` 保存传入的参数。
 	argsWithProg := os.Args
 	argsWithoutProg := os.Args[1:]
 
-	// 可以像普通切片那样通过索引获取特定参数。
+	// 可以像普通 slice 那样通过索引获取特定参数。
 	arg := os.Args[3]
 
 	fmt.Println(argsWithProg)

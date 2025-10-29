@@ -28,7 +28,7 @@ func main() {
 	// 惯例是在打开文件后立刻用 `defer` 安排关闭。
 	defer f.Close()
 
-	// 可以按预期使用 `Write` 写入字节切片。
+	// 可以按预期使用 `Write` 写入字节 slice。
 	d2 := []byte{115, 111, 109, 101, 10}
 	n2, err := f.Write(d2)
 	check(err)

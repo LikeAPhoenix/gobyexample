@@ -1,7 +1,7 @@
-// 在上一示例中，我们使用 [mutex](mutexes) 显式加锁以同步多个协程对共享状态的访问。
-// 另一种实现方式是利用协程与通道的内建同步机制。
-// 这种基于通道的方式符合 Go “通过通信共享内存”的理念，
-// 并让每份数据都只被一个协程拥有。
+// 在上一示例中，我们使用 [mutex](mutexes) 显式加锁以同步多个 goroutine 对共享状态的访问。
+// 另一种实现方式是利用 goroutine 与 channel 的内建同步机制。
+// 这种基于 channel 的方式符合 Go “通过通信共享内存”的理念，
+// 并让每份数据都只被一个 goroutine 拥有。
 
 package main
 
@@ -12,9 +12,9 @@ import (
 	"time"
 )
 
-// 本示例中，状态由单个协程持有，从而确保不会因并发访问而损坏。
-// 其他协程若要读写状态，需要向持有者发送消息并等待回应。
-// `readOp` 与 `writeOp` 结构体封装了请求以及返回结果的通道。
+// 本示例中，状态由单个 goroutine 持有，从而确保不会因并发访问而损坏。
+// 其他 goroutine 若要读写状态，需要向持有者发送消息并等待回应。
+// `readOp` 与 `writeOp` struct 封装了请求以及返回结果的 channel。
 type readOp struct {
 	key  int
 	resp chan int
@@ -31,11 +31,11 @@ func main() {
 	var readOps uint64
 	var writeOps uint64
 
-	// `reads` 与 `writes` 通道分别用于其他协程发起读写请求。
+	// `reads` 与 `writes` channel 分别用于其他 goroutine 发起读写请求。
 	reads := make(chan readOp)
 	writes := make(chan writeOp)
 
-	// 下方协程负责持有 `state`，与上一示例一样是一个 map，但此处仅该协程可访问。
+	// 下方 goroutine 负责持有 `state`，与上一示例一样是一个 map，但此处仅该 goroutine 可访问。
 	// 它循环 `select` 监听 `reads` 与 `writes`，接收到请求后执行操作并将结果写回 `resp`。
 	go func() {
 		var state = make(map[int]int)
@@ -50,7 +50,7 @@ func main() {
 		}
 	}()
 
-	// 启动 100 个协程，通过 `reads` 向状态持有者发起读取。
+	// 启动 100 个 goroutine，通过 `reads` 向状态持有者发起读取。
 	// 每次读取需构建 `readOp`，发送到 `reads`，再从 `resp` 接收结果。
 	for range 100 {
 		go func() {
@@ -66,7 +66,7 @@ func main() {
 		}()
 	}
 
-	// 对写操作也启动 10 个协程，流程类似。
+	// 对写操作也启动 10 个 goroutine，流程类似。
 	for range 10 {
 		go func() {
 			for {
@@ -82,7 +82,7 @@ func main() {
 		}()
 	}
 
-	// 让这些协程运行 1 秒。
+	// 让这些 goroutine 运行 1 秒。
 	time.Sleep(time.Second)
 
 	// 最后读取并输出操作次数。

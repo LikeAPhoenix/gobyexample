@@ -17,7 +17,7 @@ func main() {
 	fmt.Println("FOO:", os.Getenv("FOO"))
 	fmt.Println("BAR:", os.Getenv("BAR"))
 
-	// `os.Environ` 会返回所有环境变量的列表，以 `KEY=value` 形式组成字符串切片。
+	// `os.Environ` 会返回所有环境变量的列表，以 `KEY=value` 形式组成字符串 slice。
 	// 可以用 `strings.SplitN` 拆分键和值。
 	// 此处仅打印所有键。
 	fmt.Println()

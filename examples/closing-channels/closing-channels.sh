@@ -9,4 +9,4 @@ sent all jobs
 received all jobs
 received more jobs: false
 
-# 关闭通道的概念引出了下一个示例：对通道使用 `range` 遍历。
+# 关闭 channel 的概念引出了下一个示例：对 channel 使用 `range` 遍历。

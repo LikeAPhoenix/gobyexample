@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: {{.Name}}</title>
+    <title>Go by Example 示例：{{.Name}}</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="{{.ID}}">
-      <h2><a href="./">Go by Example</a>: {{.Name}}</h2>
+      <h2><a href="./">Go by Example 示例</a>：{{.Name}}</h2>
       {{range .Segs}}
       <table>
         {{range .}}
@@ -33,7 +33,7 @@
             {{.DocsRendered}}
           </td>
           <td class="code{{if .CodeEmpty}} empty{{end}}{{if .CodeLeading}} leading{{end}}">
-            {{if .CodeRun}}<a href="https://go.dev/play/p/{{$.URLHash}}"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />{{end}}
+            {{if .CodeRun}}<a href="https://go.dev/play/p/{{$.URLHash}}"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />{{end}}
           {{.CodeRendered}}
           </td>
         </tr>
@@ -42,7 +42,7 @@
       {{end}}
       {{if .NextExample}}
       <p class="next">
-        Next example: <a href="{{.NextExample.ID}}" rel="next">{{.NextExample.Name}}</a>.
+        下一个示例：<a href="{{.NextExample.ID}}" rel="next">{{.NextExample.Name}}</a>。
       </p>
       {{end}}
 {{ template "footer" }}

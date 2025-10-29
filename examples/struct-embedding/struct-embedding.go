@@ -1,4 +1,4 @@
-// Go 支持结构体与接口的嵌入，用以表达更加自然的类型组合。
+// Go 支持 struct 与接口的嵌入，用以表达更加自然的类型组合。
 // 不要将其与 Go 1.16+ 引入的 [`//go:embed`](embed-directive) 混淆，后者用于将文件目录嵌入二进制。
 
 package main
@@ -21,7 +21,7 @@ type container struct {
 
 func main() {
 
-	// 使用字面量创建结构体时，需要显式初始化被嵌入的字段，
+	// 使用字面量创建 struct 时，需要显式初始化被嵌入的字段，
 	// 此时嵌入类型本身充当字段名。
 	co := container{
 		base: base{
@@ -44,7 +44,7 @@ func main() {
 		describe() string
 	}
 
-	// 嵌入带方法的结构体可以把这些接口实现“继承”给外层结构。
+	// 嵌入带方法的 struct 可以把这些接口实现“继承”给外层结构。
 	// 因为 `container` 嵌入了 `base`，它也实现了 `describer` 接口。
 	var d describer = co
 	fmt.Println("describer:", d.describe())

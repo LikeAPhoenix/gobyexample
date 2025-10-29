@@ -4,7 +4,7 @@ package main
 
 import "fmt"
 
-// 下面的泛型函数 `SlicesIndex` 接受任意 `comparable` 类型的切片和一个元素，
+// 下面的泛型函数 `SlicesIndex` 接受任意 `comparable` 类型的 slice 和一个元素，
 // 返回该元素首次出现的索引，若不存在则返回 -1。
 // `comparable` 约束表示该类型支持 `==` 与 `!=` 比较。
 // 关于签名的详细说明可参考[这篇博文](https://go.dev/blog/deconstructing-type-parameters)。
@@ -39,7 +39,7 @@ func (lst *List[T]) Push(v T) {
 	}
 }
 
-// `AllElements` 将链表元素全部收集为切片。
+// `AllElements` 将链表元素全部收集为 slice。
 // 在下一个示例中会看到更惯用的遍历自定义类型的方式。
 func (lst *List[T]) AllElements() []T {
 	var elems []T

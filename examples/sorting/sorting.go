@@ -21,7 +21,7 @@ func main() {
 	slices.Sort(ints)
 	fmt.Println("Ints:   ", ints)
 
-	// `slices` 包还能检查切片是否已经有序。
+	// `slices` 包还能检查 slice 是否已经有序。
 	s := slices.IsSorted(ints)
 	fmt.Println("Sorted: ", s)
 }

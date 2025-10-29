@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-// 下面通过两个结构体演示自定义类型的编解码。
+// 下面通过两个 struct 演示自定义类型的编解码。
 type response1 struct {
 	Page   int
 	Fruits []string
@@ -38,7 +38,7 @@ func main() {
 	strB, _ := json.Marshal("gopher")
 	fmt.Println(string(strB))
 
-	// 切片和 map 会如预期那样编码为 JSON 数组和对象。
+	// slice 和 map 会如预期那样编码为 JSON 数组和对象。
 	slcD := []string{"apple", "peach", "pear"}
 	slcB, _ := json.Marshal(slcD)
 	fmt.Println(string(slcB))
@@ -55,7 +55,7 @@ func main() {
 	res1B, _ := json.Marshal(res1D)
 	fmt.Println(string(res1B))
 
-	// 在结构体字段上使用标签可以自定义 JSON 键名。
+	// 在 struct 字段上使用标签可以自定义 JSON 键名。
 	// 参见上方 `response2` 的定义。
 	res2D := &response2{
 		Page:   1,

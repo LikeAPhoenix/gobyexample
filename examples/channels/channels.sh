@@ -1,4 +1,4 @@
-# 运行程序时，`"ping"` 消息会通过通道成功地在两个协程间传递。
+# 运行程序时，`"ping"` 消息会通过 channel 成功地在两个 goroutine 间传递。
 $ go run channels.go 
 ping
 

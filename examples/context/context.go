@@ -1,6 +1,6 @@
 // 上一示例介绍了如何搭建简单的 [HTTP 服务器](http-server)。
 // HTTP 服务非常适合展示 `context.Context` 控制取消的用法。
-// `Context` 可以在跨越 API 边界与协程时携带截止时间、取消信号以及请求范围内的值。
+// `Context` 可以在跨越 API 边界与 goroutine 时携带截止时间、取消信号以及请求范围内的值。
 package main
 
 import (
@@ -17,7 +17,7 @@ func hello(w http.ResponseWriter, req *http.Request) {
 	defer fmt.Println("server: hello handler ended")
 
 	// 在回复客户端前先等待几秒，用以模拟服务器正在处理任务。
-	// 处理过程中需要关注上下文的 `Done()` 通道，一旦收到信号就应尽快取消并返回。
+	// 处理过程中需要关注上下文的 `Done()` channel，一旦收到信号就应尽快取消并返回。
 	select {
 	case <-time.After(10 * time.Second):
 		fmt.Fprintf(w, "hello\n")

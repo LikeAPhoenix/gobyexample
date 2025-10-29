@@ -16,11 +16,11 @@ func main() {
 	// 从一个新的哈希实例开始。
 	h := sha256.New()
 
-	// `Write` 需要字节切片，若手头是字符串 `s`，请使用 `[]byte(s)`。
+	// `Write` 需要字节 slice，若手头是字符串 `s`，请使用 `[]byte(s)`。
 	h.Write([]byte(s))
 
-	// `Sum` 会返回最终哈希结果的字节切片。
-	// 它的参数可用于在现有切片后追加数据，这里传 `nil` 即可。
+	// `Sum` 会返回最终哈希结果的字节 slice。
+	// 它的参数可用于在现有 slice 后追加数据，这里传 `nil` 即可。
 	bs := h.Sum(nil)
 
 	fmt.Println(s)

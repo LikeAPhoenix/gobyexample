@@ -7,7 +7,7 @@ import "fmt"
 
 func main() {
 
-	// 使用 `range` 累加切片中的数字，数组也可以这样操作。
+	// 使用 `range` 累加 slice 中的数字，数组也可以这样操作。
 	nums := []int{2, 3, 4}
 	sum := 0
 	for _, num := range nums {
@@ -15,7 +15,7 @@ func main() {
 	}
 	fmt.Println("sum:", sum)
 
-	// 遍历数组或切片时，`range` 会同时返回索引和值。
+	// 遍历数组或 slice 时，`range` 会同时返回索引和值。
 	// 若不需要索引可以用空白标识符 `_` 忽略；有时也会用到索引。
 	for i, num := range nums {
 		if num == 3 {

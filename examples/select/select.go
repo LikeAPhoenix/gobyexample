@@ -1,5 +1,5 @@
-// Go 的 `select` 可用于同时等待多个通道操作。
-// 将协程、通道与 `select` 结合是 Go 的强大特性之一。
+// Go 的 `select` 可用于同时等待多个 channel 操作。
+// 将 goroutine、channel 与 `select` 结合是 Go 的强大特性之一。
 
 package main
 
@@ -10,11 +10,11 @@ import (
 
 func main() {
 
-	// 示例中会在两个通道上进行选择。
+	// 示例中会在两个 channel 上进行选择。
 	c1 := make(chan string)
 	c2 := make(chan string)
 
-	// 每个通道都会在一段时间后收到值，用于模拟阻塞的 RPC 等操作在协程中执行。
+	// 每个 channel 都会在一段时间后收到值，用于模拟阻塞的 RPC 等操作在 goroutine 中执行。
 	go func() {
 		time.Sleep(1 * time.Second)
 		c1 <- "one"

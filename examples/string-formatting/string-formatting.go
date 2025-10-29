@@ -15,11 +15,11 @@ type point struct {
 func main() {
 
 	// Go 提供了多种格式化“动词”用于输出不同的值。
-	// 例如这里输出 `point` 结构体的一个实例。
+	// 例如这里输出 `point` struct 的一个实例。
 	p := point{1, 2}
 	fmt.Printf("struct1: %v\n", p)
 
-	// 对于结构体，`%+v` 会额外包含字段名字。
+	// 对于 struct，`%+v` 会额外包含字段名字。
 	fmt.Printf("struct2: %+v\n", p)
 
 	// `%#v` 会打印该值在 Go 语法中的表示，也就是能生成此值的源代码片段。

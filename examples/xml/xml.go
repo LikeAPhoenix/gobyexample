@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-// `Plant` 结构会映射到 XML。
+// `Plant` 结构会 map 到 XML。
 // 与 JSON 示例类似，字段标签用于指导编解码器。
 // 这里展示 XML 包的几个特性：字段名 `XMLName` 指定对应的 XML 元素名称；
 // `id,attr` 表示 `Id` 字段应作为 XML 属性而非子元素。
@@ -27,7 +27,7 @@ func main() {
 	coffee := &Plant{Id: 27, Name: "Coffee"}
 	coffee.Origin = []string{"Ethiopia", "Brazil"}
 
-	// 将结构体编码为 XML。
+	// 将 struct 编码为 XML。
 	// 使用 `MarshalIndent` 生成更易读的格式。
 	out, _ := xml.MarshalIndent(coffee, " ", "  ")
 	fmt.Println(string(out))
@@ -36,7 +36,7 @@ func main() {
 	fmt.Println(xml.Header + string(out))
 
 	// 使用 `Unmarshal` 将 XML 字节流解析到数据结构。
-	// 如果 XML 不合法或无法映射到 `Plant`，会返回具体错误。
+	// 如果 XML 不合法或无法 map 到 `Plant`，会返回具体错误。
 	var p Plant
 	if err := xml.Unmarshal(out, &p); err != nil {
 		panic(err)

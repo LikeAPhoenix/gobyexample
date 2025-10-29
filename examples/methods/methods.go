@@ -1,4 +1,4 @@
-// Go 支持在结构体类型上定义方法。
+// Go 支持在 struct 类型上定义方法。
 
 package main
 
@@ -22,7 +22,7 @@ func (r rect) perim() int {
 func main() {
 	r := rect{width: 10, height: 5}
 
-	// 调用刚才为结构体定义的两个方法。
+	// 调用刚才为 struct 定义的两个方法。
 	fmt.Println("area: ", r.area())
 	fmt.Println("perim:", r.perim())
 

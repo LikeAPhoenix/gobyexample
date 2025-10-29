@@ -12,11 +12,11 @@ import (
 func main() {
 
 	// 计时器表示未来的一次事件。
-	// 指定等待时长后，它会在对应时刻通过通道发送通知。
+	// 指定等待时长后，它会在对应时刻通过 channel 发送通知。
 	// 此处的计时器等待 2 秒。
 	timer1 := time.NewTimer(2 * time.Second)
 
-	// `<-timer1.C` 会阻塞，直到通道 `C` 收到计时完成的信号。
+	// `<-timer1.C` 会阻塞，直到 channel `C` 收到计时完成的信号。
 	<-timer1.C
 	fmt.Println("Timer 1 fired")
 

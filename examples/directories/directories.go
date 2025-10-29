@@ -41,7 +41,7 @@ func main() {
 	createEmptyFile("subdir/parent/file3")
 	createEmptyFile("subdir/parent/child/file4")
 
-	// `ReadDir` 会列出目录内容，返回 `os.DirEntry` 切片。
+	// `ReadDir` 会列出目录内容，返回 `os.DirEntry` slice。
 	c, err := os.ReadDir("subdir/parent")
 	check(err)
 
