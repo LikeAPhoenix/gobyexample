@@ -1,8 +1,5 @@
-// Throughout program execution, we often want to create
-// data that isn't needed after the program exits.
-// *Temporary files and directories* are useful for this
-// purpose since they don't pollute the file system over
-// time.
+// 在程序运行过程中，常会创建一些在退出后就无需保留的数据。
+// 临时文件和目录非常适合这类需求，可以避免长久污染文件系统。
 
 package main
 
@@ -20,45 +17,34 @@ func check(e error) {
 
 func main() {
 
-	// The easiest way to create a temporary file is by
-	// calling `os.CreateTemp`. It creates a file *and*
-	// opens it for reading and writing. We provide `""`
-	// as the first argument, so `os.CreateTemp` will
-	// create the file in the default location for our OS.
+	// 创建临时文件最简单的方式是调用 `os.CreateTemp`。
+	// 它会创建文件并同时打开读写。
+	// 传入 `""` 作为第一个参数，表示在操作系统默认位置创建。
 	f, err := os.CreateTemp("", "sample")
 	check(err)
 
-	// Display the name of the temporary file. On
-	// Unix-based OSes the directory will likely be `/tmp`.
-	// The file name starts with the prefix given as the
-	// second argument to `os.CreateTemp` and the rest
-	// is chosen automatically to ensure that concurrent
-	// calls will always create different file names.
+	// 打印临时文件名。
+	// 在类 Unix 系统中目录通常是 `/tmp`。
+	// 文件名以第二个参数指定的前缀开头，其余部分自动生成，以确保并发调用产生不同名称。
 	fmt.Println("Temp file name:", f.Name())
 
-	// Clean up the file after we're done. The OS is
-	// likely to clean up temporary files by itself after
-	// some time, but it's good practice to do this
-	// explicitly.
+	// 使用结束后手动清理。
+	// 操作系统可能会自动删除临时文件，但显式移除是更好的实践。
 	defer os.Remove(f.Name())
 
-	// We can write some data to the file.
+	// 向文件写入数据。
 	_, err = f.Write([]byte{1, 2, 3, 4})
 	check(err)
 
-	// If we intend to write many temporary files, we may
-	// prefer to create a temporary *directory*.
-	// `os.MkdirTemp`'s arguments are the same as
-	// `CreateTemp`'s, but it returns a directory *name*
-	// rather than an open file.
+	// 如果需要写很多临时文件，可以先创建临时目录。
+	// `os.MkdirTemp` 的参数与 `CreateTemp` 相同，但返回的是目录名。
 	dname, err := os.MkdirTemp("", "sampledir")
 	check(err)
 	fmt.Println("Temp dir name:", dname)
 
 	defer os.RemoveAll(dname)
 
-	// Now we can synthesize temporary file names by
-	// prefixing them with our temporary directory.
+	// 现在可以在临时目录下组合生成文件名。
 	fname := filepath.Join(dname, "file1")
 	err = os.WriteFile(fname, []byte{1, 2}, 0666)
 	check(err)

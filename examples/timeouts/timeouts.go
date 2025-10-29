@@ -1,7 +1,5 @@
-// _Timeouts_ are important for programs that connect to
-// external resources or that otherwise need to bound
-// execution time. Implementing timeouts in Go is easy and
-// elegant thanks to channels and `select`.
+// 当程序需要访问外部资源或限制执行时间时，超时控制非常重要。
+// 借助通道和 `select`，在 Go 中实现超时既简单又优雅。
 
 package main
 
@@ -12,24 +10,18 @@ import (
 
 func main() {
 
-	// For our example, suppose we're executing an external
-	// call that returns its result on a channel `c1`
-	// after 2s. Note that the channel is buffered, so the
-	// send in the goroutine is nonblocking. This is a
-	// common pattern to prevent goroutine leaks in case the
-	// channel is never read.
+	// 假设执行某个外部调用，它会在 2 秒后把结果写入 `c1`。
+	// 这里的通道带缓冲，因此协程中的发送不会阻塞。
+	// 这是防止通道无人读取导致协程泄漏的常见做法。
 	c1 := make(chan string, 1)
 	go func() {
 		time.Sleep(2 * time.Second)
 		c1 <- "result 1"
 	}()
 
-	// Here's the `select` implementing a timeout.
-	// `res := <-c1` awaits the result and `<-time.After`
-	// awaits a value to be sent after the timeout of
-	// 1s. Since `select` proceeds with the first
-	// receive that's ready, we'll take the timeout case
-	// if the operation takes more than the allowed 1s.
+	// 下方的 `select` 实现了超时逻辑。
+	// `res := <-c1` 等待结果，而 `<-time.After` 会在 1 秒后收到超时信号。
+	// `select` 会选择最先就绪的分支，因此如果操作超过 1 秒，就会执行超时分支。
 	select {
 	case res := <-c1:
 		fmt.Println(res)
@@ -37,8 +29,7 @@ func main() {
 		fmt.Println("timeout 1")
 	}
 
-	// If we allow a longer timeout of 3s, then the receive
-	// from `c2` will succeed and we'll print the result.
+	// 如果把超时时间延长至 3 秒，就能成功接收到 `c2` 的结果。
 	c2 := make(chan string, 1)
 	go func() {
 		time.Sleep(2 * time.Second)

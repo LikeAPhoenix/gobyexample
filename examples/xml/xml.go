@@ -1,5 +1,4 @@
-// Go offers built-in support for XML and XML-like
-// formats with the `encoding/xml` package.
+// `encoding/xml` 包为 XML 及类似格式提供内建支持。
 
 package main
 
@@ -8,13 +7,10 @@ import (
 	"fmt"
 )
 
-// Plant will be mapped to XML. Similarly to the
-// JSON examples, field tags contain directives for the
-// encoder and decoder. Here we use some special features
-// of the XML package: the `XMLName` field name dictates
-// the name of the XML element representing this struct;
-// `id,attr` means that the `Id` field is an XML
-// _attribute_ rather than a nested element.
+// `Plant` 结构会映射到 XML。
+// 与 JSON 示例类似，字段标签用于指导编解码器。
+// 这里展示 XML 包的几个特性：字段名 `XMLName` 指定对应的 XML 元素名称；
+// `id,attr` 表示 `Id` 字段应作为 XML 属性而非子元素。
 type Plant struct {
 	XMLName xml.Name `xml:"plant"`
 	Id      int      `xml:"id,attr"`
@@ -31,20 +27,16 @@ func main() {
 	coffee := &Plant{Id: 27, Name: "Coffee"}
 	coffee.Origin = []string{"Ethiopia", "Brazil"}
 
-	// Emit XML representing our plant; using
-	// `MarshalIndent` to produce a more
-	// human-readable output.
+	// 将结构体编码为 XML。
+	// 使用 `MarshalIndent` 生成更易读的格式。
 	out, _ := xml.MarshalIndent(coffee, " ", "  ")
 	fmt.Println(string(out))
 
-	// To add a generic XML header to the output, append
-	// it explicitly.
+	// 若想添加通用的 XML 头部，可手动拼接。
 	fmt.Println(xml.Header + string(out))
 
-	// Use `Unmarshal` to parse a stream of bytes with XML
-	// into a data structure. If the XML is malformed or
-	// cannot be mapped onto Plant, a descriptive error
-	// will be returned.
+	// 使用 `Unmarshal` 将 XML 字节流解析到数据结构。
+	// 如果 XML 不合法或无法映射到 `Plant`，会返回具体错误。
 	var p Plant
 	if err := xml.Unmarshal(out, &p); err != nil {
 		panic(err)
@@ -54,8 +46,7 @@ func main() {
 	tomato := &Plant{Id: 81, Name: "Tomato"}
 	tomato.Origin = []string{"Mexico", "California"}
 
-	// The `parent>child>plant` field tag tells the encoder
-	// to nest all `plant`s under `<parent><child>...`
+	// 标签 `parent>child>plant` 指示编码器将所有 `plant` 节点嵌套在 `<parent><child>...` 中。
 	type Nesting struct {
 		XMLName xml.Name `xml:"nesting"`
 		Plants  []*Plant `xml:"parent>child>plant"`

@@ -1,5 +1,4 @@
-// Go supports _constants_ of character, string, boolean,
-// and numeric values.
+// Go 支持字符、字符串、布尔和数值类型的常量。
 
 package main
 
@@ -8,28 +7,23 @@ import (
 	"math"
 )
 
-// `const` declares a constant value.
+// 使用 `const` 声明常量值。
 const s string = "constant"
 
 func main() {
 	fmt.Println(s)
 
-	// A `const` statement can also appear inside a
-	// function body.
+	// `const` 语句也可以出现在函数体内部。
 	const n = 500000000
 
-	// Constant expressions perform arithmetic with
-	// arbitrary precision.
+	// 常量表达式执行运算时具有任意精度。
 	const d = 3e20 / n
 	fmt.Println(d)
 
-	// A numeric constant has no type until it's given
-	// one, such as by an explicit conversion.
+	// 数值常量在被显式转换之前是无类型的。
 	fmt.Println(int64(d))
 
-	// A number can be given a type by using it in a
-	// context that requires one, such as a variable
-	// assignment or function call. For example, here
-	// `math.Sin` expects a `float64`.
+	// 为数值指定类型的一种方式，是把它放在需要该类型的上下文中，
+	// 比如变量赋值或函数调用。例如这里的 `math.Sin` 期望获得 `float64`。
 	fmt.Println(math.Sin(n))
 }

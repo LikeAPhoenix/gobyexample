@@ -1,5 +1,4 @@
-// Writing files in Go follows similar patterns to the
-// ones we saw earlier for reading.
+// 在 Go 中写文件的模式与之前读取文件类似。
 
 package main
 
@@ -17,43 +16,39 @@ func check(e error) {
 
 func main() {
 
-	// To start, here's how to dump a string (or just
-	// bytes) into a file.
+	// 首先展示如何把字符串（或字节）写入文件。
 	d1 := []byte("hello\ngo\n")
 	err := os.WriteFile("/tmp/dat1", d1, 0644)
 	check(err)
 
-	// For more granular writes, open a file for writing.
+	// 若需更细粒度的写入，可以先打开文件。
 	f, err := os.Create("/tmp/dat2")
 	check(err)
 
-	// It's idiomatic to defer a `Close` immediately
-	// after opening a file.
+	// 惯例是在打开文件后立刻用 `defer` 安排关闭。
 	defer f.Close()
 
-	// You can `Write` byte slices as you'd expect.
+	// 可以按预期使用 `Write` 写入字节切片。
 	d2 := []byte{115, 111, 109, 101, 10}
 	n2, err := f.Write(d2)
 	check(err)
 	fmt.Printf("wrote %d bytes\n", n2)
 
-	// A `WriteString` is also available.
+	// 同样提供了 `WriteString` 方法。
 	n3, err := f.WriteString("writes\n")
 	check(err)
 	fmt.Printf("wrote %d bytes\n", n3)
 
-	// Issue a `Sync` to flush writes to stable storage.
+	// 调用 `Sync` 确保数据刷新到稳定存储。
 	f.Sync()
 
-	// `bufio` provides buffered writers in addition
-	// to the buffered readers we saw earlier.
+	// `bufio` 除了提供缓冲读取器，也提供缓冲写入器。
 	w := bufio.NewWriter(f)
 	n4, err := w.WriteString("buffered\n")
 	check(err)
 	fmt.Printf("wrote %d bytes\n", n4)
 
-	// Use `Flush` to ensure all buffered operations have
-	// been applied to the underlying writer.
+	// `Flush` 可以确保缓冲区的数据真正写入到底层 writer。
 	w.Flush()
 
 }

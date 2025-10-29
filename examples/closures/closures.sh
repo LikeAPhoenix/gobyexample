@@ -4,5 +4,4 @@ $ go run closures.go
 3
 1
 
-# The last feature of functions we'll look at for now is
-# recursion.
+# 当前函数篇章要看的最后一个特性是递归。

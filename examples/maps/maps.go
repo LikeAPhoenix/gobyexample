@@ -1,5 +1,5 @@
-// _Maps_ are Go's built-in [associative data type](https://en.wikipedia.org/wiki/Associative_array)
-// (sometimes called _hashes_ or _dicts_ in other languages).
+// map 是 Go 内建的[关联数据类型](https://en.wikipedia.org/wiki/Associative_array)，
+// 在其他语言中有时被称作 hash 或 dict。
 
 package main
 
@@ -10,60 +10,46 @@ import (
 
 func main() {
 
-	// To create an empty map, use the builtin `make`:
-	// `make(map[key-type]val-type)`.
+	// 使用内建的 `make` 可以创建空 map：`make(map[key-type]val-type)`。
 	m := make(map[string]int)
 
-	// Set key/value pairs using typical `name[key] = val`
-	// syntax.
+	// 使用常见的 `name[key] = val` 语法设置键值对。
 	m["k1"] = 7
 	m["k2"] = 13
 
-	// Printing a map with e.g. `fmt.Println` will show all of
-	// its key/value pairs.
+	// 使用 `fmt.Println` 打印 map 会展示其中所有键值对。
 	fmt.Println("map:", m)
 
-	// Get a value for a key with `name[key]`.
+	// 通过 `name[key]` 获取对应的值。
 	v1 := m["k1"]
 	fmt.Println("v1:", v1)
 
-	// If the key doesn't exist, the
-	// [zero value](https://go.dev/ref/spec#The_zero_value) of the
-	// value type is returned.
+	// 如果键不存在，会返回该值类型的[零值](https://go.dev/ref/spec#The_zero_value)。
 	v3 := m["k3"]
 	fmt.Println("v3:", v3)
 
-	// The builtin `len` returns the number of key/value
-	// pairs when called on a map.
+	// 对 map 调用内建的 `len` 可以得到键值对数量。
 	fmt.Println("len:", len(m))
 
-	// The builtin `delete` removes key/value pairs from
-	// a map.
+	// 内建函数 `delete` 可用来删除键值对。
 	delete(m, "k2")
 	fmt.Println("map:", m)
 
-	// To remove *all* key/value pairs from a map, use
-	// the `clear` builtin.
+	// 若要删除所有键值对，可以使用内建的 `clear`。
 	clear(m)
 	fmt.Println("map:", m)
 
-	// The optional second return value when getting a
-	// value from a map indicates if the key was present
-	// in the map. This can be used to disambiguate
-	// between missing keys and keys with zero values
-	// like `0` or `""`. Here we didn't need the value
-	// itself, so we ignored it with the _blank identifier_
-	// `_`.
+	// 从 map 读取时的可选第二个返回值表示键是否存在。
+	// 这样就能区分键缺失和键存在但值为零值（例如 `0` 或 `""`）的情况。
+	// 在这里我们不需要实际的值，因此使用空白标识符 `_` 丢弃它。
 	_, prs := m["k2"]
 	fmt.Println("prs:", prs)
 
-	// You can also declare and initialize a new map in
-	// the same line with this syntax.
+	// 还可以使用一行语法声明并初始化新的 map。
 	n := map[string]int{"foo": 1, "bar": 2}
 	fmt.Println("map:", n)
 
-	// The `maps` package contains a number of useful
-	// utility functions for maps.
+	// `maps` 包中提供了很多适用于 map 的实用函数。
 	n2 := map[string]int{"foo": 1, "bar": 2}
 	if maps.Equal(n, n2) {
 		fmt.Println("n == n2")

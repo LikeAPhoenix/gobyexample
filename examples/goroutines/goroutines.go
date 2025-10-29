@@ -1,4 +1,4 @@
-// A _goroutine_ is a lightweight thread of execution.
+// 协程（goroutine）是 Go 中轻量级的执行线程。
 
 package main
 
@@ -15,25 +15,20 @@ func f(from string) {
 
 func main() {
 
-	// Suppose we have a function call `f(s)`. Here's how
-	// we'd call that in the usual way, running it
-	// synchronously.
+	// 假设我们有一个函数调用 `f(s)`，以下是同步调用的方式。
 	f("direct")
 
-	// To invoke this function in a goroutine, use
-	// `go f(s)`. This new goroutine will execute
-	// concurrently with the calling one.
+	// 若想在协程中调用函数，可写成 `go f(s)`。
+	// 新创建的协程会与当前协程并发执行。
 	go f("goroutine")
 
-	// You can also start a goroutine for an anonymous
-	// function call.
+	// 也可以对匿名函数启动协程。
 	go func(msg string) {
 		fmt.Println(msg)
 	}("going")
 
-	// Our two function calls are running asynchronously in
-	// separate goroutines now. Wait for them to finish
-	// (for a more robust approach, use a [WaitGroup](waitgroups)).
+	// 现在两个函数调用都在各自的协程中异步运行。
+	// 这里通过睡眠等待它们结束（更稳妥的做法是使用 [WaitGroup](waitgroups)）。
 	time.Sleep(time.Second)
 	fmt.Println("done")
 }

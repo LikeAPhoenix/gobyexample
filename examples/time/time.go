@@ -1,5 +1,4 @@
-// Go offers extensive support for times and durations;
-// here are some examples.
+// Go 对时间与持续时间提供了丰富支持，下面是一些示例。
 
 package main
 
@@ -11,19 +10,17 @@ import (
 func main() {
 	p := fmt.Println
 
-	// We'll start by getting the current time.
+	// 先获取当前时间。
 	now := time.Now()
 	p(now)
 
-	// You can build a `time` struct by providing the
-	// year, month, day, etc. Times are always associated
-	// with a `Location`, i.e. time zone.
+	// 通过指定年、月、日等字段构造 `time`。
+	// 时间总是与 `Location`（时区）关联。
 	then := time.Date(
 		2009, 11, 17, 20, 34, 58, 651387237, time.UTC)
 	p(then)
 
-	// You can extract the various components of the time
-	// value as expected.
+	// 可按需提取时间的各个组成部分。
 	p(then.Year())
 	p(then.Month())
 	p(then.Day())
@@ -33,31 +30,25 @@ func main() {
 	p(then.Nanosecond())
 	p(then.Location())
 
-	// The Monday-Sunday `Weekday` is also available.
+	// 还可以获取星期信息（周一到周日）。
 	p(then.Weekday())
 
-	// These methods compare two times, testing if the
-	// first occurs before, after, or at the same time
-	// as the second, respectively.
+	// 以下方法用于比较两个时间，判断先后或相等。
 	p(then.Before(now))
 	p(then.After(now))
 	p(then.Equal(now))
 
-	// The `Sub` methods returns a `Duration` representing
-	// the interval between two times.
+	// `Sub` 返回一个 `Duration`，表示两个时间之间的间隔。
 	diff := now.Sub(then)
 	p(diff)
 
-	// We can compute the length of the duration in
-	// various units.
+	// 可以以多种单位获取该时间间隔。
 	p(diff.Hours())
 	p(diff.Minutes())
 	p(diff.Seconds())
 	p(diff.Nanoseconds())
 
-	// You can use `Add` to advance a time by a given
-	// duration, or with a `-` to move backwards by a
-	// duration.
+	// `Add` 可以让时间前进或后退指定的持续时间。
 	p(then.Add(diff))
 	p(then.Add(-diff))
 }

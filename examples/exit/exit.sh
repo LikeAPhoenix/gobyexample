@@ -1,13 +1,11 @@
-#  If you run `exit.go` using `go run`, the exit
-# will be picked up by `go` and printed.
+# 使用 `go run` 执行时，`go` 工具会捕获并打印退出状态。
 $ go run exit.go
 exit status 3
 
-# By building and executing a binary you can see
-# the status in the terminal.
+# 若编译后直接运行可执行文件，可以在终端看到退出码。
 $ go build exit.go
 $ ./exit
 $ echo $?
 3
 
-# Note that the `!` from our program never got printed.
+# 注意程序中的 `!` 从未打印出来。

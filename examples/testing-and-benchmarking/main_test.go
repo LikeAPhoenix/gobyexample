@@ -1,11 +1,8 @@
-// Unit testing is an important part of writing
-// principled Go programs. The `testing` package
-// provides the tools we need to write unit tests
-// and the `go test` command runs tests.
+// 单元测试是编写健壮 Go 程序的重要环节。
+// `testing` 包提供了编写测试所需的工具，而 `go test` 命令负责执行。
 
-// For the sake of demonstration, this code is in package
-// `main`, but it could be any package. Testing code
-// typically lives in the same package as the code it tests.
+// 为了演示，这段代码放在 `main` 包中，实际可以是任意包。
+// 测试通常与被测代码同包。
 package main
 
 import (
@@ -13,11 +10,9 @@ import (
 	"testing"
 )
 
-// We'll be testing this simple implementation of an
-// integer minimum. Typically, the code we're testing
-// would be in a source file named something like
-// `intutils.go`, and the test file for it would then
-// be named `intutils_test.go`.
+// 我们将测试一个求整型最小值的简单实现。
+// 实际项目中，被测代码可能位于 `intutils.go`，
+// 对应的测试文件命名为 `intutils_test.go`。
 func IntMin(a, b int) int {
 	if a < b {
 		return a
@@ -25,22 +20,16 @@ func IntMin(a, b int) int {
 	return b
 }
 
-// A test is created by writing a function with a name
-// beginning with `Test`.
+// 测试函数以 `Test` 前缀命名。
 func TestIntMinBasic(t *testing.T) {
 	ans := IntMin(2, -2)
 	if ans != -2 {
-		// `t.Error*` will report test failures but continue
-		// executing the test. `t.Fatal*` will report test
-		// failures and stop the test immediately.
+		// `t.Error*` 会报告失败但继续执行，`t.Fatal*` 会立即终止测试。
 		t.Errorf("IntMin(2, -2) = %d; want -2", ans)
 	}
 }
 
-// Writing tests can be repetitive, so it's idiomatic to
-// use a *table-driven style*, where test inputs and
-// expected outputs are listed in a table and a single loop
-// walks over them and performs the test logic.
+// 为避免重复，惯用“表驱动”风格：把输入与期望输出列成表，用循环执行测试逻辑。
 func TestIntMinTableDriven(t *testing.T) {
 	var tests = []struct {
 		a, b int
@@ -54,9 +43,7 @@ func TestIntMinTableDriven(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		// `t.Run` enables running "subtests", one for each
-		// table entry. These are shown separately
-		// when executing `go test -v`.
+		// `t.Run` 可为每个表项运行子测试，执行 `go test -v` 时会单独展示。
 		testname := fmt.Sprintf("%d,%d", tt.a, tt.b)
 		t.Run(testname, func(t *testing.T) {
 			ans := IntMin(tt.a, tt.b)
@@ -67,15 +54,11 @@ func TestIntMinTableDriven(t *testing.T) {
 	}
 }
 
-// Benchmark tests typically go in `_test.go` files and are
-// named beginning with `Benchmark`.
-// Any code that's required for the benchmark to run but should
-// not be measured goes before this loop.
+// 基准测试通常也放在 `_test.go` 文件中，名称以 `Benchmark` 开头。
+// 运行基准前需要执行但不计时的准备工作应放在循环外。
 func BenchmarkIntMin(b *testing.B) {
 	for b.Loop() {
-		// The benchmark runner will automatically execute this loop
-		// body many times to determine a reasonable estimate of the
-		// run-time of a single iteration.
+		// 基准测试框架会自动多次执行循环体，以估算单次迭代的运行时间。
 		IntMin(1, 2)
 	}
 }

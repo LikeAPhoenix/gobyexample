@@ -1,27 +1,23 @@
-// Go has built-in support for _multiple return values_.
-// This feature is used often in idiomatic Go, for example
-// to return both result and error values from a function.
+// Go 原生支持多返回值。
+// 这一特性在惯用 Go 中很常见，例如同时返回结果与错误值。
 
 package main
 
 import "fmt"
 
-// The `(int, int)` in this function signature shows that
-// the function returns 2 `int`s.
+// 函数签名中的 `(int, int)` 表示该函数返回两个 `int`。
 func vals() (int, int) {
 	return 3, 7
 }
 
 func main() {
 
-	// Here we use the 2 different return values from the
-	// call with _multiple assignment_.
+	// 使用多重赋值接收函数返回的两个值。
 	a, b := vals()
 	fmt.Println(a)
 	fmt.Println(b)
 
-	// If you only want a subset of the returned values,
-	// use the blank identifier `_`.
+	// 若只想要部分返回值，可以用空白标识符 `_` 忽略其他值。
 	_, c := vals()
 	fmt.Println(c)
 }

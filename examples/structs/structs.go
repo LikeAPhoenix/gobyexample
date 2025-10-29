@@ -1,23 +1,19 @@
-// Go's _structs_ are typed collections of fields.
-// They're useful for grouping data together to form
-// records.
+// Go 的结构体是带类型的字段集合，用于把相关数据组合成记录。
 
 package main
 
 import "fmt"
 
-// This `person` struct type has `name` and `age` fields.
+// `person` 结构体包含 `name` 与 `age` 字段。
 type person struct {
 	name string
 	age  int
 }
 
-// `newPerson` constructs a new person struct with the given name.
+// `newPerson` 根据提供的名字构造 `person` 结构体。
 func newPerson(name string) *person {
-	// Go is a garbage collected language; you can safely
-	// return a pointer to a local variable - it will only
-	// be cleaned up by the garbage collector when there
-	// are no active references to it.
+	// Go 由垃圾回收器管理内存，因此可以安全地返回局部变量的指针。
+	// 只要仍有引用，该变量就不会被清理。
 	p := person{name: name}
 	p.age = 42
 	return &p
@@ -25,38 +21,35 @@ func newPerson(name string) *person {
 
 func main() {
 
-	// This syntax creates a new struct.
+	// 这种语法创建一个新的结构体实例。
 	fmt.Println(person{"Bob", 20})
 
-	// You can name the fields when initializing a struct.
+	// 初始化时也可以显式指定字段名。
 	fmt.Println(person{name: "Alice", age: 30})
 
-	// Omitted fields will be zero-valued.
+	// 省略的字段会填充零值。
 	fmt.Println(person{name: "Fred"})
 
-	// An `&` prefix yields a pointer to the struct.
+	// 使用 `&` 前缀可获得结构体的指针。
 	fmt.Println(&person{name: "Ann", age: 40})
 
-	// It's idiomatic to encapsulate new struct creation in constructor functions
+	// 惯用做法是封装构造逻辑到工厂函数中。
 	fmt.Println(newPerson("Jon"))
 
-	// Access struct fields with a dot.
+	// 通过点号访问结构体字段。
 	s := person{name: "Sean", age: 50}
 	fmt.Println(s.name)
 
-	// You can also use dots with struct pointers - the
-	// pointers are automatically dereferenced.
+	// 对结构体指针同样使用点号，指针会被自动解引用。
 	sp := &s
 	fmt.Println(sp.age)
 
-	// Structs are mutable.
+	// 结构体是可变的。
 	sp.age = 51
 	fmt.Println(sp.age)
 
-	// If a struct type is only used for a single value, we don't
-	// have to give it a name. The value can have an anonymous
-	// struct type. This technique is commonly used for
-	// [table-driven tests](testing-and-benchmarking).
+	// 若结构体类型只用于某个特定值，可以不给它命名，直接使用匿名结构体。
+	// 这种技巧常用于[表驱动测试](testing-and-benchmarking)。
 	dog := struct {
 		name   string
 		isGood bool

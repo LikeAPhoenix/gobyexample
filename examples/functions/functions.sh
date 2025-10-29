@@ -2,5 +2,4 @@ $ go run functions.go
 1+2 = 3
 1+2+3 = 6
 
-# There are several other features to Go functions. One is
-# multiple return values, which we'll look at next.
+# Go 函数还有更多特性，其中之一是多返回值，我们马上会看到。

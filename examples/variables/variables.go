@@ -1,6 +1,4 @@
-// In Go, _variables_ are explicitly declared and used by
-// the compiler to e.g. check type-correctness of function
-// calls.
+// 在 Go 中，变量需要显式声明，编译器会借此检查函数调用等场景的类型正确性。
 
 package main
 
@@ -8,28 +6,24 @@ import "fmt"
 
 func main() {
 
-	// `var` declares 1 or more variables.
+	// 使用 `var` 可以声明一个或多个变量。
 	var a = "initial"
 	fmt.Println(a)
 
-	// You can declare multiple variables at once.
+	// 也可以一次声明多个变量。
 	var b, c int = 1, 2
 	fmt.Println(b, c)
 
-	// Go will infer the type of initialized variables.
+	// Go 会依据初始化表达式推断变量类型。
 	var d = true
 	fmt.Println(d)
 
-	// Variables declared without a corresponding
-	// initialization are _zero-valued_. For example, the
-	// zero value for an `int` is `0`.
+	// 未显式初始化的变量会获得“零值”。例如 `int` 的零值是 `0`。
 	var e int
 	fmt.Println(e)
 
-	// The `:=` syntax is shorthand for declaring and
-	// initializing a variable, e.g. for
-	// `var f string = "apple"` in this case.
-	// This syntax is only available inside functions.
+	// `:=` 语法是用于声明并初始化变量的简写，此处等价于 `var f string = "apple"`。
+	// 这种语法仅能在函数内部使用。
 	f := "apple"
 	fmt.Println(f)
 }

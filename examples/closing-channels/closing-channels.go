@@ -1,26 +1,19 @@
-// _Closing_ a channel indicates that no more values
-// will be sent on it. This can be useful to communicate
-// completion to the channel's receivers.
+// 关闭通道意味着不会再有新的值发送到该通道。
+// 这通常用于向接收方告知处理完成。
 
 package main
 
 import "fmt"
 
-// In this example we'll use a `jobs` channel to
-// communicate work to be done from the `main()` goroutine
-// to a worker goroutine. When we have no more jobs for
-// the worker we'll `close` the `jobs` channel.
+// 本示例使用 `jobs` 通道把工作从 `main()` 协程传递给工作协程。
+// 当没有更多任务时，就关闭 `jobs` 通道。
 func main() {
 	jobs := make(chan int, 5)
 	done := make(chan bool)
 
-	// Here's the worker goroutine. It repeatedly receives
-	// from `jobs` with `j, more := <-jobs`. In this
-	// special 2-value form of receive, the `more` value
-	// will be `false` if `jobs` has been `close`d and all
-	// values in the channel have already been received.
-	// We use this to notify on `done` when we've worked
-	// all our jobs.
+	// 工作协程通过 `j, more := <-jobs` 持续接收任务。
+	// 在这种双返回值形式中，若 `jobs` 已关闭且通道中没有值，`more` 会是 `false`。
+	// 利用这一点，在任务全部完成时通过 `done` 通知主协程。
 	go func() {
 		for {
 			j, more := <-jobs
@@ -34,8 +27,7 @@ func main() {
 		}
 	}()
 
-	// This sends 3 jobs to the worker over the `jobs`
-	// channel, then closes it.
+	// 向工作协程发送 3 个任务，然后关闭通道。
 	for j := 1; j <= 3; j++ {
 		jobs <- j
 		fmt.Println("sent job", j)
@@ -43,18 +35,12 @@ func main() {
 	close(jobs)
 	fmt.Println("sent all jobs")
 
-	// We await the worker using the
-	// [synchronization](channel-synchronization) approach
-	// we saw earlier.
+	// 使用之前的[同步](channel-synchronization)技巧等待工作协程结束。
 	<-done
 
-	// Reading from a closed channel succeeds immediately,
-	// returning the zero value of the underlying type.
-	// The optional second return value is `true` if the
-	// value received was delivered by a successful send
-	// operation to the channel, or `false` if it was a
-	// zero value generated because the channel is closed
-	// and empty.
+	// 从关闭的通道读取会立即成功，并返回元素类型的零值。
+	// 第二个可选返回值为 `true` 表示读取到的是正常发送的数据；
+	// 为 `false` 表示由于通道已关闭且为空，因此返回零值。
 	_, ok := <-jobs
 	fmt.Println("received more jobs:", ok)
 }

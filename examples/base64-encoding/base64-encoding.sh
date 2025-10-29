@@ -1,6 +1,4 @@
-# The string encodes to slightly different values with the
-# standard and URL base64 encoders (trailing `+` vs `-`)
-# but they both decode to the original string as desired.
+# 标准 Base64 与 URL Base64 输出略有差异（结尾 `+` vs `-`），但都能解码回原始字符串。
 $ go run base64-encoding.go
 YWJjMTIzIT8kKiYoKSctPUB+
 abc123!?$*&()'-=@~

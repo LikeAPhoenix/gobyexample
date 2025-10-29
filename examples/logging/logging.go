@@ -1,9 +1,6 @@
-// The Go standard library provides straightforward
-// tools for outputting logs from Go programs, with
-// the [log](https://pkg.go.dev/log) package for
-// free-form output and the
-// [log/slog](https://pkg.go.dev/log/slog) package for
-// structured output.
+// Go 标准库提供了便捷的日志工具。
+// [log](https://pkg.go.dev/log) 包适合自由格式输出，
+// [log/slog](https://pkg.go.dev/log/slog) 则用于结构化输出。
 package main
 
 import (
@@ -17,61 +14,46 @@ import (
 
 func main() {
 
-	// Simply invoking functions like `Println` from the
-	// `log` package uses the _standard_ logger, which
-	// is already pre-configured for reasonable logging
-	// output to `os.Stderr`. Additional methods like
-	// `Fatal*` or `Panic*` will exit the program after
-	// logging.
+	// 直接调用 `log.Println` 等函数时会使用标准日志器，
+	// 它默认将合理的日志输出到 `os.Stderr`。
+	// `Fatal*`、`Panic*` 等方法会在记录后终止程序。
 	log.Println("standard logger")
 
-	// Loggers can be configured with _flags_ to set
-	// their output format. By default, the standard
-	// logger has the `log.Ldate` and `log.Ltime` flags
-	// set, and these are collected in `log.LstdFlags`.
-	// We can change its flags to emit time with
-	// microsecond accuracy, for example.
+	// 可以通过“标志”修改日志输出格式。
+	// 标准日志器默认启用 `log.Ldate` 与 `log.Ltime`，即 `log.LstdFlags`。
+	// 例如我们可以额外启用微秒级时间戳。
 	log.SetFlags(log.LstdFlags | log.Lmicroseconds)
 	log.Println("with micro")
 
-	// It also supports emitting the file name and
-	// line from which the `log` function is called.
+	// 还可以输出调用 `log` 的文件名与行号。
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	log.Println("with file/line")
 
-	// It may be useful to create a custom logger and
-	// pass it around. When creating a new logger, we
-	// can set a _prefix_ to distinguish its output
-	// from other loggers.
+	// 也可以创建自定义日志器在不同位置复用。
+	// 新建日志器时可指定前缀，以便区分不同来源。
 	mylog := log.New(os.Stdout, "my:", log.LstdFlags)
 	mylog.Println("from mylog")
 
-	// We can set the prefix
-	// on existing loggers (including the standard one)
-	// with the `SetPrefix` method.
+	// 现有日志器（包括标准日志器）也可以通过 `SetPrefix` 修改前缀。
 	mylog.SetPrefix("ohmy:")
 	mylog.Println("from mylog")
 
-	// Loggers can have custom output targets;
-	// any `io.Writer` works.
+	// 日志器的输出目标可以自定义，只要实现 `io.Writer` 即可。
 	var buf bytes.Buffer
 	buflog := log.New(&buf, "buf:", log.LstdFlags)
 
-	// This call writes the log output into `buf`.
+	// 这行日志会写入 `buf`。
 	buflog.Println("hello")
 
-	// This will actually show it on standard output.
+	// 下行再将其打印到标准输出。
 	fmt.Print("from buflog:", buf.String())
 
-	// The `slog` package provides
-	// _structured_ log output. For example, logging
-	// in JSON format is straightforward.
+	// `slog` 包可输出结构化日志。
+	// 例如使用 JSON 格式非常直接。
 	jsonHandler := slog.NewJSONHandler(os.Stderr, nil)
 	myslog := slog.New(jsonHandler)
 	myslog.Info("hi there")
 
-	// In addition to the message, `slog` output can
-	// contain an arbitrary number of key=value
-	// pairs.
+	// 除消息外，`slog` 还能附带任意数量的键值对。
 	myslog.Info("hello again", "key", "val", "age", 25)
 }

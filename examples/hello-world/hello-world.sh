@@ -1,17 +1,14 @@
-# To run the program, put the code in `hello-world.go` and
-# use `go run`.
+# 要运行该程序，请把代码放进 `hello-world.go` 并使用 `go run`。
 $ go run hello-world.go
 hello world
 
-# Sometimes we'll want to build our programs into
-# binaries. We can do this using `go build`.
+# 有时我们希望将程序构建成二进制，可使用 `go build`。
 $ go build hello-world.go
 $ ls
 hello-world	hello-world.go
 
-# We can then execute the built binary directly.
+# 然后就可以直接执行构建出的二进制文件。
 $ ./hello-world
 hello world
 
-# Now that we can run and build basic Go programs, let's
-# learn more about the language.
+# 既然我们已经会运行和构建基础的 Go 程序了，就继续深入了解这门语言吧。

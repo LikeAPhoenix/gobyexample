@@ -1,7 +1,6 @@
-# Our running program shows the 5 jobs being executed by
-# various workers. The program only takes about 2 seconds
-# despite doing about 5 seconds of total work because
-# there are 3 workers operating concurrently.
+# 运行结果显示 5 个任务被不同工人处理。
+# 尽管总工作量约为 5 秒，但程序只花了 2 秒左右，
+# 因为有 3 个工人并发执行。
 $ time go run worker-pools.go 
 worker 1 started  job 1
 worker 2 started  job 2

@@ -7,5 +7,4 @@ $ go run interfaces.go
 31.41592653589793
 circle with radius 5
 
-# To understand how Go's interfaces work under the hood,
-# check out this [blog post](https://research.swtch.com/interfaces).
+# 想深入了解 Go 接口的内部机制，可阅读这篇[博客文章](https://research.swtch.com/interfaces)。

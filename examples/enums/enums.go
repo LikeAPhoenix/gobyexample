@@ -1,21 +1,16 @@
-// _Enumerated types_ (enums) are a special case of
-// [sum types](https://en.wikipedia.org/wiki/Algebraic_data_type).
-// An enum is a type that has a fixed number of possible
-// values, each with a distinct name. Go doesn't have an
-// enum type as a distinct language feature, but enums
-// are simple to implement using existing language idioms.
+// 枚举类型是[和类型](https://en.wikipedia.org/wiki/Algebraic_data_type)的特殊情况。
+// 枚举的取值数量是固定的，每个值都有唯一名称。
+// Go 没有单独的枚举语法，不过可以用现有惯用法轻松实现。
 
 package main
 
 import "fmt"
 
-// Our enum type `ServerState` has an underlying `int` type.
+// 枚举类型 `ServerState` 的底层类型是 `int`。
 type ServerState int
 
-// The possible values for `ServerState` are defined as
-// constants. The special keyword [iota](https://go.dev/ref/spec#Iota)
-// generates successive constant values automatically; in this
-// case 0, 1, 2 and so on.
+// 通过常量定义 `ServerState` 的所有可选值。
+// 特殊关键字 [iota](https://go.dev/ref/spec#Iota) 会自动生成连续的常量值（本例为 0、1、2 等）。
 const (
 	StateIdle ServerState = iota
 	StateConnected
@@ -23,15 +18,11 @@ const (
 	StateRetrying
 )
 
-// By implementing the [fmt.Stringer](https://pkg.go.dev/fmt#Stringer)
-// interface, values of `ServerState` can be printed out or converted
-// to strings.
+// 通过实现 [fmt.Stringer](https://pkg.go.dev/fmt#Stringer) 接口，
+// 可以把 `ServerState` 的值打印或转换为字符串。
 //
-// This can get cumbersome if there are many possible values. In such
-// cases the [stringer tool](https://pkg.go.dev/golang.org/x/tools/cmd/stringer)
-// can be used in conjunction with `go:generate` to automate the
-// process. See [this post](https://eli.thegreenplace.net/2021/a-comprehensive-guide-to-go-generate)
-// for a longer explanation.
+// 若状态很多，手动维护会比较繁琐，这时可以结合 `go:generate` 使用[stringer 工具](https://pkg.go.dev/golang.org/x/tools/cmd/stringer)自动生成。
+// 详情可参阅[这篇文章](https://eli.thegreenplace.net/2021/a-comprehensive-guide-to-go-generate)。
 var stateName = map[ServerState]string{
 	StateIdle:      "idle",
 	StateConnected: "connected",
@@ -46,24 +37,20 @@ func (ss ServerState) String() string {
 func main() {
 	ns := transition(StateIdle)
 	fmt.Println(ns)
-	// If we have a value of type `int`, we cannot pass it to `transition` - the
-	// compiler will complain about type mismatch. This provides some degree of
-	// compile-time type safety for enums.
+	// 如果手里只有 `int` 类型的值，就无法传给 `transition`，编译器会报类型不匹配。
+	// 这也提供了一定程度的编译期类型安全。
 
 	ns2 := transition(ns)
 	fmt.Println(ns2)
 }
 
-// transition emulates a state transition for a
-// server; it takes the existing state and returns
-// a new state.
+// `transition` 模拟服务器状态转换，根据输入状态返回新状态。
 func transition(s ServerState) ServerState {
 	switch s {
 	case StateIdle:
 		return StateConnected
 	case StateConnected, StateRetrying:
-		// Suppose we check some predicates here to
-		// determine the next state...
+		// 假设这里会检查一些条件以确定下一状态……
 		return StateIdle
 	case StateError:
 		return StateError

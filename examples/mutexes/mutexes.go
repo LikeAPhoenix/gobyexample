@@ -1,7 +1,5 @@
-// In the previous example we saw how to manage simple
-// counter state using [atomic operations](atomic-counters).
-// For more complex state we can use a [_mutex_](https://en.wikipedia.org/wiki/Mutual_exclusion)
-// to safely access data across multiple goroutines.
+// 在之前的示例中，我们用[原子操作](atomic-counters)管理简单计数器。
+// 如果状态更复杂，可以使用[互斥锁](https://en.wikipedia.org/wiki/Mutual_exclusion)在多协程间安全访问数据。
 
 package main
 
@@ -10,21 +8,16 @@ import (
 	"sync"
 )
 
-// Container holds a map of counters; since we want to
-// update it concurrently from multiple goroutines, we
-// add a `Mutex` to synchronize access.
-// Note that mutexes must not be copied, so if this
-// `struct` is passed around, it should be done by
-// pointer.
+// `Container` 保存了一组计数器。
+// 因为需要被多个协程并发更新，所以加上 `Mutex` 同步访问。
+// 注意互斥锁不能被复制，因此该结构体若需要传递，应以指针方式进行。
 type Container struct {
 	mu       sync.Mutex
 	counters map[string]int
 }
 
 func (c *Container) inc(name string) {
-	// Lock the mutex before accessing `counters`; unlock
-	// it at the end of the function using a [defer](defer)
-	// statement.
+	// 访问 `counters` 前锁住互斥锁，并在函数结束时通过 [defer](defer) 解锁。
 	c.mu.Lock()
 	defer c.mu.Unlock()
 	c.counters[name]++
@@ -32,24 +25,21 @@ func (c *Container) inc(name string) {
 
 func main() {
 	c := Container{
-		// Note that the zero value of a mutex is usable as-is, so no
-		// initialization is required here.
+		// 互斥锁的零值即可直接使用，因此无需显式初始化。
 		counters: map[string]int{"a": 0, "b": 0},
 	}
 
 	var wg sync.WaitGroup
 
-	// This function increments a named counter
-	// in a loop.
+	// 该函数循环递增指定名字的计数器。
 	doIncrement := func(name string, n int) {
 		for range n {
 			c.inc(name)
 		}
 	}
 
-	// Run several goroutines concurrently; note
-	// that they all access the same `Container`,
-	// and two of them access the same counter.
+	// 并发启动多个协程，它们共享同一个 `Container`，
+	// 其中两个协程还会访问同一个计数器。
 	wg.Go(func() {
 		doIncrement("a", 10000)
 	})
@@ -62,7 +52,7 @@ func main() {
 		doIncrement("b", 10000)
 	})
 
-	// Wait for the goroutines to finish
+	// 等待所有协程完成。
 	wg.Wait()
 	fmt.Println(c.counters)
 }

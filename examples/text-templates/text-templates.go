@@ -1,7 +1,5 @@
-// Go offers built-in support for creating dynamic content or showing customized
-// output to the user with the `text/template` package. A sibling package
-// named `html/template` provides the same API but has additional security
-// features and should be used for generating HTML.
+// `text/template` 包提供生成动态内容或自定义输出的能力。
+// 同名的 `html/template` 具有相同 API 并增加安全特性，适用于生成 HTML。
 
 package main
 
@@ -12,24 +10,20 @@ import (
 
 func main() {
 
-	// We can create a new template and parse its body from
-	// a string.
-	// Templates are a mix of static text and "actions" enclosed in
-	// `{{...}}` that are used to dynamically insert content.
+	// 先创建模板并从字符串解析模板内容。
+	// 模板由静态文本与 `{{...}}` 包裹的“动作”组成，用于动态插入内容。
 	t1 := template.New("t1")
 	t1, err := t1.Parse("Value is {{.}}\n")
 	if err != nil {
 		panic(err)
 	}
 
-	// Alternatively, we can use the `template.Must` function to
-	// panic in case `Parse` returns an error. This is especially
-	// useful for templates initialized in the global scope.
+	// 也可以使用 `template.Must`，在 `Parse` 出错时 panic。
+	// 这对在全局作用域初始化模板特别方便。
 	t1 = template.Must(t1.Parse("Value: {{.}}\n"))
 
-	// By "executing" the template we generate its text with
-	// specific values for its actions. The `{{.}}` action is
-	// replaced by the value passed as a parameter to `Execute`.
+	// 执行模板时会将动作替换为指定值。
+	// `{{.}}` 会被 `Execute` 的参数替代。
 	t1.Execute(os.Stdout, "some text")
 	t1.Execute(os.Stdout, 5)
 	t1.Execute(os.Stdout, []string{
@@ -39,38 +33,34 @@ func main() {
 		"C#",
 	})
 
-	// Helper function we'll use below.
+	// 辅助函数，便于后续创建模板。
 	Create := func(name, t string) *template.Template {
 		return template.Must(template.New(name).Parse(t))
 	}
 
-	// If the data is a struct we can use the `{{.FieldName}}` action to access
-	// its fields. The fields should be exported to be accessible when a
-	// template is executing.
+	// 若传入结构体，可通过 `{{.FieldName}}` 访问字段。
+	// 要在模板中访问字段，结构体字段必须导出。
 	t2 := Create("t2", "Name: {{.Name}}\n")
 
 	t2.Execute(os.Stdout, struct {
 		Name string
 	}{"Jane Doe"})
 
-	// The same applies to maps; with maps there is no restriction on the
-	// case of key names.
+	// map 也适用同样的规则，对键名大小写没有限制。
 	t2.Execute(os.Stdout, map[string]string{
 		"Name": "Mickey Mouse",
 	})
 
-	// if/else provide conditional execution for templates. A value is considered
-	// false if it's the default value of a type, such as 0, an empty string,
-	// nil pointer, etc.
-	// This sample demonstrates another
-	// feature of templates: using `-` in actions to trim whitespace.
+	// `if/else` 实现条件判断。
+	// 当值为类型的零值（如 0、空字符串、nil 指针等）时视为 false。
+	// 此处还演示使用动作中的 `-` 去除空白。
 	t3 := Create("t3",
 		"{{if . -}} yes {{else -}} no {{end}}\n")
 	t3.Execute(os.Stdout, "not empty")
 	t3.Execute(os.Stdout, "")
 
-	// range blocks let us loop through slices, arrays, maps or channels. Inside
-	// the range block `{{.}}` is set to the current item of the iteration.
+	// `range` 可遍历切片、数组、map 或通道。
+	// 在 `range` 块内，`{{.}}` 表示当前元素。
 	t4 := Create("t4",
 		"Range: {{range .}}{{.}} {{end}}\n")
 	t4.Execute(os.Stdout,

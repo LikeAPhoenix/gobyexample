@@ -1,5 +1,4 @@
-// Sometimes our Go programs need to spawn other
-// processes.
+// 有时 Go 程序需要启动其他进程。
 
 package main
 
@@ -12,16 +11,12 @@ import (
 
 func main() {
 
-	// We'll start with a simple command that takes no
-	// arguments or input and just prints something to
-	// stdout. The `exec.Command` helper creates an object
-	// to represent this external process.
+	// 先从一个简单命令开始，不带参数也无需输入，仅向标准输出打印信息。
+	// `exec.Command` 会返回表示该外部进程的对象。
 	dateCmd := exec.Command("date")
 
-	// The `Output` method runs the command, waits for it
-	// to finish and collects its standard output.
-	//  If there were no errors, `dateOut` will hold bytes
-	// with the date info.
+	// `Output` 方法会运行命令、等待其结束并收集标准输出。
+	// 若没有错误，`dateOut` 将包含日期信息的字节。
 	dateOut, err := dateCmd.Output()
 	if err != nil {
 		panic(err)
@@ -29,11 +24,8 @@ func main() {
 	fmt.Println("> date")
 	fmt.Println(string(dateOut))
 
-	// `Output` and other methods of `Command` will return
-	// `*exec.Error` if there was a problem executing the
-	// command (e.g. wrong path), and `*exec.ExitError`
-	// if the command ran but exited with a non-zero return
-	// code.
+	// `Output` 等方法在执行命令失败（例如路径不正确）时返回 `*exec.Error`；
+	// 如果命令运行后以非零返回码退出，则返回 `*exec.ExitError`。
 	_, err = exec.Command("date", "-x").Output()
 	if err != nil {
 		var execErr *exec.Error
@@ -49,15 +41,10 @@ func main() {
 		}
 	}
 
-	// Next we'll look at a slightly more involved case
-	// where we pipe data to the external process on its
-	// `stdin` and collect the results from its `stdout`.
+	// 接下来演示更复杂的情况：向外部进程的 `stdin` 写入数据，并从 `stdout` 收集结果。
 	grepCmd := exec.Command("grep", "hello")
 
-	// Here we explicitly grab input/output pipes, start
-	// the process, write some input to it, read the
-	// resulting output, and finally wait for the process
-	// to exit.
+	// 显式获取输入/输出管道，启动进程，写入数据，读取输出，最后等待进程退出。
 	grepIn, _ := grepCmd.StdinPipe()
 	grepOut, _ := grepCmd.StdoutPipe()
 	grepCmd.Start()
@@ -66,20 +53,13 @@ func main() {
 	grepBytes, _ := io.ReadAll(grepOut)
 	grepCmd.Wait()
 
-	// We omitted error checks in the above example, but
-	// you could use the usual `if err != nil` pattern for
-	// all of them. We also only collect the `StdoutPipe`
-	// results, but you could collect the `StderrPipe` in
-	// exactly the same way.
+	// 上述示例省略了错误处理，实际使用时仍可采用 `if err != nil` 模式。
+	// 此处只收集了 `StdoutPipe`，同样方法也可用于 `StderrPipe`。
 	fmt.Println("> grep hello")
 	fmt.Println(string(grepBytes))
 
-	// Note that when spawning commands we need to
-	// provide an explicitly delineated command and
-	// argument array, vs. being able to just pass in one
-	// command-line string. If you want to spawn a full
-	// command with a string, you can use `bash`'s `-c`
-	// option:
+	// 注意启动命令时需要显式传入命令及参数切片，而非单个字符串。
+	// 如果希望通过字符串执行完整命令，可以借助 `bash -c`：
 	lsCmd := exec.Command("bash", "-c", "ls -a -l -h")
 	lsOut, err := lsCmd.Output()
 	if err != nil {

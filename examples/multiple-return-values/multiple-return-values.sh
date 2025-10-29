@@ -3,5 +3,4 @@ $ go run multiple-return-values.go
 7
 7
 
-# Accepting a variable number of arguments is another nice
-# feature of Go functions; we'll look at this next.
+# Go 函数的另一个实用特性是可变参数，我们接下来会介绍。

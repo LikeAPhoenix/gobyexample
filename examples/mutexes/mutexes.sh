@@ -1,7 +1,5 @@
-# Running the program shows that the counters
-# updated as expected.
+# 运行程序可以看到计数器按预期更新。
 $ go run mutexes.go
 map[a:20000 b:10000]
 
-# Next we'll look at implementing this same state
-# management task using only goroutines and channels.
+# 下一节我们会仅用协程和通道实现同样的状态管理。

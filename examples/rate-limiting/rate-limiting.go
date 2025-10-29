@@ -1,8 +1,6 @@
-// [_Rate limiting_](https://en.wikipedia.org/wiki/Rate_limiting)
-// is an important mechanism for controlling resource
-// utilization and maintaining quality of service. Go
-// elegantly supports rate limiting with goroutines,
-// channels, and [tickers](tickers).
+// [限流](https://en.wikipedia.org/wiki/Rate_limiting) 是控制资源使用、
+// 保持服务质量的重要机制。
+// Go 可以借助协程、通道与 [ticker](tickers) 优雅地实现限流。
 
 package main
 
@@ -13,52 +11,40 @@ import (
 
 func main() {
 
-	// First we'll look at basic rate limiting. Suppose
-	// we want to limit our handling of incoming requests.
-	// We'll serve these requests off a channel of the
-	// same name.
+	// 先看最基础的限流。
+	// 假设我们要限制处理传入请求的速率，可将请求放入通道。
 	requests := make(chan int, 5)
 	for i := 1; i <= 5; i++ {
 		requests <- i
 	}
 	close(requests)
 
-	// This `limiter` channel will receive a value
-	// every 200 milliseconds. This is the regulator in
-	// our rate limiting scheme.
+	// `limiter` 通道每隔 200 毫秒收到一个值，充当限流器。
 	limiter := time.Tick(200 * time.Millisecond)
 
-	// By blocking on a receive from the `limiter` channel
-	// before serving each request, we limit ourselves to
-	// 1 request every 200 milliseconds.
+	// 在处理每个请求前先从 `limiter` 读取，就能把速率限制为 200 毫秒一个请求。
 	for req := range requests {
 		<-limiter
 		fmt.Println("request", req, time.Now())
 	}
 
-	// We may want to allow short bursts of requests in
-	// our rate limiting scheme while preserving the
-	// overall rate limit. We can accomplish this by
-	// buffering our limiter channel. This `burstyLimiter`
-	// channel will allow bursts of up to 3 events.
+	// 如果想在总体限流的同时允许短暂爆发，可以给限流器加缓冲。
+	// `burstyLimiter` 允许最多 3 个事件的突发。
 	burstyLimiter := make(chan time.Time, 3)
 
-	// Fill up the channel to represent allowed bursting.
+	// 预先填满通道，表示允许的初始突发额度。
 	for range 3 {
 		burstyLimiter <- time.Now()
 	}
 
-	// Every 200 milliseconds we'll try to add a new
-	// value to `burstyLimiter`, up to its limit of 3.
+	// 之后每隔 200 毫秒向 `burstyLimiter` 追加一个值，最多保持 3 个。
 	go func() {
 		for t := range time.Tick(200 * time.Millisecond) {
 			burstyLimiter <- t
 		}
 	}()
 
-	// Now simulate 5 more incoming requests. The first
-	// 3 of these will benefit from the burst capability
-	// of `burstyLimiter`.
+	// 模拟再来 5 个请求，其中前 3 个会利用突发配额立即得到处理。
 	burstyRequests := make(chan int, 5)
 	for i := 1; i <= 5; i++ {
 		burstyRequests <- i

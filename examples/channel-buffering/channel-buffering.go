@@ -1,9 +1,5 @@
-// By default channels are _unbuffered_, meaning that they
-// will only accept sends (`chan <-`) if there is a
-// corresponding receive (`<- chan`) ready to receive the
-// sent value. _Buffered channels_ accept a limited
-// number of  values without a corresponding receiver for
-// those values.
+// 通道默认是无缓冲的，只有在有相应接收者准备好时才会接受发送。
+// 而缓冲通道允许在没有立即接收者的情况下缓存有限数量的值。
 
 package main
 
@@ -11,17 +7,14 @@ import "fmt"
 
 func main() {
 
-	// Here we `make` a channel of strings buffering up to
-	// 2 values.
+	// 这里创建一个最多可缓存 2 个字符串的通道。
 	messages := make(chan string, 2)
 
-	// Because this channel is buffered, we can send these
-	// values into the channel without a corresponding
-	// concurrent receive.
+	// 由于是缓冲通道，可以在没有同时接收者的情况下发送值。
 	messages <- "buffered"
 	messages <- "channel"
 
-	// Later we can receive these two values as usual.
+	// 随后再按常规方式接收即可。
 	fmt.Println(<-messages)
 	fmt.Println(<-messages)
 }

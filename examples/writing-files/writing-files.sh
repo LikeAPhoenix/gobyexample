@@ -1,10 +1,10 @@
-# Try running the file-writing code.
+# 运行写文件示例。
 $ go run writing-files.go 
 wrote 5 bytes
 wrote 7 bytes
 wrote 9 bytes
 
-# Then check the contents of the written files.
+# 查看写入结果。
 $ cat /tmp/dat1
 hello
 go
@@ -13,5 +13,4 @@ some
 writes
 buffered
 
-# Next we'll look at applying some of the file I/O ideas
-# we've just seen to the `stdin` and `stdout` streams.
+# 接着会把这些文件 I/O 思路应用到 `stdin` 与 `stdout` 流上。

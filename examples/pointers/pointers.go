@@ -1,26 +1,19 @@
-// Go supports <em><a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)">pointers</a></em>,
-// allowing you to pass references to values and records
-// within your program.
+// Go 支持<a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)"><em>指针</em></a>，
+// 这使得我们可以在程序中传递值或结构的引用。
 
 package main
 
 import "fmt"
 
-// We'll show how pointers work in contrast to values with
-// 2 functions: `zeroval` and `zeroptr`. `zeroval` has an
-// `int` parameter, so arguments will be passed to it by
-// value. `zeroval` will get a copy of `ival` distinct
-// from the one in the calling function.
+// 我们用两个函数 `zeroval` 和 `zeroptr` 对比值传递与指针的差异。
+// `zeroval` 的参数是 `int`，因此实参按值传递，它得到的是调用者 `ival` 的副本。
 func zeroval(ival int) {
 	ival = 0
 }
 
-// `zeroptr` in contrast has an `*int` parameter, meaning
-// that it takes an `int` pointer. The `*iptr` code in the
-// function body then _dereferences_ the pointer from its
-// memory address to the current value at that address.
-// Assigning a value to a dereferenced pointer changes the
-// value at the referenced address.
+// 相对地，`zeroptr` 的参数类型为 `*int`，表示接收 `int` 指针。
+// 函数体内的 `*iptr` 会解引用该指针，从地址取得当前的值。
+// 给解引用的指针赋值就会修改该地址上的值。
 func zeroptr(iptr *int) {
 	*iptr = 0
 }
@@ -32,8 +25,7 @@ func main() {
 	zeroval(i)
 	fmt.Println("zeroval:", i)
 
-	// The `&i` syntax gives the memory address of `i`,
-	// i.e. a pointer to `i`.
+	// `&i` 语法会取得 `i` 的内存地址，也就是指向 `i` 的指针。
 	zeroptr(&i)
 	fmt.Println("zeroptr:", i)
 

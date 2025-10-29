@@ -1,7 +1,5 @@
-// Basic sends and receives on channels are blocking.
-// However, we can use `select` with a `default` clause to
-// implement _non-blocking_ sends, receives, and even
-// non-blocking multi-way `select`s.
+// 通道的基本发送与接收都是阻塞的。
+// 不过可以借助带 `default` 分支的 `select` 实现非阻塞的发送、接收，甚至多路选择。
 
 package main
 
@@ -11,10 +9,8 @@ func main() {
 	messages := make(chan string)
 	signals := make(chan bool)
 
-	// Here's a non-blocking receive. If a value is
-	// available on `messages` then `select` will take
-	// the `<-messages` `case` with that value. If not
-	// it will immediately take the `default` case.
+	// 非阻塞接收示例：若 `messages` 中有值，`select` 会选择 `<-messages` 分支；
+	// 否则立即走 `default`。
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)
@@ -22,10 +18,8 @@ func main() {
 		fmt.Println("no message received")
 	}
 
-	// A non-blocking send works similarly. Here `msg`
-	// cannot be sent to the `messages` channel, because
-	// the channel has no buffer and there is no receiver.
-	// Therefore the `default` case is selected.
+	// 非阻塞发送同理。
+	// 当前 `messages` 无缓冲且没有接收者，因此发送失败并执行 `default`。
 	msg := "hi"
 	select {
 	case messages <- msg:
@@ -34,10 +28,8 @@ func main() {
 		fmt.Println("no message sent")
 	}
 
-	// We can use multiple `case`s above the `default`
-	// clause to implement a multi-way non-blocking
-	// select. Here we attempt non-blocking receives
-	// on both `messages` and `signals`.
+	// 也可以在 `default` 前放多个分支，实现多路非阻塞 `select`。
+	// 这里尝试在 `messages` 与 `signals` 上非阻塞接收。
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)

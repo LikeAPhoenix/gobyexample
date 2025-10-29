@@ -1,8 +1,5 @@
-// Go supports _embedding_ of structs and interfaces
-// to express a more seamless _composition_ of types.
-// This is not to be confused with [`//go:embed`](embed-directive) which is
-// a go directive introduced in Go version 1.16+ to embed
-// files and folders into the application binary.
+// Go 支持结构体与接口的嵌入，用以表达更加自然的类型组合。
+// 不要将其与 Go 1.16+ 引入的 [`//go:embed`](embed-directive) 混淆，后者用于将文件目录嵌入二进制。
 
 package main
 
@@ -16,8 +13,7 @@ func (b base) describe() string {
 	return fmt.Sprintf("base with num=%v", b.num)
 }
 
-// A `container` _embeds_ a `base`. An embedding looks
-// like a field without a name.
+// `container` 内嵌了 `base`，看起来像一个没有字段名的字段。
 type container struct {
 	base
 	str string
@@ -25,9 +21,8 @@ type container struct {
 
 func main() {
 
-	// When creating structs with literals, we have to
-	// initialize the embedding explicitly; here the
-	// embedded type serves as the field name.
+	// 使用字面量创建结构体时，需要显式初始化被嵌入的字段，
+	// 此时嵌入类型本身充当字段名。
 	co := container{
 		base: base{
 			num: 1,
@@ -35,28 +30,22 @@ func main() {
 		str: "some name",
 	}
 
-	// We can access the base's fields directly on `co`,
-	// e.g. `co.num`.
+	// 可以直接在 `co` 上访问嵌入的字段，例如 `co.num`。
 	fmt.Printf("co={num: %v, str: %v}\n", co.num, co.str)
 
-	// Alternatively, we can spell out the full path using
-	// the embedded type name.
+	// 也可以写出完整路径，借助嵌入类型名访问。
 	fmt.Println("also num:", co.base.num)
 
-	// Since `container` embeds `base`, the methods of
-	// `base` also become methods of a `container`. Here
-	// we invoke a method that was embedded from `base`
-	// directly on `co`.
+	// `container` 嵌入了 `base`，因此 `base` 的方法同样可在 `container` 上调用。
+	// 这里直接在 `co` 上调用来自 `base` 的方法。
 	fmt.Println("describe:", co.describe())
 
 	type describer interface {
 		describe() string
 	}
 
-	// Embedding structs with methods may be used to bestow
-	// interface implementations onto other structs. Here
-	// we see that a `container` now implements the
-	// `describer` interface because it embeds `base`.
+	// 嵌入带方法的结构体可以把这些接口实现“继承”给外层结构。
+	// 因为 `container` 嵌入了 `base`，它也实现了 `describer` 接口。
 	var d describer = co
 	fmt.Println("describer:", d.describe())
 }

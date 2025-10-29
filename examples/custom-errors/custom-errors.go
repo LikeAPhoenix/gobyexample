@@ -1,7 +1,5 @@
-// It's possible to define custom error types by
-// implementing the `Error()` method on them. Here's a
-// variant on the example above that uses a custom type
-// to explicitly represent an argument error.
+// 通过实现 `Error()` 方法，就能定义自定义错误类型。
+// 本例在前面示例的基础上扩展，用自定义类型明确表示参数错误。
 
 package main
 
@@ -10,14 +8,13 @@ import (
 	"fmt"
 )
 
-// A custom error type usually has the suffix "Error".
+// 自定义错误类型通常以 “Error” 结尾。
 type argError struct {
 	arg     int
 	message string
 }
 
-// Adding this `Error` method makes `argError` implement
-// the `error` interface.
+// 添加 `Error` 方法后，`argError` 就实现了 `error` 接口。
 func (e *argError) Error() string {
 	return fmt.Sprintf("%d - %s", e.arg, e.message)
 }
@@ -25,7 +22,7 @@ func (e *argError) Error() string {
 func f(arg int) (int, error) {
 	if arg == 42 {
 
-		// Return our custom error.
+		// 返回自定义错误。
 		return -1, &argError{arg, "can't work with it"}
 	}
 	return arg + 3, nil
@@ -33,11 +30,9 @@ func f(arg int) (int, error) {
 
 func main() {
 
-	// `errors.As` is a more advanced version of `errors.Is`.
-	// It checks that a given error (or any error in its chain)
-	// matches a specific error type and converts to a value
-	// of that type, returning `true`. If there's no match, it
-	// returns `false`.
+	// `errors.As` 是 `errors.Is` 的进阶版本。
+	// 它会检查某个错误（或其链上的任意错误）是否匹配指定类型，并尝试转换成该类型。
+	// 匹配成功返回 `true`，否则返回 `false`。
 	_, err := f(42)
 	var ae *argError
 	if errors.As(err, &ae) {

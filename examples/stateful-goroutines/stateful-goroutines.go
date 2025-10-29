@@ -1,11 +1,7 @@
-// In the previous example we used explicit locking with
-// [mutexes](mutexes) to synchronize access to shared state
-// across multiple goroutines. Another option is to use the
-// built-in synchronization features of  goroutines and
-// channels to achieve the same result. This channel-based
-// approach aligns with Go's ideas of sharing memory by
-// communicating and having each piece of data owned
-// by exactly 1 goroutine.
+// 在上一示例中，我们使用 [mutex](mutexes) 显式加锁以同步多个协程对共享状态的访问。
+// 另一种实现方式是利用协程与通道的内建同步机制。
+// 这种基于通道的方式符合 Go “通过通信共享内存”的理念，
+// 并让每份数据都只被一个协程拥有。
 
 package main
 
@@ -16,14 +12,9 @@ import (
 	"time"
 )
 
-// In this example our state will be owned by a single
-// goroutine. This will guarantee that the data is never
-// corrupted with concurrent access. In order to read or
-// write that state, other goroutines will send messages
-// to the owning goroutine and receive corresponding
-// replies. These `readOp` and `writeOp` `struct`s
-// encapsulate those requests and a way for the owning
-// goroutine to respond.
+// 本示例中，状态由单个协程持有，从而确保不会因并发访问而损坏。
+// 其他协程若要读写状态，需要向持有者发送消息并等待回应。
+// `readOp` 与 `writeOp` 结构体封装了请求以及返回结果的通道。
 type readOp struct {
 	key  int
 	resp chan int
@@ -36,25 +27,16 @@ type writeOp struct {
 
 func main() {
 
-	// As before we'll count how many operations we perform.
+	// 与之前一样，统计执行的操作次数。
 	var readOps uint64
 	var writeOps uint64
 
-	// The `reads` and `writes` channels will be used by
-	// other goroutines to issue read and write requests,
-	// respectively.
+	// `reads` 与 `writes` 通道分别用于其他协程发起读写请求。
 	reads := make(chan readOp)
 	writes := make(chan writeOp)
 
-	// Here is the goroutine that owns the `state`, which
-	// is a map as in the previous example but now private
-	// to the stateful goroutine. This goroutine repeatedly
-	// selects on the `reads` and `writes` channels,
-	// responding to requests as they arrive. A response
-	// is executed by first performing the requested
-	// operation and then sending a value on the response
-	// channel `resp` to indicate success (and the desired
-	// value in the case of `reads`).
+	// 下方协程负责持有 `state`，与上一示例一样是一个 map，但此处仅该协程可访问。
+	// 它循环 `select` 监听 `reads` 与 `writes`，接收到请求后执行操作并将结果写回 `resp`。
 	go func() {
 		var state = make(map[int]int)
 		for {
@@ -68,11 +50,8 @@ func main() {
 		}
 	}()
 
-	// This starts 100 goroutines to issue reads to the
-	// state-owning goroutine via the `reads` channel.
-	// Each read requires constructing a `readOp`, sending
-	// it over the `reads` channel, and then receiving the
-	// result over the provided `resp` channel.
+	// 启动 100 个协程，通过 `reads` 向状态持有者发起读取。
+	// 每次读取需构建 `readOp`，发送到 `reads`，再从 `resp` 接收结果。
 	for range 100 {
 		go func() {
 			for {
@@ -87,8 +66,7 @@ func main() {
 		}()
 	}
 
-	// We start 10 writes as well, using a similar
-	// approach.
+	// 对写操作也启动 10 个协程，流程类似。
 	for range 10 {
 		go func() {
 			for {
@@ -104,10 +82,10 @@ func main() {
 		}()
 	}
 
-	// Let the goroutines work for a second.
+	// 让这些协程运行 1 秒。
 	time.Sleep(time.Second)
 
-	// Finally, capture and report the op counts.
+	// 最后读取并输出操作次数。
 	readOpsFinal := atomic.LoadUint64(&readOps)
 	fmt.Println("readOps:", readOpsFinal)
 	writeOpsFinal := atomic.LoadUint64(&writeOps)

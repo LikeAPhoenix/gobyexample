@@ -1,5 +1,4 @@
-// To wait for multiple goroutines to finish, we can
-// use a *wait group*.
+// 若要等待多个协程完成，可以使用 WaitGroup。
 
 package main
 
@@ -13,32 +12,27 @@ import (
 func worker(id int) {
 	fmt.Printf("Worker %d starting\n", id)
 
-	// Sleep to simulate an expensive task.
+	// 通过睡眠模拟耗时任务。
 	time.Sleep(time.Second)
 	fmt.Printf("Worker %d done\n", id)
 }
 
 func main() {
 
-	// This WaitGroup is used to wait for all the
-	// goroutines launched here to finish. Note: if a WaitGroup is
-	// explicitly passed into functions, it should be done *by pointer*.
+	// WaitGroup 用于等待这里启动的所有协程执行完毕。
+	// 注意：如果要把 WaitGroup 传入函数，应该以指针方式传递。
 	var wg sync.WaitGroup
 
-	// Launch several goroutines using `WaitGroup.Go`
+	// 使用 `WaitGroup.Go` 启动多个协程。
 	for i := 1; i <= 5; i++ {
 		wg.Go(func() {
 			worker(i)
 		})
 	}
 
-	// Block until all the goroutines started by `wg` are
-	// done. A goroutine is done when the function it invokes
-	// returns.
+	// 阻塞等待所有协程结束；当协程调用的函数返回时，就表示已完成。
 	wg.Wait()
 
-	// Note that this approach has no straightforward way
-	// to propagate errors from workers. For more
-	// advanced use cases, consider using the
-	// [errgroup package](https://pkg.go.dev/golang.org/x/sync/errgroup).
+	// 这种方式无法直接传递工作协程产生的错误。
+	// 更复杂的场景可考虑使用 [errgroup](https://pkg.go.dev/golang.org/x/sync/errgroup)。
 }

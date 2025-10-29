@@ -1,7 +1,5 @@
-// The `filepath` package provides functions to parse
-// and construct *file paths* in a way that is portable
-// between operating systems; `dir/file` on Linux vs.
-// `dir\file` on Windows, for example.
+// `filepath` 包提供了解析与构建文件路径的函数，具备跨操作系统的可移植性。
+// 例如在 Linux 上是 `dir/file`，而 Windows 上是 `dir\file`。
 package main
 
 import (
@@ -12,44 +10,36 @@ import (
 
 func main() {
 
-	// `Join` should be used to construct paths in a
-	// portable way. It takes any number of arguments
-	// and constructs a hierarchical path from them.
+	// 使用 `Join` 以可移植方式构建路径。
+	// 它接受任意数量的参数并拼接成层级路径。
 	p := filepath.Join("dir1", "dir2", "filename")
 	fmt.Println("p:", p)
 
-	// You should always use `Join` instead of
-	// concatenating `/`s or `\`s manually. In addition
-	// to providing portability, `Join` will also
-	// normalize paths by removing superfluous separators
-	// and directory changes.
+	// 应始终使用 `Join`，而非手动拼接 `/` 或 `\`。
+	// 除了可移植，`Join` 还会通过移除多余分隔符、目录变更来规范路径。
 	fmt.Println(filepath.Join("dir1//", "filename"))
 	fmt.Println(filepath.Join("dir1/../dir1", "filename"))
 
-	// `Dir` and `Base` can be used to split a path to the
-	// directory and the file. Alternatively, `Split` will
-	// return both in the same call.
+	// `Dir` 与 `Base` 可将路径拆分为目录与文件。
+	// 或者使用 `Split` 一次返回两者。
 	fmt.Println("Dir(p):", filepath.Dir(p))
 	fmt.Println("Base(p):", filepath.Base(p))
 
-	// We can check whether a path is absolute.
+	// 判断路径是否为绝对路径。
 	fmt.Println(filepath.IsAbs("dir/file"))
 	fmt.Println(filepath.IsAbs("/dir/file"))
 
 	filename := "config.json"
 
-	// Some file names have extensions following a dot. We
-	// can split the extension out of such names with `Ext`.
+	// 某些文件名带扩展名，可通过 `Ext` 拆分出来。
 	ext := filepath.Ext(filename)
 	fmt.Println(ext)
 
-	// To find the file's name with the extension removed,
-	// use `strings.TrimSuffix`.
+	// 若要去除扩展名，可使用 `strings.TrimSuffix`。
 	fmt.Println(strings.TrimSuffix(filename, ext))
 
-	// `Rel` finds a relative path between a *base* and a
-	// *target*. It returns an error if the target cannot
-	// be made relative to base.
+	// `Rel` 用于求解基准路径与目标路径之间的相对路径。
+	// 若无法表示相对关系则返回错误。
 	rel, err := filepath.Rel("a/b", "a/b/t/file")
 	if err != nil {
 		panic(err)

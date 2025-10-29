@@ -1,8 +1,5 @@
-# When we run this program, we see the output of the
-# blocking call first, then the output of the two
-# goroutines. The goroutines' output may be interleaved,
-# because goroutines are being run concurrently by the
-# Go runtime.
+# 运行程序时，会先看到同步调用的输出，然后是两个协程的结果。
+# 因为协程由 Go 运行时并发调度，它们的输出可能交错。
 $ go run goroutines.go
 direct : 0
 direct : 1
@@ -13,5 +10,4 @@ goroutine : 1
 goroutine : 2
 done
 
-# Next we'll look at a complement to goroutines in
-# concurrent Go programs: channels.
+# 接下来看看并发编程中与协程相辅相成的概念：通道。

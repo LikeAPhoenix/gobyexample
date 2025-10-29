@@ -16,7 +16,5 @@ apple
 {1 [apple peach]}
 
 
-# We've covered the basic of JSON in Go here, but check
-# out the [JSON and Go](https://go.dev/blog/json)
-# blog post and [JSON package docs](https://pkg.go.dev/encoding/json)
-# for more.
+# 上文介绍了 Go 中 JSON 的基础用法。
+# 想进一步了解，可阅读 [JSON and Go](https://go.dev/blog/json) 博文和 [encoding/json 包文档](https://pkg.go.dev/encoding/json)。

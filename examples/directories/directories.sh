@@ -1,3 +1,4 @@
+# 运行程序，将展示目录遍历的结果。
 $ go run directories.go
 Listing subdir/parent
   child true

@@ -1,15 +1,8 @@
-# Running our program shows that the goroutine-based
-# state management example completes about 80,000
-# total operations.
+# 运行结果显示，这个基于协程的状态管理示例共完成约八万次操作。
 $ go run stateful-goroutines.go
 readOps: 71708
 writeOps: 7177
 
-# For this particular case the goroutine-based approach
-# was a bit more involved than the mutex-based one. It
-# might be useful in certain cases though, for example
-# where you have other channels involved or when managing
-# multiple such mutexes would be error-prone. You should
-# use whichever approach feels most natural, especially
-# with respect to understanding the correctness of your
-# program.
+# 在这个案例中，协程方案比基于互斥锁的实现稍复杂一些。
+# 但在需要与其他通道交互，或管理多把互斥锁易出错的场景，它会更有优势。
+# 可以根据程序的可理解性与正确性需求选择合适的方案。

@@ -1,13 +1,10 @@
-// [_SHA256 hashes_](https://en.wikipedia.org/wiki/SHA-2) are
-// frequently used to compute short identities for binary
-// or text blobs. For example, TLS/SSL certificates use SHA256
-// to compute a certificate's signature. Here's how to compute
-// SHA256 hashes in Go.
+// [SHA256 哈希](https://en.wikipedia.org/wiki/SHA-2) 常用于为二进制或文本数据生成短标识。
+// 例如 TLS/SSL 证书会使用 SHA256 计算签名。
+// 下面演示如何在 Go 中计算 SHA256。
 
 package main
 
-// Go implements several hash functions in various
-// `crypto/*` packages.
+// Go 在多个 `crypto/*` 包中提供各种哈希函数。
 import (
 	"crypto/sha256"
 	"fmt"
@@ -16,16 +13,14 @@ import (
 func main() {
 	s := "sha256 this string"
 
-	// Here we start with a new hash.
+	// 从一个新的哈希实例开始。
 	h := sha256.New()
 
-	// `Write` expects bytes. If you have a string `s`,
-	// use `[]byte(s)` to coerce it to bytes.
+	// `Write` 需要字节切片，若手头是字符串 `s`，请使用 `[]byte(s)`。
 	h.Write([]byte(s))
 
-	// This gets the finalized hash result as a byte
-	// slice. The argument to `Sum` can be used to append
-	// to an existing byte slice: it usually isn't needed.
+	// `Sum` 会返回最终哈希结果的字节切片。
+	// 它的参数可用于在现有切片后追加数据，这里传 `nil` 即可。
 	bs := h.Sum(nil)
 
 	fmt.Println(s)

@@ -1,19 +1,14 @@
-// Starting with version 1.18, Go has added support for
-// _generics_, also known as _type parameters_.
+// 自 Go 1.18 起，语言新增了泛型（也称类型参数）。
 
 package main
 
 import "fmt"
 
-// As an example of a generic function, `SlicesIndex` takes
-// a slice of any `comparable` type and an element of that
-// type and returns the index of the first occurrence of
-// v in s, or -1 if not present. The `comparable` constraint
-// means that we can compare values of this type with the
-// `==` and `!=` operators. For a more thorough explanation
-// of this type signature, see [this blog post](https://go.dev/blog/deconstructing-type-parameters).
-// Note that this function exists in the standard library
-// as [slices.Index](https://pkg.go.dev/slices#Index).
+// 下面的泛型函数 `SlicesIndex` 接受任意 `comparable` 类型的切片和一个元素，
+// 返回该元素首次出现的索引，若不存在则返回 -1。
+// `comparable` 约束表示该类型支持 `==` 与 `!=` 比较。
+// 关于签名的详细说明可参考[这篇博文](https://go.dev/blog/deconstructing-type-parameters)。
+// 标准库中也提供了相同功能的 [slices.Index](https://pkg.go.dev/slices#Index)。
 func SlicesIndex[S ~[]E, E comparable](s S, v E) int {
 	for i := range s {
 		if v == s[i] {
@@ -23,8 +18,7 @@ func SlicesIndex[S ~[]E, E comparable](s S, v E) int {
 	return -1
 }
 
-// As an example of a generic type, `List` is a
-// singly-linked list with values of any type.
+// 泛型类型示例：`List` 是可以存储任意类型值的单链表。
 type List[T any] struct {
 	head, tail *element[T]
 }
@@ -34,9 +28,7 @@ type element[T any] struct {
 	val  T
 }
 
-// We can define methods on generic types just like we
-// do on regular types, but we have to keep the type
-// parameters in place. The type is `List[T]`, not `List`.
+// 可以像普通类型一样为泛型类型定义方法，但要保留类型参数，类型名是 `List[T]` 而非 `List`。
 func (lst *List[T]) Push(v T) {
 	if lst.tail == nil {
 		lst.head = &element[T]{val: v}
@@ -47,9 +39,8 @@ func (lst *List[T]) Push(v T) {
 	}
 }
 
-// AllElements returns all the List elements as a slice.
-// In the next example we'll see a more idiomatic way
-// of iterating over all elements of custom types.
+// `AllElements` 将链表元素全部收集为切片。
+// 在下一个示例中会看到更惯用的遍历自定义类型的方式。
 func (lst *List[T]) AllElements() []T {
 	var elems []T
 	for e := lst.head; e != nil; e = e.next {
@@ -61,14 +52,11 @@ func (lst *List[T]) AllElements() []T {
 func main() {
 	var s = []string{"foo", "bar", "zoo"}
 
-	// When invoking generic functions, we can often rely
-	// on _type inference_. Note that we don't have to
-	// specify the types for `S` and `E` when
-	// calling `SlicesIndex` - the compiler infers them
-	// automatically.
+	// 调用泛型函数时通常可以依赖“类型推断”。
+	// 这里无需显式写出 `S` 和 `E`，编译器会自动推断。
 	fmt.Println("index of zoo:", SlicesIndex(s, "zoo"))
 
-	// ... though we could also specify them explicitly.
+	// 当然也可以显式地写出类型参数。
 	_ = SlicesIndex[[]string, string](s, "zoo")
 
 	lst := List[int]{}

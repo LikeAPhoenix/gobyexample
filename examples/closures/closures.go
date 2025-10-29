@@ -1,16 +1,13 @@
-// Go supports [_anonymous functions_](https://en.wikipedia.org/wiki/Anonymous_function),
-// which can form <a href="https://en.wikipedia.org/wiki/Closure_(computer_science)"><em>closures</em></a>.
-// Anonymous functions are useful when you want to define
-// a function inline without having to name it.
+// Go 支持[匿名函数](https://en.wikipedia.org/wiki/Anonymous_function)，
+// 它们可以构成<a href="https://en.wikipedia.org/wiki/Closure_(computer_science)"><em>闭包</em></a>。
+// 当需要内联定义函数而无需命名时，匿名函数非常有用。
 
 package main
 
 import "fmt"
 
-// This function `intSeq` returns another function, which
-// we define anonymously in the body of `intSeq`. The
-// returned function _closes over_ the variable `i` to
-// form a closure.
+// 函数 `intSeq` 返回另一个函数，我们在函数体内匿名定义它。
+// 返回的函数会“捕获”变量 `i`，从而形成闭包。
 func intSeq() func() int {
 	i := 0
 	return func() int {
@@ -21,20 +18,16 @@ func intSeq() func() int {
 
 func main() {
 
-	// We call `intSeq`, assigning the result (a function)
-	// to `nextInt`. This function value captures its
-	// own `i` value, which will be updated each time
-	// we call `nextInt`.
+	// 调用 `intSeq` 并将返回的函数赋给 `nextInt`。
+	// 该函数值拥有自己的 `i`，每次调用都会更新。
 	nextInt := intSeq()
 
-	// See the effect of the closure by calling `nextInt`
-	// a few times.
+	// 多次调用 `nextInt` 可以看到闭包保持的状态。
 	fmt.Println(nextInt())
 	fmt.Println(nextInt())
 	fmt.Println(nextInt())
 
-	// To confirm that the state is unique to that
-	// particular function, create and test a new one.
+	// 为了验证状态确实与具体函数实例绑定，再创建一个新的闭包试试。
 	newInts := intSeq()
 	fmt.Println(newInts())
 }

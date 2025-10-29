@@ -1,6 +1,5 @@
-// Starting with version 1.23, Go has added support for
-// [iterators](https://go.dev/blog/range-functions),
-// which lets us range over pretty much anything!
+// 自 Go 1.23 起，语言支持[迭代器](https://go.dev/blog/range-functions)，
+// 可以对几乎任何东西执行 range 遍历。
 
 package main
 
@@ -10,11 +9,9 @@ import (
 	"slices"
 )
 
-// Let's look at the `List` type from the
-// [previous example](generics) again. In that example
-// we had an `AllElements` method that returned a slice
-// of all elements in the list. With Go iterators, we
-// can do it better - as shown below.
+// 再看[前一个示例](generics)中的 `List` 类型。
+// 当时通过 `AllElements` 返回所有元素组成的切片。
+// 借助 Go 的迭代器，可以用更优雅的方式处理。
 type List[T any] struct {
 	head, tail *element[T]
 }
@@ -34,15 +31,11 @@ func (lst *List[T]) Push(v T) {
 	}
 }
 
-// All returns an _iterator_, which in Go is a function
-// with a [special signature](https://pkg.go.dev/iter#Seq).
+// `All` 返回一个迭代器，在 Go 中它是具有[特定签名](https://pkg.go.dev/iter#Seq)的函数。
 func (lst *List[T]) All() iter.Seq[T] {
 	return func(yield func(T) bool) {
-		// The iterator function takes another function as
-		// a parameter, called `yield` by convention (but
-		// the name can be arbitrary). It will call `yield` for
-		// every element we want to iterate over, and note `yield`'s
-		// return value for a potential early termination.
+		// 迭代器函数会接收另一个函数（惯例命名为 `yield`，实际可自定），
+		// 并为每个元素调用 `yield`；一旦返回值为 false 就提前终止。
 		for e := lst.head; e != nil; e = e.next {
 			if !yield(e.val) {
 				return
@@ -51,10 +44,8 @@ func (lst *List[T]) All() iter.Seq[T] {
 	}
 }
 
-// Iteration doesn't require an underlying data structure,
-// and doesn't even have to be finite! Here's a function
-// returning an iterator over Fibonacci numbers: it keeps
-// running as long as `yield` keeps returning `true`.
+// 迭代并不需要底层数据结构，甚至可以是无限序列。
+// 下例生成斐波那契数列，只要 `yield` 返回 true 就会继续。
 func genFib() iter.Seq[int] {
 	return func(yield func(int) bool) {
 		a, b := 1, 1
@@ -74,23 +65,19 @@ func main() {
 	lst.Push(13)
 	lst.Push(23)
 
-	// Since `List.All` returns an iterator, we can use it
-	// in a regular `range` loop.
+	// 因为 `List.All` 返回迭代器，可以直接在 `range` 中使用。
 	for e := range lst.All() {
 		fmt.Println(e)
 	}
 
-	// Packages like [slices](https://pkg.go.dev/slices) have
-	// a number of useful functions to work with iterators.
-	// For example, `Collect` takes any iterator and collects
-	// all its values into a slice.
+	// [slices](https://pkg.go.dev/slices) 等包提供了许多处理迭代器的工具函数。
+	// 例如 `Collect` 能将任意迭代器的值收集为切片。
 	all := slices.Collect(lst.All())
 	fmt.Println("all:", all)
 
 	for n := range genFib() {
 
-		// Once the loop hits `break` or an early return, the `yield` function
-		// passed to the iterator will return `false`.
+		// 当循环遇到 `break` 或提前返回时，传入迭代器的 `yield` 会返回 false。
 		if n >= 10 {
 			break
 		}

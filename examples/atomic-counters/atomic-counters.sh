@@ -1,12 +1,7 @@
-# We expect to get exactly 50,000 operations. Had we
-# used a non-atomic integer and incremented it with
-# `ops++`, we'd likely get a different number,
-# changing between runs, because the goroutines
-# would interfere with each other. Moreover, we'd
-# get data race failures when running with the
-# `-race` flag.
+# 预期输出正好是 50,000 次操作。
+# 若使用非原子整数并通过 `ops++` 递增，很可能每次运行结果都不同，
+# 因为协程之间会互相干扰；在 `-race` 模式下甚至会报数据竞争。
 $ go run atomic-counters.go
 ops: 50000
 
-# Next we'll look at mutexes, another tool for managing
-# state.
+# 接下来介绍另一种管理状态的工具：互斥锁。

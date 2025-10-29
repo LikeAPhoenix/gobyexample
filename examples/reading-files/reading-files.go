@@ -1,6 +1,5 @@
-// Reading and writing files are basic tasks needed for
-// many Go programs. First we'll look at some examples of
-// reading files.
+// 读写文件是许多 Go 程序的基础任务。
+// 先来看读取文件的示例。
 
 package main
 
@@ -11,8 +10,8 @@ import (
 	"os"
 )
 
-// Reading files requires checking most calls for errors.
-// This helper will streamline our error checks below.
+// 读取文件时大多需要检查错误。
+// 这里提供一个辅助函数简化错误处理。
 func check(e error) {
 	if e != nil {
 		panic(e)
@@ -21,28 +20,23 @@ func check(e error) {
 
 func main() {
 
-	// Perhaps the most basic file reading task is
-	// slurping a file's entire contents into memory.
+	// 最基础的读取方式是一次性把整个文件读入内存。
 	dat, err := os.ReadFile("/tmp/dat")
 	check(err)
 	fmt.Print(string(dat))
 
-	// You'll often want more control over how and what
-	// parts of a file are read. For these tasks, start
-	// by `Open`ing a file to obtain an `os.File` value.
+	// 如果需要更精细的读取控制，可先通过 `Open` 获取 `os.File`。
 	f, err := os.Open("/tmp/dat")
 	check(err)
 
-	// Read some bytes from the beginning of the file.
-	// Allow up to 5 to be read but also note how many
-	// actually were read.
+	// 从文件开头读取部分字节。
+	// 这里最多读取 5 个，同时关注实际读取数量。
 	b1 := make([]byte, 5)
 	n1, err := f.Read(b1)
 	check(err)
 	fmt.Printf("%d bytes: %s\n", n1, string(b1[:n1]))
 
-	// You can also `Seek` to a known location in the file
-	// and `Read` from there.
+	// 可以使用 `Seek` 移动到指定位置再读取。
 	o2, err := f.Seek(6, io.SeekStart)
 	check(err)
 	b2 := make([]byte, 2)
@@ -51,19 +45,16 @@ func main() {
 	fmt.Printf("%d bytes @ %d: ", n2, o2)
 	fmt.Printf("%v\n", string(b2[:n2]))
 
-	// Other methods of seeking are relative to the
-	// current cursor position,
+	// 也可以相对于当前游标移动，
 	_, err = f.Seek(2, io.SeekCurrent)
 	check(err)
 
-	// and relative to the end of the file.
+	// 或相对于文件末尾移动。
 	_, err = f.Seek(-4, io.SeekEnd)
 	check(err)
 
-	// The `io` package provides some functions that may
-	// be helpful for file reading. For example, reads
-	// like the ones above can be more robustly
-	// implemented with `ReadAtLeast`.
+	// `io` 包提供了更多实用函数。
+	// 比如可以用 `ReadAtLeast` 更稳妥地实现类似的读取。
 	o3, err := f.Seek(6, io.SeekStart)
 	check(err)
 	b3 := make([]byte, 2)
@@ -71,22 +62,16 @@ func main() {
 	check(err)
 	fmt.Printf("%d bytes @ %d: %s\n", n3, o3, string(b3))
 
-	// There is no built-in rewind, but
-	// `Seek(0, io.SeekStart)` accomplishes this.
+	// 虽没有单独的“回到开头”函数，但 `Seek(0, io.SeekStart)` 即可实现。
 	_, err = f.Seek(0, io.SeekStart)
 	check(err)
 
-	// The `bufio` package implements a buffered
-	// reader that may be useful both for its efficiency
-	// with many small reads and because of the additional
-	// reading methods it provides.
+	// `bufio` 包实现了带缓冲的读取器，既能提升大量小读操作的效率，也提供额外方法。
 	r4 := bufio.NewReader(f)
 	b4, err := r4.Peek(5)
 	check(err)
 	fmt.Printf("5 bytes: %s\n", string(b4))
 
-	// Close the file when you're done (usually this would
-	// be scheduled immediately after `Open`ing with
-	// `defer`).
+	// 操作结束后记得关闭文件（通常在 `Open` 后立即用 `defer` 调用）。
 	f.Close()
 }

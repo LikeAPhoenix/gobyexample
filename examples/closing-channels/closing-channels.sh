@@ -9,5 +9,4 @@ sent all jobs
 received all jobs
 received more jobs: false
 
-# The idea of closed channels leads naturally to our next
-# example: `range` over channels.
+# 关闭通道的概念引出了下一个示例：对通道使用 `range` 遍历。

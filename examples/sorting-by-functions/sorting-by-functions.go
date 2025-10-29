@@ -1,8 +1,6 @@
-// Sometimes we'll want to sort a collection by something
-// other than its natural order. For example, suppose we
-// wanted to sort strings by their length instead of
-// alphabetically. Here's an example of custom sorts
-// in Go.
+// 有时需要按照不同于默认顺序的规则排序。
+// 例如想按字符串长度而非字母序排序。
+// 下面演示如何在 Go 中自定义排序。
 
 package main
 
@@ -15,19 +13,16 @@ import (
 func main() {
 	fruits := []string{"peach", "banana", "kiwi"}
 
-	// We implement a comparison function for string
-	// lengths. `cmp.Compare` is helpful for this.
+	// 编写一个比较字符串长度的函数，`cmp.Compare` 在这里很有帮助。
 	lenCmp := func(a, b string) int {
 		return cmp.Compare(len(a), len(b))
 	}
 
-	// Now we can call `slices.SortFunc` with this custom
-	// comparison function to sort `fruits` by name length.
+	// 使用自定义比较器调用 `slices.SortFunc`，即可按名称长度排序 `fruits`。
 	slices.SortFunc(fruits, lenCmp)
 	fmt.Println(fruits)
 
-	// We can use the same technique to sort a slice of
-	// values that aren't built-in types.
+	// 同样的技巧也适用于非内建类型的切片。
 	type Person struct {
 		name string
 		age  int
@@ -39,12 +34,10 @@ func main() {
 		Person{name: "Alex", age: 72},
 	}
 
-	// Sort `people` by age using `slices.SortFunc`.
+	// 使用 `slices.SortFunc` 按年龄排序 `people`。
 	//
-	// Note: if the `Person` struct is large,
-	// you may want the slice to contain `*Person` instead
-	// and adjust the sorting function accordingly. If in
-	// doubt, [benchmark](testing-and-benchmarking)!
+	// 注意：若 `Person` 结构体较大，切片可存放 `*Person` 来避免拷贝，并相应调整排序函数。
+	// 若不确定影响，可进行[基准测试](testing-and-benchmarking)。
 	slices.SortFunc(people,
 		func(a, b Person) int {
 			return cmp.Compare(a.age, b.age)

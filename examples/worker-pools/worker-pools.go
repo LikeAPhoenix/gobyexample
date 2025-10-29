@@ -1,5 +1,4 @@
-// In this example we'll look at how to implement
-// a _worker pool_ using goroutines and channels.
+// 本示例演示如何使用协程和通道实现工作池。
 
 package main
 
@@ -8,11 +7,9 @@ import (
 	"time"
 )
 
-// Here's the worker, of which we'll run several
-// concurrent instances. These workers will receive
-// work on the `jobs` channel and send the corresponding
-// results on `results`. We'll sleep a second per job to
-// simulate an expensive task.
+// 定义工作协程，我们会同时运行多个实例。
+// 工作协程从 `jobs` 通道接收任务，并把结果发送到 `results`。
+// 通过每个任务睡眠 1 秒来模拟耗时操作。
 func worker(id int, jobs <-chan int, results chan<- int) {
 	for j := range jobs {
 		fmt.Println("worker", id, "started  job", j)
@@ -24,30 +21,24 @@ func worker(id int, jobs <-chan int, results chan<- int) {
 
 func main() {
 
-	// In order to use our pool of workers we need to send
-	// them work and collect their results. We make 2
-	// channels for this.
+	// 要使用工作池，需要将任务发送给它们并收集结果，因此创建两个通道。
 	const numJobs = 5
 	jobs := make(chan int, numJobs)
 	results := make(chan int, numJobs)
 
-	// This starts up 3 workers, initially blocked
-	// because there are no jobs yet.
+	// 启动 3 个工人协程，此时尚未有任务，因此它们会阻塞等待。
 	for w := 1; w <= 3; w++ {
 		go worker(w, jobs, results)
 	}
 
-	// Here we send 5 `jobs` and then `close` that
-	// channel to indicate that's all the work we have.
+	// 发送 5 个任务后关闭通道，表示任务已全部分发。
 	for j := 1; j <= numJobs; j++ {
 		jobs <- j
 	}
 	close(jobs)
 
-	// Finally we collect all the results of the work.
-	// This also ensures that the worker goroutines have
-	// finished. An alternative way to wait for multiple
-	// goroutines is to use a [WaitGroup](waitgroups).
+	// 最后收集所有结果，这也能确保所有工作协程都执行完毕。
+	// 另一种等待多个协程完成的方法是使用 [WaitGroup](waitgroups)。
 	for a := 1; a <= numJobs; a++ {
 		<-results
 	}

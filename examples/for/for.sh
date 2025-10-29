@@ -13,6 +13,4 @@ loop
 3
 5
 
-# We'll see some other `for` forms later when we look at
-# `range` statements, channels, and other data
-# structures.
+# 在了解 `range`、通道以及其他数据结构时，还会见到更多 `for` 的用法。

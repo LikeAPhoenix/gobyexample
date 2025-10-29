@@ -1,20 +1,16 @@
-// [_Variadic functions_](https://en.wikipedia.org/wiki/Variadic_function)
-// can be called with any number of trailing arguments.
-// For example, `fmt.Println` is a common variadic
-// function.
+// [可变参数函数](https://en.wikipedia.org/wiki/Variadic_function) 可以接收任意数量的末尾参数。
+// 例如 `fmt.Println` 就是一种常见的可变参数函数。
 
 package main
 
 import "fmt"
 
-// Here's a function that will take an arbitrary number
-// of `int`s as arguments.
+// 下面的函数可以接收任意数量的 `int` 参数。
 func sum(nums ...int) {
 	fmt.Print(nums, " ")
 	total := 0
-	// Within the function, the type of `nums` is
-	// equivalent to `[]int`. We can call `len(nums)`,
-	// iterate over it with `range`, etc.
+	// 在函数体内部，`nums` 的类型等同于 `[]int`。
+	// 因此可以对它调用 `len(nums)`、使用 `range` 遍历等。
 	for _, num := range nums {
 		total += num
 	}
@@ -23,14 +19,11 @@ func sum(nums ...int) {
 
 func main() {
 
-	// Variadic functions can be called in the usual way
-	// with individual arguments.
+	// 调用可变参数函数时，只需像普通函数那样传入各个参数。
 	sum(1, 2)
 	sum(1, 2, 3)
 
-	// If you already have multiple args in a slice,
-	// apply them to a variadic function using
-	// `func(slice...)` like this.
+	// 如果参数已经存在于切片中，可以通过 `func(slice...)` 的语法展开传入。
 	nums := []int{1, 2, 3, 4}
 	sum(nums...)
 }

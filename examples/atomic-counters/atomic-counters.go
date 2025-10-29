@@ -1,9 +1,5 @@
-// The primary mechanism for managing state in Go is
-// communication over channels. We saw this for example
-// with [worker pools](worker-pools). There are a few other
-// options for managing state though. Here we'll
-// look at using the `sync/atomic` package for _atomic
-// counters_ accessed by multiple goroutines.
+// Go 管理状态的主要方式是通过通道通信，例如[工作池](worker-pools)。
+// 当然也有其他手段，这里介绍如何用 `sync/atomic` 实现多协程访问的原子计数器。
 
 package main
 
@@ -15,30 +11,25 @@ import (
 
 func main() {
 
-	// We'll use an atomic integer type to represent our
-	// (always-positive) counter.
+	// 通过原子整型表示计数器（始终为非负）。
 	var ops atomic.Uint64
 
-	// A WaitGroup will help us wait for all goroutines
-	// to finish their work.
+	// 使用 WaitGroup 等待所有协程结束。
 	var wg sync.WaitGroup
 
-	// We'll start 50 goroutines that each increment the
-	// counter exactly 1000 times.
+	// 启动 50 个协程，每个协程递增计数器 1000 次。
 	for range 50 {
 		wg.Go(func() {
 			for range 1000 {
-				// To atomically increment the counter we use `Add`.
+				// 使用 `Add` 以原子方式递增。
 				ops.Add(1)
 			}
 		})
 	}
 
-	// Wait until all the goroutines are done.
+	// 等待所有协程完成。
 	wg.Wait()
 
-	// Here no goroutines are writing to 'ops', but using
-	// `Load` it's safe to atomically read a value even while
-	// other goroutines are (atomically) updating it.
+	// 此时没有协程再写入 `ops`，但即便并发更新仍在进行，`Load` 也能安全读取当前值。
 	fmt.Println("ops:", ops.Load())
 }

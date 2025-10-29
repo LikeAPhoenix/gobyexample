@@ -1,11 +1,7 @@
-# Running this program will cause it to panic, print
-# an error message and goroutine traces, and exit with
-# a non-zero status.
+# 运行该程序会触发 panic，打印错误信息与 goroutine 调用栈，并以非零状态退出。
 
-# When first panic in `main` fires, the program exits
-# without reaching the rest of the code. If you'd like
-# to see the program try to create a temp file, comment
-# the first panic out.
+# `main` 中首次 panic 发生时，程序立即退出，后续代码不会执行。
+# 若想观察创建临时文件的部分，只需注释掉第一个 panic。
 $ go run panic.go
 panic: a problem
 
@@ -15,6 +11,4 @@ main.main()
 ...
 exit status 2
 
-# Note that unlike some languages which use exceptions
-# for handling of many errors, in Go it is idiomatic
-# to use error-indicating return values wherever possible.
+# 请注意，与某些大量依赖异常处理错误的语言不同，Go 更习惯使用返回值来指示错误。

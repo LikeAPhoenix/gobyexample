@@ -1,11 +1,8 @@
-// Go provides built-in support for [base64
-// encoding/decoding](https://en.wikipedia.org/wiki/Base64).
+// Go 内建支持[Base64 编码与解码](https://en.wikipedia.org/wiki/Base64)。
 
 package main
 
-// This syntax imports the `encoding/base64` package with
-// the `b64` name instead of the default `base64`. It'll
-// save us some space below.
+// 这里将 `encoding/base64` 以 `b64` 别名导入，便于后续代码书写。
 import (
 	b64 "encoding/base64"
 	"fmt"
@@ -13,25 +10,20 @@ import (
 
 func main() {
 
-	// Here's the `string` we'll encode/decode.
+	// 这是待编码/解码的字符串。
 	data := "abc123!?$*&()'-=@~"
 
-	// Go supports both standard and URL-compatible
-	// base64. Here's how to encode using the standard
-	// encoder. The encoder requires a `[]byte` so we
-	// convert our `string` to that type.
+	// Go 同时支持标准和 URL 兼容的 Base64。
+	// 下面使用标准编码器，调用前需将字符串转换为 `[]byte`。
 	sEnc := b64.StdEncoding.EncodeToString([]byte(data))
 	fmt.Println(sEnc)
 
-	// Decoding may return an error, which you can check
-	// if you don't already know the input to be
-	// well-formed.
+	// 解码可能返回错误；若无法确定输入是否合法，记得进行检查。
 	sDec, _ := b64.StdEncoding.DecodeString(sEnc)
 	fmt.Println(string(sDec))
 	fmt.Println()
 
-	// This encodes/decodes using a URL-compatible base64
-	// format.
+	// 接下来使用 URL 兼容的 Base64 格式进行编解码。
 	uEnc := b64.URLEncoding.EncodeToString([]byte(data))
 	fmt.Println(uEnc)
 	uDec, _ := b64.URLEncoding.DecodeString(uEnc)

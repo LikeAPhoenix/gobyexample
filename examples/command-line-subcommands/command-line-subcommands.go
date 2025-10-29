@@ -1,9 +1,6 @@
-// Some command-line tools, like the `go` tool or `git`
-// have many *subcommands*, each with its own set of
-// flags. For example, `go build` and `go get` are two
-// different subcommands of the `go` tool.
-// The `flag` package lets us easily define simple
-// subcommands that have their own flags.
+// 有些命令行工具（如 `go` 或 `git`）拥有多个子命令，每个子命令都有自己的标志。
+// 例如 `go build` 与 `go get` 是 `go` 工具的两个子命令。
+// `flag` 包可以方便地定义带独立标志的子命令。
 
 package main
 
@@ -15,30 +12,25 @@ import (
 
 func main() {
 
-	// We declare a subcommand using the `NewFlagSet`
-	// function, and proceed to define new flags specific
-	// for this subcommand.
+	// 使用 `NewFlagSet` 声明子命令，并为其定义专属标志。
 	fooCmd := flag.NewFlagSet("foo", flag.ExitOnError)
 	fooEnable := fooCmd.Bool("enable", false, "enable")
 	fooName := fooCmd.String("name", "", "name")
 
-	// For a different subcommand we can define different
-	// supported flags.
+	// 其他子命令可以定义不同的标志。
 	barCmd := flag.NewFlagSet("bar", flag.ExitOnError)
 	barLevel := barCmd.Int("level", 0, "level")
 
-	// The subcommand is expected as the first argument
-	// to the program.
+	// 子命令应作为程序的第一个参数。
 	if len(os.Args) < 2 {
 		fmt.Println("expected 'foo' or 'bar' subcommands")
 		os.Exit(1)
 	}
 
-	// Check which subcommand is invoked.
+	// 根据第一个参数判断调用的是哪个子命令。
 	switch os.Args[1] {
 
-	// For every subcommand, we parse its own flags and
-	// have access to trailing positional arguments.
+	// 每个子命令都解析自己的标志，并可获取剩余的位置参数。
 	case "foo":
 		fooCmd.Parse(os.Args[2:])
 		fmt.Println("subcommand 'foo'")

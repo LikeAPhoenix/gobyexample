@@ -1,9 +1,6 @@
-// Sometimes we'd like our Go programs to intelligently
-// handle [Unix signals](https://en.wikipedia.org/wiki/Unix_signal).
-// For example, we might want a server to gracefully
-// shutdown when it receives a `SIGTERM`, or a command-line
-// tool to stop processing input if it receives a `SIGINT`.
-// Here's how to handle signals in Go with channels.
+// 有时需要 Go 程序优雅地处理[Unix 信号](https://en.wikipedia.org/wiki/Unix_signal)。
+// 例如服务器收到 `SIGTERM` 时平滑关闭，命令行工具接收 `SIGINT` 时停止处理输入。
+// 下面演示如何借助通道处理信号。
 
 package main
 
@@ -16,35 +13,26 @@ import (
 
 func main() {
 
-	// Go signal notification works by sending `os.Signal`
-	// values on a channel. We'll create a channel to
-	// receive these notifications. Note that this channel
-	// should be buffered.
+	// Go 的信号通知通过在通道上发送 `os.Signal` 值实现。
+	// 创建一个带缓冲的通道用于接收通知。
 	sigs := make(chan os.Signal, 1)
 
-	// `signal.Notify` registers the given channel to
-	// receive notifications of the specified signals.
+	// `signal.Notify` 会让指定通道接收所列信号。
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
 
-	// We could receive from `sigs` here in the main
-	// function, but let's see how this could also be
-	// done in a separate goroutine, to demonstrate
-	// a more realistic scenario of graceful shutdown.
+	// 虽然可以在 `main` 中直接接收信号，
+	// 这里改在单独协程中处理，更贴近日常的优雅关闭场景。
 	done := make(chan bool, 1)
 
 	go func() {
-		// This goroutine executes a blocking receive for
-		// signals. When it gets one it'll print it out
-		// and then notify the program that it can finish.
+		// 该协程阻塞等待信号，收到后打印并通知主程序可以退出。
 		sig := <-sigs
 		fmt.Println()
 		fmt.Println(sig)
 		done <- true
 	}()
 
-	// The program will wait here until it gets the
-	// expected signal (as indicated by the goroutine
-	// above sending a value on `done`) and then exit.
+	// 主程序在此等待，直到收到协程发来的完成信号，再退出。
 	fmt.Println("awaiting signal")
 	<-done
 	fmt.Println("exiting")

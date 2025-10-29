@@ -1,7 +1,5 @@
-// [Environment variables](https://en.wikipedia.org/wiki/Environment_variable)
-// are a universal mechanism for [conveying configuration
-// information to Unix programs](https://www.12factor.net/config).
-// Let's look at how to set, get, and list environment variables.
+// [环境变量](https://en.wikipedia.org/wiki/Environment_variable) 是向 Unix 程序传递配置的通用机制（参见[十二要素应用](https://www.12factor.net/config)）。
+// 下面演示如何设置、读取与列出环境变量。
 
 package main
 
@@ -13,18 +11,15 @@ import (
 
 func main() {
 
-	// To set a key/value pair, use `os.Setenv`. To get a
-	// value for a key, use `os.Getenv`. This will return
-	// an empty string if the key isn't present in the
-	// environment.
+	// 使用 `os.Setenv` 设置键值对，`os.Getenv` 获取指定键的值。
+	// 如果环境中不存在该键，会返回空字符串。
 	os.Setenv("FOO", "1")
 	fmt.Println("FOO:", os.Getenv("FOO"))
 	fmt.Println("BAR:", os.Getenv("BAR"))
 
-	// Use `os.Environ` to list all key/value pairs in the
-	// environment. This returns a slice of strings in the
-	// form `KEY=value`. You can `strings.SplitN` them to
-	// get the key and value. Here we print all the keys.
+	// `os.Environ` 会返回所有环境变量的列表，以 `KEY=value` 形式组成字符串切片。
+	// 可以用 `strings.SplitN` 拆分键和值。
+	// 此处仅打印所有键。
 	fmt.Println()
 	for _, e := range os.Environ() {
 		pair := strings.SplitN(e, "=", 2)

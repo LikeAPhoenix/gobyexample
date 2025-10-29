@@ -1,7 +1,5 @@
-// In Go, an _array_ is a numbered sequence of elements of a
-// specific length. In typical Go code, [slices](slices) are
-// much more common; arrays are useful in some special
-// scenarios.
+// 在 Go 中，数组是一段具有固定长度的编号元素序列。
+// 在日常 Go 代码中，[切片](slices)更常见，数组则适用于某些特殊场景。
 
 package main
 
@@ -9,41 +7,33 @@ import "fmt"
 
 func main() {
 
-	// Here we create an array `a` that will hold exactly
-	// 5 `int`s. The type of elements and length are both
-	// part of the array's type. By default an array is
-	// zero-valued, which for `int`s means `0`s.
+	// 这里创建了一个能存放 5 个 `int` 的数组 `a`。
+	// 元素类型与长度共同决定数组的类型。
+	// 默认情况下数组使用零值初始化，对 `int` 来说就是 `0`。
 	var a [5]int
 	fmt.Println("emp:", a)
 
-	// We can set a value at an index using the
-	// `array[index] = value` syntax, and get a value with
-	// `array[index]`.
+	// 使用 `array[index] = value` 可以为某个索引赋值，`array[index]` 则用于取值。
 	a[4] = 100
 	fmt.Println("set:", a)
 	fmt.Println("get:", a[4])
 
-	// The builtin `len` returns the length of an array.
+	// 内建函数 `len` 会返回数组长度。
 	fmt.Println("len:", len(a))
 
-	// Use this syntax to declare and initialize an array
-	// in one line.
+	// 使用如下语法可以在一行内声明并初始化数组。
 	b := [5]int{1, 2, 3, 4, 5}
 	fmt.Println("dcl:", b)
 
-	// You can also have the compiler count the number of
-	// elements for you with `...`
+	// 也可以使用 `...` 让编译器推导元素个数。
 	b = [...]int{1, 2, 3, 4, 5}
 	fmt.Println("dcl:", b)
 
-	// If you specify the index with `:`, the elements in
-	// between will be zeroed.
+	// 当通过 `:` 指定索引时，中间未显式赋值的元素会被填充为零值。
 	b = [...]int{100, 3: 400, 500}
 	fmt.Println("idx:", b)
 
-	// Array types are one-dimensional, but you can
-	// compose types to build multi-dimensional data
-	// structures.
+	// 数组类型本身是一维的，但可以组合来构建多维数据结构。
 	var twoD [2][3]int
 	for i := range 2 {
 		for j := range 3 {
@@ -52,8 +42,7 @@ func main() {
 	}
 	fmt.Println("2d: ", twoD)
 
-	// You can create and initialize multi-dimensional
-	// arrays at once too.
+	// 也可以在声明时直接初始化多维数组。
 	twoD = [2][3]int{
 		{1, 2, 3},
 		{1, 2, 3},
