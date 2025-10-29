@@ -45,7 +45,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/NupzAU4_NKf"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/B6XyqZPU9cS"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,7 +76,7 @@
         <tr>
           <td class="docs">
             <p>先创建模板并从字符串解析模板内容。
-模板由静态文本与 <code>{{...}}</code> 包裹的“动作”组成，用于动态插入内容。</p>
+模板由静态文本与 <code>{{...}}</code> 包裹的 action（动作）组成，用于动态插入内容。</p>
 
           </td>
           <td class="code leading">

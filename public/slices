@@ -44,7 +44,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/NLE96jyfDqv"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/zOPg4pOLhd3"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -156,8 +156,8 @@
         
         <tr>
           <td class="docs">
-            <p>slice 支持 <code>slice[low:high]</code> 这样的“slice”操作。
-例如下面截取的就是元素 <code>s[2]</code>、<code>s[3]</code> 和 <code>s[4]</code>。</p>
+            <p>支持使用 slice 操作符 <code>s[low:high]</code> 进行截取。
+例如下面得到的就是元素 <code>s[2]</code>、<code>s[3]</code> 和 <code>s[4]</code>。</p>
 
           </td>
           <td class="code leading">

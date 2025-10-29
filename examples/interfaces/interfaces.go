@@ -47,7 +47,7 @@ func measure(g geometry) {
 }
 
 // 有时需要获知接口值的运行时类型。
-// 可以使用类型断言（如下所示），或使用[type switch](switch)。
+// 可以使用 type assertion（类型断言），或使用 type switch（类型 switch）。
 func detectCircle(g geometry) {
 	if c, ok := g.(circle); ok {
 		fmt.Println("circle with radius", c.radius)

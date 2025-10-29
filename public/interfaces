@@ -44,7 +44,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/PjOK-SDlUSE"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/4cKVaBsSjHW"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -144,7 +144,7 @@
         <tr>
           <td class="docs">
             <p>有时需要获知接口值的运行时类型。
-可以使用类型断言（如下所示），或使用<a href="switch">type switch</a>。</p>
+可以使用 type assertion（类型断言），或使用 type switch（类型 switch）。</p>
 
           </td>
           <td class="code leading">

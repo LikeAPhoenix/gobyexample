@@ -45,7 +45,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/fDd9vcFT6u8"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/2sAcIYscPG8"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -87,7 +87,7 @@
         
         <tr>
           <td class="docs">
-            <p>Go 提供了多种格式化“动词”用于输出不同的值。
+            <p>Go 提供了多种格式化动词（verb）用于输出不同的值。
 例如这里输出 <code>point</code> struct 的一个实例。</p>
 
           </td>

@@ -30,8 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p>channel 默认是无缓冲的，只有在有相应接收者准备好时才会接受发送。
-而缓冲 channel 允许在没有立即接收者的情况下缓存有限数量的值。</p>
+            <p>channel 默认是无缓冲（unbuffered）的，只有在有相应接收者准备好时才会接受发送。
+而缓冲（buffered）channel 允许在没有立即接收者的情况下缓存有限数量的值。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/YGYs2tMTRFS"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/3JJua574DLY"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>

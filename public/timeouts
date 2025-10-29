@@ -30,8 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p>当程序需要访问外部资源或限制执行时间时，超时控制非常重要。
-借助 channel 和 <code>select</code>，在 Go 中实现超时既简单又优雅。</p>
+            <p>当程序需要访问外部资源或限制执行时间时，超时（timeout）控制非常重要。
+借助 channel 和 <code>select</code>，在 Go 中实现 timeout 既简单又优雅。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/g9pbTNdDall"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/TlRz1RMTvN2"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>

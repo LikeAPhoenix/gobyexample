@@ -9,7 +9,7 @@ package main
 
 import "fmt"
 
-// This function panics.
+// 这个函数会触发 panic。
 func mayPanic() {
 	panic("a problem")
 }

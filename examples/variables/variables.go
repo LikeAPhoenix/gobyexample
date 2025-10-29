@@ -18,7 +18,7 @@ func main() {
 	var d = true
 	fmt.Println(d)
 
-	// 未显式初始化的变量会获得“零值”。例如 `int` 的零值是 `0`。
+	// 未显式初始化的变量会获得“零值”（zero value）。例如 `int` 的零值是 `0`。
 	var e int
 	fmt.Println(e)
 

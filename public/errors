@@ -48,7 +48,7 @@ Go 的方式让我们一眼就能看出哪些函数会返回错误，并使用�
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/GoWBb-fLtkh"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/TBtsIylx15k"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -104,7 +104,7 @@ Go 的方式让我们一眼就能看出哪些函数会返回错误，并使用�
         
         <tr>
           <td class="docs">
-            <p>哨兵错误是预先声明的变量，用于表示特定的错误情形。</p>
+            <p>哨兵错误（sentinel error）是预先声明的变量，用于表示特定的错误情形。</p>
 
           </td>
           <td class="code leading">

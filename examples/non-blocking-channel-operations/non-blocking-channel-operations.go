@@ -1,5 +1,5 @@
 // channel 的基本发送与接收都是阻塞的。
-// 不过可以借助带 `default` 分支的 `select` 实现非阻塞的发送、接收，甚至多路选择。
+// 不过可以借助带 `default` 分支的 `select` 实现 non-blocking 的发送/接收，甚至多路选择。
 
 package main
 

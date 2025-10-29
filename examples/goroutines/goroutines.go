@@ -1,4 +1,4 @@
-// goroutine锛坓oroutine锛夋槸 Go 涓交閲忕骇鐨勬墽琛岀嚎绋嬨€?
+// goroutine 是 Go 中轻量级的执行线程。
 
 package main
 
@@ -15,20 +15,20 @@ func f(from string) {
 
 func main() {
 
-	// 鍋囪鎴戜滑鏈変竴涓嚱鏁拌皟鐢?`f(s)`锛屼互涓嬫槸鍚屾璋冪敤鐨勬柟寮忋€?
+	// 假设我们有一次函数调用 `f(s)`，下面是常规的同步调用方式。
 	f("direct")
 
-	// 鑻ユ兂鍦?goroutine 涓皟鐢ㄥ嚱鏁帮紝鍙啓鎴?`go f(s)`銆?
-	// 鏂板垱寤虹殑 goroutine 浼氫笌褰撳墠 goroutine 骞跺彂鎵ц銆?
+	// 若要在 goroutine 中调用该函数，使用 `go f(s)`。
+	// 新创建的 goroutine 会与当前 goroutine 并发执行。
 	go f("goroutine")
 
-	// 涔熷彲浠ュ鍖垮悕鍑芥暟鍚姩 goroutine銆?
+	// 也可以为一次匿名函数调用启动 goroutine。
 	go func(msg string) {
 		fmt.Println(msg)
 	}("going")
 
-	// 鐜板湪涓や釜鍑芥暟璋冪敤閮藉湪鍚勮嚜鐨?goroutine 涓紓姝ヨ繍琛屻€?
-	// 杩欓噷閫氳繃鐫＄湢绛夊緟瀹冧滑缁撴潫锛堟洿绋冲Ε鐨勫仛娉曟槸浣跨敤 [WaitGroup](waitgroups)锛夈€?
+	// 现在这两个函数调用分别在独立的 goroutine 中异步运行。
+	// 这里通过短暂休眠等待它们结束（更稳妥的方式是使用 [WaitGroup](waitgroups)）。
 	time.Sleep(time.Second)
 	fmt.Println("done")
 }

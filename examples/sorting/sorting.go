@@ -10,8 +10,8 @@ import (
 
 func main() {
 
-	// 排序函数是泛型的，适用于任意“可排序”的内建类型。
-	// 可排序类型列表参见 [cmp.Ordered](https://pkg.go.dev/cmp#Ordered)。
+	// 排序函数是泛型的，适用于任意“有序（ordered）”的内建类型。
+	// 有序类型列表参见 [cmp.Ordered](https://pkg.go.dev/cmp#Ordered)。
 	strs := []string{"c", "a", "b"}
 	slices.Sort(strs)
 	fmt.Println("Strings:", strs)

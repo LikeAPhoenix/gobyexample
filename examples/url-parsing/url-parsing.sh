@@ -1,5 +1,4 @@
-# Running our URL parsing program shows all the different
-# pieces that we extracted.
+# 运行这个 URL 解析程序可以看到我们提取出的各个部分。
 $ go run url-parsing.go 
 postgres
 user:pass

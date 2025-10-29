@@ -30,7 +30,7 @@
         
         <tr>
           <td class="docs">
-            <p>程序中常需要获取自<a href="https://en.wikipedia.org/wiki/Unix_time">Unix 纪元</a>以来的秒、毫秒或纳秒数。
+            <p>程序中常需要获取自 <a href="https://en.wikipedia.org/wiki/Unix_time">Unix 纪元（Unix epoch）</a> 以来的秒、毫秒或纳秒数。
 下面演示在 Go 中如何实现。</p>
 
           </td>
@@ -45,7 +45,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/q0AzzHxOJHH"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/jf5AmPrgjjy"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>

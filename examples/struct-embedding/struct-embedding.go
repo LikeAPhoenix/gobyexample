@@ -1,4 +1,4 @@
-// Go 支持 struct 与接口的嵌入，用以表达更加自然的类型组合。
+// Go 支持 struct 与接口的嵌入（embedding），用于表达更加自然的类型组合。
 // 不要将其与 Go 1.16+ 引入的 [`//go:embed`](embed-directive) 混淆，后者用于将文件目录嵌入二进制。
 
 package main

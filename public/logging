@@ -36,7 +36,7 @@
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/sSEQI0K7Rbv"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/wBDA0S7MhQO"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -78,7 +78,7 @@
         
         <tr>
           <td class="docs">
-            <p>直接调用 <code>log.Println</code> 等函数时会使用标准日志器，
+            <p>直接调用 <code>log.Println</code> 等函数时会使用标准 logger（日志器），
 它默认将合理的日志输出到 <code>os.Stderr</code>。
 <code>Fatal*</code>、<code>Panic*</code> 等方法会在记录后终止程序。</p>
 
@@ -91,8 +91,8 @@
         
         <tr>
           <td class="docs">
-            <p>可以通过“标志”修改日志输出格式。
-标准日志器默认启用 <code>log.Ldate</code> 与 <code>log.Ltime</code>，即 <code>log.LstdFlags</code>。
+            <p>可以通过 flags 修改日志输出格式。
+标准 logger 默认启用 <code>log.Ldate</code> 与 <code>log.Ltime</code>，即 <code>log.LstdFlags</code>。
 例如我们可以额外启用微秒级时间戳。</p>
 
           </td>
@@ -130,7 +130,7 @@
         
         <tr>
           <td class="docs">
-            <p>现有日志器（包括标准日志器）也可以通过 <code>SetPrefix</code> 修改前缀。</p>
+            <p>现有 logger（包括标准 logger）也可以通过 <code>SetPrefix</code> 修改前缀（prefix）。</p>
 
           </td>
           <td class="code leading">

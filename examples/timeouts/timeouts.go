@@ -1,5 +1,5 @@
-// 当程序需要访问外部资源或限制执行时间时，超时控制非常重要。
-// 借助 channel 和 `select`，在 Go 中实现超时既简单又优雅。
+// 当程序需要访问外部资源或限制执行时间时，超时（timeout）控制非常重要。
+// 借助 channel 和 `select`，在 Go 中实现 timeout 既简单又优雅。
 
 package main
 

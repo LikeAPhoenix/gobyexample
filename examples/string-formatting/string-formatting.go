@@ -14,7 +14,7 @@ type point struct {
 
 func main() {
 
-	// Go 提供了多种格式化“动词”用于输出不同的值。
+	// Go 提供了多种格式化动词（verb）用于输出不同的值。
 	// 例如这里输出 `point` struct 的一个实例。
 	p := point{1, 2}
 	fmt.Printf("struct1: %v\n", p)

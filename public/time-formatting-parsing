@@ -30,7 +30,7 @@
         
         <tr>
           <td class="docs">
-            <p>Go 通过基于模式的布局支持时间格式化与解析。</p>
+            <p>Go 通过基于模式的 layout（布局）支持时间格式化与解析。</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +44,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/zKddlchQXYg"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/4uPoVor0goA"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -101,9 +101,9 @@
         
         <tr>
           <td class="docs">
-            <p><code>Format</code> 与 <code>Parse</code> 使用示例驱动的布局。
-通常会用 <code>time</code> 包内置常量，但也可以提供自定义布局。
-布局必须基于参考时间 <code>Mon Jan 2 15:04:05 MST 2006</code>，以指示格式模式。
+            <p><code>Format</code> 与 <code>Parse</code> 使用示例驱动的 layout。
+通常会用 <code>time</code> 包内置常量，但也可以提供自定义 layout。
+自定义 layout 必须基于参考时间（reference time）<code>Mon Jan 2 15:04:05 MST 2006</code>，以指示格式模式。
 该示例时间中的年份、小时、星期等必须按示例准确填入。</p>
 
           </td>

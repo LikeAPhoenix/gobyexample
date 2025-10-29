@@ -1,5 +1,5 @@
-// [可变参数函数](https://en.wikipedia.org/wiki/Variadic_function) 可以接收任意数量的末尾参数。
-// 例如 `fmt.Println` 就是一种常见的可变参数函数。
+// variadic function（可变参数函数）可以接收任意数量的末尾参数。
+// 例如 `fmt.Println` 就是一种常见的 variadic function。
 
 package main
 

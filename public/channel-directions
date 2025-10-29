@@ -30,8 +30,19 @@
         
         <tr>
           <td class="docs">
-            <p>将 channel 作为函数参数时，可以指定它只用于发送还是接收。
-这种限定会提升程序的类型安全性。</p>
+            <p>将 channel 作为函数参数时，可以指定它只用于发送还是接收</p>
+
+          </td>
+          <td class="code leading">
+            
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="c1">//（send-only `chan&lt;- T` / receive-only `&lt;-chan T`）。
+</span></span></span></code></pre>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>这种限定会提升程序的类型安全性。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +56,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/U6zLEJfKvR7"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/q4orZYC_M4L"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -62,7 +73,7 @@
         
         <tr>
           <td class="docs">
-            <p><code>ping</code> 只接受用于发送的 channel。
+            <p><code>ping</code> 只接受用于发送的 channel（send-only）。
 若尝试在该 channel 上接收，编译器会报错。</p>
 
           </td>
@@ -76,7 +87,7 @@
         
         <tr>
           <td class="docs">
-            <p><code>pong</code> 函数则接收一个用于读取的 channel <code>pings</code>，以及一个用于发送的 channel <code>pongs</code>。</p>
+            <p><code>pong</code> 接收一个用于读取的 channel <code>pings</code>（receive-only），以及一个用于发送的 channel <code>pongs</code>（send-only）。</p>
 
           </td>
           <td class="code leading">
@@ -134,7 +145,7 @@
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func ping(pings chan\u003C- string, msg string) {\u000A    pings \u003C- msg\u000A}\u000A');codeLines.push('func pong(pings \u003C-chan string, pongs chan\u003C- string) {\u000A    msg :\u003D \u003C-pings\u000A    pongs \u003C- msg\u000A}\u000A');codeLines.push('func main() {\u000A    pings :\u003D make(chan string, 1)\u000A    pongs :\u003D make(chan string, 1)\u000A    ping(pings, \"passed message\")\u000A    pong(pings, pongs)\u000A    fmt.Println(\u003C-pongs)\u000A}\u000A');codeLines.push('');
+      codeLines.push('//（send-only `chan\u003C- T` / receive-only `\u003C-chan T`）。\u000A');codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func ping(pings chan\u003C- string, msg string) {\u000A    pings \u003C- msg\u000A}\u000A');codeLines.push('func pong(pings \u003C-chan string, pongs chan\u003C- string) {\u000A    msg :\u003D \u003C-pings\u000A    pongs \u003C- msg\u000A}\u000A');codeLines.push('func main() {\u000A    pings :\u003D make(chan string, 1)\u000A    pongs :\u003D make(chan string, 1)\u000A    ping(pings, \"passed message\")\u000A    pong(pings, pongs)\u000A    fmt.Println(\u003C-pongs)\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>

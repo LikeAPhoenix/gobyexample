@@ -1,17 +1,18 @@
-// 将 channel 作为函数参数时，可以指定它只用于发送还是接收。
+// 将 channel 作为函数参数时，可以指定它只用于发送还是接收
+//（send-only `chan<- T` / receive-only `<-chan T`）。
 // 这种限定会提升程序的类型安全性。
 
 package main
 
 import "fmt"
 
-// `ping` 只接受用于发送的 channel。
+// `ping` 只接受用于发送的 channel（send-only）。
 // 若尝试在该 channel 上接收，编译器会报错。
 func ping(pings chan<- string, msg string) {
 	pings <- msg
 }
 
-// `pong` 函数则接收一个用于读取的 channel `pings`，以及一个用于发送的 channel `pongs`。
+// `pong` 接收一个用于读取的 channel `pings`（receive-only），以及一个用于发送的 channel `pongs`（send-only）。
 func pong(pings <-chan string, pongs chan<- string) {
 	msg := <-pings
 	pongs <- msg

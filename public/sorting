@@ -45,7 +45,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/3APaEGABtRI"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/WaFRJGvOlQy"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -75,8 +75,8 @@
         
         <tr>
           <td class="docs">
-            <p>排序函数是泛型的，适用于任意“可排序”的内建类型。
-可排序类型列表参见 <a href="https://pkg.go.dev/cmp#Ordered">cmp.Ordered</a>。</p>
+            <p>排序函数是泛型的，适用于任意“有序（ordered）”的内建类型。
+有序类型列表参见 <a href="https://pkg.go.dev/cmp#Ordered">cmp.Ordered</a>。</p>
 
           </td>
           <td class="code leading">

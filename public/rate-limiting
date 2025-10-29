@@ -46,7 +46,7 @@ Go 可以借助 goroutine、channel 与 <a href="tickers">ticker</a> 优雅地�
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/RBN0GuzvIot"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/ozT13ecHQ3-"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -117,8 +117,8 @@ Go 可以借助 goroutine、channel 与 <a href="tickers">ticker</a> 优雅地�
         
         <tr>
           <td class="docs">
-            <p>如果想在总体限流的同时允许短暂爆发，可以给限流器加缓冲。
-<code>burstyLimiter</code> 允许最多 3 个事件的突发。</p>
+            <p>如果想在总体限流的同时允许短暂“突发（burst）”，可以给限流器加缓冲。
+<code>burstyLimiter</code> 允许最多 3 个事件的 burst。</p>
 
           </td>
           <td class="code leading">

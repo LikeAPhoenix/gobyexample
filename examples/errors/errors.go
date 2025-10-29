@@ -22,7 +22,7 @@ func f(arg int) (int, error) {
 	return arg + 3, nil
 }
 
-// 哨兵错误是预先声明的变量，用于表示特定的错误情形。
+// 哨兵错误（sentinel error）是预先声明的变量，用于表示特定的错误情形。
 var ErrOutOfTea = errors.New("no more tea available")
 var ErrPower = errors.New("can't boil water")
 

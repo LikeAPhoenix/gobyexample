@@ -14,13 +14,13 @@ import (
 
 func main() {
 
-	// 直接调用 `log.Println` 等函数时会使用标准日志器，
+	// 直接调用 `log.Println` 等函数时会使用标准 logger（日志器），
 	// 它默认将合理的日志输出到 `os.Stderr`。
 	// `Fatal*`、`Panic*` 等方法会在记录后终止程序。
 	log.Println("standard logger")
 
-	// 可以通过“标志”修改日志输出格式。
-	// 标准日志器默认启用 `log.Ldate` 与 `log.Ltime`，即 `log.LstdFlags`。
+	// 可以通过 flags 修改日志输出格式。
+	// 标准 logger 默认启用 `log.Ldate` 与 `log.Ltime`，即 `log.LstdFlags`。
 	// 例如我们可以额外启用微秒级时间戳。
 	log.SetFlags(log.LstdFlags | log.Lmicroseconds)
 	log.Println("with micro")
@@ -34,7 +34,7 @@ func main() {
 	mylog := log.New(os.Stdout, "my:", log.LstdFlags)
 	mylog.Println("from mylog")
 
-	// 现有日志器（包括标准日志器）也可以通过 `SetPrefix` 修改前缀。
+	// 现有 logger（包括标准 logger）也可以通过 `SetPrefix` 修改前缀（prefix）。
 	mylog.SetPrefix("ohmy:")
 	mylog.Println("from mylog")
 

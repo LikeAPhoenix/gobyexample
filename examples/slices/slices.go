@@ -43,8 +43,8 @@ func main() {
 	copy(c, s)
 	fmt.Println("cpy:", c)
 
-	// slice 支持 `slice[low:high]` 这样的“slice”操作。
-	// 例如下面截取的就是元素 `s[2]`、`s[3]` 和 `s[4]`。
+	// 支持使用 slice 操作符 `s[low:high]` 进行截取。
+	// 例如下面得到的就是元素 `s[2]`、`s[3]` 和 `s[4]`。
 	l := s[2:5]
 	fmt.Println("sl1:", l)
 

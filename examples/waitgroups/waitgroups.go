@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-// This is the function we'll run in every goroutine.
+// 这是每个 goroutine 要执行的任务函数。
 func worker(id int) {
 	fmt.Printf("Worker %d starting\n", id)
 

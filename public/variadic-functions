@@ -30,8 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p><a href="https://en.wikipedia.org/wiki/Variadic_function">可变参数函数</a> 可以接收任意数量的末尾参数。
-例如 <code>fmt.Println</code> 就是一种常见的可变参数函数。</p>
+            <p>variadic function（可变参数函数）可以接收任意数量的末尾参数。
+例如 <code>fmt.Println</code> 就是一种常见的 variadic function。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/WslOjLfhyOi"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/Zmvsep7K635"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>

@@ -28,8 +28,8 @@ func main() {
 		fmt.Println("request", req, time.Now())
 	}
 
-	// 如果想在总体限流的同时允许短暂爆发，可以给限流器加缓冲。
-	// `burstyLimiter` 允许最多 3 个事件的突发。
+	// 如果想在总体限流的同时允许短暂“突发（burst）”，可以给限流器加缓冲。
+	// `burstyLimiter` 允许最多 3 个事件的 burst。
 	burstyLimiter := make(chan time.Time, 3)
 
 	// 预先填满 channel，表示允许的初始突发额度。

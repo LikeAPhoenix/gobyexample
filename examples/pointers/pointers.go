@@ -29,6 +29,6 @@ func main() {
 	zeroptr(&i)
 	fmt.Println("zeroptr:", i)
 
-	// Pointers can be printed too.
+	// 指针本身也可以被打印出来。
 	fmt.Println("pointer:", &i)
 }

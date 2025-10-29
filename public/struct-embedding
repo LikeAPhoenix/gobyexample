@@ -30,7 +30,7 @@
         
         <tr>
           <td class="docs">
-            <p>Go 支持 struct 与接口的嵌入，用以表达更加自然的类型组合。
+            <p>Go 支持 struct 与接口的嵌入（embedding），用于表达更加自然的类型组合。
 不要将其与 Go 1.16+ 引入的 <a href="embed-directive"><code>//go:embed</code></a> 混淆，后者用于将文件目录嵌入二进制。</p>
 
           </td>
@@ -45,7 +45,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/FUZgqtwCqhG"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/oostE4SFpnn"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>

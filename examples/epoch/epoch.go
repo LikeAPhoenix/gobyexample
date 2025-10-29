@@ -1,4 +1,4 @@
-// 程序中常需要获取自[Unix 纪元](https://en.wikipedia.org/wiki/Unix_time)以来的秒、毫秒或纳秒数。
+// 程序中常需要获取自 [Unix 纪元（Unix epoch）](https://en.wikipedia.org/wiki/Unix_time) 以来的秒、毫秒或纳秒数。
 // 下面演示在 Go 中如何实现。
 
 package main

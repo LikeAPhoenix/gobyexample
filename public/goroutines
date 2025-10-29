@@ -30,7 +30,7 @@
         
         <tr>
           <td class="docs">
-            <p>goroutine锛坓oroutine锛夋槸 Go 涓交閲忕骇鐨勬墽琛岀嚎绋嬨€?</p>
+            <p>goroutine 是 Go 中轻量级的执行线程。</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +44,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/gqzsMe_ubFR"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/jeq4xTbTQsZ"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -88,7 +88,7 @@
         
         <tr>
           <td class="docs">
-            <p>鍋囪鎴戜滑鏈変竴涓嚱鏁拌皟鐢?<code>f(s)</code>锛屼互涓嬫槸鍚屾璋冪敤鐨勬柟寮忋€?</p>
+            <p>假设我们有一次函数调用 <code>f(s)</code>，下面是常规的同步调用方式。</p>
 
           </td>
           <td class="code leading">
@@ -99,8 +99,8 @@
         
         <tr>
           <td class="docs">
-            <p>鑻ユ兂鍦?goroutine 涓皟鐢ㄥ嚱鏁帮紝鍙啓鎴?<code>go f(s)</code>銆?
-鏂板垱寤虹殑 goroutine 浼氫笌褰撳墠 goroutine 骞跺彂鎵ц銆?</p>
+            <p>若要在 goroutine 中调用该函数，使用 <code>go f(s)</code>。
+新创建的 goroutine 会与当前 goroutine 并发执行。</p>
 
           </td>
           <td class="code leading">
@@ -111,7 +111,7 @@
         
         <tr>
           <td class="docs">
-            <p>涔熷彲浠ュ鍖垮悕鍑芥暟鍚姩 goroutine銆?</p>
+            <p>也可以为一次匿名函数调用启动 goroutine。</p>
 
           </td>
           <td class="code leading">
@@ -124,8 +124,8 @@
         
         <tr>
           <td class="docs">
-            <p>鐜板湪涓や釜鍑芥暟璋冪敤閮藉湪鍚勮嚜鐨?goroutine 涓紓姝ヨ繍琛屻€?
-杩欓噷閫氳繃鐫＄湢绛夊緟瀹冧滑缁撴潫锛堟洿绋冲Ε鐨勫仛娉曟槸浣跨敤 <a href="waitgroups">WaitGroup</a>锛夈€?</p>
+            <p>现在这两个函数调用分别在独立的 goroutine 中异步运行。
+这里通过短暂休眠等待它们结束（更稳妥的方式是使用 <a href="waitgroups">WaitGroup</a>）。</p>
 
           </td>
           <td class="code">

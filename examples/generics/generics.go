@@ -1,4 +1,4 @@
-// 自 Go 1.18 起，语言新增了泛型（也称类型参数）。
+// 自 Go 1.18 起，语言新增了泛型（generics，也称类型参数 type parameters）。
 
 package main
 
@@ -52,7 +52,7 @@ func (lst *List[T]) AllElements() []T {
 func main() {
 	var s = []string{"foo", "bar", "zoo"}
 
-	// 调用泛型函数时通常可以依赖“类型推断”。
+	// 调用泛型函数时通常可以依赖类型推断（type inference）。
 	// 这里无需显式写出 `S` 和 `E`，编译器会自动推断。
 	fmt.Println("index of zoo:", SlicesIndex(s, "zoo"))
 

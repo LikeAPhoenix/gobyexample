@@ -8,7 +8,7 @@ type rect struct {
 	width, height int
 }
 
-// `area` 方法的接收者类型是 `*rect`。
+// `area` 方法的接收者（receiver）类型是 `*rect`。
 func (r *rect) area() int {
 	return r.width * r.height
 }

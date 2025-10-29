@@ -1,4 +1,4 @@
-// 自 Go 1.23 起，语言支持[迭代器](https://go.dev/blog/range-functions)，
+// 自 Go 1.23 起，语言支持迭代器（[iterators](https://go.dev/blog/range-functions)），
 // 可以对几乎任何东西执行 range 遍历。
 
 package main
