@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Random Numbers</title>
+    <title>Go by Example 示例：Random Numbers</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,15 +24,13 @@
   </script>
   <body>
     <div class="example" id="random-numbers">
-      <h2><a href="./">Go by Example</a>: Random Numbers</h2>
+      <h2><a href="./">Go by Example 示例</a>：Random Numbers</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go&rsquo;s <code>math/rand/v2</code> package provides
-<a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">pseudorandom number</a>
-generation.</p>
+            <p><code>math/rand/v2</code> 包提供<a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">伪随机数</a>生成能力。</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +44,7 @@ generation.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/TkgmNAl8euK"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/9amRNbm0wS0"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,8 +74,7 @@ generation.</p>
         
         <tr>
           <td class="docs">
-            <p>For example, <code>rand.IntN</code> returns a random <code>int</code> n,
-<code>0 &lt;= n &lt; 100</code>.</p>
+            <p>例如 <code>rand.IntN</code> 会返回满足 <code>0 &lt;= n &lt; 100</code> 的随机整数。</p>
 
           </td>
           <td class="code leading">
@@ -90,8 +87,7 @@ generation.</p>
         
         <tr>
           <td class="docs">
-            <p><code>rand.Float64</code> returns a <code>float64</code> <code>f</code>,
-<code>0.0 &lt;= f &lt; 1.0</code>.</p>
+            <p><code>rand.Float64</code> 返回满足 <code>0.0 &lt;= f &lt; 1.0</code> 的 <code>float64</code>。</p>
 
           </td>
           <td class="code leading">
@@ -102,8 +98,7 @@ generation.</p>
         
         <tr>
           <td class="docs">
-            <p>This can be used to generate random floats in
-other ranges, for example <code>5.0 &lt;= f' &lt; 10.0</code>.</p>
+            <p>可以据此生成其他范围内的随机浮点数，例如 <code>5.0 &lt;= f' &lt; 10.0</code>。</p>
 
           </td>
           <td class="code leading">
@@ -116,12 +111,9 @@ other ranges, for example <code>5.0 &lt;= f' &lt; 10.0</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>If you want a known seed, create a new
-<code>rand.Source</code> and pass it into the <code>New</code>
-constructor. <code>NewPCG</code> creates a new
-<a href="https://en.wikipedia.org/wiki/Permuted_congruential_generator">PCG</a>
-source that requires a seed of two <code>uint64</code>
-numbers.</p>
+            <p>如果需要可预期的种子，可以创建新的 <code>rand.Source</code> 并传入 <code>New</code> 构造函数。
+<code>NewPCG</code> 会创建一个新的<a href="https://en.wikipedia.org/wiki/Permuted_congruential_generator">PCG</a> 源，
+需要两个 <code>uint64</code> 作为种子。</p>
 
           </td>
           <td class="code leading">
@@ -155,8 +147,7 @@ numbers.</p>
         
         <tr>
           <td class="docs">
-            <p>Some of the generated numbers may be
-different when you run the sample.</p>
+            <p>每次运行示例时生成的随机数可能不同。</p>
 
           </td>
           <td class="code leading">
@@ -172,9 +163,7 @@ different when you run the sample.</p>
         
         <tr>
           <td class="docs">
-            <p>See the <a href="https://pkg.go.dev/math/rand/v2"><code>math/rand/v2</code></a>
-package docs for references on other random quantities
-that Go can provide.</p>
+            <p>更多随机数相关 API 请查阅 <a href="https://pkg.go.dev/math/rand/v2"><code>math/rand/v2</code></a> 包文档。</p>
 
           </td>
           <td class="code empty">
@@ -187,12 +176,12 @@ that Go can provide.</p>
       
       
       <p class="next">
-        Next example: <a href="number-parsing" rel="next">Number Parsing</a>.
+        下一个示例：<a href="number-parsing" rel="next">Number Parsing</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

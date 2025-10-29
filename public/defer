@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Defer</title>
+    <title>Go by Example 示例：Defer</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,14 @@
   </script>
   <body>
     <div class="example" id="defer">
-      <h2><a href="./">Go by Example</a>: Defer</h2>
+      <h2><a href="./">Go by Example 示例</a>：Defer</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>Defer</em> is used to ensure that a function call is
-performed later in a program&rsquo;s execution, usually for
-purposes of cleanup. <code>defer</code> is often used where e.g.
-<code>ensure</code> and <code>finally</code> would be used in other languages.</p>
+            <p>defer 用于确保某个函数在稍后执行，通常用于清理资源。
+在其他语言中常用的 <code>ensure</code> 或 <code>finally</code>，在 Go 中通常由 <code>defer</code> 承担。</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +45,7 @@ purposes of cleanup. <code>defer</code> is often used where e.g.
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/nhAzhDn_jga"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/rDx72SMyOHt"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -67,9 +65,8 @@ purposes of cleanup. <code>defer</code> is often used where e.g.
         
         <tr>
           <td class="docs">
-            <p>Suppose we wanted to create a file, write to it,
-and then close when we&rsquo;re done. Here&rsquo;s how we could
-do that with <code>defer</code>.</p>
+            <p>假设我们需要先创建文件、写入内容，最后关闭文件。
+可以借助 <code>defer</code> 轻松完成这一流程。</p>
 
           </td>
           <td class="code leading">
@@ -80,11 +77,8 @@ do that with <code>defer</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Immediately after getting a file object with
-<code>createFile</code>, we defer the closing of that file
-with <code>closeFile</code>. This will be executed at the end
-of the enclosing function (<code>main</code>), after
-<code>writeFile</code> has finished.</p>
+            <p>调用 <code>createFile</code> 获取文件对象后，立即通过 <code>defer closeFile</code> 延迟关闭。
+defer 会在当前函数（<code>main</code>）结束时执行，也就是 <code>writeFile</code> 完成之后。</p>
 
           </td>
           <td class="code leading">
@@ -128,8 +122,7 @@ of the enclosing function (<code>main</code>), after
         
         <tr>
           <td class="docs">
-            <p>It&rsquo;s important to check for errors when closing a
-file, even in a deferred function.</p>
+            <p>即便在 defer 中，关闭文件时仍然应该检查错误。</p>
 
           </td>
           <td class="code leading">
@@ -159,8 +152,7 @@ file, even in a deferred function.</p>
         
         <tr>
           <td class="docs">
-            <p>Running the program confirms that the file is closed
-after being written.</p>
+            <p>运行程序可以验证：写入完成后文件被关闭。</p>
 
           </td>
           <td class="code">
@@ -176,12 +168,12 @@ after being written.</p>
       
       
       <p class="next">
-        Next example: <a href="recover" rel="next">Recover</a>.
+        下一个示例：<a href="recover" rel="next">Recover</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

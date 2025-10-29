@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Context</title>
+    <title>Go by Example 示例：Context</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,22 +24,19 @@
   </script>
   <body>
     <div class="example" id="context">
-      <h2><a href="./">Go by Example</a>: Context</h2>
+      <h2><a href="./">Go by Example 示例</a>：Context</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In the previous example we looked at setting up a simple
-<a href="http-server">HTTP server</a>. HTTP servers are useful for
-demonstrating the usage of <code>context.Context</code> for
-controlling cancellation. A <code>Context</code> carries deadlines,
-cancellation signals, and other request-scoped values
-across API boundaries and goroutines.</p>
+            <p>上一示例介绍了如何搭建简单的 <a href="http-server">HTTP 服务器</a>。
+HTTP 服务非常适合展示 <code>context.Context</code> 控制取消的用法。
+<code>Context</code> 可以在跨越 API 边界与 goroutine 时携带截止时间、取消信号以及请求范围内的值。</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/7G1TlQrnbF1"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/Ug1CRBEGOQm"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -70,9 +67,7 @@ across API boundaries and goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>context.Context</code> is created for each request by
-the <code>net/http</code> machinery, and is available with
-the <code>Context()</code> method.</p>
+            <p><code>net/http</code> 会为每个请求创建 <code>context.Context</code>，可通过 <code>Context()</code> 方法获取。</p>
 
           </td>
           <td class="code leading">
@@ -85,11 +80,8 @@ the <code>Context()</code> method.</p>
         
         <tr>
           <td class="docs">
-            <p>Wait for a few seconds before sending a reply to the
-client. This could simulate some work the server is
-doing. While working, keep an eye on the context&rsquo;s
-<code>Done()</code> channel for a signal that we should cancel
-the work and return as soon as possible.</p>
+            <p>在回复客户端前先等待几秒，用以模拟服务器正在处理任务。
+处理过程中需要关注上下文的 <code>Done()</code> channel，一旦收到信号就应尽快取消并返回。</p>
 
           </td>
           <td class="code leading">
@@ -103,9 +95,7 @@ the work and return as soon as possible.</p>
         
         <tr>
           <td class="docs">
-            <p>The context&rsquo;s <code>Err()</code> method returns an error
-that explains why the <code>Done()</code> channel was
-closed.</p>
+            <p><code>Err()</code> 会返回 <code>Done()</code> 关闭的原因。</p>
 
           </td>
           <td class="code leading">
@@ -131,8 +121,7 @@ closed.</p>
         
         <tr>
           <td class="docs">
-            <p>As before, we register our handler on the &ldquo;/hello&rdquo;
-route, and start serving.</p>
+            <p>和之前一样，在 <code>/hello</code> 路由注册处理器并启动服务。</p>
 
           </td>
           <td class="code">
@@ -149,7 +138,7 @@ route, and start serving.</p>
         
         <tr>
           <td class="docs">
-            <p>Run the server in the background.</p>
+            <p>在后台启动服务器。</p>
 
           </td>
           <td class="code leading">
@@ -160,9 +149,7 @@ route, and start serving.</p>
         
         <tr>
           <td class="docs">
-            <p>Simulate a client request to <code>/hello</code>, hitting
-Ctrl+C shortly after starting to signal
-cancellation.</p>
+            <p>模拟客户端请求 <code>/hello</code>，启动后很快按 Ctrl+C 触发取消信号。</p>
 
           </td>
           <td class="code">
@@ -179,12 +166,12 @@ cancellation.</p>
       
       
       <p class="next">
-        Next example: <a href="spawning-processes" rel="next">Spawning Processes</a>.
+        下一个示例：<a href="spawning-processes" rel="next">Spawning Processes</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

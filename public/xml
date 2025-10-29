@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: XML</title>
+    <title>Go by Example 示例：XML</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,13 @@
   </script>
   <body>
     <div class="example" id="xml">
-      <h2><a href="./">Go by Example</a>: XML</h2>
+      <h2><a href="./">Go by Example 示例</a>：XML</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go offers built-in support for XML and XML-like
-formats with the <code>encoding/xml</code> package.</p>
+            <p><code>encoding/xml</code> 包为 XML 及类似格式提供内建支持。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +44,7 @@ formats with the <code>encoding/xml</code> package.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/vsP5mIrNJOG"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/DEAV7N9o9f_e"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -65,13 +64,10 @@ formats with the <code>encoding/xml</code> package.</p>
         
         <tr>
           <td class="docs">
-            <p>Plant will be mapped to XML. Similarly to the
-JSON examples, field tags contain directives for the
-encoder and decoder. Here we use some special features
-of the XML package: the <code>XMLName</code> field name dictates
-the name of the XML element representing this struct;
-<code>id,attr</code> means that the <code>Id</code> field is an XML
-<em>attribute</em> rather than a nested element.</p>
+            <p><code>Plant</code> 结构会 map 到 XML。
+与 JSON 示例类似，字段标签用于指导编解码器。
+这里展示 XML 包的几个特性：字段名 <code>XMLName</code> 指定对应的 XML 元素名称；
+<code>id,attr</code> 表示 <code>Id</code> 字段应作为 XML 属性而非子元素。</p>
 
           </td>
           <td class="code leading">
@@ -112,9 +108,8 @@ the name of the XML element representing this struct;
         
         <tr>
           <td class="docs">
-            <p>Emit XML representing our plant; using
-<code>MarshalIndent</code> to produce a more
-human-readable output.</p>
+            <p>将 struct 编码为 XML。
+使用 <code>MarshalIndent</code> 生成更易读的格式。</p>
 
           </td>
           <td class="code leading">
@@ -126,8 +121,7 @@ human-readable output.</p>
         
         <tr>
           <td class="docs">
-            <p>To add a generic XML header to the output, append
-it explicitly.</p>
+            <p>若想添加通用的 XML 头部，可手动拼接。</p>
 
           </td>
           <td class="code leading">
@@ -138,10 +132,8 @@ it explicitly.</p>
         
         <tr>
           <td class="docs">
-            <p>Use <code>Unmarshal</code> to parse a stream of bytes with XML
-into a data structure. If the XML is malformed or
-cannot be mapped onto Plant, a descriptive error
-will be returned.</p>
+            <p>使用 <code>Unmarshal</code> 将 XML 字节流解析到数据结构。
+如果 XML 不合法或无法 map 到 <code>Plant</code>，会返回具体错误。</p>
 
           </td>
           <td class="code leading">
@@ -167,8 +159,7 @@ will be returned.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>parent&gt;child&gt;plant</code> field tag tells the encoder
-to nest all <code>plant</code>s under <code>&lt;parent&gt;&lt;child&gt;...</code></p>
+            <p>标签 <code>parent&gt;child&gt;plant</code> 指示编码器将所有 <code>plant</code> 节点嵌套在 <code>&lt;parent&gt;&lt;child&gt;...</code> 中。</p>
 
           </td>
           <td class="code leading">
@@ -249,12 +240,12 @@ to nest all <code>plant</code>s under <code>&lt;parent&gt;&lt;child&gt;...</code
       
       
       <p class="next">
-        Next example: <a href="time" rel="next">Time</a>.
+        下一个示例：<a href="time" rel="next">Time</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

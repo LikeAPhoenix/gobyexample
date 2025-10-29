@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Closing Channels</title>
+    <title>Go by Example 示例：Closing Channels</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,15 +24,14 @@
   </script>
   <body>
     <div class="example" id="closing-channels">
-      <h2><a href="./">Go by Example</a>: Closing Channels</h2>
+      <h2><a href="./">Go by Example 示例</a>：Closing Channels</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>Closing</em> a channel indicates that no more values
-will be sent on it. This can be useful to communicate
-completion to the channel&rsquo;s receivers.</p>
+            <p>关闭 channel 意味着不会再有新的值发送到该 channel。
+这通常用于向接收方告知处理完成。</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +45,7 @@ completion to the channel&rsquo;s receivers.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/yZijZHYe22y"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/He90S_16nOF"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -63,10 +62,8 @@ completion to the channel&rsquo;s receivers.</p>
         
         <tr>
           <td class="docs">
-            <p>In this example we&rsquo;ll use a <code>jobs</code> channel to
-communicate work to be done from the <code>main()</code> goroutine
-to a worker goroutine. When we have no more jobs for
-the worker we&rsquo;ll <code>close</code> the <code>jobs</code> channel.</p>
+            <p>本示例使用 <code>jobs</code> channel 把工作从 <code>main()</code> goroutine 传递给工作 goroutine。
+当没有更多任务时，就关闭 <code>jobs</code> channel。</p>
 
           </td>
           <td class="code leading">
@@ -79,13 +76,9 @@ the worker we&rsquo;ll <code>close</code> the <code>jobs</code> channel.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the worker goroutine. It repeatedly receives
-from <code>jobs</code> with <code>j, more := &lt;-jobs</code>. In this
-special 2-value form of receive, the <code>more</code> value
-will be <code>false</code> if <code>jobs</code> has been <code>close</code>d and all
-values in the channel have already been received.
-We use this to notify on <code>done</code> when we&rsquo;ve worked
-all our jobs.</p>
+            <p>工作 goroutine 通过 <code>j, more := &lt;-jobs</code> 持续接收任务。
+在这种双返回值形式中，若 <code>jobs</code> 已关闭且 channel 中没有值，<code>more</code> 会是 <code>false</code>。
+利用这一点，在任务全部完成时通过 <code>done</code> 通知主 goroutine。</p>
 
           </td>
           <td class="code leading">
@@ -107,8 +100,7 @@ all our jobs.</p>
         
         <tr>
           <td class="docs">
-            <p>This sends 3 jobs to the worker over the <code>jobs</code>
-channel, then closes it.</p>
+            <p>向工作 goroutine 发送 3 个任务，然后关闭 channel。</p>
 
           </td>
           <td class="code leading">
@@ -124,9 +116,7 @@ channel, then closes it.</p>
         
         <tr>
           <td class="docs">
-            <p>We await the worker using the
-<a href="channel-synchronization">synchronization</a> approach
-we saw earlier.</p>
+            <p>使用之前的<a href="channel-synchronization">同步</a>技巧等待工作 goroutine 结束。</p>
 
           </td>
           <td class="code leading">
@@ -137,13 +127,9 @@ we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>Reading from a closed channel succeeds immediately,
-returning the zero value of the underlying type.
-The optional second return value is <code>true</code> if the
-value received was delivered by a successful send
-operation to the channel, or <code>false</code> if it was a
-zero value generated because the channel is closed
-and empty.</p>
+            <p>从关闭的 channel 读取会立即成功，并返回元素类型的零值。
+第二个可选返回值为 <code>true</code> 表示读取到的是正常发送的数据；
+为 <code>false</code> 表示由于 channel 已关闭且为空，因此返回零值。</p>
 
           </td>
           <td class="code">
@@ -179,8 +165,7 @@ and empty.</p>
         
         <tr>
           <td class="docs">
-            <p>The idea of closed channels leads naturally to our next
-example: <code>range</code> over channels.</p>
+            <p>关闭 channel 的概念引出了下一个示例：对 channel 使用 <code>range</code> 遍历。</p>
 
           </td>
           <td class="code empty">
@@ -193,12 +178,12 @@ example: <code>range</code> over channels.</p>
       
       
       <p class="next">
-        Next example: <a href="range-over-channels" rel="next">Range over Channels</a>.
+        下一个示例：<a href="range-over-channels" rel="next">Range over Channels</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

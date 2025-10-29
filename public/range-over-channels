@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Range over Channels</title>
+    <title>Go by Example 示例：Range over Channels</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,14 @@
   </script>
   <body>
     <div class="example" id="range-over-channels">
-      <h2><a href="./">Go by Example</a>: Range over Channels</h2>
+      <h2><a href="./">Go by Example 示例</a>：Range over Channels</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In a <a href="range-over-built-in-types">previous</a> example we saw how <code>for</code> and
-<code>range</code> provide iteration over basic data structures.
-We can also use this syntax to iterate over
-values received from a channel.</p>
+            <p>在<a href="range-over-built-in-types">前面的示例</a>中我们看到 <code>for</code>/<code>range</code> 遍历基础数据结构。
+同样可以用它来遍历 channel 中接收到的值。</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +45,7 @@ values received from a channel.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/8vAhX6eX1wy"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/ubhizaqdPsP"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -74,7 +72,7 @@ values received from a channel.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll iterate over 2 values in the <code>queue</code> channel.</p>
+            <p>这里准备遍历 <code>queue</code> channel 中的两个值。</p>
 
           </td>
           <td class="code leading">
@@ -88,10 +86,8 @@ values received from a channel.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>range</code> iterates over each element as it&rsquo;s
-received from <code>queue</code>. Because we <code>close</code>d the
-channel above, the iteration terminates after
-receiving the 2 elements.</p>
+            <p><code>range</code> 会随着 <code>queue</code> 中的值被接收而遍历。
+channel 在上方已关闭，因此接收完两个元素后迭代就结束。</p>
 
           </td>
           <td class="code">
@@ -121,9 +117,7 @@ receiving the 2 elements.</p>
         
         <tr>
           <td class="docs">
-            <p>This example also showed that it&rsquo;s possible to close
-a non-empty channel but still have the remaining
-values be received.</p>
+            <p>本例也说明，即使在 channel 未读空时关闭它，剩余的值仍然可以被接收。</p>
 
           </td>
           <td class="code empty">
@@ -136,12 +130,12 @@ values be received.</p>
       
       
       <p class="next">
-        Next example: <a href="timers" rel="next">Timers</a>.
+        下一个示例：<a href="timers" rel="next">Timers</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

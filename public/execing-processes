@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Exec'ing Processes</title>
+    <title>Go by Example 示例：Exec'ing Processes</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,21 +24,16 @@
   </script>
   <body>
     <div class="example" id="execing-processes">
-      <h2><a href="./">Go by Example</a>: Exec'ing Processes</h2>
+      <h2><a href="./">Go by Example 示例</a>：Exec'ing Processes</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In the previous example we looked at
-<a href="spawning-processes">spawning external processes</a>. We
-do this when we need an external process accessible to
-a running Go process. Sometimes we just want to
-completely replace the current Go process with another
-(perhaps non-Go) one. To do this we&rsquo;ll use Go&rsquo;s
-implementation of the classic
-<a href="https://en.wikipedia.org/wiki/Exec_(operating_system)"><code>exec</code></a>
-function.</p>
+            <p>上一个示例介绍了<a href="spawning-processes">启动外部进程</a>。
+当需要外部进程与 Go 程序同时运行时会这么做。
+有时我们想直接用另一个进程（可能不是 Go 实现）替换当前 Go 进程，
+这时可以使用 Go 对经典 <a href="https://en.wikipedia.org/wiki/Exec_(operating_system)"><code>exec</code></a> 函数的封装。</p>
 
           </td>
           <td class="code empty leading">
@@ -52,7 +47,7 @@ function.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/s9qg7olf1dM"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/pOzpz4p5Xlb"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -83,10 +78,8 @@ function.</p>
         
         <tr>
           <td class="docs">
-            <p>For our example we&rsquo;ll exec <code>ls</code>. Go requires an
-absolute path to the binary we want to execute, so
-we&rsquo;ll use <code>exec.LookPath</code> to find it (probably
-<code>/bin/ls</code>).</p>
+            <p>示例中执行 <code>ls</code>。
+Go 需要目标程序的绝对路径，因此使用 <code>exec.LookPath</code> 查找（通常是 <code>/bin/ls</code>）。</p>
 
           </td>
           <td class="code leading">
@@ -100,10 +93,8 @@ we&rsquo;ll use <code>exec.LookPath</code> to find it (probably
         
         <tr>
           <td class="docs">
-            <p><code>Exec</code> requires arguments in slice form (as
-opposed to one big string). We&rsquo;ll give <code>ls</code> a few
-common arguments. Note that the first argument should
-be the program name.</p>
+            <p><code>Exec</code> 接受 slice 形式的参数（而不是单个字符串）。
+给 <code>ls</code> 几个常见参数，注意第一个参数应为程序名。</p>
 
           </td>
           <td class="code leading">
@@ -114,9 +105,8 @@ be the program name.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Exec</code> also needs a set of <a href="environment-variables">environment variables</a>
-to use. Here we just provide our current
-environment.</p>
+            <p><code>Exec</code> 还需要<a href="environment-variables">环境变量</a>。
+这里直接使用当前进程的环境。</p>
 
           </td>
           <td class="code leading">
@@ -127,11 +117,9 @@ environment.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the actual <code>syscall.Exec</code> call. If this call is
-successful, the execution of our process will end
-here and be replaced by the <code>/bin/ls -a -l -h</code>
-process. If there is an error we&rsquo;ll get a return
-value.</p>
+            <p>下面是真正的 <code>syscall.Exec</code> 调用。
+调用成功后，当前进程会被 <code>/bin/ls -a -l -h</code> 替换，不会再返回。
+若失败则会返回错误。</p>
 
           </td>
           <td class="code">
@@ -150,7 +138,7 @@ value.</p>
         
         <tr>
           <td class="docs">
-            <p>When we run our program it is replaced by <code>ls</code>.</p>
+            <p>运行程序后会被 <code>ls</code> 进程替换。</p>
 
           </td>
           <td class="code leading">
@@ -165,10 +153,8 @@ value.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that Go does not offer a classic Unix <code>fork</code>
-function. Usually this isn&rsquo;t an issue though, since
-starting goroutines, spawning processes, and exec&rsquo;ing
-processes covers most use cases for <code>fork</code>.</p>
+            <p>需要注意，Go 并没有传统的 Unix <code>fork</code>。
+不过通过 goroutine、启动进程以及 <code>exec</code> 足以覆盖大多数 <code>fork</code> 的用例。</p>
 
           </td>
           <td class="code empty">
@@ -181,12 +167,12 @@ processes covers most use cases for <code>fork</code>.</p>
       
       
       <p class="next">
-        Next example: <a href="signals" rel="next">Signals</a>.
+        下一个示例：<a href="signals" rel="next">Signals</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

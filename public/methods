@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Methods</title>
+    <title>Go by Example 示例：Methods</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,13 +24,13 @@
   </script>
   <body>
     <div class="example" id="methods">
-      <h2><a href="./">Go by Example</a>: Methods</h2>
+      <h2><a href="./">Go by Example 示例</a>：Methods</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go supports <em>methods</em> defined on struct types.</p>
+            <p>Go 支持在 struct 类型上定义方法。</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +44,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/4wmDCAydC1e"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/YOsDn3cbRGv"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -73,7 +73,7 @@
         
         <tr>
           <td class="docs">
-            <p>This <code>area</code> method has a <em>receiver type</em> of <code>*rect</code>.</p>
+            <p><code>area</code> 方法的接收者类型是 <code>*rect</code>。</p>
 
           </td>
           <td class="code leading">
@@ -86,8 +86,8 @@
         
         <tr>
           <td class="docs">
-            <p>Methods can be defined for either pointer or value
-receiver types. Here&rsquo;s an example of a value receiver.</p>
+            <p>方法既可以定义在指针接收者上，也可以定义在值接收者上。
+<code>perim</code> 就是值接收者的示例。</p>
 
           </td>
           <td class="code leading">
@@ -111,7 +111,7 @@ receiver types. Here&rsquo;s an example of a value receiver.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we call the 2 methods defined for our struct.</p>
+            <p>调用刚才为 struct 定义的两个方法。</p>
 
           </td>
           <td class="code leading">
@@ -123,11 +123,8 @@ receiver types. Here&rsquo;s an example of a value receiver.</p>
         
         <tr>
           <td class="docs">
-            <p>Go automatically handles conversion between values
-and pointers for method calls. You may want to use
-a pointer receiver type to avoid copying on method
-calls or to allow the method to mutate the
-receiving struct.</p>
+            <p>Go 会在方法调用时自动处理值与指针之间的转换。
+如果希望避免调用时的拷贝，或让方法修改接收者，可以选择指针接收者。</p>
 
           </td>
           <td class="code">
@@ -159,8 +156,7 @@ receiving struct.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at Go&rsquo;s mechanism for grouping and
-naming related sets of methods: interfaces.</p>
+            <p>接下来介绍 Go 用于组织相关方法集合的机制：接口。</p>
 
           </td>
           <td class="code empty">
@@ -173,12 +169,12 @@ naming related sets of methods: interfaces.</p>
       
       
       <p class="next">
-        Next example: <a href="interfaces" rel="next">Interfaces</a>.
+        下一个示例：<a href="interfaces" rel="next">Interfaces</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

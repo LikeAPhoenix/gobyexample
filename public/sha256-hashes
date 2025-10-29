@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: SHA256 Hashes</title>
+    <title>Go by Example 示例：SHA256 Hashes</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,17 +24,15 @@
   </script>
   <body>
     <div class="example" id="sha256-hashes">
-      <h2><a href="./">Go by Example</a>: SHA256 Hashes</h2>
+      <h2><a href="./">Go by Example 示例</a>：SHA256 Hashes</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><a href="https://en.wikipedia.org/wiki/SHA-2"><em>SHA256 hashes</em></a> are
-frequently used to compute short identities for binary
-or text blobs. For example, TLS/SSL certificates use SHA256
-to compute a certificate&rsquo;s signature. Here&rsquo;s how to compute
-SHA256 hashes in Go.</p>
+            <p><a href="https://en.wikipedia.org/wiki/SHA-2">SHA256 哈希</a> 常用于为二进制或文本数据生成短标识。
+例如 TLS/SSL 证书会使用 SHA256 计算签名。
+下面演示如何在 Go 中计算 SHA256。</p>
 
           </td>
           <td class="code empty leading">
@@ -48,15 +46,14 @@ SHA256 hashes in Go.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/IHM1lZVm_Jm"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/8VrHi1eaoOh"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Go implements several hash functions in various
-<code>crypto/*</code> packages.</p>
+            <p>Go 在多个 <code>crypto/*</code> 包中提供各种哈希函数。</p>
 
           </td>
           <td class="code leading">
@@ -81,7 +78,7 @@ SHA256 hashes in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we start with a new hash.</p>
+            <p>从一个新的哈希实例开始。</p>
 
           </td>
           <td class="code leading">
@@ -92,8 +89,7 @@ SHA256 hashes in Go.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Write</code> expects bytes. If you have a string <code>s</code>,
-use <code>[]byte(s)</code> to coerce it to bytes.</p>
+            <p><code>Write</code> 需要字节 slice，若手头是字符串 <code>s</code>，请使用 <code>[]byte(s)</code>。</p>
 
           </td>
           <td class="code leading">
@@ -104,9 +100,8 @@ use <code>[]byte(s)</code> to coerce it to bytes.</p>
         
         <tr>
           <td class="docs">
-            <p>This gets the finalized hash result as a byte
-slice. The argument to <code>Sum</code> can be used to append
-to an existing byte slice: it usually isn&rsquo;t needed.</p>
+            <p><code>Sum</code> 会返回最终哈希结果的字节 slice。
+它的参数可用于在现有 slice 后追加数据，这里传 <code>nil</code> 即可。</p>
 
           </td>
           <td class="code leading">
@@ -133,8 +128,7 @@ to an existing byte slice: it usually isn&rsquo;t needed.</p>
         
         <tr>
           <td class="docs">
-            <p>Running the program computes the hash and prints it in
-a human-readable hex format.</p>
+            <p>运行程序会计算哈希，并以易读的十六进制形式打印结果。</p>
 
           </td>
           <td class="code leading">
@@ -147,10 +141,8 @@ a human-readable hex format.</p>
         
         <tr>
           <td class="docs">
-            <p>You can compute other hashes using a similar pattern to
-the one shown above. For example, to compute
-SHA512 hashes import <code>crypto/sha512</code> and use
-<code>sha512.New()</code>.</p>
+            <p>其他哈希的用法与此类似。
+例如要计算 SHA512，导入 <code>crypto/sha512</code> 并调用 <code>sha512.New()</code>。</p>
 
           </td>
           <td class="code empty leading">
@@ -161,9 +153,7 @@ SHA512 hashes import <code>crypto/sha512</code> and use
         
         <tr>
           <td class="docs">
-            <p>Note that if you need cryptographically secure hashes,
-you should carefully research
-<a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">hash strength</a>!</p>
+            <p>若有密码学安全需求，请务必深入了解<a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">哈希强度</a>。</p>
 
           </td>
           <td class="code empty">
@@ -176,12 +166,12 @@ you should carefully research
       
       
       <p class="next">
-        Next example: <a href="base64-encoding" rel="next">Base64 Encoding</a>.
+        下一个示例：<a href="base64-encoding" rel="next">Base64 Encoding</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

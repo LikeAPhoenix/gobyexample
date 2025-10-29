@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Tickers</title>
+    <title>Go by Example 示例：Tickers</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,17 +24,15 @@
   </script>
   <body>
     <div class="example" id="tickers">
-      <h2><a href="./">Go by Example</a>: Tickers</h2>
+      <h2><a href="./">Go by Example 示例</a>：Tickers</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><a href="timers">Timers</a> are for when you want to do
-something once in the future - <em>tickers</em> are for when
-you want to do something repeatedly at regular
-intervals. Here&rsquo;s an example of a ticker that ticks
-periodically until we stop it.</p>
+            <p><a href="timers">计时器</a> 适用于未来某个时间执行一次，
+而 ticker 用于按固定间隔重复执行。
+下面演示一个周期触发的 ticker，并在稍后停止它。</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +46,7 @@ periodically until we stop it.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/gs6zoJP-Pl9"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/CrM8BKO9kuy"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -78,10 +76,8 @@ periodically until we stop it.</p>
         
         <tr>
           <td class="docs">
-            <p>Tickers use a similar mechanism to timers: a
-channel that is sent values. Here we&rsquo;ll use the
-<code>select</code> builtin on the channel to await the
-values as they arrive every 500ms.</p>
+            <p>ticker 与 timer 的机制类似，都会通过 channel 发送信号。
+这里每 500ms 收到一个值，并使用 <code>select</code> 等待它们。</p>
 
           </td>
           <td class="code leading">
@@ -112,9 +108,9 @@ values as they arrive every 500ms.</p>
         
         <tr>
           <td class="docs">
-            <p>Tickers can be stopped like timers. Once a ticker
-is stopped it won&rsquo;t receive any more values on its
-channel. We&rsquo;ll stop ours after 1600ms.</p>
+            <p>ticker 也可以像 timer 一样停止。
+一旦停止，其 channel 就不会再收到值。
+此处在 1600ms 后停止。</p>
 
           </td>
           <td class="code">
@@ -133,8 +129,7 @@ channel. We&rsquo;ll stop ours after 1600ms.</p>
         
         <tr>
           <td class="docs">
-            <p>When we run this program the ticker should tick 3 times
-before we stop it.</p>
+            <p>运行程序后，ticker 会在被停止前触发 3 次。</p>
 
           </td>
           <td class="code">
@@ -151,12 +146,12 @@ before we stop it.</p>
       
       
       <p class="next">
-        Next example: <a href="worker-pools" rel="next">Worker Pools</a>.
+        下一个示例：<a href="worker-pools" rel="next">Worker Pools</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

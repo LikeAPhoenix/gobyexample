@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: WaitGroups</title>
+    <title>Go by Example 示例：WaitGroups</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,13 @@
   </script>
   <body>
     <div class="example" id="waitgroups">
-      <h2><a href="./">Go by Example</a>: WaitGroups</h2>
+      <h2><a href="./">Go by Example 示例</a>：WaitGroups</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>To wait for multiple goroutines to finish, we can
-use a <em>wait group</em>.</p>
+            <p>若要等待多个 goroutine 完成，可以使用 WaitGroup。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +44,7 @@ use a <em>wait group</em>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/csaELahJTWt"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/AXLrnfeZo9K"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -78,7 +77,7 @@ use a <em>wait group</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>Sleep to simulate an expensive task.</p>
+            <p>通过睡眠模拟耗时任务。</p>
 
           </td>
           <td class="code leading">
@@ -101,9 +100,8 @@ use a <em>wait group</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>This WaitGroup is used to wait for all the
-goroutines launched here to finish. Note: if a WaitGroup is
-explicitly passed into functions, it should be done <em>by pointer</em>.</p>
+            <p>WaitGroup 用于等待这里启动的所有 goroutine 执行完毕。
+注意：如果要把 WaitGroup 传入函数，应该以指针方式传递。</p>
 
           </td>
           <td class="code leading">
@@ -114,7 +112,7 @@ explicitly passed into functions, it should be done <em>by pointer</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>Launch several goroutines using <code>WaitGroup.Go</code></p>
+            <p>使用 <code>WaitGroup.Go</code> 启动多个 goroutine。</p>
 
           </td>
           <td class="code leading">
@@ -129,9 +127,7 @@ explicitly passed into functions, it should be done <em>by pointer</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>Block until all the goroutines started by <code>wg</code> are
-done. A goroutine is done when the function it invokes
-returns.</p>
+            <p>阻塞等待所有 goroutine 结束；当 goroutine 调用的函数返回时，就表示已完成。</p>
 
           </td>
           <td class="code leading">
@@ -142,10 +138,8 @@ returns.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that this approach has no straightforward way
-to propagate errors from workers. For more
-advanced use cases, consider using the
-<a href="https://pkg.go.dev/golang.org/x/sync/errgroup">errgroup package</a>.</p>
+            <p>这种方式无法直接传递工作 goroutine 产生的错误。
+更复杂的场景可考虑使用 <a href="https://pkg.go.dev/golang.org/x/sync/errgroup">errgroup</a>。</p>
 
           </td>
           <td class="code">
@@ -180,8 +174,7 @@ advanced use cases, consider using the
         
         <tr>
           <td class="docs">
-            <p>The order of workers starting up and finishing
-is likely to be different for each invocation.</p>
+            <p>工作者启动和结束的顺序每次运行都可能不同。</p>
 
           </td>
           <td class="code empty">
@@ -194,12 +187,12 @@ is likely to be different for each invocation.</p>
       
       
       <p class="next">
-        Next example: <a href="rate-limiting" rel="next">Rate Limiting</a>.
+        下一个示例：<a href="rate-limiting" rel="next">Rate Limiting</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

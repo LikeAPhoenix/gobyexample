@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Environment Variables</title>
+    <title>Go by Example 示例：Environment Variables</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,14 @@
   </script>
   <body>
     <div class="example" id="environment-variables">
-      <h2><a href="./">Go by Example</a>: Environment Variables</h2>
+      <h2><a href="./">Go by Example 示例</a>：Environment Variables</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><a href="https://en.wikipedia.org/wiki/Environment_variable">Environment variables</a>
-are a universal mechanism for <a href="https://www.12factor.net/config">conveying configuration
-information to Unix programs</a>.
-Let&rsquo;s look at how to set, get, and list environment variables.</p>
+            <p><a href="https://en.wikipedia.org/wiki/Environment_variable">环境变量</a> 是向 Unix 程序传递配置的通用机制（参见<a href="https://www.12factor.net/config">十二要素应用</a>）。
+下面演示如何设置、读取与列出环境变量。</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +45,7 @@ Let&rsquo;s look at how to set, get, and list environment variables.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/2jmwXM264NC"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/rmBGzOyLI2s"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -78,10 +76,8 @@ Let&rsquo;s look at how to set, get, and list environment variables.</p>
         
         <tr>
           <td class="docs">
-            <p>To set a key/value pair, use <code>os.Setenv</code>. To get a
-value for a key, use <code>os.Getenv</code>. This will return
-an empty string if the key isn&rsquo;t present in the
-environment.</p>
+            <p>使用 <code>os.Setenv</code> 设置键值对，<code>os.Getenv</code> 获取指定键的值。
+如果环境中不存在该键，会返回空字符串。</p>
 
           </td>
           <td class="code leading">
@@ -94,10 +90,9 @@ environment.</p>
         
         <tr>
           <td class="docs">
-            <p>Use <code>os.Environ</code> to list all key/value pairs in the
-environment. This returns a slice of strings in the
-form <code>KEY=value</code>. You can <code>strings.SplitN</code> them to
-get the key and value. Here we print all the keys.</p>
+            <p><code>os.Environ</code> 会返回所有环境变量的列表，以 <code>KEY=value</code> 形式组成字符串 slice。
+可以用 <code>strings.SplitN</code> 拆分键和值。
+此处仅打印所有键。</p>
 
           </td>
           <td class="code">
@@ -117,9 +112,7 @@ get the key and value. Here we print all the keys.</p>
         
         <tr>
           <td class="docs">
-            <p>Running the program shows that we pick up the value
-for <code>FOO</code> that we set in the program, but that
-<code>BAR</code> is empty.</p>
+            <p>运行程序可看到在代码中设置的 <code>FOO</code> 已生效，而未设置的 <code>BAR</code> 为空。</p>
 
           </td>
           <td class="code leading">
@@ -132,8 +125,7 @@ for <code>FOO</code> that we set in the program, but that
         
         <tr>
           <td class="docs">
-            <p>The list of keys in the environment will depend on your
-particular machine.</p>
+            <p>列出的环境变量键取决于当前机器。</p>
 
           </td>
           <td class="code leading">
@@ -148,8 +140,7 @@ particular machine.</p>
         
         <tr>
           <td class="docs">
-            <p>If we set <code>BAR</code> in the environment first, the running
-program picks that value up.</p>
+            <p>如果事先在环境中设置 <code>BAR</code>，程序就能读到对应的值。</p>
 
           </td>
           <td class="code">
@@ -165,12 +156,12 @@ program picks that value up.</p>
       
       
       <p class="next">
-        Next example: <a href="logging" rel="next">Logging</a>.
+        下一个示例：<a href="logging" rel="next">Logging</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

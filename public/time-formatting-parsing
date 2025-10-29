@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Time Formatting / Parsing</title>
+    <title>Go by Example 示例：Time Formatting / Parsing</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,13 @@
   </script>
   <body>
     <div class="example" id="time-formatting-parsing">
-      <h2><a href="./">Go by Example</a>: Time Formatting / Parsing</h2>
+      <h2><a href="./">Go by Example 示例</a>：Time Formatting / Parsing</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go supports time formatting and parsing via
-pattern-based layouts.</p>
+            <p>Go 通过基于模式的布局支持时间格式化与解析。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +44,7 @@ pattern-based layouts.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/BoZYtr_2j66"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/zKddlchQXYg"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,9 +75,7 @@ pattern-based layouts.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a basic example of formatting a time
-according to RFC3339, using the corresponding layout
-constant.</p>
+            <p>先根据 RFC3339 布局常量格式化当前时间。</p>
 
           </td>
           <td class="code leading">
@@ -90,7 +87,7 @@ constant.</p>
         
         <tr>
           <td class="docs">
-            <p>Time parsing uses the same layout values as <code>Format</code>.</p>
+            <p>时间解析与 <code>Format</code> 使用相同的布局值。</p>
 
           </td>
           <td class="code leading">
@@ -104,13 +101,10 @@ constant.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Format</code> and <code>Parse</code> use example-based layouts. Usually
-you&rsquo;ll use a constant from <code>time</code> for these layouts, but
-you can also supply custom layouts. Layouts must use the
-reference time <code>Mon Jan 2 15:04:05 MST 2006</code> to show the
-pattern with which to format/parse a given time/string.
-The example time must be exactly as shown: the year 2006,
-15 for the hour, Monday for the day of the week, etc.</p>
+            <p><code>Format</code> 与 <code>Parse</code> 使用示例驱动的布局。
+通常会用 <code>time</code> 包内置常量，但也可以提供自定义布局。
+布局必须基于参考时间 <code>Mon Jan 2 15:04:05 MST 2006</code>，以指示格式模式。
+该示例时间中的年份、小时、星期等必须按示例准确填入。</p>
 
           </td>
           <td class="code leading">
@@ -126,9 +120,7 @@ The example time must be exactly as shown: the year 2006,
         
         <tr>
           <td class="docs">
-            <p>For purely numeric representations you can also
-use standard string formatting with the extracted
-components of the time value.</p>
+            <p>如果需要纯数字表示，也可以取出各组件后使用常规字符串格式化。</p>
 
           </td>
           <td class="code leading">
@@ -141,8 +133,7 @@ components of the time value.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Parse</code> will return an error on malformed input
-explaining the parsing problem.</p>
+            <p><code>Parse</code> 在输入格式不正确时会返回错误，说明解析失败的原因。</p>
 
           </td>
           <td class="code">
@@ -180,12 +171,12 @@ explaining the parsing problem.</p>
       
       
       <p class="next">
-        Next example: <a href="random-numbers" rel="next">Random Numbers</a>.
+        下一个示例：<a href="random-numbers" rel="next">Random Numbers</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

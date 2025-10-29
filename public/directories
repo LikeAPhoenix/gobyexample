@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Directories</title>
+    <title>Go by Example 示例：Directories</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,13 @@
   </script>
   <body>
     <div class="example" id="directories">
-      <h2><a href="./">Go by Example</a>: Directories</h2>
+      <h2><a href="./">Go by Example 示例</a>：Directories</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go has several useful functions for working with
-<em>directories</em> in the file system.</p>
+            <p>Go 提供了许多用于操作文件系统目录的实用函数。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +44,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/ORNj2BPrLQr"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/qu1I2YJtMvy"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -91,8 +90,7 @@
         
         <tr>
           <td class="docs">
-            <p>Create a new sub-directory in the current working
-directory.</p>
+            <p>在当前工作目录下创建一个子目录。</p>
 
           </td>
           <td class="code leading">
@@ -104,10 +102,8 @@ directory.</p>
         
         <tr>
           <td class="docs">
-            <p>When creating temporary directories, it&rsquo;s good
-practice to <code>defer</code> their removal. <code>os.RemoveAll</code>
-will delete a whole directory tree (similarly to
-<code>rm -rf</code>).</p>
+            <p>创建临时目录时，最好使用 <code>defer</code> 延迟删除。
+<code>os.RemoveAll</code> 会删除整个目录树，类似于 <code>rm -rf</code>。</p>
 
           </td>
           <td class="code leading">
@@ -118,7 +114,7 @@ will delete a whole directory tree (similarly to
         
         <tr>
           <td class="docs">
-            <p>Helper function to create a new empty file.</p>
+            <p>助手函数：创建空文件。</p>
 
           </td>
           <td class="code leading">
@@ -142,9 +138,7 @@ will delete a whole directory tree (similarly to
         
         <tr>
           <td class="docs">
-            <p>We can create a hierarchy of directories, including
-parents with <code>MkdirAll</code>. This is similar to the
-command-line <code>mkdir -p</code>.</p>
+            <p>使用 <code>MkdirAll</code> 可以一次创建多级目录（包含父级），类似命令行的 <code>mkdir -p</code>。</p>
 
           </td>
           <td class="code leading">
@@ -168,8 +162,7 @@ command-line <code>mkdir -p</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>ReadDir</code> lists directory contents, returning a
-slice of <code>os.DirEntry</code> objects.</p>
+            <p><code>ReadDir</code> 会列出目录内容，返回 <code>os.DirEntry</code> slice。</p>
 
           </td>
           <td class="code leading">
@@ -194,8 +187,7 @@ slice of <code>os.DirEntry</code> objects.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Chdir</code> lets us change the current working directory,
-similarly to <code>cd</code>.</p>
+            <p><code>Chdir</code> 用于切换当前工作目录，等同于 <code>cd</code>。</p>
 
           </td>
           <td class="code leading">
@@ -207,8 +199,7 @@ similarly to <code>cd</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Now we&rsquo;ll see the contents of <code>subdir/parent/child</code>
-when listing the <em>current</em> directory.</p>
+            <p>现在列出当前目录时，看到的是 <code>subdir/parent/child</code> 的内容。</p>
 
           </td>
           <td class="code leading">
@@ -233,7 +224,7 @@ when listing the <em>current</em> directory.</p>
         
         <tr>
           <td class="docs">
-            <p><code>cd</code> back to where we started.</p>
+            <p>切回初始目录。</p>
 
           </td>
           <td class="code leading">
@@ -245,10 +236,8 @@ when listing the <em>current</em> directory.</p>
         
         <tr>
           <td class="docs">
-            <p>We can also visit a directory <em>recursively</em>,
-including all its sub-directories. <code>WalkDir</code> accepts
-a callback function to handle every file or
-directory visited.</p>
+            <p>还可以递归遍历目录及全部子目录。
+<code>WalkDir</code> 接受回调，对每个文件或目录执行处理。</p>
 
           </td>
           <td class="code leading">
@@ -261,8 +250,7 @@ directory visited.</p>
         
         <tr>
           <td class="docs">
-            <p><code>visit</code> is called for every file or directory found
-recursively by <code>filepath.WalkDir</code>.</p>
+            <p><code>visit</code> 会被 <code>filepath.WalkDir</code> 对每个遍历到的文件或目录调用。</p>
 
           </td>
           <td class="code">
@@ -283,7 +271,8 @@ recursively by <code>filepath.WalkDir</code>.</p>
         
         <tr>
           <td class="docs">
-            
+            <p>运行程序，将展示目录遍历的结果。</p>
+
           </td>
           <td class="code">
             
@@ -309,12 +298,12 @@ recursively by <code>filepath.WalkDir</code>.</p>
       
       
       <p class="next">
-        Next example: <a href="temporary-files-and-directories" rel="next">Temporary Files and Directories</a>.
+        下一个示例：<a href="temporary-files-and-directories" rel="next">Temporary Files and Directories</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

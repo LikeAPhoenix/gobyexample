@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Text Templates</title>
+    <title>Go by Example 示例：Text Templates</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,14 @@
   </script>
   <body>
     <div class="example" id="text-templates">
-      <h2><a href="./">Go by Example</a>: Text Templates</h2>
+      <h2><a href="./">Go by Example 示例</a>：Text Templates</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go offers built-in support for creating dynamic content or showing customized
-output to the user with the <code>text/template</code> package. A sibling package
-named <code>html/template</code> provides the same API but has additional security
-features and should be used for generating HTML.</p>
+            <p><code>text/template</code> 包提供生成动态内容或自定义输出的能力。
+同名的 <code>html/template</code> 具有相同 API 并增加安全特性，适用于生成 HTML。</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +45,7 @@ features and should be used for generating HTML.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/pDwkw1iMACF"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/NupzAU4_NKf"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -77,10 +75,8 @@ features and should be used for generating HTML.</p>
         
         <tr>
           <td class="docs">
-            <p>We can create a new template and parse its body from
-a string.
-Templates are a mix of static text and &ldquo;actions&rdquo; enclosed in
-<code>{{...}}</code> that are used to dynamically insert content.</p>
+            <p>先创建模板并从字符串解析模板内容。
+模板由静态文本与 <code>{{...}}</code> 包裹的“动作”组成，用于动态插入内容。</p>
 
           </td>
           <td class="code leading">
@@ -95,9 +91,8 @@ Templates are a mix of static text and &ldquo;actions&rdquo; enclosed in
         
         <tr>
           <td class="docs">
-            <p>Alternatively, we can use the <code>template.Must</code> function to
-panic in case <code>Parse</code> returns an error. This is especially
-useful for templates initialized in the global scope.</p>
+            <p>也可以使用 <code>template.Must</code>，在 <code>Parse</code> 出错时 panic。
+这对在全局作用域初始化模板特别方便。</p>
 
           </td>
           <td class="code leading">
@@ -108,9 +103,8 @@ useful for templates initialized in the global scope.</p>
         
         <tr>
           <td class="docs">
-            <p>By &ldquo;executing&rdquo; the template we generate its text with
-specific values for its actions. The <code>{{.}}</code> action is
-replaced by the value passed as a parameter to <code>Execute</code>.</p>
+            <p>执行模板时会将动作替换为指定值。
+<code>{{.}}</code> 会被 <code>Execute</code> 的参数替代。</p>
 
           </td>
           <td class="code leading">
@@ -128,7 +122,7 @@ replaced by the value passed as a parameter to <code>Execute</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Helper function we&rsquo;ll use below.</p>
+            <p>辅助函数，便于后续创建模板。</p>
 
           </td>
           <td class="code leading">
@@ -141,9 +135,8 @@ replaced by the value passed as a parameter to <code>Execute</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>If the data is a struct we can use the <code>{{.FieldName}}</code> action to access
-its fields. The fields should be exported to be accessible when a
-template is executing.</p>
+            <p>若传入 struct，可通过 <code>{{.FieldName}}</code> 访问字段。
+要在模板中访问字段，struct 字段必须导出。</p>
 
           </td>
           <td class="code leading">
@@ -166,8 +159,7 @@ template is executing.</p>
         
         <tr>
           <td class="docs">
-            <p>The same applies to maps; with maps there is no restriction on the
-case of key names.</p>
+            <p>map 也适用同样的规则，对键名大小写没有限制。</p>
 
           </td>
           <td class="code leading">
@@ -180,11 +172,9 @@ case of key names.</p>
         
         <tr>
           <td class="docs">
-            <p>if/else provide conditional execution for templates. A value is considered
-false if it&rsquo;s the default value of a type, such as 0, an empty string,
-nil pointer, etc.
-This sample demonstrates another
-feature of templates: using <code>-</code> in actions to trim whitespace.</p>
+            <p><code>if/else</code> 实现条件判断。
+当值为类型的零值（如 0、空字符串、nil 指针等）时视为 false。
+此处还演示使用动作中的 <code>-</code> 去除空白。</p>
 
           </td>
           <td class="code leading">
@@ -198,8 +188,8 @@ feature of templates: using <code>-</code> in actions to trim whitespace.</p>
         
         <tr>
           <td class="docs">
-            <p>range blocks let us loop through slices, arrays, maps or channels. Inside
-the range block <code>{{.}}</code> is set to the current item of the iteration.</p>
+            <p><code>range</code> 可遍历 slice、数组、map 或 channel。
+在 <code>range</code> 块内，<code>{{.}}</code> 表示当前元素。</p>
 
           </td>
           <td class="code">
@@ -243,12 +233,12 @@ the range block <code>{{.}}</code> is set to the current item of the iteration.<
       
       
       <p class="next">
-        Next example: <a href="regular-expressions" rel="next">Regular Expressions</a>.
+        下一个示例：<a href="regular-expressions" rel="next">Regular Expressions</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

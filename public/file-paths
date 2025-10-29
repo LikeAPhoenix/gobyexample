@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: File Paths</title>
+    <title>Go by Example 示例：File Paths</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,20 +24,18 @@
   </script>
   <body>
     <div class="example" id="file-paths">
-      <h2><a href="./">Go by Example</a>: File Paths</h2>
+      <h2><a href="./">Go by Example 示例</a>：File Paths</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>The <code>filepath</code> package provides functions to parse
-and construct <em>file paths</em> in a way that is portable
-between operating systems; <code>dir/file</code> on Linux vs.
-<code>dir\file</code> on Windows, for example.</p>
+            <p><code>filepath</code> 包提供了解析与构建文件路径的函数，具备跨操作系统的可移植性。
+例如在 Linux 上是 <code>dir/file</code>，而 Windows 上是 <code>dir\file</code>。</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/5h3lUytvmyO"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/tL5sKc7rjAD"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -68,9 +66,8 @@ between operating systems; <code>dir/file</code> on Linux vs.
         
         <tr>
           <td class="docs">
-            <p><code>Join</code> should be used to construct paths in a
-portable way. It takes any number of arguments
-and constructs a hierarchical path from them.</p>
+            <p>使用 <code>Join</code> 以可移植方式构建路径。
+它接受任意数量的参数并拼接成层级路径。</p>
 
           </td>
           <td class="code leading">
@@ -82,11 +79,8 @@ and constructs a hierarchical path from them.</p>
         
         <tr>
           <td class="docs">
-            <p>You should always use <code>Join</code> instead of
-concatenating <code>/</code>s or <code>\</code>s manually. In addition
-to providing portability, <code>Join</code> will also
-normalize paths by removing superfluous separators
-and directory changes.</p>
+            <p>应始终使用 <code>Join</code>，而非手动拼接 <code>/</code> 或 <code>\</code>。
+除了可移植，<code>Join</code> 还会通过移除多余分隔符、目录变更来规范路径。</p>
 
           </td>
           <td class="code leading">
@@ -98,9 +92,8 @@ and directory changes.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Dir</code> and <code>Base</code> can be used to split a path to the
-directory and the file. Alternatively, <code>Split</code> will
-return both in the same call.</p>
+            <p><code>Dir</code> 与 <code>Base</code> 可将路径拆分为目录与文件。
+或者使用 <code>Split</code> 一次返回两者。</p>
 
           </td>
           <td class="code leading">
@@ -112,7 +105,7 @@ return both in the same call.</p>
         
         <tr>
           <td class="docs">
-            <p>We can check whether a path is absolute.</p>
+            <p>判断路径是否为绝对路径。</p>
 
           </td>
           <td class="code leading">
@@ -134,8 +127,7 @@ return both in the same call.</p>
         
         <tr>
           <td class="docs">
-            <p>Some file names have extensions following a dot. We
-can split the extension out of such names with <code>Ext</code>.</p>
+            <p>某些文件名带扩展名，可通过 <code>Ext</code> 拆分出来。</p>
 
           </td>
           <td class="code leading">
@@ -147,8 +139,7 @@ can split the extension out of such names with <code>Ext</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>To find the file&rsquo;s name with the extension removed,
-use <code>strings.TrimSuffix</code>.</p>
+            <p>若要去除扩展名，可使用 <code>strings.TrimSuffix</code>。</p>
 
           </td>
           <td class="code leading">
@@ -159,9 +150,8 @@ use <code>strings.TrimSuffix</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Rel</code> finds a relative path between a <em>base</em> and a
-<em>target</em>. It returns an error if the target cannot
-be made relative to base.</p>
+            <p><code>Rel</code> 用于求解基准路径与目标路径之间的相对路径。
+若无法表示相对关系则返回错误。</p>
 
           </td>
           <td class="code leading">
@@ -218,12 +208,12 @@ be made relative to base.</p>
       
       
       <p class="next">
-        Next example: <a href="directories" rel="next">Directories</a>.
+        下一个示例：<a href="directories" rel="next">Directories</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

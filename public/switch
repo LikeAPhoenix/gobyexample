@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Switch</title>
+    <title>Go by Example 示例：Switch</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,13 @@
   </script>
   <body>
     <div class="example" id="switch">
-      <h2><a href="./">Go by Example</a>: Switch</h2>
+      <h2><a href="./">Go by Example 示例</a>：Switch</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>Switch statements</em> express conditionals across many
-branches.</p>
+            <p><code>switch</code> 语句可表达多分支条件逻辑。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +44,7 @@ branches.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/qVDqWoUQ6AI"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/3LWM5rqT5gD"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -75,7 +74,7 @@ branches.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a basic <code>switch</code>.</p>
+            <p>先看一个基础的 <code>switch</code>。</p>
 
           </td>
           <td class="code leading">
@@ -95,9 +94,8 @@ branches.</p>
         
         <tr>
           <td class="docs">
-            <p>You can use commas to separate multiple expressions
-in the same <code>case</code> statement. We use the optional
-<code>default</code> case in this example as well.</p>
+            <p>在同一个 <code>case</code> 中可以用逗号分隔多个表达式。
+此外示例中还演示了可选的 <code>default</code> 分支。</p>
 
           </td>
           <td class="code leading">
@@ -113,9 +111,8 @@ in the same <code>case</code> statement. We use the optional
         
         <tr>
           <td class="docs">
-            <p><code>switch</code> without an expression is an alternate way
-to express if/else logic. Here we also show how the
-<code>case</code> expressions can be non-constants.</p>
+            <p>省略表达式的 <code>switch</code> 是 <code>if/else</code> 的另一种写法。
+同时也展示了 <code>case</code> 中的表达式可以不是常量。</p>
 
           </td>
           <td class="code leading">
@@ -132,10 +129,8 @@ to express if/else logic. Here we also show how the
         
         <tr>
           <td class="docs">
-            <p>A type <code>switch</code> compares types instead of values.  You
-can use this to discover the type of an interface
-value.  In this example, the variable <code>t</code> will have the
-type corresponding to its clause.</p>
+            <p>类型 <code>switch</code> 比较的是类型而非值，可用来判断接口值的具体类型。
+在这个例子里，变量 <code>t</code> 会被推断为匹配分支对应的类型。</p>
 
           </td>
           <td class="code">
@@ -181,12 +176,12 @@ type corresponding to its clause.</p>
       
       
       <p class="next">
-        Next example: <a href="arrays" rel="next">Arrays</a>.
+        下一个示例：<a href="arrays" rel="next">Arrays</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

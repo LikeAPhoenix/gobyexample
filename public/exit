@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Exit</title>
+    <title>Go by Example 示例：Exit</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -20,14 +20,13 @@
   </script>
   <body>
     <div class="example" id="exit">
-      <h2><a href="./">Go by Example</a>: Exit</h2>
+      <h2><a href="./">Go by Example 示例</a>：Exit</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Use <code>os.Exit</code> to immediately exit with a given
-status.</p>
+            <p>使用 <code>os.Exit</code> 立即以指定状态码退出。</p>
 
           </td>
           <td class="code empty leading">
@@ -41,7 +40,7 @@ status.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/b9aYzlENkb__R"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/sj3QTXozbzl"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -71,8 +70,7 @@ status.</p>
         
         <tr>
           <td class="docs">
-            <p><code>defer</code>s will <em>not</em> be run when using <code>os.Exit</code>, so
-this <code>fmt.Println</code> will never be called.</p>
+            <p>调用 <code>os.Exit</code> 时不会执行 <code>defer</code>，所以这行 <code>fmt.Println</code> 不会被调用。</p>
 
           </td>
           <td class="code leading">
@@ -83,7 +81,7 @@ this <code>fmt.Println</code> will never be called.</p>
         
         <tr>
           <td class="docs">
-            <p>Exit with status 3.</p>
+            <p>以状态码 3 退出。</p>
 
           </td>
           <td class="code leading">
@@ -95,10 +93,8 @@ this <code>fmt.Println</code> will never be called.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that unlike e.g. C, Go does not use an integer
-return value from <code>main</code> to indicate exit status. If
-you&rsquo;d like to exit with a non-zero status you should
-use <code>os.Exit</code>.</p>
+            <p>注意 Go 与 C 等语言不同，<code>main</code> 的返回值不是退出码。
+如果需要非零退出码，应调用 <code>os.Exit</code>。</p>
 
           </td>
           <td class="code empty">
@@ -113,8 +109,7 @@ use <code>os.Exit</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>If you run <code>exit.go</code> using <code>go run</code>, the exit
-will be picked up by <code>go</code> and printed.</p>
+            <p>使用 <code>go run</code> 执行时，<code>go</code> 工具会捕获并打印退出状态。</p>
 
           </td>
           <td class="code leading">
@@ -126,8 +121,7 @@ will be picked up by <code>go</code> and printed.</p>
         
         <tr>
           <td class="docs">
-            <p>By building and executing a binary you can see
-the status in the terminal.</p>
+            <p>若编译后直接运行可执行文件，可以在终端看到退出码。</p>
 
           </td>
           <td class="code leading">
@@ -141,7 +135,7 @@ the status in the terminal.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that the <code>!</code> from our program never got printed.</p>
+            <p>注意程序中的 <code>!</code> 从未打印出来。</p>
 
           </td>
           <td class="code empty">
@@ -155,7 +149,7 @@ the status in the terminal.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Errors</title>
+    <title>Go by Example 示例：Errors</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,24 +24,17 @@
   </script>
   <body>
     <div class="example" id="errors">
-      <h2><a href="./">Go by Example</a>: Errors</h2>
+      <h2><a href="./">Go by Example 示例</a>：Errors</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In Go it&rsquo;s idiomatic to communicate errors via an
-explicit, separate return value. This contrasts with
-the exceptions used in languages like Java, Python and
-Ruby and the overloaded single result / error value
-sometimes used in C. Go&rsquo;s approach makes it easy to
-see which functions return errors and to handle them
-using the same language constructs employed for other,
-non-error tasks.</p>
+            <p>Go 惯用通过单独的返回值来传递错误。
+这与 Java、Python、Ruby 等语言中的异常或 C 语言里复合返回值的做法不同。
+Go 的方式让我们一眼就能看出哪些函数会返回错误，并使用相同的语言结构处理错误与其他逻辑。</p>
 
-<p>See the documentation of the <a href="https://pkg.go.dev/errors">errors package</a>
-and <a href="https://go.dev/blog/go1.13-errors">this blog post</a> for additional
-details.</p>
+<p>想了解更多细节，可参阅 <a href="https://pkg.go.dev/errors">errors 包文档</a>以及<a href="https://go.dev/blog/go1.13-errors">这篇博文</a>。</p>
 
           </td>
           <td class="code empty leading">
@@ -55,7 +48,7 @@ details.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/H-SmHpaHY3v"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/GoWBb-fLtkh"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -75,8 +68,7 @@ details.</p>
         
         <tr>
           <td class="docs">
-            <p>By convention, errors are the last return value and
-have type <code>error</code>, a built-in interface.</p>
+            <p>约定上，错误是函数的最后一个返回值，类型为内建接口 <code>error</code>。</p>
 
           </td>
           <td class="code leading">
@@ -88,8 +80,7 @@ have type <code>error</code>, a built-in interface.</p>
         
         <tr>
           <td class="docs">
-            <p><code>errors.New</code> constructs a basic <code>error</code> value
-with the given error message.</p>
+            <p><code>errors.New</code> 会根据给定消息构造一个基础错误值。</p>
 
           </td>
           <td class="code leading">
@@ -101,8 +92,7 @@ with the given error message.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>nil</code> value in the error position indicates that
-there was no error.</p>
+            <p>当错误位置返回 <code>nil</code> 时表示没有发生错误。</p>
 
           </td>
           <td class="code leading">
@@ -114,8 +104,7 @@ there was no error.</p>
         
         <tr>
           <td class="docs">
-            <p>A sentinel error is a predeclared variable that is used to
-signify a specific error condition.</p>
+            <p>哨兵错误是预先声明的变量，用于表示特定的错误情形。</p>
 
           </td>
           <td class="code leading">
@@ -140,12 +129,9 @@ signify a specific error condition.</p>
         
         <tr>
           <td class="docs">
-            <p>We can wrap errors with higher-level errors to add
-context. The simplest way to do this is with the
-<code>%w</code> verb in <code>fmt.Errorf</code>. Wrapped errors
-create a logical chain (A wraps B, which wraps C, etc.)
-that can be queried with functions like <code>errors.Is</code>
-and <code>errors.As</code>.</p>
+            <p>可以把底层错误包装在更高层的错误里，以补充上下文。
+最简单的方式是在 <code>fmt.Errorf</code> 中使用 <code>%w</code> 动词。
+被包装的错误形成一条链，可用 <code>errors.Is</code>、<code>errors.As</code> 查询。</p>
 
           </td>
           <td class="code leading">
@@ -170,8 +156,7 @@ and <code>errors.As</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>It&rsquo;s idiomatic to use an inline error check in the <code>if</code>
-line.</p>
+            <p>惯用写法是在 <code>if</code> 语句行内就完成错误检查。</p>
 
           </td>
           <td class="code leading">
@@ -198,10 +183,8 @@ line.</p>
         
         <tr>
           <td class="docs">
-            <p><code>errors.Is</code> checks that a given error (or any error in its chain)
-matches a specific error value. This is especially useful with wrapped or
-nested errors, allowing you to identify specific error types or sentinel
-errors in a chain of errors.</p>
+            <p><code>errors.Is</code> 会检查错误（或其链上的任何错误）是否与指定错误值匹配。
+对于嵌套或包装的错误非常实用，可识别特定类型或哨兵错误。</p>
 
           </td>
           <td class="code leading">
@@ -255,12 +238,12 @@ errors in a chain of errors.</p>
       
       
       <p class="next">
-        Next example: <a href="custom-errors" rel="next">Custom Errors</a>.
+        下一个示例：<a href="custom-errors" rel="next">Custom Errors</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

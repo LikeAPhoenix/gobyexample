@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Spawning Processes</title>
+    <title>Go by Example 示例：Spawning Processes</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,13 @@
   </script>
   <body>
     <div class="example" id="spawning-processes">
-      <h2><a href="./">Go by Example</a>: Spawning Processes</h2>
+      <h2><a href="./">Go by Example 示例</a>：Spawning Processes</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Sometimes our Go programs need to spawn other
-processes.</p>
+            <p>有时 Go 程序需要启动其他进程。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +44,7 @@ processes.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/bFqSoJG9bKR"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/2jgw-SxsHsG"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -77,10 +76,8 @@ processes.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll start with a simple command that takes no
-arguments or input and just prints something to
-stdout. The <code>exec.Command</code> helper creates an object
-to represent this external process.</p>
+            <p>先从一个简单命令开始，不带参数也无需输入，仅向标准输出打印信息。
+<code>exec.Command</code> 会返回表示该外部进程的对象。</p>
 
           </td>
           <td class="code leading">
@@ -91,10 +88,8 @@ to represent this external process.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Output</code> method runs the command, waits for it
-to finish and collects its standard output.
- If there were no errors, <code>dateOut</code> will hold bytes
-with the date info.</p>
+            <p><code>Output</code> 方法会运行命令、等待其结束并收集标准输出。
+若没有错误，<code>dateOut</code> 将包含日期信息的字节。</p>
 
           </td>
           <td class="code leading">
@@ -110,11 +105,8 @@ with the date info.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Output</code> and other methods of <code>Command</code> will return
-<code>*exec.Error</code> if there was a problem executing the
-command (e.g. wrong path), and <code>*exec.ExitError</code>
-if the command ran but exited with a non-zero return
-code.</p>
+            <p><code>Output</code> 等方法在执行命令失败（例如路径不正确）时返回 <code>*exec.Error</code>；
+如果命令运行后以非零返回码退出，则返回 <code>*exec.ExitError</code>。</p>
 
           </td>
           <td class="code leading">
@@ -138,9 +130,7 @@ code.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at a slightly more involved case
-where we pipe data to the external process on its
-<code>stdin</code> and collect the results from its <code>stdout</code>.</p>
+            <p>接下来演示更复杂的情况：向外部进程的 <code>stdin</code> 写入数据，并从 <code>stdout</code> 收集结果。</p>
 
           </td>
           <td class="code leading">
@@ -151,10 +141,7 @@ where we pipe data to the external process on its
         
         <tr>
           <td class="docs">
-            <p>Here we explicitly grab input/output pipes, start
-the process, write some input to it, read the
-resulting output, and finally wait for the process
-to exit.</p>
+            <p>显式获取输入/输出管道，启动进程，写入数据，读取输出，最后等待进程退出。</p>
 
           </td>
           <td class="code leading">
@@ -171,11 +158,8 @@ to exit.</p>
         
         <tr>
           <td class="docs">
-            <p>We omitted error checks in the above example, but
-you could use the usual <code>if err != nil</code> pattern for
-all of them. We also only collect the <code>StdoutPipe</code>
-results, but you could collect the <code>StderrPipe</code> in
-exactly the same way.</p>
+            <p>上述示例省略了错误处理，实际使用时仍可采用 <code>if err != nil</code> 模式。
+此处只收集了 <code>StdoutPipe</code>，同样方法也可用于 <code>StderrPipe</code>。</p>
 
           </td>
           <td class="code leading">
@@ -187,12 +171,8 @@ exactly the same way.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that when spawning commands we need to
-provide an explicitly delineated command and
-argument array, vs. being able to just pass in one
-command-line string. If you want to spawn a full
-command with a string, you can use <code>bash</code>&rsquo;s <code>-c</code>
-option:</p>
+            <p>注意启动命令时需要显式传入命令及参数 slice，而非单个字符串。
+如果希望通过字符串执行完整命令，可以借助 <code>bash -c</code>：</p>
 
           </td>
           <td class="code">
@@ -214,8 +194,7 @@ option:</p>
         
         <tr>
           <td class="docs">
-            <p>The spawned programs return output that is the same
-as if we had run them directly from the command-line.</p>
+            <p>启动的程序会输出与直接在命令行运行时相同的结果。</p>
 
           </td>
           <td class="code leading">
@@ -228,8 +207,7 @@ as if we had run them directly from the command-line.</p>
         
         <tr>
           <td class="docs">
-            <p>date doesn&rsquo;t have a <code>-x</code> flag so it will exit with
-an error message and non-zero return code.</p>
+            <p><code>date</code> 没有 <code>-x</code> 标志，因此会打印错误并以非零状态退出。</p>
 
           </td>
           <td class="code leading">
@@ -257,12 +235,12 @@ an error message and non-zero return code.</p>
       
       
       <p class="next">
-        Next example: <a href="execing-processes" rel="next">Exec'ing Processes</a>.
+        下一个示例：<a href="execing-processes" rel="next">Exec'ing Processes</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

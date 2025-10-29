@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Sorting by Functions</title>
+    <title>Go by Example 示例：Sorting by Functions</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,17 +24,15 @@
   </script>
   <body>
     <div class="example" id="sorting-by-functions">
-      <h2><a href="./">Go by Example</a>: Sorting by Functions</h2>
+      <h2><a href="./">Go by Example 示例</a>：Sorting by Functions</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Sometimes we&rsquo;ll want to sort a collection by something
-other than its natural order. For example, suppose we
-wanted to sort strings by their length instead of
-alphabetically. Here&rsquo;s an example of custom sorts
-in Go.</p>
+            <p>有时需要按照不同于默认顺序的规则排序。
+例如想按字符串长度而非字母序排序。
+下面演示如何在 Go 中自定义排序。</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +46,7 @@ in Go.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/3EaTknAZHMu"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/MjdyoEs_-rW"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -80,8 +78,7 @@ in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>We implement a comparison function for string
-lengths. <code>cmp.Compare</code> is helpful for this.</p>
+            <p>编写一个比较字符串长度的函数，<code>cmp.Compare</code> 在这里很有帮助。</p>
 
           </td>
           <td class="code leading">
@@ -94,8 +91,7 @@ lengths. <code>cmp.Compare</code> is helpful for this.</p>
         
         <tr>
           <td class="docs">
-            <p>Now we can call <code>slices.SortFunc</code> with this custom
-comparison function to sort <code>fruits</code> by name length.</p>
+            <p>使用自定义比较器调用 <code>slices.SortFunc</code>，即可按名称长度排序 <code>fruits</code>。</p>
 
           </td>
           <td class="code leading">
@@ -107,8 +103,7 @@ comparison function to sort <code>fruits</code> by name length.</p>
         
         <tr>
           <td class="docs">
-            <p>We can use the same technique to sort a slice of
-values that aren&rsquo;t built-in types.</p>
+            <p>同样的技巧也适用于非内建类型的 slice。</p>
 
           </td>
           <td class="code leading">
@@ -136,12 +131,10 @@ values that aren&rsquo;t built-in types.</p>
         
         <tr>
           <td class="docs">
-            <p>Sort <code>people</code> by age using <code>slices.SortFunc</code>.</p>
+            <p>使用 <code>slices.SortFunc</code> 按年龄排序 <code>people</code>。</p>
 
-<p>Note: if the <code>Person</code> struct is large,
-you may want the slice to contain <code>*Person</code> instead
-and adjust the sorting function accordingly. If in
-doubt, <a href="testing-and-benchmarking">benchmark</a>!</p>
+<p>注意：若 <code>Person</code> struct 较大，slice 可存放 <code>*Person</code> 来避免拷贝，并相应调整排序函数。
+若不确定影响，可进行<a href="testing-and-benchmarking">基准测试</a>。</p>
 
           </td>
           <td class="code">
@@ -175,12 +168,12 @@ doubt, <a href="testing-and-benchmarking">benchmark</a>!</p>
       
       
       <p class="next">
-        Next example: <a href="panic" rel="next">Panic</a>.
+        下一个示例：<a href="panic" rel="next">Panic</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

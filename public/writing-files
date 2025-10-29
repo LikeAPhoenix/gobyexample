@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Writing Files</title>
+    <title>Go by Example 示例：Writing Files</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,13 @@
   </script>
   <body>
     <div class="example" id="writing-files">
-      <h2><a href="./">Go by Example</a>: Writing Files</h2>
+      <h2><a href="./">Go by Example 示例</a>：Writing Files</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Writing files in Go follows similar patterns to the
-ones we saw earlier for reading.</p>
+            <p>在 Go 中写文件的模式与之前读取文件类似。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +44,7 @@ ones we saw earlier for reading.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/Y12O-L_zFS1"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/V7MjHHSg0Ko"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -90,8 +89,7 @@ ones we saw earlier for reading.</p>
         
         <tr>
           <td class="docs">
-            <p>To start, here&rsquo;s how to dump a string (or just
-bytes) into a file.</p>
+            <p>首先展示如何把字符串（或字节）写入文件。</p>
 
           </td>
           <td class="code leading">
@@ -104,7 +102,7 @@ bytes) into a file.</p>
         
         <tr>
           <td class="docs">
-            <p>For more granular writes, open a file for writing.</p>
+            <p>若需更细粒度的写入，可以先打开文件。</p>
 
           </td>
           <td class="code leading">
@@ -116,8 +114,7 @@ bytes) into a file.</p>
         
         <tr>
           <td class="docs">
-            <p>It&rsquo;s idiomatic to defer a <code>Close</code> immediately
-after opening a file.</p>
+            <p>惯例是在打开文件后立刻用 <code>defer</code> 安排关闭。</p>
 
           </td>
           <td class="code leading">
@@ -128,7 +125,7 @@ after opening a file.</p>
         
         <tr>
           <td class="docs">
-            <p>You can <code>Write</code> byte slices as you&rsquo;d expect.</p>
+            <p>可以按预期使用 <code>Write</code> 写入字节 slice。</p>
 
           </td>
           <td class="code leading">
@@ -142,7 +139,7 @@ after opening a file.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>WriteString</code> is also available.</p>
+            <p>同样提供了 <code>WriteString</code> 方法。</p>
 
           </td>
           <td class="code leading">
@@ -155,7 +152,7 @@ after opening a file.</p>
         
         <tr>
           <td class="docs">
-            <p>Issue a <code>Sync</code> to flush writes to stable storage.</p>
+            <p>调用 <code>Sync</code> 确保数据刷新到稳定存储。</p>
 
           </td>
           <td class="code leading">
@@ -166,8 +163,7 @@ after opening a file.</p>
         
         <tr>
           <td class="docs">
-            <p><code>bufio</code> provides buffered writers in addition
-to the buffered readers we saw earlier.</p>
+            <p><code>bufio</code> 除了提供缓冲读取器，也提供缓冲写入器。</p>
 
           </td>
           <td class="code leading">
@@ -181,8 +177,7 @@ to the buffered readers we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>Use <code>Flush</code> to ensure all buffered operations have
-been applied to the underlying writer.</p>
+            <p><code>Flush</code> 可以确保缓冲区的数据真正写入到底层 writer。</p>
 
           </td>
           <td class="code leading">
@@ -207,7 +202,7 @@ been applied to the underlying writer.</p>
         
         <tr>
           <td class="docs">
-            <p>Try running the file-writing code.</p>
+            <p>运行写文件示例。</p>
 
           </td>
           <td class="code leading">
@@ -221,7 +216,7 @@ been applied to the underlying writer.</p>
         
         <tr>
           <td class="docs">
-            <p>Then check the contents of the written files.</p>
+            <p>查看写入结果。</p>
 
           </td>
           <td class="code leading">
@@ -238,8 +233,7 @@ been applied to the underlying writer.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at applying some of the file I/O ideas
-we&rsquo;ve just seen to the <code>stdin</code> and <code>stdout</code> streams.</p>
+            <p>接着会把这些文件 I/O 思路应用到 <code>stdin</code> 与 <code>stdout</code> 流上。</p>
 
           </td>
           <td class="code empty">
@@ -252,12 +246,12 @@ we&rsquo;ve just seen to the <code>stdin</code> and <code>stdout</code> streams.
       
       
       <p class="next">
-        Next example: <a href="line-filters" rel="next">Line Filters</a>.
+        下一个示例：<a href="line-filters" rel="next">Line Filters</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

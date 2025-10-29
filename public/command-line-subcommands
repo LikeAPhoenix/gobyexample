@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Command-Line Subcommands</title>
+    <title>Go by Example 示例：Command-Line Subcommands</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,18 +24,15 @@
   </script>
   <body>
     <div class="example" id="command-line-subcommands">
-      <h2><a href="./">Go by Example</a>: Command-Line Subcommands</h2>
+      <h2><a href="./">Go by Example 示例</a>：Command-Line Subcommands</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Some command-line tools, like the <code>go</code> tool or <code>git</code>
-have many <em>subcommands</em>, each with its own set of
-flags. For example, <code>go build</code> and <code>go get</code> are two
-different subcommands of the <code>go</code> tool.
-The <code>flag</code> package lets us easily define simple
-subcommands that have their own flags.</p>
+            <p>有些命令行工具（如 <code>go</code> 或 <code>git</code>）拥有多个子命令，每个子命令都有自己的标志。
+例如 <code>go build</code> 与 <code>go get</code> 是 <code>go</code> 工具的两个子命令。
+<code>flag</code> 包可以方便地定义带独立标志的子命令。</p>
 
           </td>
           <td class="code empty leading">
@@ -49,7 +46,7 @@ subcommands that have their own flags.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/DkvdHKK-XCv"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/4qKa_hud7F9"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -80,9 +77,7 @@ subcommands that have their own flags.</p>
         
         <tr>
           <td class="docs">
-            <p>We declare a subcommand using the <code>NewFlagSet</code>
-function, and proceed to define new flags specific
-for this subcommand.</p>
+            <p>使用 <code>NewFlagSet</code> 声明子命令，并为其定义专属标志。</p>
 
           </td>
           <td class="code leading">
@@ -95,8 +90,7 @@ for this subcommand.</p>
         
         <tr>
           <td class="docs">
-            <p>For a different subcommand we can define different
-supported flags.</p>
+            <p>其他子命令可以定义不同的标志。</p>
 
           </td>
           <td class="code leading">
@@ -108,8 +102,7 @@ supported flags.</p>
         
         <tr>
           <td class="docs">
-            <p>The subcommand is expected as the first argument
-to the program.</p>
+            <p>子命令应作为程序的第一个参数。</p>
 
           </td>
           <td class="code leading">
@@ -123,7 +116,7 @@ to the program.</p>
         
         <tr>
           <td class="docs">
-            <p>Check which subcommand is invoked.</p>
+            <p>根据第一个参数判断调用的是哪个子命令。</p>
 
           </td>
           <td class="code leading">
@@ -134,8 +127,7 @@ to the program.</p>
         
         <tr>
           <td class="docs">
-            <p>For every subcommand, we parse its own flags and
-have access to trailing positional arguments.</p>
+            <p>每个子命令都解析自己的标志，并可获取剩余的位置参数。</p>
 
           </td>
           <td class="code">
@@ -175,7 +167,7 @@ have access to trailing positional arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>First invoke the foo subcommand.</p>
+            <p>先调用 foo 子命令。</p>
 
           </td>
           <td class="code leading">
@@ -190,7 +182,7 @@ have access to trailing positional arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>Now try bar.</p>
+            <p>再试试 bar。</p>
 
           </td>
           <td class="code leading">
@@ -204,7 +196,7 @@ have access to trailing positional arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>But bar won&rsquo;t accept foo&rsquo;s flags.</p>
+            <p>注意 bar 不接受 foo 的标志。</p>
 
           </td>
           <td class="code leading">
@@ -219,8 +211,7 @@ have access to trailing positional arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at environment variables, another common
-way to parameterize programs.</p>
+            <p>接下来介绍另一种常见的参数化方式：环境变量。</p>
 
           </td>
           <td class="code empty">
@@ -233,12 +224,12 @@ way to parameterize programs.</p>
       
       
       <p class="next">
-        Next example: <a href="environment-variables" rel="next">Environment Variables</a>.
+        下一个示例：<a href="environment-variables" rel="next">Environment Variables</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

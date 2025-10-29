@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Pointers</title>
+    <title>Go by Example 示例：Pointers</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,15 +24,14 @@
   </script>
   <body>
     <div class="example" id="pointers">
-      <h2><a href="./">Go by Example</a>: Pointers</h2>
+      <h2><a href="./">Go by Example 示例</a>：Pointers</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go supports <em><a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)">pointers</a></em>,
-allowing you to pass references to values and records
-within your program.</p>
+            <p>Go 支持<a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)"><em>指针</em></a>，
+这使得我们可以在程序中传递值或结构的引用。</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +45,7 @@ within your program.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/OlWCLpxAyBz"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/5JCkJFBpJPq"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -63,11 +62,8 @@ within your program.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll show how pointers work in contrast to values with
-2 functions: <code>zeroval</code> and <code>zeroptr</code>. <code>zeroval</code> has an
-<code>int</code> parameter, so arguments will be passed to it by
-value. <code>zeroval</code> will get a copy of <code>ival</code> distinct
-from the one in the calling function.</p>
+            <p>我们用两个函数 <code>zeroval</code> 和 <code>zeroptr</code> 对比值传递与指针的差异。
+<code>zeroval</code> 的参数是 <code>int</code>，因此实参按值传递，它得到的是调用者 <code>ival</code> 的副本。</p>
 
           </td>
           <td class="code leading">
@@ -80,12 +76,9 @@ from the one in the calling function.</p>
         
         <tr>
           <td class="docs">
-            <p><code>zeroptr</code> in contrast has an <code>*int</code> parameter, meaning
-that it takes an <code>int</code> pointer. The <code>*iptr</code> code in the
-function body then <em>dereferences</em> the pointer from its
-memory address to the current value at that address.
-Assigning a value to a dereferenced pointer changes the
-value at the referenced address.</p>
+            <p>相对地，<code>zeroptr</code> 的参数类型为 <code>*int</code>，表示接收 <code>int</code> 指针。
+函数体内的 <code>*iptr</code> 会解引用该指针，从地址取得当前的值。
+给解引用的指针赋值就会修改该地址上的值。</p>
 
           </td>
           <td class="code leading">
@@ -121,8 +114,7 @@ value at the referenced address.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>&amp;i</code> syntax gives the memory address of <code>i</code>,
-i.e. a pointer to <code>i</code>.</p>
+            <p><code>&amp;i</code> 语法会取得 <code>i</code> 的内存地址，也就是指向 <code>i</code> 的指针。</p>
 
           </td>
           <td class="code leading">
@@ -150,9 +142,8 @@ i.e. a pointer to <code>i</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>zeroval</code> doesn&rsquo;t change the <code>i</code> in <code>main</code>, but
-<code>zeroptr</code> does because it has a reference to
-the memory address for that variable.</p>
+            <p><code>zeroval</code> 不会改变 <code>main</code> 中的 <code>i</code>，
+而 <code>zeroptr</code> 会，因为它持有该变量的内存地址引用。</p>
 
           </td>
           <td class="code">
@@ -169,12 +160,12 @@ the memory address for that variable.</p>
       
       
       <p class="next">
-        Next example: <a href="strings-and-runes" rel="next">Strings and Runes</a>.
+        下一个示例：<a href="strings-and-runes" rel="next">Strings and Runes</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

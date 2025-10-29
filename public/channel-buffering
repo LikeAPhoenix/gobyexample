@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Channel Buffering</title>
+    <title>Go by Example 示例：Channel Buffering</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,18 +24,14 @@
   </script>
   <body>
     <div class="example" id="channel-buffering">
-      <h2><a href="./">Go by Example</a>: Channel Buffering</h2>
+      <h2><a href="./">Go by Example 示例</a>：Channel Buffering</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>By default channels are <em>unbuffered</em>, meaning that they
-will only accept sends (<code>chan &lt;-</code>) if there is a
-corresponding receive (<code>&lt;- chan</code>) ready to receive the
-sent value. <em>Buffered channels</em> accept a limited
-number of  values without a corresponding receiver for
-those values.</p>
+            <p>channel 默认是无缓冲的，只有在有相应接收者准备好时才会接受发送。
+而缓冲 channel 允许在没有立即接收者的情况下缓存有限数量的值。</p>
 
           </td>
           <td class="code empty leading">
@@ -49,7 +45,7 @@ those values.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/3BRCdRnRszb"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/YGYs2tMTRFS"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,8 +72,7 @@ those values.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we <code>make</code> a channel of strings buffering up to
-2 values.</p>
+            <p>这里创建一个最多可缓存 2 个字符串的 channel。</p>
 
           </td>
           <td class="code leading">
@@ -88,9 +83,7 @@ those values.</p>
         
         <tr>
           <td class="docs">
-            <p>Because this channel is buffered, we can send these
-values into the channel without a corresponding
-concurrent receive.</p>
+            <p>由于是缓冲 channel，可以在没有同时接收者的情况下发送值。</p>
 
           </td>
           <td class="code leading">
@@ -102,7 +95,7 @@ concurrent receive.</p>
         
         <tr>
           <td class="docs">
-            <p>Later we can receive these two values as usual.</p>
+            <p>随后再按常规方式接收即可。</p>
 
           </td>
           <td class="code">
@@ -133,12 +126,12 @@ concurrent receive.</p>
       
       
       <p class="next">
-        Next example: <a href="channel-synchronization" rel="next">Channel Synchronization</a>.
+        下一个示例：<a href="channel-synchronization" rel="next">Channel Synchronization</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

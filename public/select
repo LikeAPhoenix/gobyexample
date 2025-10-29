@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Select</title>
+    <title>Go by Example 示例：Select</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,15 +24,14 @@
   </script>
   <body>
     <div class="example" id="select">
-      <h2><a href="./">Go by Example</a>: Select</h2>
+      <h2><a href="./">Go by Example 示例</a>：Select</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go&rsquo;s <em>select</em> lets you wait on multiple channel
-operations. Combining goroutines and channels with
-select is a powerful feature of Go.</p>
+            <p>Go 的 <code>select</code> 可用于同时等待多个 channel 操作。
+将 goroutine、channel 与 <code>select</code> 结合是 Go 的强大特性之一。</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +45,7 @@ select is a powerful feature of Go.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/dOrjUfgGwB2"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/DadcfoCli6c"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,7 +75,7 @@ select is a powerful feature of Go.</p>
         
         <tr>
           <td class="docs">
-            <p>For our example we&rsquo;ll select across two channels.</p>
+            <p>示例中会在两个 channel 上进行选择。</p>
 
           </td>
           <td class="code leading">
@@ -88,9 +87,7 @@ select is a powerful feature of Go.</p>
         
         <tr>
           <td class="docs">
-            <p>Each channel will receive a value after some amount
-of time, to simulate e.g. blocking RPC operations
-executing in concurrent goroutines.</p>
+            <p>每个 channel 都会在一段时间后收到值，用于模拟阻塞的 RPC 等操作在 goroutine 中执行。</p>
 
           </td>
           <td class="code leading">
@@ -108,8 +105,7 @@ executing in concurrent goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll use <code>select</code> to await both of these values
-simultaneously, printing each one as it arrives.</p>
+            <p>使用 <code>select</code> 同时等待两个值，并在它们到达时打印。</p>
 
           </td>
           <td class="code">
@@ -132,8 +128,7 @@ simultaneously, printing each one as it arrives.</p>
         
         <tr>
           <td class="docs">
-            <p>We receive the values <code>&quot;one&quot;</code> and then <code>&quot;two&quot;</code> as
-expected.</p>
+            <p>如预期一般，我们先收到 <code>&quot;one&quot;</code>，再收到 <code>&quot;two&quot;</code>。</p>
 
           </td>
           <td class="code leading">
@@ -146,9 +141,7 @@ expected.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that the total execution time is only ~2 seconds
-since both the 1 and 2 second <code>Sleeps</code> execute
-concurrently.</p>
+            <p>注意总耗时约为 2 秒，因为两个 <code>Sleep</code> 是并发执行的。</p>
 
           </td>
           <td class="code">
@@ -161,12 +154,12 @@ concurrently.</p>
       
       
       <p class="next">
-        Next example: <a href="timeouts" rel="next">Timeouts</a>.
+        下一个示例：<a href="timeouts" rel="next">Timeouts</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

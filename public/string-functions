@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: String Functions</title>
+    <title>Go by Example 示例：String Functions</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,15 +24,14 @@
   </script>
   <body>
     <div class="example" id="string-functions">
-      <h2><a href="./">Go by Example</a>: String Functions</h2>
+      <h2><a href="./">Go by Example 示例</a>：String Functions</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>The standard library&rsquo;s <code>strings</code> package provides many
-useful string-related functions. Here are some examples
-to give you a sense of the package.</p>
+            <p>标准库的 <code>strings</code> 包提供了许多实用的字符串处理函数。
+下面通过几个例子快速了解它的功能。</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +45,7 @@ to give you a sense of the package.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/wKSAzxfs96O"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/cmRdO75T3ih"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -66,8 +65,7 @@ to give you a sense of the package.</p>
         
         <tr>
           <td class="docs">
-            <p>We alias <code>fmt.Println</code> to a shorter name as we&rsquo;ll use
-it a lot below.</p>
+            <p>下面的示例会频繁调用 <code>fmt.Println</code>，因此给它起个短别名。</p>
 
           </td>
           <td class="code leading">
@@ -88,13 +86,9 @@ it a lot below.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a sample of the functions available in
-<code>strings</code>. Since these are functions from the
-package, not methods on the string object itself,
-we need to pass the string in question as the first
-argument to the function. You can find more
-functions in the <a href="https://pkg.go.dev/strings"><code>strings</code></a>
-package docs.</p>
+            <p>下面展示 <code>strings</code> 包中的部分函数。
+这些都是包级函数，而非字符串类型的方法，所以需要把目标字符串作为第一个实参传入。
+更多函数可参阅 <a href="https://pkg.go.dev/strings"><code>strings</code></a> 包文档。</p>
 
           </td>
           <td class="code">
@@ -145,12 +139,12 @@ package docs.</p>
       
       
       <p class="next">
-        Next example: <a href="string-formatting" rel="next">String Formatting</a>.
+        下一个示例：<a href="string-formatting" rel="next">String Formatting</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

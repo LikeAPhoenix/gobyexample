@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Recover</title>
+    <title>Go by Example 示例：Recover</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,14 @@
   </script>
   <body>
     <div class="example" id="recover">
-      <h2><a href="./">Go by Example</a>: Recover</h2>
+      <h2><a href="./">Go by Example 示例</a>：Recover</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go makes it possible to <em>recover</em> from a panic, by
-using the <code>recover</code> built-in function. A <code>recover</code> can
-stop a <code>panic</code> from aborting the program and let it
-continue with execution instead.</p>
+            <p>Go 提供了内建函数 <code>recover</code>，可以从 panic 中恢复。
+<code>recover</code> 能阻止 panic 终止程序，让其继续执行。</p>
 
           </td>
           <td class="code empty leading">
@@ -44,12 +42,9 @@ continue with execution instead.</p>
         
         <tr>
           <td class="docs">
-            <p>An example of where this can be useful: a server
-wouldn&rsquo;t want to crash if one of the client connections
-exhibits a critical error. Instead, the server would
-want to close that connection and continue serving
-other clients. In fact, this is what Go&rsquo;s <code>net/http</code>
-does by default for HTTP servers.</p>
+            <p>实际应用中，例如服务器不希望因为某个客户端连接触发严重错误就崩溃，
+而是应该关闭该连接并继续服务其他客户端。
+Go 的 <code>net/http</code> 默认就会这样处理 HTTP 服务器。</p>
 
           </td>
           <td class="code empty leading">
@@ -63,7 +58,7 @@ does by default for HTTP servers.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/Sk-SVdofEIZ"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/yzSBMi3ZhJH"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -93,10 +88,8 @@ does by default for HTTP servers.</p>
         
         <tr>
           <td class="docs">
-            <p><code>recover</code> must be called within a deferred function.
-When the enclosing function panics, the defer will
-activate and a <code>recover</code> call within it will catch
-the panic.</p>
+            <p><code>recover</code> 必须在延迟执行的函数中调用。
+当外层函数发生 panic 时，该 defer 会被触发，其中的 <code>recover</code> 会捕获 panic。</p>
 
           </td>
           <td class="code leading">
@@ -107,8 +100,7 @@ the panic.</p>
         
         <tr>
           <td class="docs">
-            <p>The return value of <code>recover</code> is the error raised in
-the call to <code>panic</code>.</p>
+            <p><code>recover</code> 的返回值即 <code>panic</code> 抛出的错误。</p>
 
           </td>
           <td class="code leading">
@@ -142,9 +134,8 @@ the call to <code>panic</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>This code will not run, because <code>mayPanic</code> panics.
-The execution of <code>main</code> stops at the point of the
-panic and resumes in the deferred closure.</p>
+            <p>这行不会执行，因为 <code>mayPanic</code> 会 panic。
+<code>main</code> 会在 panic 处中断，并跳转到 defer 的闭包。</p>
 
           </td>
           <td class="code">
@@ -174,12 +165,12 @@ panic and resumes in the deferred closure.</p>
       
       
       <p class="next">
-        Next example: <a href="string-functions" rel="next">String Functions</a>.
+        下一个示例：<a href="string-functions" rel="next">String Functions</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

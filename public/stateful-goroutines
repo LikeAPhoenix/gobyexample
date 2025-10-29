@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Stateful Goroutines</title>
+    <title>Go by Example 示例：Stateful Goroutines</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,20 +24,16 @@
   </script>
   <body>
     <div class="example" id="stateful-goroutines">
-      <h2><a href="./">Go by Example</a>: Stateful Goroutines</h2>
+      <h2><a href="./">Go by Example 示例</a>：Stateful Goroutines</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In the previous example we used explicit locking with
-<a href="mutexes">mutexes</a> to synchronize access to shared state
-across multiple goroutines. Another option is to use the
-built-in synchronization features of  goroutines and
-channels to achieve the same result. This channel-based
-approach aligns with Go&rsquo;s ideas of sharing memory by
-communicating and having each piece of data owned
-by exactly 1 goroutine.</p>
+            <p>在上一示例中，我们使用 <a href="mutexes">mutex</a> 显式加锁以同步多个 goroutine 对共享状态的访问。
+另一种实现方式是利用 goroutine 与 channel 的内建同步机制。
+这种基于 channel 的方式符合 Go “通过通信共享内存”的理念，
+并让每份数据都只被一个 goroutine 拥有。</p>
 
           </td>
           <td class="code empty leading">
@@ -51,7 +47,7 @@ by exactly 1 goroutine.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/uX6AcrTXA-a"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/E6AjmUvjZsv"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -73,14 +69,9 @@ by exactly 1 goroutine.</p>
         
         <tr>
           <td class="docs">
-            <p>In this example our state will be owned by a single
-goroutine. This will guarantee that the data is never
-corrupted with concurrent access. In order to read or
-write that state, other goroutines will send messages
-to the owning goroutine and receive corresponding
-replies. These <code>readOp</code> and <code>writeOp</code> <code>struct</code>s
-encapsulate those requests and a way for the owning
-goroutine to respond.</p>
+            <p>本示例中，状态由单个 goroutine 持有，从而确保不会因并发访问而损坏。
+其他 goroutine 若要读写状态，需要向持有者发送消息并等待回应。
+<code>readOp</code> 与 <code>writeOp</code> struct 封装了请求以及返回结果的 channel。</p>
 
           </td>
           <td class="code leading">
@@ -109,7 +100,7 @@ goroutine to respond.</p>
         
         <tr>
           <td class="docs">
-            <p>As before we&rsquo;ll count how many operations we perform.</p>
+            <p>与之前一样，统计执行的操作次数。</p>
 
           </td>
           <td class="code leading">
@@ -121,9 +112,7 @@ goroutine to respond.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>reads</code> and <code>writes</code> channels will be used by
-other goroutines to issue read and write requests,
-respectively.</p>
+            <p><code>reads</code> 与 <code>writes</code> channel 分别用于其他 goroutine 发起读写请求。</p>
 
           </td>
           <td class="code leading">
@@ -135,15 +124,8 @@ respectively.</p>
         
         <tr>
           <td class="docs">
-            <p>Here is the goroutine that owns the <code>state</code>, which
-is a map as in the previous example but now private
-to the stateful goroutine. This goroutine repeatedly
-selects on the <code>reads</code> and <code>writes</code> channels,
-responding to requests as they arrive. A response
-is executed by first performing the requested
-operation and then sending a value on the response
-channel <code>resp</code> to indicate success (and the desired
-value in the case of <code>reads</code>).</p>
+            <p>下方 goroutine 负责持有 <code>state</code>，与上一示例一样是一个 map，但此处仅该 goroutine 可访问。
+它循环 <code>select</code> 监听 <code>reads</code> 与 <code>writes</code>，接收到请求后执行操作并将结果写回 <code>resp</code>。</p>
 
           </td>
           <td class="code leading">
@@ -165,11 +147,8 @@ value in the case of <code>reads</code>).</p>
         
         <tr>
           <td class="docs">
-            <p>This starts 100 goroutines to issue reads to the
-state-owning goroutine via the <code>reads</code> channel.
-Each read requires constructing a <code>readOp</code>, sending
-it over the <code>reads</code> channel, and then receiving the
-result over the provided <code>resp</code> channel.</p>
+            <p>启动 100 个 goroutine，通过 <code>reads</code> 向状态持有者发起读取。
+每次读取需构建 <code>readOp</code>，发送到 <code>reads</code>，再从 <code>resp</code> 接收结果。</p>
 
           </td>
           <td class="code leading">
@@ -192,8 +171,7 @@ result over the provided <code>resp</code> channel.</p>
         
         <tr>
           <td class="docs">
-            <p>We start 10 writes as well, using a similar
-approach.</p>
+            <p>对写操作也启动 10 个 goroutine，流程类似。</p>
 
           </td>
           <td class="code leading">
@@ -217,7 +195,7 @@ approach.</p>
         
         <tr>
           <td class="docs">
-            <p>Let the goroutines work for a second.</p>
+            <p>让这些 goroutine 运行 1 秒。</p>
 
           </td>
           <td class="code leading">
@@ -228,7 +206,7 @@ approach.</p>
         
         <tr>
           <td class="docs">
-            <p>Finally, capture and report the op counts.</p>
+            <p>最后读取并输出操作次数。</p>
 
           </td>
           <td class="code">
@@ -247,9 +225,7 @@ approach.</p>
         
         <tr>
           <td class="docs">
-            <p>Running our program shows that the goroutine-based
-state management example completes about 80,000
-total operations.</p>
+            <p>运行结果显示，这个基于 goroutine 的状态管理示例共完成约八万次操作。</p>
 
           </td>
           <td class="code leading">
@@ -262,14 +238,9 @@ total operations.</p>
         
         <tr>
           <td class="docs">
-            <p>For this particular case the goroutine-based approach
-was a bit more involved than the mutex-based one. It
-might be useful in certain cases though, for example
-where you have other channels involved or when managing
-multiple such mutexes would be error-prone. You should
-use whichever approach feels most natural, especially
-with respect to understanding the correctness of your
-program.</p>
+            <p>在这个案例中，goroutine 方案比基于 mutex 的实现稍复杂一些。
+但在需要与其他 channel 交互，或管理多把 mutex 易出错的场景，它会更有优势。
+可以根据程序的可理解性与正确性需求选择合适的方案。</p>
 
           </td>
           <td class="code empty">
@@ -282,12 +253,12 @@ program.</p>
       
       
       <p class="next">
-        Next example: <a href="sorting" rel="next">Sorting</a>.
+        下一个示例：<a href="sorting" rel="next">Sorting</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

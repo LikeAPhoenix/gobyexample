@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Structs</title>
+    <title>Go by Example 示例：Structs</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,15 +24,13 @@
   </script>
   <body>
     <div class="example" id="structs">
-      <h2><a href="./">Go by Example</a>: Structs</h2>
+      <h2><a href="./">Go by Example 示例</a>：Structs</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go&rsquo;s <em>structs</em> are typed collections of fields.
-They&rsquo;re useful for grouping data together to form
-records.</p>
+            <p>Go 的 struct 是带类型的字段集合，用于把相关数据组合成记录。</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +44,7 @@ records.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/56SPo-L2nMN"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/fG1suUH46aA"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -63,7 +61,7 @@ records.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>person</code> struct type has <code>name</code> and <code>age</code> fields.</p>
+            <p><code>person</code> struct 包含 <code>name</code> 与 <code>age</code> 字段。</p>
 
           </td>
           <td class="code leading">
@@ -77,7 +75,7 @@ records.</p>
         
         <tr>
           <td class="docs">
-            <p><code>newPerson</code> constructs a new person struct with the given name.</p>
+            <p><code>newPerson</code> 根据提供的名字构造 <code>person</code> struct。</p>
 
           </td>
           <td class="code leading">
@@ -88,10 +86,8 @@ records.</p>
         
         <tr>
           <td class="docs">
-            <p>Go is a garbage collected language; you can safely
-return a pointer to a local variable - it will only
-be cleaned up by the garbage collector when there
-are no active references to it.</p>
+            <p>Go 由垃圾回收器管理内存，因此可以安全地返回局部变量的指针。
+只要仍有引用，该变量就不会被清理。</p>
 
           </td>
           <td class="code leading">
@@ -115,7 +111,7 @@ are no active references to it.</p>
         
         <tr>
           <td class="docs">
-            <p>This syntax creates a new struct.</p>
+            <p>这种语法创建一个新的 struct 实例。</p>
 
           </td>
           <td class="code leading">
@@ -126,7 +122,7 @@ are no active references to it.</p>
         
         <tr>
           <td class="docs">
-            <p>You can name the fields when initializing a struct.</p>
+            <p>初始化时也可以显式指定字段名。</p>
 
           </td>
           <td class="code leading">
@@ -137,7 +133,7 @@ are no active references to it.</p>
         
         <tr>
           <td class="docs">
-            <p>Omitted fields will be zero-valued.</p>
+            <p>省略的字段会填充零值。</p>
 
           </td>
           <td class="code leading">
@@ -148,7 +144,7 @@ are no active references to it.</p>
         
         <tr>
           <td class="docs">
-            <p>An <code>&amp;</code> prefix yields a pointer to the struct.</p>
+            <p>使用 <code>&amp;</code> 前缀可获得 struct 的指针。</p>
 
           </td>
           <td class="code leading">
@@ -159,7 +155,7 @@ are no active references to it.</p>
         
         <tr>
           <td class="docs">
-            <p>It&rsquo;s idiomatic to encapsulate new struct creation in constructor functions</p>
+            <p>惯用做法是封装构造逻辑到工厂函数中。</p>
 
           </td>
           <td class="code leading">
@@ -170,7 +166,7 @@ are no active references to it.</p>
         
         <tr>
           <td class="docs">
-            <p>Access struct fields with a dot.</p>
+            <p>通过点号访问 struct 字段。</p>
 
           </td>
           <td class="code leading">
@@ -182,8 +178,7 @@ are no active references to it.</p>
         
         <tr>
           <td class="docs">
-            <p>You can also use dots with struct pointers - the
-pointers are automatically dereferenced.</p>
+            <p>对 struct 指针同样使用点号，指针会被自动解引用。</p>
 
           </td>
           <td class="code leading">
@@ -195,7 +190,7 @@ pointers are automatically dereferenced.</p>
         
         <tr>
           <td class="docs">
-            <p>Structs are mutable.</p>
+            <p>struct 是可变的。</p>
 
           </td>
           <td class="code leading">
@@ -207,10 +202,8 @@ pointers are automatically dereferenced.</p>
         
         <tr>
           <td class="docs">
-            <p>If a struct type is only used for a single value, we don&rsquo;t
-have to give it a name. The value can have an anonymous
-struct type. This technique is commonly used for
-<a href="testing-and-benchmarking">table-driven tests</a>.</p>
+            <p>若 struct 类型只用于某个特定值，可以不给它命名，直接使用匿名 struct。
+这种技巧常用于<a href="testing-and-benchmarking">表驱动测试</a>。</p>
 
           </td>
           <td class="code">
@@ -254,12 +247,12 @@ struct type. This technique is commonly used for
       
       
       <p class="next">
-        Next example: <a href="methods" rel="next">Methods</a>.
+        下一个示例：<a href="methods" rel="next">Methods</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

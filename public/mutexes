@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Mutexes</title>
+    <title>Go by Example 示例：Mutexes</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,14 @@
   </script>
   <body>
     <div class="example" id="mutexes">
-      <h2><a href="./">Go by Example</a>: Mutexes</h2>
+      <h2><a href="./">Go by Example 示例</a>：Mutexes</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In the previous example we saw how to manage simple
-counter state using <a href="atomic-counters">atomic operations</a>.
-For more complex state we can use a <a href="https://en.wikipedia.org/wiki/Mutual_exclusion"><em>mutex</em></a>
-to safely access data across multiple goroutines.</p>
+            <p>在之前的示例中，我们用<a href="atomic-counters">原子操作</a>管理简单计数器。
+如果状态更复杂，可以使用<a href="https://en.wikipedia.org/wiki/Mutual_exclusion">mutex</a>在多 goroutine 间安全访问数据。</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +45,7 @@ to safely access data across multiple goroutines.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/u0VAVSWRlU0"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/JcfoSsxc2hI"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -67,12 +65,9 @@ to safely access data across multiple goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>Container holds a map of counters; since we want to
-update it concurrently from multiple goroutines, we
-add a <code>Mutex</code> to synchronize access.
-Note that mutexes must not be copied, so if this
-<code>struct</code> is passed around, it should be done by
-pointer.</p>
+            <p><code>Container</code> 保存了一组计数器。
+因为需要被多个 goroutine 并发更新，所以加上 <code>Mutex</code> 同步访问。
+注意 mutex 不能被复制，因此该 struct 若需要传递，应以指针方式进行。</p>
 
           </td>
           <td class="code leading">
@@ -86,9 +81,7 @@ pointer.</p>
         
         <tr>
           <td class="docs">
-            <p>Lock the mutex before accessing <code>counters</code>; unlock
-it at the end of the function using a <a href="defer">defer</a>
-statement.</p>
+            <p>访问 <code>counters</code> 前锁住 mutex，并在函数结束时通过 <a href="defer">defer</a> 解锁。</p>
 
           </td>
           <td class="code leading">
@@ -112,8 +105,7 @@ statement.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that the zero value of a mutex is usable as-is, so no
-initialization is required here.</p>
+            <p>mutex 的零值即可直接使用，因此无需显式初始化。</p>
 
           </td>
           <td class="code leading">
@@ -146,8 +138,7 @@ initialization is required here.</p>
         
         <tr>
           <td class="docs">
-            <p>This function increments a named counter
-in a loop.</p>
+            <p>该函数循环递增指定名字的计数器。</p>
 
           </td>
           <td class="code leading">
@@ -162,9 +153,8 @@ in a loop.</p>
         
         <tr>
           <td class="docs">
-            <p>Run several goroutines concurrently; note
-that they all access the same <code>Container</code>,
-and two of them access the same counter.</p>
+            <p>并发启动多个 goroutine，它们共享同一个 <code>Container</code>，
+其中两个 goroutine 还会访问同一个计数器。</p>
 
           </td>
           <td class="code leading">
@@ -201,7 +191,7 @@ and two of them access the same counter.</p>
         
         <tr>
           <td class="docs">
-            <p>Wait for the goroutines to finish</p>
+            <p>等待所有 goroutine 完成。</p>
 
           </td>
           <td class="code">
@@ -218,8 +208,7 @@ and two of them access the same counter.</p>
         
         <tr>
           <td class="docs">
-            <p>Running the program shows that the counters
-updated as expected.</p>
+            <p>运行程序可以看到计数器按预期更新。</p>
 
           </td>
           <td class="code leading">
@@ -231,8 +220,7 @@ updated as expected.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at implementing this same state
-management task using only goroutines and channels.</p>
+            <p>下一节我们会仅用 goroutine 和 channel 实现同样的状态管理。</p>
 
           </td>
           <td class="code empty">
@@ -245,12 +233,12 @@ management task using only goroutines and channels.</p>
       
       
       <p class="next">
-        Next example: <a href="stateful-goroutines" rel="next">Stateful Goroutines</a>.
+        下一个示例：<a href="stateful-goroutines" rel="next">Stateful Goroutines</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

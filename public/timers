@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Timers</title>
+    <title>Go by Example 示例：Timers</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,17 +24,15 @@
   </script>
   <body>
     <div class="example" id="timers">
-      <h2><a href="./">Go by Example</a>: Timers</h2>
+      <h2><a href="./">Go by Example 示例</a>：Timers</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>We often want to execute Go code at some point in the
-future, or repeatedly at some interval. Go&rsquo;s built-in
-<em>timer</em> and <em>ticker</em> features make both of these tasks
-easy. We&rsquo;ll look first at timers and then
-at <a href="tickers">tickers</a>.</p>
+            <p>我们常常需要在未来某个时间点执行代码，或按固定间隔重复执行。
+Go 内建的计时器（timer）与滴答器（ticker）能轻松实现这些需求。
+本节先介绍计时器，下一节再看 <a href="tickers">ticker</a>。</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +46,7 @@ at <a href="tickers">tickers</a>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/gF7VLRz3URM"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/6XjR-zY8ipy"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -78,10 +76,9 @@ at <a href="tickers">tickers</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>Timers represent a single event in the future. You
-tell the timer how long you want to wait, and it
-provides a channel that will be notified at that
-time. This timer will wait 2 seconds.</p>
+            <p>计时器表示未来的一次事件。
+指定等待时长后，它会在对应时刻通过 channel 发送通知。
+此处的计时器等待 2 秒。</p>
 
           </td>
           <td class="code leading">
@@ -92,9 +89,7 @@ time. This timer will wait 2 seconds.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>&lt;-timer1.C</code> blocks on the timer&rsquo;s channel <code>C</code>
-until it sends a value indicating that the timer
-fired.</p>
+            <p><code>&lt;-timer1.C</code> 会阻塞，直到 channel <code>C</code> 收到计时完成的信号。</p>
 
           </td>
           <td class="code leading">
@@ -106,10 +101,8 @@ fired.</p>
         
         <tr>
           <td class="docs">
-            <p>If you just wanted to wait, you could have used
-<code>time.Sleep</code>. One reason a timer may be useful is
-that you can cancel the timer before it fires.
-Here&rsquo;s an example of that.</p>
+            <p>如果只是等待，也可以直接用 <code>time.Sleep</code>。
+但计时器的优势之一是可以在触发前取消，这里演示如何取消。</p>
 
           </td>
           <td class="code leading">
@@ -128,8 +121,7 @@ Here&rsquo;s an example of that.</p>
         
         <tr>
           <td class="docs">
-            <p>Give the <code>timer2</code> enough time to fire, if it ever
-was going to, to show it is in fact stopped.</p>
+            <p>额外等待一会儿，确认 <code>timer2</code> 确实已停止。</p>
 
           </td>
           <td class="code">
@@ -145,9 +137,8 @@ was going to, to show it is in fact stopped.</p>
         
         <tr>
           <td class="docs">
-            <p>The first timer will fire ~2s after we start the
-program, but the second should be stopped before it has
-a chance to fire.</p>
+            <p>第一个计时器会在程序启动约 2 秒后触发；
+第二个则在触发前就被停止。</p>
 
           </td>
           <td class="code">
@@ -162,12 +153,12 @@ a chance to fire.</p>
       
       
       <p class="next">
-        Next example: <a href="tickers" rel="next">Tickers</a>.
+        下一个示例：<a href="tickers" rel="next">Tickers</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

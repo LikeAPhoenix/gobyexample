@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Atomic Counters</title>
+    <title>Go by Example 示例：Atomic Counters</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,18 +24,14 @@
   </script>
   <body>
     <div class="example" id="atomic-counters">
-      <h2><a href="./">Go by Example</a>: Atomic Counters</h2>
+      <h2><a href="./">Go by Example 示例</a>：Atomic Counters</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>The primary mechanism for managing state in Go is
-communication over channels. We saw this for example
-with <a href="worker-pools">worker pools</a>. There are a few other
-options for managing state though. Here we&rsquo;ll
-look at using the <code>sync/atomic</code> package for <em>atomic
-counters</em> accessed by multiple goroutines.</p>
+            <p>Go 管理状态的主要方式是通过 channel 通信，例如<a href="worker-pools">工作池</a>。
+当然也有其他手段，这里介绍如何用 <code>sync/atomic</code> 实现多 goroutine 访问的原子计数器。</p>
 
           </td>
           <td class="code empty leading">
@@ -49,7 +45,7 @@ counters</em> accessed by multiple goroutines.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/yiGAVfTH49v"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/usAn8-92gTA"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -80,8 +76,7 @@ counters</em> accessed by multiple goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll use an atomic integer type to represent our
-(always-positive) counter.</p>
+            <p>通过原子整型表示计数器（始终为非负）。</p>
 
           </td>
           <td class="code leading">
@@ -92,8 +87,7 @@ counters</em> accessed by multiple goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>A WaitGroup will help us wait for all goroutines
-to finish their work.</p>
+            <p>使用 WaitGroup 等待所有 goroutine 结束。</p>
 
           </td>
           <td class="code leading">
@@ -104,8 +98,7 @@ to finish their work.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll start 50 goroutines that each increment the
-counter exactly 1000 times.</p>
+            <p>启动 50 个 goroutine，每个 goroutine 递增计数器 1000 次。</p>
 
           </td>
           <td class="code leading">
@@ -118,7 +111,7 @@ counter exactly 1000 times.</p>
         
         <tr>
           <td class="docs">
-            <p>To atomically increment the counter we use <code>Add</code>.</p>
+            <p>使用 <code>Add</code> 以原子方式递增。</p>
 
           </td>
           <td class="code leading">
@@ -132,7 +125,7 @@ counter exactly 1000 times.</p>
         
         <tr>
           <td class="docs">
-            <p>Wait until all the goroutines are done.</p>
+            <p>等待所有 goroutine 完成。</p>
 
           </td>
           <td class="code leading">
@@ -143,9 +136,7 @@ counter exactly 1000 times.</p>
         
         <tr>
           <td class="docs">
-            <p>Here no goroutines are writing to &lsquo;ops&rsquo;, but using
-<code>Load</code> it&rsquo;s safe to atomically read a value even while
-other goroutines are (atomically) updating it.</p>
+            <p>此时没有 goroutine 再写入 <code>ops</code>，但即便并发更新仍在进行，<code>Load</code> 也能安全读取当前值。</p>
 
           </td>
           <td class="code">
@@ -161,13 +152,9 @@ other goroutines are (atomically) updating it.</p>
         
         <tr>
           <td class="docs">
-            <p>We expect to get exactly 50,000 operations. Had we
-used a non-atomic integer and incremented it with
-<code>ops++</code>, we&rsquo;d likely get a different number,
-changing between runs, because the goroutines
-would interfere with each other. Moreover, we&rsquo;d
-get data race failures when running with the
-<code>-race</code> flag.</p>
+            <p>预期输出正好是 50,000 次操作。
+若使用非原子整数并通过 <code>ops++</code> 递增，很可能每次运行结果都不同，
+因为 goroutine 之间会互相干扰；在 <code>-race</code> 模式下甚至会报数据竞争。</p>
 
           </td>
           <td class="code leading">
@@ -179,8 +166,7 @@ get data race failures when running with the
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at mutexes, another tool for managing
-state.</p>
+            <p>接下来介绍另一种管理状态的工具：mutex。</p>
 
           </td>
           <td class="code empty">
@@ -193,12 +179,12 @@ state.</p>
       
       
       <p class="next">
-        Next example: <a href="mutexes" rel="next">Mutexes</a>.
+        下一个示例：<a href="mutexes" rel="next">Mutexes</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Slices</title>
+    <title>Go by Example 示例：Slices</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,13 @@
   </script>
   <body>
     <div class="example" id="slices">
-      <h2><a href="./">Go by Example</a>: Slices</h2>
+      <h2><a href="./">Go by Example 示例</a>：Slices</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>Slices</em> are an important data type in Go, giving
-a more powerful interface to sequences than arrays.</p>
+            <p>slice 是 Go 中非常重要的数据类型，相比数组提供了更灵活的序列接口。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +44,7 @@ a more powerful interface to sequences than arrays.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/9-U3-8sKQun"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/NLE96jyfDqv"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -75,10 +74,8 @@ a more powerful interface to sequences than arrays.</p>
         
         <tr>
           <td class="docs">
-            <p>Unlike arrays, slices are typed only by the
-elements they contain (not the number of elements).
-An uninitialized slice equals to nil and has
-length 0.</p>
+            <p>与数组不同，slice 的类型只由元素类型决定，不包含长度信息。
+未初始化的 slice 等于 nil，长度为 0。</p>
 
           </td>
           <td class="code leading">
@@ -90,13 +87,9 @@ length 0.</p>
         
         <tr>
           <td class="docs">
-            <p>To create a slice with non-zero length, use
-the builtin <code>make</code>. Here we make a slice of
-<code>string</code>s of length <code>3</code> (initially zero-valued).
-By default a new slice&rsquo;s capacity is equal to its
-length; if we know the slice is going to grow ahead
-of time, it&rsquo;s possible to pass a capacity explicitly
-as an additional parameter to <code>make</code>.</p>
+            <p>使用内建的 <code>make</code> 可以创建非空的 slice。
+这里创建一个长度为 3 的字符串 slice，初始元素都是零值。
+新 slice 默认容量等于长度；若提前知道需要扩容，可以额外传入容量。</p>
 
           </td>
           <td class="code leading">
@@ -108,7 +101,7 @@ as an additional parameter to <code>make</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>We can set and get just like with arrays.</p>
+            <p>slice 的取值与赋值方式与数组一致。</p>
 
           </td>
           <td class="code leading">
@@ -123,7 +116,7 @@ as an additional parameter to <code>make</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>len</code> returns the length of the slice as expected.</p>
+            <p><code>len</code> 会返回 slice 的长度。</p>
 
           </td>
           <td class="code leading">
@@ -134,12 +127,9 @@ as an additional parameter to <code>make</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>In addition to these basic operations, slices
-support several more that make them richer than
-arrays. One is the builtin <code>append</code>, which
-returns a slice containing one or more new values.
-Note that we need to accept a return value from
-<code>append</code> as we may get a new slice value.</p>
+            <p>除了这些基础操作，slice 还支持更多功能，使其比数组更强大。
+例如内建的 <code>append</code> 会返回追加了新元素的 slice。
+需要注意 <code>append</code> 可能返回新的底层数组，因此要接收其返回值。</p>
 
           </td>
           <td class="code leading">
@@ -152,9 +142,8 @@ Note that we need to accept a return value from
         
         <tr>
           <td class="docs">
-            <p>Slices can also be <code>copy</code>&rsquo;d. Here we create an
-empty slice <code>c</code> of the same length as <code>s</code> and copy
-into <code>c</code> from <code>s</code>.</p>
+            <p>slice 也可以使用 <code>copy</code> 复制。
+这里创建了一个与 <code>s</code> 长度相同的空 slice <code>c</code>，然后把 <code>s</code> 的内容复制进去。</p>
 
           </td>
           <td class="code leading">
@@ -167,9 +156,8 @@ into <code>c</code> from <code>s</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Slices support a &ldquo;slice&rdquo; operator with the syntax
-<code>slice[low:high]</code>. For example, this gets a slice
-of the elements <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
+            <p>slice 支持 <code>slice[low:high]</code> 这样的“slice”操作。
+例如下面截取的就是元素 <code>s[2]</code>、<code>s[3]</code> 和 <code>s[4]</code>。</p>
 
           </td>
           <td class="code leading">
@@ -181,7 +169,7 @@ of the elements <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>This slices up to (but excluding) <code>s[5]</code>.</p>
+            <p>这一步会截取到 <code>s[5]</code>（不含）。</p>
 
           </td>
           <td class="code leading">
@@ -193,7 +181,7 @@ of the elements <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>And this slices up from (and including) <code>s[2]</code>.</p>
+            <p>而这里则从 <code>s[2]</code>（含）开始截取到末尾。</p>
 
           </td>
           <td class="code leading">
@@ -205,8 +193,7 @@ of the elements <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>We can declare and initialize a variable for slice
-in a single line as well.</p>
+            <p>也可以在一行内声明并初始化 slice 变量。</p>
 
           </td>
           <td class="code leading">
@@ -218,8 +205,7 @@ in a single line as well.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>slices</code> package contains a number of useful
-utility functions for slices.</p>
+            <p>标准库中的 <code>slices</code> 包提供了许多 slice 相关的实用函数。</p>
 
           </td>
           <td class="code leading">
@@ -233,9 +219,7 @@ utility functions for slices.</p>
         
         <tr>
           <td class="docs">
-            <p>Slices can be composed into multi-dimensional data
-structures. The length of the inner slices can
-vary, unlike with multi-dimensional arrays.</p>
+            <p>slice 可以组合成多维数据结构，内部 slice 的长度可以各不相同，这一点不同于多维数组。</p>
 
           </td>
           <td class="code">
@@ -259,8 +243,7 @@ vary, unlike with multi-dimensional arrays.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that while slices are different types than arrays,
-they are rendered similarly by <code>fmt.Println</code>.</p>
+            <p>注意 slice 虽然不同于数组，但使用 <code>fmt.Println</code> 输出时形式相似。</p>
 
           </td>
           <td class="code leading">
@@ -284,9 +267,7 @@ they are rendered similarly by <code>fmt.Println</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Check out this <a href="https://go.dev/blog/slices-intro">great blog post</a>
-by the Go team for more details on the design and
-implementation of slices in Go.</p>
+            <p>想了解 slice 的设计与实现细节，可阅读 Go 团队的<a href="https://go.dev/blog/slices-intro">精彩博客文章</a>。</p>
 
           </td>
           <td class="code empty leading">
@@ -297,8 +278,7 @@ implementation of slices in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>Now that we&rsquo;ve seen arrays and slices we&rsquo;ll look at
-Go&rsquo;s other key builtin data structure: maps.</p>
+            <p>学习完数组和 slice 之后，接下来要看看 Go 的另一种核心内建数据结构：map。</p>
 
           </td>
           <td class="code empty">
@@ -311,12 +291,12 @@ Go&rsquo;s other key builtin data structure: maps.</p>
       
       
       <p class="next">
-        Next example: <a href="maps" rel="next">Maps</a>.
+        下一个示例：<a href="maps" rel="next">Maps</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: If/Else</title>
+    <title>Go by Example 示例：If/Else</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,13 @@
   </script>
   <body>
     <div class="example" id="if-else">
-      <h2><a href="./">Go by Example</a>: If/Else</h2>
+      <h2><a href="./">Go by Example 示例</a>：If/Else</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Branching with <code>if</code> and <code>else</code> in Go is
-straight-forward.</p>
+            <p>在 Go 中使用 <code>if</code> 和 <code>else</code> 分支非常直接。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +44,7 @@ straight-forward.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/RKgKzCe7qcF"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/ZpjjhsXmc3Y"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -72,7 +71,7 @@ straight-forward.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a basic example.</p>
+            <p>先看一个基础示例。</p>
 
           </td>
           <td class="code leading">
@@ -87,7 +86,7 @@ straight-forward.</p>
         
         <tr>
           <td class="docs">
-            <p>You can have an <code>if</code> statement without an else.</p>
+            <p><code>if</code> 语句可以不带 <code>else</code>。</p>
 
           </td>
           <td class="code leading">
@@ -100,8 +99,7 @@ straight-forward.</p>
         
         <tr>
           <td class="docs">
-            <p>Logical operators like <code>&amp;&amp;</code> and <code>||</code> are often
-useful in conditions.</p>
+            <p>条件判断中常会用到逻辑运算符，比如 <code>&amp;&amp;</code> 和 <code>||</code>。</p>
 
           </td>
           <td class="code leading">
@@ -114,9 +112,7 @@ useful in conditions.</p>
         
         <tr>
           <td class="docs">
-            <p>A statement can precede conditionals; any variables
-declared in this statement are available in the current
-and all subsequent branches.</p>
+            <p>在条件之前可以放置语句；在该语句中声明的变量在当前及之后的分支中都可见。</p>
 
           </td>
           <td class="code leading">
@@ -134,8 +130,7 @@ and all subsequent branches.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that you don&rsquo;t need parentheses around conditions
-in Go, but that the braces are required.</p>
+            <p>注意条件表达式外不需要括号，但 <code>{}</code> 是必不可少的。</p>
 
           </td>
           <td class="code empty">
@@ -164,9 +159,8 @@ in Go, but that the braces are required.</p>
         
         <tr>
           <td class="docs">
-            <p>There is no <a href="https://en.wikipedia.org/wiki/%3F:">ternary if</a>
-in Go, so you&rsquo;ll need to use a full <code>if</code> statement even
-for basic conditions.</p>
+            <p>Go 没有<a href="https://en.wikipedia.org/wiki/%3F:">三元运算符</a>，
+因此即便是基础条件也得使用完整的 <code>if</code> 语句。</p>
 
           </td>
           <td class="code empty">
@@ -179,12 +173,12 @@ for basic conditions.</p>
       
       
       <p class="next">
-        Next example: <a href="switch" rel="next">Switch</a>.
+        下一个示例：<a href="switch" rel="next">Switch</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

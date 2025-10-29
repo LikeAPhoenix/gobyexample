@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Panic</title>
+    <title>Go by Example 示例：Panic</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,14 @@
   </script>
   <body>
     <div class="example" id="panic">
-      <h2><a href="./">Go by Example</a>: Panic</h2>
+      <h2><a href="./">Go by Example 示例</a>：Panic</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>A <code>panic</code> typically means something went unexpectedly
-wrong. Mostly we use it to fail fast on errors that
-shouldn&rsquo;t occur during normal operation, or that we
-aren&rsquo;t prepared to handle gracefully.</p>
+            <p>panic 通常表示出现了意料之外的问题。
+它常被用于对不该在正常运行中出现的错误快速失败，或当我们无法优雅处理时直接终止。</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +45,7 @@ aren&rsquo;t prepared to handle gracefully.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/9-2vCvRuhmE"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/024Jg7PxrXe"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -74,9 +72,8 @@ aren&rsquo;t prepared to handle gracefully.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll use panic throughout this site to check for
-unexpected errors. This is the only program on the
-site designed to panic.</p>
+            <p>本站其他示例会用 panic 来检查意外错误。
+这是唯一一个故意触发 panic 的程序。</p>
 
           </td>
           <td class="code leading">
@@ -87,10 +84,8 @@ site designed to panic.</p>
         
         <tr>
           <td class="docs">
-            <p>A common use of panic is to abort if a function
-returns an error value that we don&rsquo;t know how to
-(or want to) handle. Here&rsquo;s an example of
-<code>panic</code>king if we get an unexpected error when creating a new file.</p>
+            <p>panic 的常见用途是当函数返回我们无法（或不愿）处理的错误时直接终止。
+下例演示在创建文件时遇到意外错误就 panic。</p>
 
           </td>
           <td class="code">
@@ -109,9 +104,7 @@ returns an error value that we don&rsquo;t know how to
         
         <tr>
           <td class="docs">
-            <p>Running this program will cause it to panic, print
-an error message and goroutine traces, and exit with
-a non-zero status.</p>
+            <p>运行该程序会触发 panic，打印错误信息与 goroutine 调用栈，并以非零状态退出。</p>
 
           </td>
           <td class="code empty leading">
@@ -122,10 +115,8 @@ a non-zero status.</p>
         
         <tr>
           <td class="docs">
-            <p>When first panic in <code>main</code> fires, the program exits
-without reaching the rest of the code. If you&rsquo;d like
-to see the program try to create a temp file, comment
-the first panic out.</p>
+            <p><code>main</code> 中首次 panic 发生时，程序立即退出，后续代码不会执行。
+若想观察创建临时文件的部分，只需注释掉第一个 panic。</p>
 
           </td>
           <td class="code leading">
@@ -151,9 +142,7 @@ the first panic out.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that unlike some languages which use exceptions
-for handling of many errors, in Go it is idiomatic
-to use error-indicating return values wherever possible.</p>
+            <p>请注意，与某些大量依赖异常处理错误的语言不同，Go 更习惯使用返回值来指示错误。</p>
 
           </td>
           <td class="code empty">
@@ -166,12 +155,12 @@ to use error-indicating return values wherever possible.</p>
       
       
       <p class="next">
-        Next example: <a href="defer" rel="next">Defer</a>.
+        下一个示例：<a href="defer" rel="next">Defer</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

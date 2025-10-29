@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: URL Parsing</title>
+    <title>Go by Example 示例：URL Parsing</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,14 @@
   </script>
   <body>
     <div class="example" id="url-parsing">
-      <h2><a href="./">Go by Example</a>: URL Parsing</h2>
+      <h2><a href="./">Go by Example 示例</a>：URL Parsing</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>URLs provide a <a href="https://adam.herokuapp.com/past/2010/3/30/urls_are_the_uniform_way_to_locate_resources/">uniform way to locate resources</a>.
-Here&rsquo;s how to parse URLs in Go.</p>
+            <p>URL 提供了<a href="https://adam.herokuapp.com/past/2010/3/30/urls_are_the_uniform_way_to_locate_resources/">定位资源的统一方式</a>。
+下面演示在 Go 中解析 URL。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@ Here&rsquo;s how to parse URLs in Go.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/fHTQn9X7l1B"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/2_YFfPbMp4M"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,9 +76,7 @@ Here&rsquo;s how to parse URLs in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll parse this example URL, which includes a
-scheme, authentication info, host, port, path,
-query params, and query fragment.</p>
+            <p>解析下例 URL，其中包含 scheme、认证信息、主机、端口、路径、查询参数和片段。</p>
 
           </td>
           <td class="code leading">
@@ -89,7 +87,7 @@ query params, and query fragment.</p>
         
         <tr>
           <td class="docs">
-            <p>Parse the URL and ensure there are no errors.</p>
+            <p>解析 URL，确认没有错误。</p>
 
           </td>
           <td class="code leading">
@@ -103,7 +101,7 @@ query params, and query fragment.</p>
         
         <tr>
           <td class="docs">
-            <p>Accessing the scheme is straightforward.</p>
+            <p>获取 scheme 很直接。</p>
 
           </td>
           <td class="code leading">
@@ -114,9 +112,7 @@ query params, and query fragment.</p>
         
         <tr>
           <td class="docs">
-            <p><code>User</code> contains all authentication info; call
-<code>Username</code> and <code>Password</code> on this for individual
-values.</p>
+            <p><code>User</code> 包含认证信息，可调用 <code>Username</code> 和 <code>Password</code> 获取具体值。</p>
 
           </td>
           <td class="code leading">
@@ -130,8 +126,8 @@ values.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Host</code> contains both the hostname and the port,
-if present. Use <code>SplitHostPort</code> to extract them.</p>
+            <p><code>Host</code> 同时包含主机名和端口（若有）。
+使用 <code>SplitHostPort</code> 拆分。</p>
 
           </td>
           <td class="code leading">
@@ -145,8 +141,7 @@ if present. Use <code>SplitHostPort</code> to extract them.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we extract the <code>path</code> and the fragment after
-the <code>#</code>.</p>
+            <p>提取 <code>path</code> 以及 <code>#</code> 后的片段。</p>
 
           </td>
           <td class="code leading">
@@ -158,11 +153,8 @@ the <code>#</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>To get query params in a string of <code>k=v</code> format,
-use <code>RawQuery</code>. You can also parse query params
-into a map. The parsed query param maps are from
-strings to slices of strings, so index into <code>[0]</code>
-if you only want the first value.</p>
+            <p><code>RawQuery</code> 返回 <code>k=v</code> 格式的查询串。
+也可解析为 map，键 map 到字符串 slice，若只需第一个值可取 <code>[0]</code>。</p>
 
           </td>
           <td class="code">
@@ -207,12 +199,12 @@ pieces that we extracted.</p>
       
       
       <p class="next">
-        Next example: <a href="sha256-hashes" rel="next">SHA256 Hashes</a>.
+        下一个示例：<a href="sha256-hashes" rel="next">SHA256 Hashes</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

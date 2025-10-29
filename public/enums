@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Enums</title>
+    <title>Go by Example 示例：Enums</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,18 +24,15 @@
   </script>
   <body>
     <div class="example" id="enums">
-      <h2><a href="./">Go by Example</a>: Enums</h2>
+      <h2><a href="./">Go by Example 示例</a>：Enums</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>Enumerated types</em> (enums) are a special case of
-<a href="https://en.wikipedia.org/wiki/Algebraic_data_type">sum types</a>.
-An enum is a type that has a fixed number of possible
-values, each with a distinct name. Go doesn&rsquo;t have an
-enum type as a distinct language feature, but enums
-are simple to implement using existing language idioms.</p>
+            <p>枚举类型是<a href="https://en.wikipedia.org/wiki/Algebraic_data_type">和类型</a>的特殊情况。
+枚举的取值数量是固定的，每个值都有唯一名称。
+Go 没有单独的枚举语法，不过可以用现有惯用法轻松实现。</p>
 
           </td>
           <td class="code empty leading">
@@ -49,7 +46,7 @@ are simple to implement using existing language idioms.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/prQMptP_p1s"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/LQI5e6OPA8I"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -66,7 +63,7 @@ are simple to implement using existing language idioms.</p>
         
         <tr>
           <td class="docs">
-            <p>Our enum type <code>ServerState</code> has an underlying <code>int</code> type.</p>
+            <p>枚举类型 <code>ServerState</code> 的底层类型是 <code>int</code>。</p>
 
           </td>
           <td class="code leading">
@@ -77,10 +74,8 @@ are simple to implement using existing language idioms.</p>
         
         <tr>
           <td class="docs">
-            <p>The possible values for <code>ServerState</code> are defined as
-constants. The special keyword <a href="https://go.dev/ref/spec#Iota">iota</a>
-generates successive constant values automatically; in this
-case 0, 1, 2 and so on.</p>
+            <p>通过常量定义 <code>ServerState</code> 的所有可选值。
+特殊关键字 <a href="https://go.dev/ref/spec#Iota">iota</a> 会自动生成连续的常量值（本例为 0、1、2 等）。</p>
 
           </td>
           <td class="code leading">
@@ -96,15 +91,11 @@ case 0, 1, 2 and so on.</p>
         
         <tr>
           <td class="docs">
-            <p>By implementing the <a href="https://pkg.go.dev/fmt#Stringer">fmt.Stringer</a>
-interface, values of <code>ServerState</code> can be printed out or converted
-to strings.</p>
+            <p>通过实现 <a href="https://pkg.go.dev/fmt#Stringer">fmt.Stringer</a> 接口，
+可以把 <code>ServerState</code> 的值打印或转换为字符串。</p>
 
-<p>This can get cumbersome if there are many possible values. In such
-cases the <a href="https://pkg.go.dev/golang.org/x/tools/cmd/stringer">stringer tool</a>
-can be used in conjunction with <code>go:generate</code> to automate the
-process. See <a href="https://eli.thegreenplace.net/2021/a-comprehensive-guide-to-go-generate">this post</a>
-for a longer explanation.</p>
+<p>若状态很多，手动维护会比较繁琐，这时可以结合 <code>go:generate</code> 使用<a href="https://pkg.go.dev/golang.org/x/tools/cmd/stringer">stringer 工具</a>自动生成。
+详情可参阅<a href="https://eli.thegreenplace.net/2021/a-comprehensive-guide-to-go-generate">这篇文章</a>。</p>
 
           </td>
           <td class="code leading">
@@ -132,9 +123,8 @@ for a longer explanation.</p>
         
         <tr>
           <td class="docs">
-            <p>If we have a value of type <code>int</code>, we cannot pass it to <code>transition</code> - the
-compiler will complain about type mismatch. This provides some degree of
-compile-time type safety for enums.</p>
+            <p>如果手里只有 <code>int</code> 类型的值，就无法传给 <code>transition</code>，编译器会报类型不匹配。
+这也提供了一定程度的编译期类型安全。</p>
 
           </td>
           <td class="code leading">
@@ -159,9 +149,7 @@ compile-time type safety for enums.</p>
         
         <tr>
           <td class="docs">
-            <p>transition emulates a state transition for a
-server; it takes the existing state and returns
-a new state.</p>
+            <p><code>transition</code> 模拟服务器状态转换，根据输入状态返回新状态。</p>
 
           </td>
           <td class="code leading">
@@ -176,8 +164,7 @@ a new state.</p>
         
         <tr>
           <td class="docs">
-            <p>Suppose we check some predicates here to
-determine the next state&hellip;</p>
+            <p>假设这里会检查一些条件以确定下一状态……</p>
 
           </td>
           <td class="code">
@@ -212,12 +199,12 @@ determine the next state&hellip;</p>
       
       
       <p class="next">
-        Next example: <a href="struct-embedding" rel="next">Struct Embedding</a>.
+        下一个示例：<a href="struct-embedding" rel="next">Struct Embedding</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

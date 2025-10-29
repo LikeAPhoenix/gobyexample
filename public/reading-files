@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Reading Files</title>
+    <title>Go by Example 示例：Reading Files</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,15 +24,14 @@
   </script>
   <body>
     <div class="example" id="reading-files">
-      <h2><a href="./">Go by Example</a>: Reading Files</h2>
+      <h2><a href="./">Go by Example 示例</a>：Reading Files</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Reading and writing files are basic tasks needed for
-many Go programs. First we&rsquo;ll look at some examples of
-reading files.</p>
+            <p>读写文件是许多 Go 程序的基础任务。
+先来看读取文件的示例。</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +45,7 @@ reading files.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/SKTzfpnV0To"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/Bs7S-NJZE1E"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -68,8 +67,8 @@ reading files.</p>
         
         <tr>
           <td class="docs">
-            <p>Reading files requires checking most calls for errors.
-This helper will streamline our error checks below.</p>
+            <p>读取文件时大多需要检查错误。
+这里提供一个辅助函数简化错误处理。</p>
 
           </td>
           <td class="code leading">
@@ -94,8 +93,7 @@ This helper will streamline our error checks below.</p>
         
         <tr>
           <td class="docs">
-            <p>Perhaps the most basic file reading task is
-slurping a file&rsquo;s entire contents into memory.</p>
+            <p>最基础的读取方式是一次性把整个文件读入内存。</p>
 
           </td>
           <td class="code leading">
@@ -108,9 +106,7 @@ slurping a file&rsquo;s entire contents into memory.</p>
         
         <tr>
           <td class="docs">
-            <p>You&rsquo;ll often want more control over how and what
-parts of a file are read. For these tasks, start
-by <code>Open</code>ing a file to obtain an <code>os.File</code> value.</p>
+            <p>如果需要更精细的读取控制，可先通过 <code>Open</code> 获取 <code>os.File</code>。</p>
 
           </td>
           <td class="code leading">
@@ -122,9 +118,8 @@ by <code>Open</code>ing a file to obtain an <code>os.File</code> value.</p>
         
         <tr>
           <td class="docs">
-            <p>Read some bytes from the beginning of the file.
-Allow up to 5 to be read but also note how many
-actually were read.</p>
+            <p>从文件开头读取部分字节。
+这里最多读取 5 个，同时关注实际读取数量。</p>
 
           </td>
           <td class="code leading">
@@ -138,8 +133,7 @@ actually were read.</p>
         
         <tr>
           <td class="docs">
-            <p>You can also <code>Seek</code> to a known location in the file
-and <code>Read</code> from there.</p>
+            <p>可以使用 <code>Seek</code> 移动到指定位置再读取。</p>
 
           </td>
           <td class="code leading">
@@ -156,8 +150,7 @@ and <code>Read</code> from there.</p>
         
         <tr>
           <td class="docs">
-            <p>Other methods of seeking are relative to the
-current cursor position,</p>
+            <p>也可以相对于当前游标移动，</p>
 
           </td>
           <td class="code leading">
@@ -169,7 +162,7 @@ current cursor position,</p>
         
         <tr>
           <td class="docs">
-            <p>and relative to the end of the file.</p>
+            <p>或相对于文件末尾移动。</p>
 
           </td>
           <td class="code leading">
@@ -181,10 +174,8 @@ current cursor position,</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>io</code> package provides some functions that may
-be helpful for file reading. For example, reads
-like the ones above can be more robustly
-implemented with <code>ReadAtLeast</code>.</p>
+            <p><code>io</code> 包提供了更多实用函数。
+比如可以用 <code>ReadAtLeast</code> 更稳妥地实现类似的读取。</p>
 
           </td>
           <td class="code leading">
@@ -200,8 +191,7 @@ implemented with <code>ReadAtLeast</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>There is no built-in rewind, but
-<code>Seek(0, io.SeekStart)</code> accomplishes this.</p>
+            <p>虽没有单独的“回到开头”函数，但 <code>Seek(0, io.SeekStart)</code> 即可实现。</p>
 
           </td>
           <td class="code leading">
@@ -213,10 +203,7 @@ implemented with <code>ReadAtLeast</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>bufio</code> package implements a buffered
-reader that may be useful both for its efficiency
-with many small reads and because of the additional
-reading methods it provides.</p>
+            <p><code>bufio</code> 包实现了带缓冲的读取器，既能提升大量小读操作的效率，也提供额外方法。</p>
 
           </td>
           <td class="code leading">
@@ -230,9 +217,7 @@ reading methods it provides.</p>
         
         <tr>
           <td class="docs">
-            <p>Close the file when you&rsquo;re done (usually this would
-be scheduled immediately after <code>Open</code>ing with
-<code>defer</code>).</p>
+            <p>操作结束后记得关闭文件（通常在 <code>Open</code> 后立即用 <code>defer</code> 调用）。</p>
 
           </td>
           <td class="code">
@@ -248,7 +233,8 @@ be scheduled immediately after <code>Open</code>ing with
         
         <tr>
           <td class="docs">
-            
+            <p>先准备示例文件，然后运行程序读取内容。</p>
+
           </td>
           <td class="code leading">
             
@@ -266,7 +252,7 @@ be scheduled immediately after <code>Open</code>ing with
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at writing files.</p>
+            <p>接下来介绍如何写入文件。</p>
 
           </td>
           <td class="code empty">
@@ -279,12 +265,12 @@ be scheduled immediately after <code>Open</code>ing with
       
       
       <p class="next">
-        Next example: <a href="writing-files" rel="next">Writing Files</a>.
+        下一个示例：<a href="writing-files" rel="next">Writing Files</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

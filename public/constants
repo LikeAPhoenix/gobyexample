@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Constants</title>
+    <title>Go by Example 示例：Constants</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,13 @@
   </script>
   <body>
     <div class="example" id="constants">
-      <h2><a href="./">Go by Example</a>: Constants</h2>
+      <h2><a href="./">Go by Example 示例</a>：Constants</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go supports <em>constants</em> of character, string, boolean,
-and numeric values.</p>
+            <p>Go 支持字符、字符串、布尔和数值类型的常量。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +44,7 @@ and numeric values.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/LfvIxHlpomp"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/tyvREmtgqYF"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -65,7 +64,7 @@ and numeric values.</p>
         
         <tr>
           <td class="docs">
-            <p><code>const</code> declares a constant value.</p>
+            <p>使用 <code>const</code> 声明常量值。</p>
 
           </td>
           <td class="code leading">
@@ -87,8 +86,7 @@ and numeric values.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>const</code> statement can also appear inside a
-function body.</p>
+            <p><code>const</code> 语句也可以出现在函数体内部。</p>
 
           </td>
           <td class="code leading">
@@ -99,8 +97,7 @@ function body.</p>
         
         <tr>
           <td class="docs">
-            <p>Constant expressions perform arithmetic with
-arbitrary precision.</p>
+            <p>常量表达式执行运算时具有任意精度。</p>
 
           </td>
           <td class="code leading">
@@ -112,8 +109,7 @@ arbitrary precision.</p>
         
         <tr>
           <td class="docs">
-            <p>A numeric constant has no type until it&rsquo;s given
-one, such as by an explicit conversion.</p>
+            <p>数值常量在被显式转换之前是无类型的。</p>
 
           </td>
           <td class="code leading">
@@ -124,10 +120,8 @@ one, such as by an explicit conversion.</p>
         
         <tr>
           <td class="docs">
-            <p>A number can be given a type by using it in a
-context that requires one, such as a variable
-assignment or function call. For example, here
-<code>math.Sin</code> expects a <code>float64</code>.</p>
+            <p>为数值指定类型的一种方式，是把它放在需要该类型的上下文中，
+比如变量赋值或函数调用。例如这里的 <code>math.Sin</code> 期望获得 <code>float64</code>。</p>
 
           </td>
           <td class="code">
@@ -159,12 +153,12 @@ assignment or function call. For example, here
       
       
       <p class="next">
-        Next example: <a href="for" rel="next">For</a>.
+        下一个示例：<a href="for" rel="next">For</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

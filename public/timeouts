@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Timeouts</title>
+    <title>Go by Example 示例：Timeouts</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,14 @@
   </script>
   <body>
     <div class="example" id="timeouts">
-      <h2><a href="./">Go by Example</a>: Timeouts</h2>
+      <h2><a href="./">Go by Example 示例</a>：Timeouts</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>Timeouts</em> are important for programs that connect to
-external resources or that otherwise need to bound
-execution time. Implementing timeouts in Go is easy and
-elegant thanks to channels and <code>select</code>.</p>
+            <p>当程序需要访问外部资源或限制执行时间时，超时控制非常重要。
+借助 channel 和 <code>select</code>，在 Go 中实现超时既简单又优雅。</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +45,7 @@ elegant thanks to channels and <code>select</code>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/gyr0NbVKBVf"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/g9pbTNdDall"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -77,12 +75,9 @@ elegant thanks to channels and <code>select</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>For our example, suppose we&rsquo;re executing an external
-call that returns its result on a channel <code>c1</code>
-after 2s. Note that the channel is buffered, so the
-send in the goroutine is nonblocking. This is a
-common pattern to prevent goroutine leaks in case the
-channel is never read.</p>
+            <p>假设执行某个外部调用，它会在 2 秒后把结果写入 <code>c1</code>。
+这里的 channel 带缓冲，因此 goroutine 中的发送不会阻塞。
+这是防止 channel 无人读取导致 goroutine 泄漏的常见做法。</p>
 
           </td>
           <td class="code leading">
@@ -97,12 +92,9 @@ channel is never read.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the <code>select</code> implementing a timeout.
-<code>res := &lt;-c1</code> awaits the result and <code>&lt;-time.After</code>
-awaits a value to be sent after the timeout of
-1s. Since <code>select</code> proceeds with the first
-receive that&rsquo;s ready, we&rsquo;ll take the timeout case
-if the operation takes more than the allowed 1s.</p>
+            <p>下方的 <code>select</code> 实现了超时逻辑。
+<code>res := &lt;-c1</code> 等待结果，而 <code>&lt;-time.After</code> 会在 1 秒后收到超时信号。
+<code>select</code> 会选择最先就绪的分支，因此如果操作超过 1 秒，就会执行超时分支。</p>
 
           </td>
           <td class="code leading">
@@ -118,8 +110,7 @@ if the operation takes more than the allowed 1s.</p>
         
         <tr>
           <td class="docs">
-            <p>If we allow a longer timeout of 3s, then the receive
-from <code>c2</code> will succeed and we&rsquo;ll print the result.</p>
+            <p>如果把超时时间延长至 3 秒，就能成功接收到 <code>c2</code> 的结果。</p>
 
           </td>
           <td class="code">
@@ -145,8 +136,7 @@ from <code>c2</code> will succeed and we&rsquo;ll print the result.</p>
         
         <tr>
           <td class="docs">
-            <p>Running this program shows the first operation timing
-out and the second succeeding.</p>
+            <p>运行结果显示第一次操作超时，第二次则成功完成。</p>
 
           </td>
           <td class="code">
@@ -161,12 +151,12 @@ out and the second succeeding.</p>
       
       
       <p class="next">
-        Next example: <a href="non-blocking-channel-operations" rel="next">Non-Blocking Channel Operations</a>.
+        下一个示例：<a href="non-blocking-channel-operations" rel="next">Non-Blocking Channel Operations</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

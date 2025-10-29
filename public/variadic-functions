@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Variadic Functions</title>
+    <title>Go by Example 示例：Variadic Functions</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,14 @@
   </script>
   <body>
     <div class="example" id="variadic-functions">
-      <h2><a href="./">Go by Example</a>: Variadic Functions</h2>
+      <h2><a href="./">Go by Example 示例</a>：Variadic Functions</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><a href="https://en.wikipedia.org/wiki/Variadic_function"><em>Variadic functions</em></a>
-can be called with any number of trailing arguments.
-For example, <code>fmt.Println</code> is a common variadic
-function.</p>
+            <p><a href="https://en.wikipedia.org/wiki/Variadic_function">可变参数函数</a> 可以接收任意数量的末尾参数。
+例如 <code>fmt.Println</code> 就是一种常见的可变参数函数。</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +45,7 @@ function.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/glNdE8aKPNq"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/WslOjLfhyOi"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -64,8 +62,7 @@ function.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a function that will take an arbitrary number
-of <code>int</code>s as arguments.</p>
+            <p>下面的函数可以接收任意数量的 <code>int</code> 参数。</p>
 
           </td>
           <td class="code leading">
@@ -78,9 +75,8 @@ of <code>int</code>s as arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>Within the function, the type of <code>nums</code> is
-equivalent to <code>[]int</code>. We can call <code>len(nums)</code>,
-iterate over it with <code>range</code>, etc.</p>
+            <p>在函数体内部，<code>nums</code> 的类型等同于 <code>[]int</code>。
+因此可以对它调用 <code>len(nums)</code>、使用 <code>range</code> 遍历等。</p>
 
           </td>
           <td class="code leading">
@@ -105,8 +101,7 @@ iterate over it with <code>range</code>, etc.</p>
         
         <tr>
           <td class="docs">
-            <p>Variadic functions can be called in the usual way
-with individual arguments.</p>
+            <p>调用可变参数函数时，只需像普通函数那样传入各个参数。</p>
 
           </td>
           <td class="code leading">
@@ -118,9 +113,7 @@ with individual arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>If you already have multiple args in a slice,
-apply them to a variadic function using
-<code>func(slice...)</code> like this.</p>
+            <p>如果参数已经存在于 slice 中，可以通过 <code>func(slice...)</code> 的语法展开传入。</p>
 
           </td>
           <td class="code">
@@ -150,8 +143,7 @@ apply them to a variadic function using
         
         <tr>
           <td class="docs">
-            <p>Another key aspect of functions in Go is their ability
-to form closures, which we&rsquo;ll look at next.</p>
+            <p>Go 函数的另一个关键能力是形成闭包，我们下一节介绍。</p>
 
           </td>
           <td class="code empty">
@@ -164,12 +156,12 @@ to form closures, which we&rsquo;ll look at next.</p>
       
       
       <p class="next">
-        Next example: <a href="closures" rel="next">Closures</a>.
+        下一个示例：<a href="closures" rel="next">Closures</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

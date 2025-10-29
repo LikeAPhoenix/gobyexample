@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Testing and Benchmarking</title>
+    <title>Go by Example 示例：Testing and Benchmarking</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,14 @@
   </script>
   <body>
     <div class="example" id="testing-and-benchmarking">
-      <h2><a href="./">Go by Example</a>: Testing and Benchmarking</h2>
+      <h2><a href="./">Go by Example 示例</a>：Testing and Benchmarking</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Unit testing is an important part of writing
-principled Go programs. The <code>testing</code> package
-provides the tools we need to write unit tests
-and the <code>go test</code> command runs tests.</p>
+            <p>单元测试是编写健壮 Go 程序的重要环节。
+<code>testing</code> 包提供了编写测试所需的工具，而 <code>go test</code> 命令负责执行。</p>
 
           </td>
           <td class="code empty leading">
@@ -44,13 +42,12 @@ and the <code>go test</code> command runs tests.</p>
         
         <tr>
           <td class="docs">
-            <p>For the sake of demonstration, this code is in package
-<code>main</code>, but it could be any package. Testing code
-typically lives in the same package as the code it tests.</p>
+            <p>为了演示，这段代码放在 <code>main</code> 包中，实际可以是任意包。
+测试通常与被测代码同包。</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/osZckbKSkse"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/u8lPlcPR9Li"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -70,11 +67,9 @@ typically lives in the same package as the code it tests.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll be testing this simple implementation of an
-integer minimum. Typically, the code we&rsquo;re testing
-would be in a source file named something like
-<code>intutils.go</code>, and the test file for it would then
-be named <code>intutils_test.go</code>.</p>
+            <p>我们将测试一个求整型最小值的简单实现。
+实际项目中，被测代码可能位于 <code>intutils.go</code>，
+对应的测试文件命名为 <code>intutils_test.go</code>。</p>
 
           </td>
           <td class="code leading">
@@ -90,8 +85,7 @@ be named <code>intutils_test.go</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>A test is created by writing a function with a name
-beginning with <code>Test</code>.</p>
+            <p>测试函数以 <code>Test</code> 前缀命名。</p>
 
           </td>
           <td class="code leading">
@@ -104,9 +98,7 @@ beginning with <code>Test</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>t.Error*</code> will report test failures but continue
-executing the test. <code>t.Fatal*</code> will report test
-failures and stop the test immediately.</p>
+            <p><code>t.Error*</code> 会报告失败但继续执行，<code>t.Fatal*</code> 会立即终止测试。</p>
 
           </td>
           <td class="code leading">
@@ -119,10 +111,7 @@ failures and stop the test immediately.</p>
         
         <tr>
           <td class="docs">
-            <p>Writing tests can be repetitive, so it&rsquo;s idiomatic to
-use a <em>table-driven style</em>, where test inputs and
-expected outputs are listed in a table and a single loop
-walks over them and performs the test logic.</p>
+            <p>为避免重复，惯用“表驱动”风格：把输入与期望输出列成表，用循环执行测试逻辑。</p>
 
           </td>
           <td class="code leading">
@@ -143,9 +132,7 @@ walks over them and performs the test logic.</p>
         
         <tr>
           <td class="docs">
-            <p><code>t.Run</code> enables running &ldquo;subtests&rdquo;, one for each
-table entry. These are shown separately
-when executing <code>go test -v</code>.</p>
+            <p><code>t.Run</code> 可为每个表项运行子测试，执行 <code>go test -v</code> 时会单独展示。</p>
 
           </td>
           <td class="code leading">
@@ -174,10 +161,8 @@ when executing <code>go test -v</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Benchmark tests typically go in <code>_test.go</code> files and are
-named beginning with <code>Benchmark</code>.
-Any code that&rsquo;s required for the benchmark to run but should
-not be measured goes before this loop.</p>
+            <p>基准测试通常也放在 <code>_test.go</code> 文件中，名称以 <code>Benchmark</code> 开头。
+运行基准前需要执行但不计时的准备工作应放在循环外。</p>
 
           </td>
           <td class="code leading">
@@ -189,9 +174,7 @@ not be measured goes before this loop.</p>
         
         <tr>
           <td class="docs">
-            <p>The benchmark runner will automatically execute this loop
-body many times to determine a reasonable estimate of the
-run-time of a single iteration.</p>
+            <p>基准测试框架会自动多次执行循环体，以估算单次迭代的运行时间。</p>
 
           </td>
           <td class="code">
@@ -208,7 +191,7 @@ run-time of a single iteration.</p>
         
         <tr>
           <td class="docs">
-            <p>Run all tests in the current project in verbose mode.</p>
+            <p>以 verbose 模式运行当前项目的所有测试。</p>
 
           </td>
           <td class="code leading">
@@ -235,9 +218,8 @@ run-time of a single iteration.</p>
         
         <tr>
           <td class="docs">
-            <p>Run all benchmarks in the current project. All tests
-are run prior to benchmarks. The <code>bench</code> flag filters
-benchmark function names with a regexp.</p>
+            <p>运行所有基准测试（会先运行测试）。
+<code>-bench</code> 标志可用正则筛选基准测试名称。</p>
 
           </td>
           <td class="code">
@@ -256,12 +238,12 @@ benchmark function names with a regexp.</p>
       
       
       <p class="next">
-        Next example: <a href="command-line-arguments" rel="next">Command-Line Arguments</a>.
+        下一个示例：<a href="command-line-arguments" rel="next">Command-Line Arguments</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

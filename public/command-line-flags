@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Command-Line Flags</title>
+    <title>Go by Example 示例：Command-Line Flags</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,14 @@
   </script>
   <body>
     <div class="example" id="command-line-flags">
-      <h2><a href="./">Go by Example</a>: Command-Line Flags</h2>
+      <h2><a href="./">Go by Example 示例</a>：Command-Line Flags</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option"><em>Command-line flags</em></a>
-are a common way to specify options for command-line
-programs. For example, in <code>wc -l</code> the <code>-l</code> is a
-command-line flag.</p>
+            <p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Command-line_option">命令行标志</a> 是命令行程序指定选项的常用方式。
+例如在 <code>wc -l</code> 中，<code>-l</code> 就是一个命令行标志。</p>
 
           </td>
           <td class="code empty leading">
@@ -47,16 +45,15 @@ command-line flag.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/IUPZlYSigc3"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/gelZEIIJy-E"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Go provides a <code>flag</code> package supporting basic
-command-line flag parsing. We&rsquo;ll use this package to
-implement our example command-line program.</p>
+            <p>Go 提供了 <code>flag</code> 包来解析命令行标志。
+我们将用它构建示例程序。</p>
 
           </td>
           <td class="code leading">
@@ -80,12 +77,9 @@ implement our example command-line program.</p>
         
         <tr>
           <td class="docs">
-            <p>Basic flag declarations are available for string,
-integer, and boolean options. Here we declare a
-string flag <code>word</code> with a default value <code>&quot;foo&quot;</code>
-and a short description. This <code>flag.String</code> function
-returns a string pointer (not a string value);
-we&rsquo;ll see how to use this pointer below.</p>
+            <p>可以声明字符串、整数、布尔等基础类型标志。
+这里声明字符串标志 <code>word</code>，默认值为 <code>&quot;foo&quot;</code> 并附带说明。
+<code>flag.String</code> 返回的是字符串指针，稍后会用到。</p>
 
           </td>
           <td class="code leading">
@@ -96,8 +90,7 @@ we&rsquo;ll see how to use this pointer below.</p>
         
         <tr>
           <td class="docs">
-            <p>This declares <code>numb</code> and <code>fork</code> flags, using a
-similar approach to the <code>word</code> flag.</p>
+            <p>以下以相同方式声明 <code>numb</code> 与 <code>fork</code> 标志。</p>
 
           </td>
           <td class="code leading">
@@ -109,10 +102,8 @@ similar approach to the <code>word</code> flag.</p>
         
         <tr>
           <td class="docs">
-            <p>It&rsquo;s also possible to declare an option that uses an
-existing var declared elsewhere in the program.
-Note that we need to pass in a pointer to the flag
-declaration function.</p>
+            <p>还可以把标志值绑定到已有变量。
+此时需要把变量指针传给声明函数。</p>
 
           </td>
           <td class="code leading">
@@ -124,8 +115,7 @@ declaration function.</p>
         
         <tr>
           <td class="docs">
-            <p>Once all flags are declared, call <code>flag.Parse()</code>
-to execute the command-line parsing.</p>
+            <p>所有标志声明完成后，调用 <code>flag.Parse()</code> 执行解析。</p>
 
           </td>
           <td class="code leading">
@@ -136,10 +126,8 @@ to execute the command-line parsing.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we&rsquo;ll just dump out the parsed options and
-any trailing positional arguments. Note that we
-need to dereference the pointers with e.g. <code>*wordPtr</code>
-to get the actual option values.</p>
+            <p>最后输出解析结果及剩余的位置参数。
+注意需要解引用如 <code>*wordPtr</code> 才能获得实际值。</p>
 
           </td>
           <td class="code">
@@ -159,9 +147,7 @@ to get the actual option values.</p>
         
         <tr>
           <td class="docs">
-            <p>To experiment with the command-line flags program it&rsquo;s
-best to first compile it and then run the resulting
-binary directly.</p>
+            <p>为方便测试命令行标志，先编译再运行可执行文件。</p>
 
           </td>
           <td class="code leading">
@@ -172,8 +158,7 @@ binary directly.</p>
         
         <tr>
           <td class="docs">
-            <p>Try out the built program by first giving it values for
-all flags.</p>
+            <p>先为所有标志提供取值。</p>
 
           </td>
           <td class="code leading">
@@ -189,8 +174,7 @@ all flags.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that if you omit flags they automatically take
-their default values.</p>
+            <p>如果省略某些标志，它们会使用默认值。</p>
 
           </td>
           <td class="code leading">
@@ -206,8 +190,7 @@ their default values.</p>
         
         <tr>
           <td class="docs">
-            <p>Trailing positional arguments can be provided after
-any flags.</p>
+            <p>标志之后还可以继续写位置参数。</p>
 
           </td>
           <td class="code leading">
@@ -221,9 +204,7 @@ any flags.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that the <code>flag</code> package requires all flags to
-appear before positional arguments (otherwise the flags
-will be interpreted as positional arguments).</p>
+            <p><code>flag</code> 包要求所有标志都出现在位置参数之前，否则会被当成位置参数处理。</p>
 
           </td>
           <td class="code leading">
@@ -239,8 +220,7 @@ will be interpreted as positional arguments).</p>
         
         <tr>
           <td class="docs">
-            <p>Use <code>-h</code> or <code>--help</code> flags to get automatically
-generated help text for the command-line program.</p>
+            <p>使用 <code>-h</code> 或 <code>--help</code> 可查看自动生成的帮助信息。</p>
 
           </td>
           <td class="code leading">
@@ -256,9 +236,7 @@ generated help text for the command-line program.</p>
         
         <tr>
           <td class="docs">
-            <p>If you provide a flag that wasn&rsquo;t specified to the
-<code>flag</code> package, the program will print an error message
-and show the help text again.</p>
+            <p>如果传入未定义的标志，程序会报错并再次显示帮助信息。</p>
 
           </td>
           <td class="code">
@@ -274,12 +252,12 @@ and show the help text again.</p>
       
       
       <p class="next">
-        Next example: <a href="command-line-subcommands" rel="next">Command-Line Subcommands</a>.
+        下一个示例：<a href="command-line-subcommands" rel="next">Command-Line Subcommands</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

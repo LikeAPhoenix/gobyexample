@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Arrays</title>
+    <title>Go by Example 示例：Arrays</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,14 @@
   </script>
   <body>
     <div class="example" id="arrays">
-      <h2><a href="./">Go by Example</a>: Arrays</h2>
+      <h2><a href="./">Go by Example 示例</a>：Arrays</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In Go, an <em>array</em> is a numbered sequence of elements of a
-specific length. In typical Go code, <a href="slices">slices</a> are
-much more common; arrays are useful in some special
-scenarios.</p>
+            <p>在 Go 中，数组是一段具有固定长度的编号元素序列。
+在日常 Go 代码中，<a href="slices">slice</a>更常见，数组则适用于某些特殊场景。</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +45,7 @@ scenarios.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/-NFSggT7dFH"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/opJ1dpK6Aqu"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -74,10 +72,9 @@ scenarios.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we create an array <code>a</code> that will hold exactly
-5 <code>int</code>s. The type of elements and length are both
-part of the array&rsquo;s type. By default an array is
-zero-valued, which for <code>int</code>s means <code>0</code>s.</p>
+            <p>这里创建了一个能存放 5 个 <code>int</code> 的数组 <code>a</code>。
+元素类型与长度共同决定数组的类型。
+默认情况下数组使用零值初始化，对 <code>int</code> 来说就是 <code>0</code>。</p>
 
           </td>
           <td class="code leading">
@@ -89,9 +86,7 @@ zero-valued, which for <code>int</code>s means <code>0</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>We can set a value at an index using the
-<code>array[index] = value</code> syntax, and get a value with
-<code>array[index]</code>.</p>
+            <p>使用 <code>array[index] = value</code> 可以为某个索引赋值，<code>array[index]</code> 则用于取值。</p>
 
           </td>
           <td class="code leading">
@@ -104,7 +99,7 @@ zero-valued, which for <code>int</code>s means <code>0</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>The builtin <code>len</code> returns the length of an array.</p>
+            <p>内建函数 <code>len</code> 会返回数组长度。</p>
 
           </td>
           <td class="code leading">
@@ -115,8 +110,7 @@ zero-valued, which for <code>int</code>s means <code>0</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>Use this syntax to declare and initialize an array
-in one line.</p>
+            <p>使用如下语法可以在一行内声明并初始化数组。</p>
 
           </td>
           <td class="code leading">
@@ -128,8 +122,7 @@ in one line.</p>
         
         <tr>
           <td class="docs">
-            <p>You can also have the compiler count the number of
-elements for you with <code>...</code></p>
+            <p>也可以使用 <code>...</code> 让编译器推导元素个数。</p>
 
           </td>
           <td class="code leading">
@@ -141,8 +134,7 @@ elements for you with <code>...</code></p>
         
         <tr>
           <td class="docs">
-            <p>If you specify the index with <code>:</code>, the elements in
-between will be zeroed.</p>
+            <p>当通过 <code>:</code> 指定索引时，中间未显式赋值的元素会被填充为零值。</p>
 
           </td>
           <td class="code leading">
@@ -154,9 +146,7 @@ between will be zeroed.</p>
         
         <tr>
           <td class="docs">
-            <p>Array types are one-dimensional, but you can
-compose types to build multi-dimensional data
-structures.</p>
+            <p>数组类型本身是一维的，但可以组合来构建多维数据结构。</p>
 
           </td>
           <td class="code leading">
@@ -173,8 +163,7 @@ structures.</p>
         
         <tr>
           <td class="docs">
-            <p>You can create and initialize multi-dimensional
-arrays at once too.</p>
+            <p>也可以在声明时直接初始化多维数组。</p>
 
           </td>
           <td class="code">
@@ -194,8 +183,7 @@ arrays at once too.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that arrays appear in the form <code>[v1 v2 v3 ...]</code>
-when printed with <code>fmt.Println</code>.</p>
+            <p>注意使用 <code>fmt.Println</code> 打印数组时，输出形式为 <code>[v1 v2 v3 ...]</code>。</p>
 
           </td>
           <td class="code">
@@ -217,12 +205,12 @@ when printed with <code>fmt.Println</code>.</p>
       
       
       <p class="next">
-        Next example: <a href="slices" rel="next">Slices</a>.
+        下一个示例：<a href="slices" rel="next">Slices</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

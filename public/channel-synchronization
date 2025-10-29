@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Channel Synchronization</title>
+    <title>Go by Example 示例：Channel Synchronization</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,17 +24,15 @@
   </script>
   <body>
     <div class="example" id="channel-synchronization">
-      <h2><a href="./">Go by Example</a>: Channel Synchronization</h2>
+      <h2><a href="./">Go by Example 示例</a>：Channel Synchronization</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>We can use channels to synchronize execution
-across goroutines. Here&rsquo;s an example of using a
-blocking receive to wait for a goroutine to finish.
-When waiting for multiple goroutines to finish,
-you may prefer to use a <a href="waitgroups">WaitGroup</a>.</p>
+            <p>可以利用 channel 在 goroutine 之间同步执行。
+下面示例通过阻塞接收等待 goroutine 结束。
+如果要等待多个 goroutine 完成，可以考虑使用 <a href="waitgroups">WaitGroup</a>。</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +46,7 @@ you may prefer to use a <a href="waitgroups">WaitGroup</a>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/Nw-1DzIGk5f"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/3W3gp996j5o"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -68,9 +66,8 @@ you may prefer to use a <a href="waitgroups">WaitGroup</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>This is the function we&rsquo;ll run in a goroutine. The
-<code>done</code> channel will be used to notify another
-goroutine that this function&rsquo;s work is done.</p>
+            <p>这是将在 goroutine 中运行的函数。
+<code>done</code> channel 用于通知其他 goroutine 该函数已完成工作。</p>
 
           </td>
           <td class="code leading">
@@ -84,7 +81,7 @@ goroutine that this function&rsquo;s work is done.</p>
         
         <tr>
           <td class="docs">
-            <p>Send a value to notify that we&rsquo;re done.</p>
+            <p>发送一个值表示已完成。</p>
 
           </td>
           <td class="code leading">
@@ -106,8 +103,7 @@ goroutine that this function&rsquo;s work is done.</p>
         
         <tr>
           <td class="docs">
-            <p>Start a worker goroutine, giving it the channel to
-notify on.</p>
+            <p>启动工作 goroutine，并传入用于通知的 channel。</p>
 
           </td>
           <td class="code leading">
@@ -119,8 +115,7 @@ notify on.</p>
         
         <tr>
           <td class="docs">
-            <p>Block until we receive a notification from the
-worker on the channel.</p>
+            <p>阻塞等待，直到收到工作 goroutine 的通知。</p>
 
           </td>
           <td class="code">
@@ -147,9 +142,7 @@ worker on the channel.</p>
         
         <tr>
           <td class="docs">
-            <p>If you removed the <code>&lt;- done</code> line from this program,
-the program could exit before the <code>worker</code> finished
-its work, or in some cases even before it started.</p>
+            <p>如果移除程序中的 <code>&lt;- done</code>，主程序可能会在 <code>worker</code> 完成甚至启动之前就退出。</p>
 
           </td>
           <td class="code empty">
@@ -162,12 +155,12 @@ its work, or in some cases even before it started.</p>
       
       
       <p class="next">
-        Next example: <a href="channel-directions" rel="next">Channel Directions</a>.
+        下一个示例：<a href="channel-directions" rel="next">Channel Directions</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

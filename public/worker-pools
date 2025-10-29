@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Worker Pools</title>
+    <title>Go by Example 示例：Worker Pools</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,13 @@
   </script>
   <body>
     <div class="example" id="worker-pools">
-      <h2><a href="./">Go by Example</a>: Worker Pools</h2>
+      <h2><a href="./">Go by Example 示例</a>：Worker Pools</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In this example we&rsquo;ll look at how to implement
-a <em>worker pool</em> using goroutines and channels.</p>
+            <p>本示例演示如何使用 goroutine 和 channel 实现工作池。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +44,7 @@ a <em>worker pool</em> using goroutines and channels.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/hiSJJsYZJKL"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/2WAgEDTwxQr"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -65,11 +64,9 @@ a <em>worker pool</em> using goroutines and channels.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the worker, of which we&rsquo;ll run several
-concurrent instances. These workers will receive
-work on the <code>jobs</code> channel and send the corresponding
-results on <code>results</code>. We&rsquo;ll sleep a second per job to
-simulate an expensive task.</p>
+            <p>定义工作 goroutine，我们会同时运行多个实例。
+工作 goroutine 从 <code>jobs</code> channel 接收任务，并把结果发送到 <code>results</code>。
+通过每个任务睡眠 1 秒来模拟耗时操作。</p>
 
           </td>
           <td class="code leading">
@@ -97,9 +94,7 @@ simulate an expensive task.</p>
         
         <tr>
           <td class="docs">
-            <p>In order to use our pool of workers we need to send
-them work and collect their results. We make 2
-channels for this.</p>
+            <p>要使用工作池，需要将任务发送给它们并收集结果，因此创建两个 channel。</p>
 
           </td>
           <td class="code leading">
@@ -112,8 +107,7 @@ channels for this.</p>
         
         <tr>
           <td class="docs">
-            <p>This starts up 3 workers, initially blocked
-because there are no jobs yet.</p>
+            <p>启动 3 个工人 goroutine，此时尚未有任务，因此它们会阻塞等待。</p>
 
           </td>
           <td class="code leading">
@@ -126,8 +120,7 @@ because there are no jobs yet.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we send 5 <code>jobs</code> and then <code>close</code> that
-channel to indicate that&rsquo;s all the work we have.</p>
+            <p>发送 5 个任务后关闭 channel，表示任务已全部分发。</p>
 
           </td>
           <td class="code leading">
@@ -141,10 +134,8 @@ channel to indicate that&rsquo;s all the work we have.</p>
         
         <tr>
           <td class="docs">
-            <p>Finally we collect all the results of the work.
-This also ensures that the worker goroutines have
-finished. An alternative way to wait for multiple
-goroutines is to use a <a href="waitgroups">WaitGroup</a>.</p>
+            <p>最后收集所有结果，这也能确保所有工作 goroutine 都执行完毕。
+另一种等待多个 goroutine 完成的方法是使用 <a href="waitgroups">WaitGroup</a>。</p>
 
           </td>
           <td class="code">
@@ -162,10 +153,9 @@ goroutines is to use a <a href="waitgroups">WaitGroup</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>Our running program shows the 5 jobs being executed by
-various workers. The program only takes about 2 seconds
-despite doing about 5 seconds of total work because
-there are 3 workers operating concurrently.</p>
+            <p>运行结果显示 5 个任务被不同工人处理。
+尽管总工作量约为 5 秒，但程序只花了 2 秒左右，
+因为有 3 个工人并发执行。</p>
 
           </td>
           <td class="code leading">
@@ -198,12 +188,12 @@ there are 3 workers operating concurrently.</p>
       
       
       <p class="next">
-        Next example: <a href="waitgroups" rel="next">WaitGroups</a>.
+        下一个示例：<a href="waitgroups" rel="next">WaitGroups</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

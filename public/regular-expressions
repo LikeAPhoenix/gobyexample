@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Regular Expressions</title>
+    <title>Go by Example 示例：Regular Expressions</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,15 +24,14 @@
   </script>
   <body>
     <div class="example" id="regular-expressions">
-      <h2><a href="./">Go by Example</a>: Regular Expressions</h2>
+      <h2><a href="./">Go by Example 示例</a>：Regular Expressions</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go offers built-in support for <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>.
-Here are some examples of  common regexp-related tasks
-in Go.</p>
+            <p>Go 内建支持<a href="https://en.wikipedia.org/wiki/Regular_expression">正则表达式</a>。
+下面演示正则相关的一些常见操作。</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +45,7 @@ in Go.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/fI2YIfYsCaL"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/c49OC3JY0x7"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -77,7 +76,7 @@ in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>This tests whether a pattern matches a string.</p>
+            <p>判断某个模式是否匹配给定字符串。</p>
 
           </td>
           <td class="code leading">
@@ -89,9 +88,8 @@ in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>Above we used a string pattern directly, but for
-other regexp tasks you&rsquo;ll need to <code>Compile</code> an
-optimized <code>Regexp</code> struct.</p>
+            <p>上面直接使用了字符串模式，但在其他场景通常需要先 <code>Compile</code>
+得到优化后的 <code>Regexp</code> struct。</p>
 
           </td>
           <td class="code leading">
@@ -102,8 +100,8 @@ optimized <code>Regexp</code> struct.</p>
         
         <tr>
           <td class="docs">
-            <p>Many methods are available on these structs. Here&rsquo;s
-a match test like we saw earlier.</p>
+            <p>该 struct 上提供了许多方法。
+下面再次执行与之前相同的匹配测试。</p>
 
           </td>
           <td class="code leading">
@@ -114,7 +112,7 @@ a match test like we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>This finds the match for the regexp.</p>
+            <p>查找第一个匹配。</p>
 
           </td>
           <td class="code leading">
@@ -125,9 +123,7 @@ a match test like we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>This also finds the first match but returns the
-start and end indexes for the match instead of the
-matching text.</p>
+            <p>同样查找第一次匹配，但返回匹配的起止索引而非文本。</p>
 
           </td>
           <td class="code leading">
@@ -138,10 +134,8 @@ matching text.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Submatch</code> variants include information about
-both the whole-pattern matches and the submatches
-within those matches. For example this will return
-information for both <code>p([a-z]+)ch</code> and <code>([a-z]+)</code>.</p>
+            <p><code>Submatch</code> 变体会同时返回整个模式匹配及子匹配的信息。
+比如下例会返回 <code>p([a-z]+)ch</code> 及 <code>([a-z]+)</code> 的结果。</p>
 
           </td>
           <td class="code leading">
@@ -152,8 +146,7 @@ information for both <code>p([a-z]+)ch</code> and <code>([a-z]+)</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Similarly this will return information about the
-indexes of matches and submatches.</p>
+            <p>这一版本则返回匹配及子匹配的索引信息。</p>
 
           </td>
           <td class="code leading">
@@ -164,9 +157,8 @@ indexes of matches and submatches.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>All</code> variants of these functions apply to all
-matches in the input, not just the first. For
-example to find all matches for a regexp.</p>
+            <p><code>All</code> 变体会匹配输入中的所有结果，而非仅第一个。
+下面示例查找所有匹配项。</p>
 
           </td>
           <td class="code leading">
@@ -177,8 +169,7 @@ example to find all matches for a regexp.</p>
         
         <tr>
           <td class="docs">
-            <p>These <code>All</code> variants are available for the other
-functions we saw above as well.</p>
+            <p>其他方法也有对应的 <code>All</code> 版本。</p>
 
           </td>
           <td class="code leading">
@@ -190,9 +181,7 @@ functions we saw above as well.</p>
         
         <tr>
           <td class="docs">
-            <p>Providing a non-negative integer as the second
-argument to these functions will limit the number
-of matches.</p>
+            <p>将第二个参数设为非负整数即可限制匹配次数。</p>
 
           </td>
           <td class="code leading">
@@ -203,10 +192,8 @@ of matches.</p>
         
         <tr>
           <td class="docs">
-            <p>Our examples above had string arguments and used
-names like <code>MatchString</code>. We can also provide
-<code>[]byte</code> arguments and drop <code>String</code> from the
-function name.</p>
+            <p>以上示例使用字符串参数，因此调用的是 <code>MatchString</code> 这类方法。
+也可以传递 <code>[]byte</code>，此时方法名去掉 <code>String</code> 后缀即可。</p>
 
           </td>
           <td class="code leading">
@@ -217,11 +204,8 @@ function name.</p>
         
         <tr>
           <td class="docs">
-            <p>When creating global variables with regular
-expressions you can use the <code>MustCompile</code> variation
-of <code>Compile</code>. <code>MustCompile</code> panics instead of
-returning an error, which makes it safer to use for
-global variables.</p>
+            <p>创建正则表达式的全局变量时可以使用 <code>MustCompile</code>。
+它会在发生错误时 panic，而不是返回错误值，因此适合用于确保初始化成功。</p>
 
           </td>
           <td class="code leading">
@@ -233,8 +217,7 @@ global variables.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>regexp</code> package can also be used to replace
-subsets of strings with other values.</p>
+            <p><code>regexp</code> 包也可以用来替换字符串中的匹配部分。</p>
 
           </td>
           <td class="code leading">
@@ -245,8 +228,7 @@ subsets of strings with other values.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Func</code> variant allows you to transform matched
-text with a given function.</p>
+            <p><code>ReplaceAllFunc</code> 变体允许通过自定义函数转换匹配文本。</p>
 
           </td>
           <td class="code">
@@ -287,8 +269,7 @@ text with a given function.</p>
         
         <tr>
           <td class="docs">
-            <p>For a complete reference on Go regular expressions check
-the <a href="https://pkg.go.dev/regexp"><code>regexp</code></a> package docs.</p>
+            <p>完整参考请查阅 <a href="https://pkg.go.dev/regexp"><code>regexp</code></a> 包文档。</p>
 
           </td>
           <td class="code empty">
@@ -301,12 +282,12 @@ the <a href="https://pkg.go.dev/regexp"><code>regexp</code></a> package docs.</p
       
       
       <p class="next">
-        Next example: <a href="json" rel="next">JSON</a>.
+        下一个示例：<a href="json" rel="next">JSON</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

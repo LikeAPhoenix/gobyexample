@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: HTTP Client</title>
+    <title>Go by Example 示例：HTTP Client</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,20 +24,18 @@
   </script>
   <body>
     <div class="example" id="http-client">
-      <h2><a href="./">Go by Example</a>: HTTP Client</h2>
+      <h2><a href="./">Go by Example 示例</a>：HTTP Client</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>The Go standard library comes with excellent support
-for HTTP clients and servers in the <code>net/http</code>
-package. In this example we&rsquo;ll use it to issue simple
-HTTP requests.</p>
+            <p>Go 标准库的 <code>net/http</code> 包为 HTTP 客户端与服务端提供了良好支持。
+本示例使用它发起简单的 HTTP 请求。</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/vFW_el7oHMk"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/OLv6bDEqyoL"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -68,11 +66,9 @@ HTTP requests.</p>
         
         <tr>
           <td class="docs">
-            <p>Issue an HTTP GET request to a server. <code>http.Get</code> is a
-convenient shortcut around creating an <code>http.Client</code>
-object and calling its <code>Get</code> method; it uses the
-<code>http.DefaultClient</code> object which has useful default
-settings.</p>
+            <p>向服务器发起 HTTP GET 请求。
+<code>http.Get</code> 是创建 <code>http.Client</code> 并调用其 <code>Get</code> 方法的便捷封装，
+底层使用具有合理默认值的 <code>http.DefaultClient</code>。</p>
 
           </td>
           <td class="code leading">
@@ -87,7 +83,7 @@ settings.</p>
         
         <tr>
           <td class="docs">
-            <p>Print the HTTP response status.</p>
+            <p>输出 HTTP 响应状态。</p>
 
           </td>
           <td class="code leading">
@@ -98,7 +94,7 @@ settings.</p>
         
         <tr>
           <td class="docs">
-            <p>Print the first 5 lines of the response body.</p>
+            <p>打印响应体的前 5 行。</p>
 
           </td>
           <td class="code leading">
@@ -129,7 +125,8 @@ settings.</p>
         
         <tr>
           <td class="docs">
-            
+            <p>运行程序会打印响应状态及页面前几行。</p>
+
           </td>
           <td class="code">
             
@@ -147,12 +144,12 @@ settings.</p>
       
       
       <p class="next">
-        Next example: <a href="http-server" rel="next">HTTP Server</a>.
+        下一个示例：<a href="http-server" rel="next">HTTP Server</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

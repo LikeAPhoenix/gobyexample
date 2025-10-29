@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Time</title>
+    <title>Go by Example 示例：Time</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,13 @@
   </script>
   <body>
     <div class="example" id="time">
-      <h2><a href="./">Go by Example</a>: Time</h2>
+      <h2><a href="./">Go by Example 示例</a>：Time</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go offers extensive support for times and durations;
-here are some examples.</p>
+            <p>Go 对时间与持续时间提供了丰富支持，下面是一些示例。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +44,7 @@ here are some examples.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/YAM3s1KPc8c"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/jJ3liI6g6yz"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,7 +75,7 @@ here are some examples.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll start by getting the current time.</p>
+            <p>先获取当前时间。</p>
 
           </td>
           <td class="code leading">
@@ -88,9 +87,8 @@ here are some examples.</p>
         
         <tr>
           <td class="docs">
-            <p>You can build a <code>time</code> struct by providing the
-year, month, day, etc. Times are always associated
-with a <code>Location</code>, i.e. time zone.</p>
+            <p>通过指定年、月、日等字段构造 <code>time</code>。
+时间总是与 <code>Location</code>（时区）关联。</p>
 
           </td>
           <td class="code leading">
@@ -103,8 +101,7 @@ with a <code>Location</code>, i.e. time zone.</p>
         
         <tr>
           <td class="docs">
-            <p>You can extract the various components of the time
-value as expected.</p>
+            <p>可按需提取时间的各个组成部分。</p>
 
           </td>
           <td class="code leading">
@@ -122,7 +119,7 @@ value as expected.</p>
         
         <tr>
           <td class="docs">
-            <p>The Monday-Sunday <code>Weekday</code> is also available.</p>
+            <p>还可以获取星期信息（周一到周日）。</p>
 
           </td>
           <td class="code leading">
@@ -133,9 +130,7 @@ value as expected.</p>
         
         <tr>
           <td class="docs">
-            <p>These methods compare two times, testing if the
-first occurs before, after, or at the same time
-as the second, respectively.</p>
+            <p>以下方法用于比较两个时间，判断先后或相等。</p>
 
           </td>
           <td class="code leading">
@@ -148,8 +143,7 @@ as the second, respectively.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Sub</code> methods returns a <code>Duration</code> representing
-the interval between two times.</p>
+            <p><code>Sub</code> 返回一个 <code>Duration</code>，表示两个时间之间的间隔。</p>
 
           </td>
           <td class="code leading">
@@ -161,8 +155,7 @@ the interval between two times.</p>
         
         <tr>
           <td class="docs">
-            <p>We can compute the length of the duration in
-various units.</p>
+            <p>可以以多种单位获取该时间间隔。</p>
 
           </td>
           <td class="code leading">
@@ -176,9 +169,7 @@ various units.</p>
         
         <tr>
           <td class="docs">
-            <p>You can use <code>Add</code> to advance a time by a given
-duration, or with a <code>-</code> to move backwards by a
-duration.</p>
+            <p><code>Add</code> 可以让时间前进或后退指定的持续时间。</p>
 
           </td>
           <td class="code">
@@ -226,8 +217,7 @@ duration.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at the related idea of time relative to
-the Unix epoch.</p>
+            <p>接下来介绍与 Unix 纪元相关的时间概念。</p>
 
           </td>
           <td class="code empty">
@@ -240,12 +230,12 @@ the Unix epoch.</p>
       
       
       <p class="next">
-        Next example: <a href="epoch" rel="next">Epoch</a>.
+        下一个示例：<a href="epoch" rel="next">Epoch</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

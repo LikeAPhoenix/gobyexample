@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Generics</title>
+    <title>Go by Example 示例：Generics</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,13 @@
   </script>
   <body>
     <div class="example" id="generics">
-      <h2><a href="./">Go by Example</a>: Generics</h2>
+      <h2><a href="./">Go by Example 示例</a>：Generics</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Starting with version 1.18, Go has added support for
-<em>generics</em>, also known as <em>type parameters</em>.</p>
+            <p>自 Go 1.18 起，语言新增了泛型（也称类型参数）。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +44,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/7v7vElzhAeO"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/hVVtnDs8JZe"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -62,15 +61,11 @@
         
         <tr>
           <td class="docs">
-            <p>As an example of a generic function, <code>SlicesIndex</code> takes
-a slice of any <code>comparable</code> type and an element of that
-type and returns the index of the first occurrence of
-v in s, or -1 if not present. The <code>comparable</code> constraint
-means that we can compare values of this type with the
-<code>==</code> and <code>!=</code> operators. For a more thorough explanation
-of this type signature, see <a href="https://go.dev/blog/deconstructing-type-parameters">this blog post</a>.
-Note that this function exists in the standard library
-as <a href="https://pkg.go.dev/slices#Index">slices.Index</a>.</p>
+            <p>下面的泛型函数 <code>SlicesIndex</code> 接受任意 <code>comparable</code> 类型的 slice 和一个元素，
+返回该元素首次出现的索引，若不存在则返回 -1。
+<code>comparable</code> 约束表示该类型支持 <code>==</code> 与 <code>!=</code> 比较。
+关于签名的详细说明可参考<a href="https://go.dev/blog/deconstructing-type-parameters">这篇博文</a>。
+标准库中也提供了相同功能的 <a href="https://pkg.go.dev/slices#Index">slices.Index</a>。</p>
 
           </td>
           <td class="code leading">
@@ -88,8 +83,7 @@ as <a href="https://pkg.go.dev/slices#Index">slices.Index</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>As an example of a generic type, <code>List</code> is a
-singly-linked list with values of any type.</p>
+            <p>泛型类型示例：<code>List</code> 是可以存储任意类型值的单链表。</p>
 
           </td>
           <td class="code leading">
@@ -115,9 +109,7 @@ singly-linked list with values of any type.</p>
         
         <tr>
           <td class="docs">
-            <p>We can define methods on generic types just like we
-do on regular types, but we have to keep the type
-parameters in place. The type is <code>List[T]</code>, not <code>List</code>.</p>
+            <p>可以像普通类型一样为泛型类型定义方法，但要保留类型参数，类型名是 <code>List[T]</code> 而非 <code>List</code>。</p>
 
           </td>
           <td class="code leading">
@@ -136,9 +128,8 @@ parameters in place. The type is <code>List[T]</code>, not <code>List</code>.</p
         
         <tr>
           <td class="docs">
-            <p>AllElements returns all the List elements as a slice.
-In the next example we&rsquo;ll see a more idiomatic way
-of iterating over all elements of custom types.</p>
+            <p><code>AllElements</code> 将链表元素全部收集为 slice。
+在下一个示例中会看到更惯用的遍历自定义类型的方式。</p>
 
           </td>
           <td class="code leading">
@@ -166,11 +157,8 @@ of iterating over all elements of custom types.</p>
         
         <tr>
           <td class="docs">
-            <p>When invoking generic functions, we can often rely
-on <em>type inference</em>. Note that we don&rsquo;t have to
-specify the types for <code>S</code> and <code>E</code> when
-calling <code>SlicesIndex</code> - the compiler infers them
-automatically.</p>
+            <p>调用泛型函数时通常可以依赖“类型推断”。
+这里无需显式写出 <code>S</code> 和 <code>E</code>，编译器会自动推断。</p>
 
           </td>
           <td class="code leading">
@@ -181,7 +169,7 @@ automatically.</p>
         
         <tr>
           <td class="docs">
-            <p>&hellip; though we could also specify them explicitly.</p>
+            <p>当然也可以显式地写出类型参数。</p>
 
           </td>
           <td class="code leading">
@@ -211,7 +199,8 @@ automatically.</p>
         
         <tr>
           <td class="docs">
-            
+            <p>运行程序会展示泛型函数与泛型类型的使用结果。</p>
+
           </td>
           <td class="code">
             
@@ -225,12 +214,12 @@ automatically.</p>
       
       
       <p class="next">
-        Next example: <a href="range-over-iterators" rel="next">Range over Iterators</a>.
+        下一个示例：<a href="range-over-iterators" rel="next">Range over Iterators</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

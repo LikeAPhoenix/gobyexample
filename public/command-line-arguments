@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Command-Line Arguments</title>
+    <title>Go by Example 示例：Command-Line Arguments</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,14 @@
   </script>
   <body>
     <div class="example" id="command-line-arguments">
-      <h2><a href="./">Go by Example</a>: Command-Line Arguments</h2>
+      <h2><a href="./">Go by Example 示例</a>：Command-Line Arguments</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Arguments"><em>Command-line arguments</em></a>
-are a common way to parameterize execution of programs.
-For example, <code>go run hello.go</code> uses <code>run</code> and
-<code>hello.go</code> arguments to the <code>go</code> program.</p>
+            <p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Arguments">命令行参数</a> 是为程序传递参数的常见方式。
+例如执行 <code>go run hello.go</code> 时，<code>go</code> 程序接收到 <code>run</code> 与 <code>hello.go</code> 两个参数。</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +45,7 @@ For example, <code>go run hello.go</code> uses <code>run</code> and
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/UYCEvh9d2Zb"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/weRxYMUFA09"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -77,10 +75,8 @@ For example, <code>go run hello.go</code> uses <code>run</code> and
         
         <tr>
           <td class="docs">
-            <p><code>os.Args</code> provides access to raw command-line
-arguments. Note that the first value in this slice
-is the path to the program, and <code>os.Args[1:]</code>
-holds the arguments to the program.</p>
+            <p><code>os.Args</code> 提供原始命令行参数。
+slice 的第一个元素是可执行文件路径，而 <code>os.Args[1:]</code> 保存传入的参数。</p>
 
           </td>
           <td class="code leading">
@@ -92,7 +88,7 @@ holds the arguments to the program.</p>
         
         <tr>
           <td class="docs">
-            <p>You can get individual args with normal indexing.</p>
+            <p>可以像普通 slice 那样通过索引获取特定参数。</p>
 
           </td>
           <td class="code leading">
@@ -120,8 +116,7 @@ holds the arguments to the program.</p>
         
         <tr>
           <td class="docs">
-            <p>To experiment with command-line arguments it&rsquo;s best to
-build a binary with <code>go build</code> first.</p>
+            <p>测试命令行参数时，先使用 <code>go build</code> 构建可执行文件。</p>
 
           </td>
           <td class="code leading">
@@ -136,8 +131,7 @@ build a binary with <code>go build</code> first.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at more advanced command-line processing
-with flags.</p>
+            <p>接下来介绍更高级的命令行处理：标志参数。</p>
 
           </td>
           <td class="code empty">
@@ -150,12 +144,12 @@ with flags.</p>
       
       
       <p class="next">
-        Next example: <a href="command-line-flags" rel="next">Command-Line Flags</a>.
+        下一个示例：<a href="command-line-flags" rel="next">Command-Line Flags</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

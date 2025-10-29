@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: HTTP Server</title>
+    <title>Go by Example 示例：HTTP Server</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,18 +24,17 @@
   </script>
   <body>
     <div class="example" id="http-server">
-      <h2><a href="./">Go by Example</a>: HTTP Server</h2>
+      <h2><a href="./">Go by Example 示例</a>：HTTP Server</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Writing a basic HTTP server is easy using the
-<code>net/http</code> package.</p>
+            <p>使用 <code>net/http</code> 包可以轻松编写基础 HTTP 服务器。</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/s3xMMt9Ytry"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/jqH_jnBk3h0"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -55,11 +54,9 @@
         
         <tr>
           <td class="docs">
-            <p>A fundamental concept in <code>net/http</code> servers is
-<em>handlers</em>. A handler is an object implementing the
-<code>http.Handler</code> interface. A common way to write
-a handler is by using the <code>http.HandlerFunc</code> adapter
-on functions with the appropriate signature.</p>
+            <p><code>net/http</code> 的核心概念是 *handler*。
+handler 是实现 <code>http.Handler</code> 接口的对象。
+常见做法是将符合签名的函数通过 <code>http.HandlerFunc</code> 适配。</p>
 
           </td>
           <td class="code leading">
@@ -70,11 +67,8 @@ on functions with the appropriate signature.</p>
         
         <tr>
           <td class="docs">
-            <p>Functions serving as handlers take a
-<code>http.ResponseWriter</code> and a <code>http.Request</code> as
-arguments. The response writer is used to fill in the
-HTTP response. Here our simple response is just
-&ldquo;hello\n&rdquo;.</p>
+            <p>作为 handler 的函数会接收 <code>http.ResponseWriter</code> 与 <code>http.Request</code>。
+响应写入器用于构造 HTTP 响应，这里返回简单文本。</p>
 
           </td>
           <td class="code leading">
@@ -96,9 +90,7 @@ HTTP response. Here our simple response is just
         
         <tr>
           <td class="docs">
-            <p>This handler does something a little more
-sophisticated by reading all the HTTP request
-headers and echoing them into the response body.</p>
+            <p>这个 handler 略复杂一些：读取所有请求头并回写到响应体。</p>
 
           </td>
           <td class="code leading">
@@ -124,10 +116,8 @@ headers and echoing them into the response body.</p>
         
         <tr>
           <td class="docs">
-            <p>We register our handlers on server routes using the
-<code>http.HandleFunc</code> convenience function. It sets up
-the <em>default router</em> in the <code>net/http</code> package and
-takes a function as an argument.</p>
+            <p>使用 <code>http.HandleFunc</code> 将 handler 注册到路由。
+该函数会配置 <code>net/http</code> 包的默认路由器。</p>
 
           </td>
           <td class="code leading">
@@ -139,9 +129,8 @@ takes a function as an argument.</p>
         
         <tr>
           <td class="docs">
-            <p>Finally, we call the <code>ListenAndServe</code> with the port
-and a handler. <code>nil</code> tells it to use the default
-router we&rsquo;ve just set up.</p>
+            <p>最后调用 <code>ListenAndServe</code>，传入端口与 handler。
+<code>nil</code> 表示使用刚配置的默认路由器。</p>
 
           </td>
           <td class="code">
@@ -157,7 +146,7 @@ router we&rsquo;ve just set up.</p>
         
         <tr>
           <td class="docs">
-            <p>Run the server in the background.</p>
+            <p>在后台启动服务器。</p>
 
           </td>
           <td class="code leading">
@@ -168,7 +157,7 @@ router we&rsquo;ve just set up.</p>
         
         <tr>
           <td class="docs">
-            <p>Access the <code>/hello</code> route.</p>
+            <p>访问 <code>/hello</code> 路由。</p>
 
           </td>
           <td class="code">
@@ -182,12 +171,12 @@ router we&rsquo;ve just set up.</p>
       
       
       <p class="next">
-        Next example: <a href="context" rel="next">Context</a>.
+        下一个示例：<a href="context" rel="next">Context</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

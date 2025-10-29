@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Goroutines</title>
+    <title>Go by Example 示例：Goroutines</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,13 +24,13 @@
   </script>
   <body>
     <div class="example" id="goroutines">
-      <h2><a href="./">Go by Example</a>: Goroutines</h2>
+      <h2><a href="./">Go by Example 示例</a>：Goroutines</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>A <em>goroutine</em> is a lightweight thread of execution.</p>
+            <p>goroutine锛坓oroutine锛夋槸 Go 涓交閲忕骇鐨勬墽琛岀嚎绋嬨€?</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +44,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/0fx_WokYVFO"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/gqzsMe_ubFR"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -88,9 +88,7 @@
         
         <tr>
           <td class="docs">
-            <p>Suppose we have a function call <code>f(s)</code>. Here&rsquo;s how
-we&rsquo;d call that in the usual way, running it
-synchronously.</p>
+            <p>鍋囪鎴戜滑鏈変竴涓嚱鏁拌皟鐢?<code>f(s)</code>锛屼互涓嬫槸鍚屾璋冪敤鐨勬柟寮忋€?</p>
 
           </td>
           <td class="code leading">
@@ -101,9 +99,8 @@ synchronously.</p>
         
         <tr>
           <td class="docs">
-            <p>To invoke this function in a goroutine, use
-<code>go f(s)</code>. This new goroutine will execute
-concurrently with the calling one.</p>
+            <p>鑻ユ兂鍦?goroutine 涓皟鐢ㄥ嚱鏁帮紝鍙啓鎴?<code>go f(s)</code>銆?
+鏂板垱寤虹殑 goroutine 浼氫笌褰撳墠 goroutine 骞跺彂鎵ц銆?</p>
 
           </td>
           <td class="code leading">
@@ -114,8 +111,7 @@ concurrently with the calling one.</p>
         
         <tr>
           <td class="docs">
-            <p>You can also start a goroutine for an anonymous
-function call.</p>
+            <p>涔熷彲浠ュ鍖垮悕鍑芥暟鍚姩 goroutine銆?</p>
 
           </td>
           <td class="code leading">
@@ -128,9 +124,8 @@ function call.</p>
         
         <tr>
           <td class="docs">
-            <p>Our two function calls are running asynchronously in
-separate goroutines now. Wait for them to finish
-(for a more robust approach, use a <a href="waitgroups">WaitGroup</a>).</p>
+            <p>鐜板湪涓や釜鍑芥暟璋冪敤閮藉湪鍚勮嚜鐨?goroutine 涓紓姝ヨ繍琛屻€?
+杩欓噷閫氳繃鐫＄湢绛夊緟瀹冧滑缁撴潫锛堟洿绋冲Ε鐨勫仛娉曟槸浣跨敤 <a href="waitgroups">WaitGroup</a>锛夈€?</p>
 
           </td>
           <td class="code">
@@ -147,11 +142,8 @@ separate goroutines now. Wait for them to finish
         
         <tr>
           <td class="docs">
-            <p>When we run this program, we see the output of the
-blocking call first, then the output of the two
-goroutines. The goroutines&rsquo; output may be interleaved,
-because goroutines are being run concurrently by the
-Go runtime.</p>
+            <p>运行程序时，会先看到同步调用的输出，然后是两个 goroutine 的结果。
+因为 goroutine 由 Go 运行时并发调度，它们的输出可能交错。</p>
 
           </td>
           <td class="code leading">
@@ -170,8 +162,7 @@ Go runtime.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at a complement to goroutines in
-concurrent Go programs: channels.</p>
+            <p>接下来看看并发编程中与 goroutine 相辅相成的概念：channel。</p>
 
           </td>
           <td class="code empty">
@@ -184,12 +175,12 @@ concurrent Go programs: channels.</p>
       
       
       <p class="next">
-        Next example: <a href="channels" rel="next">Channels</a>.
+        下一个示例：<a href="channels" rel="next">Channels</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

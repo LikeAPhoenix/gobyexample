@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Custom Errors</title>
+    <title>Go by Example 示例：Custom Errors</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,14 @@
   </script>
   <body>
     <div class="example" id="custom-errors">
-      <h2><a href="./">Go by Example</a>: Custom Errors</h2>
+      <h2><a href="./">Go by Example 示例</a>：Custom Errors</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>It&rsquo;s possible to define custom error types by
-implementing the <code>Error()</code> method on them. Here&rsquo;s a
-variant on the example above that uses a custom type
-to explicitly represent an argument error.</p>
+            <p>通过实现 <code>Error()</code> 方法，就能定义自定义错误类型。
+本例在前面示例的基础上扩展，用自定义类型明确表示参数错误。</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +45,7 @@ to explicitly represent an argument error.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/6oW6K8iylu-"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/gcD83L9e1xx"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -67,7 +65,7 @@ to explicitly represent an argument error.</p>
         
         <tr>
           <td class="docs">
-            <p>A custom error type usually has the suffix &ldquo;Error&rdquo;.</p>
+            <p>自定义错误类型通常以 “Error” 结尾。</p>
 
           </td>
           <td class="code leading">
@@ -81,8 +79,7 @@ to explicitly represent an argument error.</p>
         
         <tr>
           <td class="docs">
-            <p>Adding this <code>Error</code> method makes <code>argError</code> implement
-the <code>error</code> interface.</p>
+            <p>添加 <code>Error</code> 方法后，<code>argError</code> 就实现了 <code>error</code> 接口。</p>
 
           </td>
           <td class="code leading">
@@ -106,7 +103,7 @@ the <code>error</code> interface.</p>
         
         <tr>
           <td class="docs">
-            <p>Return our custom error.</p>
+            <p>返回自定义错误。</p>
 
           </td>
           <td class="code leading">
@@ -130,11 +127,9 @@ the <code>error</code> interface.</p>
         
         <tr>
           <td class="docs">
-            <p><code>errors.As</code> is a more advanced version of <code>errors.Is</code>.
-It checks that a given error (or any error in its chain)
-matches a specific error type and converts to a value
-of that type, returning <code>true</code>. If there&rsquo;s no match, it
-returns <code>false</code>.</p>
+            <p><code>errors.As</code> 是 <code>errors.Is</code> 的进阶版本。
+它会检查某个错误（或其链上的任意错误）是否匹配指定类型，并尝试转换成该类型。
+匹配成功返回 <code>true</code>，否则返回 <code>false</code>。</p>
 
           </td>
           <td class="code">
@@ -171,12 +166,12 @@ returns <code>false</code>.</p>
       
       
       <p class="next">
-        Next example: <a href="goroutines" rel="next">Goroutines</a>.
+        下一个示例：<a href="goroutines" rel="next">Goroutines</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

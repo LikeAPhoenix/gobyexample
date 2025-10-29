@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: String Formatting</title>
+    <title>Go by Example 示例：String Formatting</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,15 +24,14 @@
   </script>
   <body>
     <div class="example" id="string-formatting">
-      <h2><a href="./">Go by Example</a>: String Formatting</h2>
+      <h2><a href="./">Go by Example 示例</a>：String Formatting</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go offers excellent support for string formatting in
-the <code>printf</code> tradition. Here are some examples of
-common string formatting tasks.</p>
+            <p>Go 继承了传统 <code>printf</code> 风格的强大字符串格式化能力。
+下面展示一些常见用法。</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +45,7 @@ common string formatting tasks.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/EZCZX1Uwp6D"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/fDd9vcFT6u8"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -88,9 +87,8 @@ common string formatting tasks.</p>
         
         <tr>
           <td class="docs">
-            <p>Go offers several printing &ldquo;verbs&rdquo; designed to
-format general Go values. For example, this prints
-an instance of our <code>point</code> struct.</p>
+            <p>Go 提供了多种格式化“动词”用于输出不同的值。
+例如这里输出 <code>point</code> struct 的一个实例。</p>
 
           </td>
           <td class="code leading">
@@ -102,8 +100,7 @@ an instance of our <code>point</code> struct.</p>
         
         <tr>
           <td class="docs">
-            <p>If the value is a struct, the <code>%+v</code> variant will
-include the struct&rsquo;s field names.</p>
+            <p>对于 struct，<code>%+v</code> 会额外包含字段名字。</p>
 
           </td>
           <td class="code leading">
@@ -114,9 +111,7 @@ include the struct&rsquo;s field names.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>%#v</code> variant prints a Go syntax representation
-of the value, i.e. the source code snippet that
-would produce that value.</p>
+            <p><code>%#v</code> 会打印该值在 Go 语法中的表示，也就是能生成此值的源代码片段。</p>
 
           </td>
           <td class="code leading">
@@ -127,7 +122,7 @@ would produce that value.</p>
         
         <tr>
           <td class="docs">
-            <p>To print the type of a value, use <code>%T</code>.</p>
+            <p><code>%T</code> 用来打印值的类型。</p>
 
           </td>
           <td class="code leading">
@@ -138,7 +133,7 @@ would produce that value.</p>
         
         <tr>
           <td class="docs">
-            <p>Formatting booleans is straight-forward.</p>
+            <p>布尔值的格式化非常直接。</p>
 
           </td>
           <td class="code leading">
@@ -149,8 +144,8 @@ would produce that value.</p>
         
         <tr>
           <td class="docs">
-            <p>There are many options for formatting integers.
-Use <code>%d</code> for standard, base-10 formatting.</p>
+            <p>格式化整数的选项很多。
+<code>%d</code> 表示十进制输出。</p>
 
           </td>
           <td class="code leading">
@@ -161,7 +156,7 @@ Use <code>%d</code> for standard, base-10 formatting.</p>
         
         <tr>
           <td class="docs">
-            <p>This prints a binary representation.</p>
+            <p>输出二进制表示。</p>
 
           </td>
           <td class="code leading">
@@ -172,8 +167,7 @@ Use <code>%d</code> for standard, base-10 formatting.</p>
         
         <tr>
           <td class="docs">
-            <p>This prints the character corresponding to the
-given integer.</p>
+            <p>输出与给定整数对应的字符。</p>
 
           </td>
           <td class="code leading">
@@ -184,7 +178,7 @@ given integer.</p>
         
         <tr>
           <td class="docs">
-            <p><code>%x</code> provides hex encoding.</p>
+            <p><code>%x</code> 以十六进制编码输出。</p>
 
           </td>
           <td class="code leading">
@@ -195,8 +189,8 @@ given integer.</p>
         
         <tr>
           <td class="docs">
-            <p>There are also several formatting options for
-floats. For basic decimal formatting use <code>%f</code>.</p>
+            <p>浮点数也有多种格式化方式。
+<code>%f</code> 使用基本的十进制格式。</p>
 
           </td>
           <td class="code leading">
@@ -207,8 +201,7 @@ floats. For basic decimal formatting use <code>%f</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>%e</code> and <code>%E</code> format the float in (slightly
-different versions of) scientific notation.</p>
+            <p><code>%e</code> 和 <code>%E</code> 分别以科学计数法输出（大小写略有差异）。</p>
 
           </td>
           <td class="code leading">
@@ -220,7 +213,7 @@ different versions of) scientific notation.</p>
         
         <tr>
           <td class="docs">
-            <p>For basic string printing use <code>%s</code>.</p>
+            <p><code>%s</code> 用于基本的字符串输出。</p>
 
           </td>
           <td class="code leading">
@@ -231,7 +224,7 @@ different versions of) scientific notation.</p>
         
         <tr>
           <td class="docs">
-            <p>To double-quote strings as in Go source, use <code>%q</code>.</p>
+            <p><code>%q</code> 会像 Go 源码那样给字符串加双引号。</p>
 
           </td>
           <td class="code leading">
@@ -242,9 +235,7 @@ different versions of) scientific notation.</p>
         
         <tr>
           <td class="docs">
-            <p>As with integers seen earlier, <code>%x</code> renders
-the string in base-16, with two output characters
-per byte of input.</p>
+            <p>类似前面的整数示例，<code>%x</code> 会把字符串的每个字节以两个十六进制字符表示。</p>
 
           </td>
           <td class="code leading">
@@ -255,7 +246,7 @@ per byte of input.</p>
         
         <tr>
           <td class="docs">
-            <p>To print a representation of a pointer, use <code>%p</code>.</p>
+            <p><code>%p</code> 用于打印指针的表示。</p>
 
           </td>
           <td class="code leading">
@@ -266,12 +257,8 @@ per byte of input.</p>
         
         <tr>
           <td class="docs">
-            <p>When formatting numbers you will often want to
-control the width and precision of the resulting
-figure. To specify the width of an integer, use a
-number after the <code>%</code> in the verb. By default the
-result will be right-justified and padded with
-spaces.</p>
+            <p>格式化数字时通常需要控制宽度与精度。
+要指定整数宽度，可以在动词后加数字；默认右对齐并用空格填充。</p>
 
           </td>
           <td class="code leading">
@@ -282,10 +269,8 @@ spaces.</p>
         
         <tr>
           <td class="docs">
-            <p>You can also specify the width of printed floats,
-though usually you&rsquo;ll also want to restrict the
-decimal precision at the same time with the
-width.precision syntax.</p>
+            <p>浮点数同样可以指定宽度。
+通常会结合 <code>宽度.精度</code> 的语法，同时限制小数位数。</p>
 
           </td>
           <td class="code leading">
@@ -296,7 +281,7 @@ width.precision syntax.</p>
         
         <tr>
           <td class="docs">
-            <p>To left-justify, use the <code>-</code> flag.</p>
+            <p>使用 <code>-</code> 标志可以左对齐。</p>
 
           </td>
           <td class="code leading">
@@ -307,9 +292,8 @@ width.precision syntax.</p>
         
         <tr>
           <td class="docs">
-            <p>You may also want to control width when formatting
-strings, especially to ensure that they align in
-table-like output. For basic right-justified width.</p>
+            <p>格式化字符串时也可以控制宽度，便于在表格类的输出中对齐。
+默认同样是右对齐。</p>
 
           </td>
           <td class="code leading">
@@ -320,7 +304,7 @@ table-like output. For basic right-justified width.</p>
         
         <tr>
           <td class="docs">
-            <p>To left-justify use the <code>-</code> flag as with numbers.</p>
+            <p>与数字一样，使用 <code>-</code> 标志实现左对齐。</p>
 
           </td>
           <td class="code leading">
@@ -331,9 +315,8 @@ table-like output. For basic right-justified width.</p>
         
         <tr>
           <td class="docs">
-            <p>So far we&rsquo;ve seen <code>Printf</code>, which prints the
-formatted string to <code>os.Stdout</code>. <code>Sprintf</code> formats
-and returns a string without printing it anywhere.</p>
+            <p>目前为止我们使用的是 <code>Printf</code>，它会把结果输出到 <code>os.Stdout</code>。
+<code>Sprintf</code> 则仅格式化后返回字符串而不打印。</p>
 
           </td>
           <td class="code leading">
@@ -345,8 +328,7 @@ and returns a string without printing it anywhere.</p>
         
         <tr>
           <td class="docs">
-            <p>You can format+print to <code>io.Writers</code> other than
-<code>os.Stdout</code> using <code>Fprintf</code>.</p>
+            <p>使用 <code>Fprintf</code> 可以把格式化结果写到除了 <code>os.Stdout</code> 之外的任意 <code>io.Writer</code>。</p>
 
           </td>
           <td class="code">
@@ -397,12 +379,12 @@ and returns a string without printing it anywhere.</p>
       
       
       <p class="next">
-        Next example: <a href="text-templates" rel="next">Text Templates</a>.
+        下一个示例：<a href="text-templates" rel="next">Text Templates</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Signals</title>
+    <title>Go by Example 示例：Signals</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,18 +24,15 @@
   </script>
   <body>
     <div class="example" id="signals">
-      <h2><a href="./">Go by Example</a>: Signals</h2>
+      <h2><a href="./">Go by Example 示例</a>：Signals</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Sometimes we&rsquo;d like our Go programs to intelligently
-handle <a href="https://en.wikipedia.org/wiki/Unix_signal">Unix signals</a>.
-For example, we might want a server to gracefully
-shutdown when it receives a <code>SIGTERM</code>, or a command-line
-tool to stop processing input if it receives a <code>SIGINT</code>.
-Here&rsquo;s how to handle signals in Go with channels.</p>
+            <p>有时需要 Go 程序优雅地处理<a href="https://en.wikipedia.org/wiki/Unix_signal">Unix 信号</a>。
+例如服务器收到 <code>SIGTERM</code> 时平滑关闭，命令行工具接收 <code>SIGINT</code> 时停止处理输入。
+下面演示如何借助 channel 处理信号。</p>
 
           </td>
           <td class="code empty leading">
@@ -49,7 +46,7 @@ Here&rsquo;s how to handle signals in Go with channels.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/RKLAbvblJMQ"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/WlWXvGhhSE4"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -81,10 +78,8 @@ Here&rsquo;s how to handle signals in Go with channels.</p>
         
         <tr>
           <td class="docs">
-            <p>Go signal notification works by sending <code>os.Signal</code>
-values on a channel. We&rsquo;ll create a channel to
-receive these notifications. Note that this channel
-should be buffered.</p>
+            <p>Go 的信号通知通过在 channel 上发送 <code>os.Signal</code> 值实现。
+创建一个带缓冲的 channel 用于接收通知。</p>
 
           </td>
           <td class="code leading">
@@ -95,8 +90,7 @@ should be buffered.</p>
         
         <tr>
           <td class="docs">
-            <p><code>signal.Notify</code> registers the given channel to
-receive notifications of the specified signals.</p>
+            <p><code>signal.Notify</code> 会让指定 channel 接收所列信号。</p>
 
           </td>
           <td class="code leading">
@@ -107,10 +101,8 @@ receive notifications of the specified signals.</p>
         
         <tr>
           <td class="docs">
-            <p>We could receive from <code>sigs</code> here in the main
-function, but let&rsquo;s see how this could also be
-done in a separate goroutine, to demonstrate
-a more realistic scenario of graceful shutdown.</p>
+            <p>虽然可以在 <code>main</code> 中直接接收信号，
+这里改在单独 goroutine 中处理，更贴近日常的优雅关闭场景。</p>
 
           </td>
           <td class="code leading">
@@ -121,9 +113,7 @@ a more realistic scenario of graceful shutdown.</p>
         
         <tr>
           <td class="docs">
-            <p>This goroutine executes a blocking receive for
-signals. When it gets one it&rsquo;ll print it out
-and then notify the program that it can finish.</p>
+            <p>该 goroutine 阻塞等待信号，收到后打印并通知主程序可以退出。</p>
 
           </td>
           <td class="code leading">
@@ -148,9 +138,7 @@ and then notify the program that it can finish.</p>
         
         <tr>
           <td class="docs">
-            <p>The program will wait here until it gets the
-expected signal (as indicated by the goroutine
-above sending a value on <code>done</code>) and then exit.</p>
+            <p>主程序在此等待，直到收到 goroutine 发来的完成信号，再退出。</p>
 
           </td>
           <td class="code">
@@ -168,10 +156,9 @@ above sending a value on <code>done</code>) and then exit.</p>
         
         <tr>
           <td class="docs">
-            <p>When we run this program it will block waiting for a
-signal. By typing <code>ctrl-C</code> (which the
-terminal shows as <code>^C</code>) we can send a <code>SIGINT</code> signal,
-causing the program to print <code>interrupt</code> and then exit.</p>
+            <p>程序运行后会阻塞等待信号。
+在终端按 <code>Ctrl+C</code>（显示为 <code>^C</code>）即可发送 <code>SIGINT</code>，
+程序会打印 <code>interrupt</code> 并退出。</p>
 
           </td>
           <td class="code">
@@ -188,12 +175,12 @@ causing the program to print <code>interrupt</code> and then exit.</p>
       
       
       <p class="next">
-        Next example: <a href="exit" rel="next">Exit</a>.
+        下一个示例：<a href="exit" rel="next">Exit</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

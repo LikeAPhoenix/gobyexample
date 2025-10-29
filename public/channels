@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Channels</title>
+    <title>Go by Example 示例：Channels</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,14 @@
   </script>
   <body>
     <div class="example" id="channels">
-      <h2><a href="./">Go by Example</a>: Channels</h2>
+      <h2><a href="./">Go by Example 示例</a>：Channels</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>Channels</em> are the pipes that connect concurrent
-goroutines. You can send values into channels from one
-goroutine and receive those values into another
-goroutine.</p>
+            <p>channel 是连接并发 goroutine 的管道。
+一个 goroutine 可以向 channel 发送值，另一个 goroutine 从同一 channel 接收值。</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +45,7 @@ goroutine.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/MaLY7AiAkHM"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/zImW_IxHiEc"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -74,8 +72,8 @@ goroutine.</p>
         
         <tr>
           <td class="docs">
-            <p>Create a new channel with <code>make(chan val-type)</code>.
-Channels are typed by the values they convey.</p>
+            <p>使用 <code>make(chan 类型)</code> 创建新 channel。
+channel 的类型由其传递的值决定。</p>
 
           </td>
           <td class="code leading">
@@ -86,9 +84,8 @@ Channels are typed by the values they convey.</p>
         
         <tr>
           <td class="docs">
-            <p><em>Send</em> a value into a channel using the <code>channel &lt;-</code>
-syntax. Here we send <code>&quot;ping&quot;</code>  to the <code>messages</code>
-channel we made above, from a new goroutine.</p>
+            <p>通过 <code>channel &lt;- 值</code> 向 channel 发送数据。
+这里在新 goroutine 中向 <code>messages</code> channel 发送 <code>&quot;ping&quot;</code>。</p>
 
           </td>
           <td class="code leading">
@@ -99,9 +96,8 @@ channel we made above, from a new goroutine.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>&lt;-channel</code> syntax <em>receives</em> a value from the
-channel. Here we&rsquo;ll receive the <code>&quot;ping&quot;</code> message
-we sent above and print it out.</p>
+            <p>使用 <code>&lt;-channel</code> 从 channel 接收值。
+下面接收刚才发送的 <code>&quot;ping&quot;</code> 并打印。</p>
 
           </td>
           <td class="code">
@@ -118,9 +114,7 @@ we sent above and print it out.</p>
         
         <tr>
           <td class="docs">
-            <p>When we run the program the <code>&quot;ping&quot;</code> message is
-successfully passed from one goroutine to another via
-our channel.</p>
+            <p>运行程序时，<code>&quot;ping&quot;</code> 消息会通过 channel 成功地在两个 goroutine 间传递。</p>
 
           </td>
           <td class="code leading">
@@ -132,10 +126,8 @@ our channel.</p>
         
         <tr>
           <td class="docs">
-            <p>By default sends and receives block until both the
-sender and receiver are ready. This property allowed
-us to wait at the end of our program for the <code>&quot;ping&quot;</code>
-message without having to use any other synchronization.</p>
+            <p>默认情况下，发送和接收都会阻塞直到双方就绪。
+因此无需额外同步机制，就能等到 <code>&quot;ping&quot;</code> 被接收。</p>
 
           </td>
           <td class="code empty">
@@ -148,12 +140,12 @@ message without having to use any other synchronization.</p>
       
       
       <p class="next">
-        Next example: <a href="channel-buffering" rel="next">Channel Buffering</a>.
+        下一个示例：<a href="channel-buffering" rel="next">Channel Buffering</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

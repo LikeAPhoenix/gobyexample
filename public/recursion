@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Recursion</title>
+    <title>Go by Example 示例：Recursion</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,15 +24,14 @@
   </script>
   <body>
     <div class="example" id="recursion">
-      <h2><a href="./">Go by Example</a>: Recursion</h2>
+      <h2><a href="./">Go by Example 示例</a>：Recursion</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go supports
-<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)"><em>recursive functions</em></a>.
-Here&rsquo;s a classic example.</p>
+            <p>Go 支持<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)"><em>递归函数</em></a>。
+这是一个经典示例。</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +45,7 @@ Here&rsquo;s a classic example.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/k4IRATLn9cE"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/0vGpxUxp4M-"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -63,8 +62,7 @@ Here&rsquo;s a classic example.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>fact</code> function calls itself until it reaches the
-base case of <code>fact(0)</code>.</p>
+            <p><code>fact</code> 函数会递归调用自身，直到遇到基线条件 <code>fact(0)</code>。</p>
 
           </td>
           <td class="code leading">
@@ -91,9 +89,7 @@ base case of <code>fact(0)</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Anonymous functions can also be recursive, but this requires
-explicitly declaring a variable with <code>var</code> to store
-the function before it&rsquo;s defined.</p>
+            <p>匿名函数同样可以递归，不过需要先用 <code>var</code> 声明变量存放函数，再进行定义。</p>
 
           </td>
           <td class="code leading">
@@ -117,8 +113,7 @@ the function before it&rsquo;s defined.</p>
         
         <tr>
           <td class="docs">
-            <p>Since <code>fib</code> was previously declared in <code>main</code>, Go
-knows which function to call with <code>fib</code> here.</p>
+            <p>由于 <code>fib</code> 在 <code>main</code> 中已声明，Go 可以识别这里调用的是同一个函数。</p>
 
           </td>
           <td class="code leading">
@@ -159,12 +154,12 @@ knows which function to call with <code>fib</code> here.</p>
       
       
       <p class="next">
-        Next example: <a href="range-over-built-in-types" rel="next">Range over Built-in Types</a>.
+        下一个示例：<a href="range-over-built-in-types" rel="next">Range over Built-in Types</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

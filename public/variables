@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Variables</title>
+    <title>Go by Example 示例：Variables</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,15 +24,13 @@
   </script>
   <body>
     <div class="example" id="variables">
-      <h2><a href="./">Go by Example</a>: Variables</h2>
+      <h2><a href="./">Go by Example 示例</a>：Variables</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In Go, <em>variables</em> are explicitly declared and used by
-the compiler to e.g. check type-correctness of function
-calls.</p>
+            <p>在 Go 中，变量需要显式声明，编译器会借此检查函数调用等场景的类型正确性。</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +44,7 @@ calls.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/N5rWndIliJW"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/oFw3zqPSZEm"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -73,7 +71,7 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p><code>var</code> declares 1 or more variables.</p>
+            <p>使用 <code>var</code> 可以声明一个或多个变量。</p>
 
           </td>
           <td class="code leading">
@@ -85,7 +83,7 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p>You can declare multiple variables at once.</p>
+            <p>也可以一次声明多个变量。</p>
 
           </td>
           <td class="code leading">
@@ -97,7 +95,7 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p>Go will infer the type of initialized variables.</p>
+            <p>Go 会依据初始化表达式推断变量类型。</p>
 
           </td>
           <td class="code leading">
@@ -109,9 +107,7 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p>Variables declared without a corresponding
-initialization are <em>zero-valued</em>. For example, the
-zero value for an <code>int</code> is <code>0</code>.</p>
+            <p>未显式初始化的变量会获得“零值”。例如 <code>int</code> 的零值是 <code>0</code>。</p>
 
           </td>
           <td class="code leading">
@@ -123,10 +119,8 @@ zero value for an <code>int</code> is <code>0</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>:=</code> syntax is shorthand for declaring and
-initializing a variable, e.g. for
-<code>var f string = &quot;apple&quot;</code> in this case.
-This syntax is only available inside functions.</p>
+            <p><code>:=</code> 语法是用于声明并初始化变量的简写，此处等价于 <code>var f string = &quot;apple&quot;</code>。
+这种语法仅能在函数内部使用。</p>
 
           </td>
           <td class="code">
@@ -160,12 +154,12 @@ This syntax is only available inside functions.</p>
       
       
       <p class="next">
-        Next example: <a href="constants" rel="next">Constants</a>.
+        下一个示例：<a href="constants" rel="next">Constants</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

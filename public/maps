@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Maps</title>
+    <title>Go by Example 示例：Maps</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,14 @@
   </script>
   <body>
     <div class="example" id="maps">
-      <h2><a href="./">Go by Example</a>: Maps</h2>
+      <h2><a href="./">Go by Example 示例</a>：Maps</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>Maps</em> are Go&rsquo;s built-in <a href="https://en.wikipedia.org/wiki/Associative_array">associative data type</a>
-(sometimes called <em>hashes</em> or <em>dicts</em> in other languages).</p>
+            <p>map 是 Go 内建的<a href="https://en.wikipedia.org/wiki/Associative_array">关联数据类型</a>，
+在其他语言中有时被称作 hash 或 dict。</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/5jpkxJ2T0Lv"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/ZApWunZPiyY"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -75,8 +75,7 @@
         
         <tr>
           <td class="docs">
-            <p>To create an empty map, use the builtin <code>make</code>:
-<code>make(map[key-type]val-type)</code>.</p>
+            <p>使用内建的 <code>make</code> 可以创建空 map：<code>make(map[key-type]val-type)</code>。</p>
 
           </td>
           <td class="code leading">
@@ -87,8 +86,7 @@
         
         <tr>
           <td class="docs">
-            <p>Set key/value pairs using typical <code>name[key] = val</code>
-syntax.</p>
+            <p>使用常见的 <code>name[key] = val</code> 语法设置键值对。</p>
 
           </td>
           <td class="code leading">
@@ -100,8 +98,7 @@ syntax.</p>
         
         <tr>
           <td class="docs">
-            <p>Printing a map with e.g. <code>fmt.Println</code> will show all of
-its key/value pairs.</p>
+            <p>使用 <code>fmt.Println</code> 打印 map 会展示其中所有键值对。</p>
 
           </td>
           <td class="code leading">
@@ -112,7 +109,7 @@ its key/value pairs.</p>
         
         <tr>
           <td class="docs">
-            <p>Get a value for a key with <code>name[key]</code>.</p>
+            <p>通过 <code>name[key]</code> 获取对应的值。</p>
 
           </td>
           <td class="code leading">
@@ -124,9 +121,7 @@ its key/value pairs.</p>
         
         <tr>
           <td class="docs">
-            <p>If the key doesn&rsquo;t exist, the
-<a href="https://go.dev/ref/spec#The_zero_value">zero value</a> of the
-value type is returned.</p>
+            <p>如果键不存在，会返回该值类型的<a href="https://go.dev/ref/spec#The_zero_value">零值</a>。</p>
 
           </td>
           <td class="code leading">
@@ -138,8 +133,7 @@ value type is returned.</p>
         
         <tr>
           <td class="docs">
-            <p>The builtin <code>len</code> returns the number of key/value
-pairs when called on a map.</p>
+            <p>对 map 调用内建的 <code>len</code> 可以得到键值对数量。</p>
 
           </td>
           <td class="code leading">
@@ -150,8 +144,7 @@ pairs when called on a map.</p>
         
         <tr>
           <td class="docs">
-            <p>The builtin <code>delete</code> removes key/value pairs from
-a map.</p>
+            <p>内建函数 <code>delete</code> 可用来删除键值对。</p>
 
           </td>
           <td class="code leading">
@@ -163,8 +156,7 @@ a map.</p>
         
         <tr>
           <td class="docs">
-            <p>To remove <em>all</em> key/value pairs from a map, use
-the <code>clear</code> builtin.</p>
+            <p>若要删除所有键值对，可以使用内建的 <code>clear</code>。</p>
 
           </td>
           <td class="code leading">
@@ -176,13 +168,9 @@ the <code>clear</code> builtin.</p>
         
         <tr>
           <td class="docs">
-            <p>The optional second return value when getting a
-value from a map indicates if the key was present
-in the map. This can be used to disambiguate
-between missing keys and keys with zero values
-like <code>0</code> or <code>&quot;&quot;</code>. Here we didn&rsquo;t need the value
-itself, so we ignored it with the <em>blank identifier</em>
-<code>_</code>.</p>
+            <p>从 map 读取时的可选第二个返回值表示键是否存在。
+这样就能区分键缺失和键存在但值为零值（例如 <code>0</code> 或 <code>&quot;&quot;</code>）的情况。
+在这里我们不需要实际的值，因此使用空白标识符 <code>_</code> 丢弃它。</p>
 
           </td>
           <td class="code leading">
@@ -194,8 +182,7 @@ itself, so we ignored it with the <em>blank identifier</em>
         
         <tr>
           <td class="docs">
-            <p>You can also declare and initialize a new map in
-the same line with this syntax.</p>
+            <p>还可以使用一行语法声明并初始化新的 map。</p>
 
           </td>
           <td class="code leading">
@@ -207,8 +194,7 @@ the same line with this syntax.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>maps</code> package contains a number of useful
-utility functions for maps.</p>
+            <p><code>maps</code> 包中提供了很多适用于 map 的实用函数。</p>
 
           </td>
           <td class="code">
@@ -227,8 +213,7 @@ utility functions for maps.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that maps appear in the form <code>map[k:v k:v]</code> when
-printed with <code>fmt.Println</code>.</p>
+            <p>注意使用 <code>fmt.Println</code> 打印 map 时，输出形式为 <code>map[k:v k:v]</code>。</p>
 
           </td>
           <td class="code">
@@ -250,12 +235,12 @@ printed with <code>fmt.Println</code>.</p>
       
       
       <p class="next">
-        Next example: <a href="functions" rel="next">Functions</a>.
+        下一个示例：<a href="functions" rel="next">Functions</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Logging</title>
+    <title>Go by Example 示例：Logging</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,22 +24,19 @@
   </script>
   <body>
     <div class="example" id="logging">
-      <h2><a href="./">Go by Example</a>: Logging</h2>
+      <h2><a href="./">Go by Example 示例</a>：Logging</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>The Go standard library provides straightforward
-tools for outputting logs from Go programs, with
-the <a href="https://pkg.go.dev/log">log</a> package for
-free-form output and the
-<a href="https://pkg.go.dev/log/slog">log/slog</a> package for
-structured output.</p>
+            <p>Go 标准库提供了便捷的日志工具。
+<a href="https://pkg.go.dev/log">log</a> 包适合自由格式输出，
+<a href="https://pkg.go.dev/log/slog">log/slog</a> 则用于结构化输出。</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/Qd0uCqBlYUn"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/sSEQI0K7Rbv"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -81,12 +78,9 @@ structured output.</p>
         
         <tr>
           <td class="docs">
-            <p>Simply invoking functions like <code>Println</code> from the
-<code>log</code> package uses the <em>standard</em> logger, which
-is already pre-configured for reasonable logging
-output to <code>os.Stderr</code>. Additional methods like
-<code>Fatal*</code> or <code>Panic*</code> will exit the program after
-logging.</p>
+            <p>直接调用 <code>log.Println</code> 等函数时会使用标准日志器，
+它默认将合理的日志输出到 <code>os.Stderr</code>。
+<code>Fatal*</code>、<code>Panic*</code> 等方法会在记录后终止程序。</p>
 
           </td>
           <td class="code leading">
@@ -97,12 +91,9 @@ logging.</p>
         
         <tr>
           <td class="docs">
-            <p>Loggers can be configured with <em>flags</em> to set
-their output format. By default, the standard
-logger has the <code>log.Ldate</code> and <code>log.Ltime</code> flags
-set, and these are collected in <code>log.LstdFlags</code>.
-We can change its flags to emit time with
-microsecond accuracy, for example.</p>
+            <p>可以通过“标志”修改日志输出格式。
+标准日志器默认启用 <code>log.Ldate</code> 与 <code>log.Ltime</code>，即 <code>log.LstdFlags</code>。
+例如我们可以额外启用微秒级时间戳。</p>
 
           </td>
           <td class="code leading">
@@ -114,8 +105,7 @@ microsecond accuracy, for example.</p>
         
         <tr>
           <td class="docs">
-            <p>It also supports emitting the file name and
-line from which the <code>log</code> function is called.</p>
+            <p>还可以输出调用 <code>log</code> 的文件名与行号。</p>
 
           </td>
           <td class="code leading">
@@ -127,10 +117,8 @@ line from which the <code>log</code> function is called.</p>
         
         <tr>
           <td class="docs">
-            <p>It may be useful to create a custom logger and
-pass it around. When creating a new logger, we
-can set a <em>prefix</em> to distinguish its output
-from other loggers.</p>
+            <p>也可以创建自定义日志器在不同位置复用。
+新建日志器时可指定前缀，以便区分不同来源。</p>
 
           </td>
           <td class="code leading">
@@ -142,9 +130,7 @@ from other loggers.</p>
         
         <tr>
           <td class="docs">
-            <p>We can set the prefix
-on existing loggers (including the standard one)
-with the <code>SetPrefix</code> method.</p>
+            <p>现有日志器（包括标准日志器）也可以通过 <code>SetPrefix</code> 修改前缀。</p>
 
           </td>
           <td class="code leading">
@@ -156,8 +142,7 @@ with the <code>SetPrefix</code> method.</p>
         
         <tr>
           <td class="docs">
-            <p>Loggers can have custom output targets;
-any <code>io.Writer</code> works.</p>
+            <p>日志器的输出目标可以自定义，只要实现 <code>io.Writer</code> 即可。</p>
 
           </td>
           <td class="code leading">
@@ -169,7 +154,7 @@ any <code>io.Writer</code> works.</p>
         
         <tr>
           <td class="docs">
-            <p>This call writes the log output into <code>buf</code>.</p>
+            <p>这行日志会写入 <code>buf</code>。</p>
 
           </td>
           <td class="code leading">
@@ -180,7 +165,7 @@ any <code>io.Writer</code> works.</p>
         
         <tr>
           <td class="docs">
-            <p>This will actually show it on standard output.</p>
+            <p>下行再将其打印到标准输出。</p>
 
           </td>
           <td class="code leading">
@@ -191,9 +176,8 @@ any <code>io.Writer</code> works.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>slog</code> package provides
-<em>structured</em> log output. For example, logging
-in JSON format is straightforward.</p>
+            <p><code>slog</code> 包可输出结构化日志。
+例如使用 JSON 格式非常直接。</p>
 
           </td>
           <td class="code leading">
@@ -206,9 +190,7 @@ in JSON format is straightforward.</p>
         
         <tr>
           <td class="docs">
-            <p>In addition to the message, <code>slog</code> output can
-contain an arbitrary number of key=value
-pairs.</p>
+            <p>除消息外，<code>slog</code> 还能附带任意数量的键值对。</p>
 
           </td>
           <td class="code">
@@ -224,8 +206,7 @@ pairs.</p>
         
         <tr>
           <td class="docs">
-            <p>Sample output; the date and time
-emitted will depend on when the example ran.</p>
+            <p>示例输出；日期和时间取决于实际运行时刻。</p>
 
           </td>
           <td class="code leading">
@@ -242,9 +223,8 @@ emitted will depend on when the example ran.</p>
         
         <tr>
           <td class="docs">
-            <p>These are wrapped for clarity of presentation
-on the website; in reality they are emitted
-on a single line.</p>
+            <p>为了展示清晰，这里换行显示；
+实际输出在同一行。</p>
 
           </td>
           <td class="code">
@@ -261,12 +241,12 @@ on a single line.</p>
       
       
       <p class="next">
-        Next example: <a href="http-client" rel="next">HTTP Client</a>.
+        下一个示例：<a href="http-client" rel="next">HTTP Client</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>

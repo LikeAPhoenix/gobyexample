@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Channel Directions</title>
+    <title>Go by Example 示例：Channel Directions</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,14 @@
   </script>
   <body>
     <div class="example" id="channel-directions">
-      <h2><a href="./">Go by Example</a>: Channel Directions</h2>
+      <h2><a href="./">Go by Example 示例</a>：Channel Directions</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>When using channels as function parameters, you can
-specify if a channel is meant to only send or receive
-values. This specificity increases the type-safety of
-the program.</p>
+            <p>将 channel 作为函数参数时，可以指定它只用于发送还是接收。
+这种限定会提升程序的类型安全性。</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +45,7 @@ the program.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/mjNJDHwUH4R"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/U6zLEJfKvR7"><img title="运行代码" src="play.png" class="run" /></a><img title="复制代码" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -64,9 +62,8 @@ the program.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>ping</code> function only accepts a channel for sending
-values. It would be a compile-time error to try to
-receive on this channel.</p>
+            <p><code>ping</code> 只接受用于发送的 channel。
+若尝试在该 channel 上接收，编译器会报错。</p>
 
           </td>
           <td class="code leading">
@@ -79,8 +76,7 @@ receive on this channel.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>pong</code> function accepts one channel for receives
-(<code>pings</code>) and a second for sends (<code>pongs</code>).</p>
+            <p><code>pong</code> 函数则接收一个用于读取的 channel <code>pings</code>，以及一个用于发送的 channel <code>pongs</code>。</p>
 
           </td>
           <td class="code leading">
@@ -127,12 +123,12 @@ receive on this channel.</p>
       
       
       <p class="next">
-        Next example: <a href="select" rel="next">Select</a>.
+        下一个示例：<a href="select" rel="next">Select</a>。
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      由 <a href="https://markmcgranaghan.com">Mark McGranaghan</a> 和 <a href="https://eli.thegreenplace.net">Eli Bendersky</a> 创建 | <a href="https://github.com/mmcgrana/gobyexample">源码</a> | <a href="https://github.com/mmcgrana/gobyexample#license">许可证</a>
     </p>
 
     </div>
